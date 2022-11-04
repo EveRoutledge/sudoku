@@ -1,6 +1,7 @@
 import pygame 
 import validate
 import backtracking
+import simulated_annealing
 import display
 import numpy as np
 
@@ -19,6 +20,7 @@ font = pygame.font.SysFont('ariel',40)
 
 move = False
 solve = False
+annealing = False
 finished = False
 error = 0
 value = -1
@@ -67,6 +69,18 @@ while run:
                 value = 9 
             if event.key == pygame.K_s:
                 solve = True
+            if event.key == pygame.K_a:
+                annealing = True
+            if event.key == pygame.K_d:
+                grid = np.array(   [[5,3,0,0,7,0,0,0,0],
+                                    [6,0,0,1,9,5,0,0,0],
+                                    [0,9,8,0,0,0,0,6,0],
+                                    [8,0,0,0,6,0,0,0,3],
+                                    [4,0,0,8,0,3,0,0,1],
+                                    [7,0,0,0,2,0,0,0,6],
+                                    [0,6,0,0,0,0,2,8,0],
+                                    [0,0,0,4,1,9,0,0,5],
+                                    [0,0,0,0,8,0,0,7,9]])
             if event.key == pygame.K_BACKSPACE:
                 value = 0
             if event.key == pygame.K_r:
@@ -79,6 +93,11 @@ while run:
             grid = result
             finished = True
         solve = False   
+    if annealing:
+        result = simulated_annealing.simulated_annealing(screen,font,dif,grid,n=n)
+        grid = result
+        finished=True
+        annealing=False
     if value != -1:           
         if value == 0:
             grid[x][y]= value

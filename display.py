@@ -11,12 +11,15 @@ def highlight_box(screen, dif,x,y):
         pygame.draw.line(screen, (0, 0, 0), (x * dif-3, (y + k)*dif), (x * dif + dif + 3, (y + k)*dif), 7)
         pygame.draw.line(screen, (0, 0, 0), ( (x + k)* dif, y * dif ), ((x + k) * dif, y * dif + dif), 7)
 
+def colour_box(screen,dif,i,j,grid):
+    pygame.draw.rect(screen, (165, 220, 175), (i * dif, j * dif, dif + 1, dif + 1))
+
 # make the grid        
-def draw(screen,font, dif,n, grid):
+def draw(screen,font, dif,n, grid, colour_scheme=colour_box, values=[]):
     for i in range (n*n):
         for j in range (n*n):
             if grid[i][j]!= 0:
-                pygame.draw.rect(screen, (165, 220, 175), (i * dif, j * dif, dif + 1, dif + 1))
+                colour_scheme(screen,dif,i,j,values)
                 text1 = font.render(str(grid[i][j]), 1, (0, 0, 0))
                 screen.blit(text1, (i * dif + 15, j * dif + 15))       
     for i in range(n*n+1):

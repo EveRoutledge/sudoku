@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\author{E. Routledge}
+\date{01 Nov 2022}
+\title{Sudoku and Other Related Problems}
+
+\begin{document}
+\maketitle
+
+\section{Sudoku is hard}
+
+Sudoku is a relatively simple game, in the standard 9 by 9 (or 3 by 3 by 3 by 3) one must complete the grid such that every row column and box contains the numbers 1 to 9, that is all. So, yes, sudoku is simple in the sense it can be described in a single rule but it is in fact hard. Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard, it is hardness through a provable, mathematical (computational) lense for which this paper cares. 
+
+\subsection{Finding a solution is hard}
+The standard way to solve a 9 by 9 sudoku puzzle is by the backtracking algorithm. One learns the idea of recursion through these toy examples.
+
+\begin{algorithm}
+	\caption{Backtracking(grid, dim)}\label{backtracking}
+	\begin{algorithmic}[1]
+		\For{next empty square}
+			\For{i = 1 to dim}
+				\If{value i in empty square is valid}
+					\If{Backtracking(grid with i in empty square, dim) returns valid solution}
+						\State grid \leftarrow Backtracking(grid with i in empty square, dim)
+				\EndIf
+			\If{no value is valid} \Return False \Endif
+			\Endfor
+		\Endfor
+		\If{no empty squares} \Return grid \Endif
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{Uniqueness is hard?}
+It is hard to determine if a puzzle has a unique solution?
+
+- generate uniqueness
+
+
+\end{document}
+\vspace{5mm}
