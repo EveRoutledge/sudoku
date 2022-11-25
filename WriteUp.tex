@@ -1,43 +1,89 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage{graphicx}
-\usepackage{algorithmicx}
-\usepackage{algorithm}
-\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{amsmath}
 
 \author{E. Routledge}
 \date{01 Nov 2022}
 \title{Sudoku and Other Related Problems}
 
 \begin{document}
+\lstset{language=Python}
 \maketitle
 
 \section{Sudoku is hard}
 
-Sudoku is a relatively simple game, in the standard 9 by 9 (or 3 by 3 by 3 by 3) one must complete the grid such that every row column and box contains the numbers 1 to 9, that is all. So, yes, sudoku is simple in the sense it can be described in a single rule but it is in fact hard. Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard, it is hardness through a provable, mathematical (computational) lense for which this paper cares. 
+Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
+one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
+So, yes, sudoku is simple in the sense it can be described in a single rule but it is in fact a hard problem to solve.
+Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard to solve,
+it is hardness through a provable, mathematical (computational) lense for which this paper cares. 
 
-\subsection{Finding a solution is hard}
-The standard way to solve a 9 by 9 sudoku puzzle is by the backtracking algorithm. One learns the idea of recursion through these toy examples.
+\subsection{Finding a solution}
+The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. 
+This is a brute force method with a few optimisations.
+One can expect to find this algorithm in a computer science course introduction to recursion, that is to say it is not a complex concept 
+and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible.
 
-\begin{algorithm}
-	\caption{Backtracking(grid, dim)}\label{backtracking}
-	\begin{algorithmic}[1]
-		\For{next empty square}
-			\For{i = 1 to dim}
-				\If{value i in empty square is valid}
-					\If{Backtracking(grid with i in empty square, dim) returns valid solution}
-						\State grid \leftarrow Backtracking(grid with i in empty square, dim)
-				\EndIf
-			\If{no value is valid} \Return False \Endif
-			\Endfor
-		\Endfor
-		\If{no empty squares} \Return grid \Endif
-	\end{algorithmic}
-\end{algorithm}
+\begin{lstlisting}[caption=Backtracking]
+def Backtracking(grid, dimension):
+    for i in range(dimension):
+        for j in range(dimension):
+            if grid[i][j] is empty:
+                for k in range(dimension):
+                    grid[i][j] = k
+                    if valid(grid):
+                        result = Backtracking(grid,dimension)
+                            if result is a grid:
+                                return result
+                return False
+    return grid
+				
+\end{lstlisting}
+
+Why does brute force not work for larger examples?
+
+Sudoku is NP-complete that is to say it is computationally hard and no known algorithm
+can solve this in resonable time (polynomial). 
+
+Proof
+
+We do this through a reduction to a known np-complete problem.
+Assume we have an oracle $\Phi$ that when given an instance of the problem (in this case a grid of numbers and blanks) will,
+in polynomial time or less return True if it can be solved and False otherwise.
+
+\begin{equation}
+        \Phi (\text{grid}) = \begin{cases}
+            \text{True if a solution exists} \\
+            \text{False if a solution does not exist}
+		\end{cases}
+\end{equation}
+
+
 
 \subsection{Uniqueness is hard?}
 It is hard to determine if a puzzle has a unique solution?
 
 - generate uniqueness
+
+\section{To Explore}
+\subsection{History}
+from latin squares to greco-latin 
+\subsection{Stochastic Methods}
+leads on from the complexity, if it is hard to do we must attempt to do the best we can
+Simulated annealing
+Genetic Algorithm
+\subsection{Validation is easy}
+Explore multiple rule sets and validation methods
+\subsection{Generating unique puzzles}
+\subsection{17 is the magic number}
+\subsection{Sparsity - information theory}
+bomb latin squares play with this
+\subsection{equivalence classes- group theory}
+\subsection{topology - torus}
+\subsection{latin squares}
+Orthogonality 
+Greco-latin
+
 
 
 \end{document}
