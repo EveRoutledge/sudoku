@@ -10,80 +10,146 @@
 \lstset{language=Python}
 \maketitle
 
-\section{Sudoku is hard}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Introduction}
+		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
+		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
+		Yet it leads to interesting and difficult puzzles.
+	\subsection{History}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Sudoku is Hard}
 
-Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
-one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
-So, yes, sudoku is simple in the sense it can be described in a single rule but it is in fact a hard problem to solve.
-Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard to solve,
-it is hardness through a provable, mathematical (computational) lense for which this paper cares. 
+		Sudoku can be described in a single rule but it is in fact a hard problem to solve.
+		Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard to solve,
+		it is hardness through a provable, mathematical (computational) lense for which this paper cares. 
+		
+	\subsection{Finding a Solution is Hard}
+		
+		Finding a solution to sudoku is NP-complete that is to say it is computationally hard and no known algorithm can solve this in resonable time (polynomial). 
 
-\subsection{Finding a solution}
-The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. 
-This is a brute force method with a few optimisations.
-One can expect to find this algorithm in a computer science course introduction to recursion, that is to say it is not a complex concept 
-and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible.
+		\begin{equation}
+		        \Phi (\text{grid}) = \begin{cases}
+		            \text{True if a solution exists} \\
+		            \text{False if a solution does not exist}
+				\end{cases}
+		\end{equation}
 
-\begin{lstlisting}[caption=Backtracking]
-def Backtracking(grid, dimension):
-    for i in range(dimension):
-        for j in range(dimension):
-            if grid[i][j] is empty:
-                for k in range(dimension):
-                    grid[i][j] = k
-                    if valid(grid):
-                        result = Backtracking(grid,dimension)
-                            if result is a grid:
-                                return result
-                return False
-    return grid
-				
-\end{lstlisting}
+		Proof
+		
+		We do this through a reduction to a known np-complete problem.
+		Assume we have an oracle $\Phi$ that when given an instance of the problem (in this case a grid of numbers and blanks) will,
+		in polynomial time or less return True if it can be solved and False otherwise.
 
-Why does brute force not work for larger examples?
+	\subsection{Determining Uniqueness is Hard}
 
-Sudoku is NP-complete that is to say it is computationally hard and no known algorithm
-can solve this in resonable time (polynomial). 
+		It is hard to determine if a puzzle has a unique solution?
+		
+	\subsection{Validation is Easy}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Other Related Problems}
+	\subsection{Latin Squares}
 
-Proof
+		A latin square is an n by n matrix filled with n characters that must not repeat along columns or rows.
+		Reduced Form -  if first row and column is in the natural order
+		Equivalence classes
+		Number of n by n latin squares is bounded
+		Latin squares can be considered a bipartite graph
+		Agronomic Research
+		Latin hypercube
 
-We do this through a reduction to a known np-complete problem.
-Assume we have an oracle $\Phi$ that when given an instance of the problem (in this case a grid of numbers and blanks) will,
-in polynomial time or less return True if it can be solved and False otherwise.
+	\subsection{Magic Squares}
 
-\begin{equation}
-        \Phi (\text{grid}) = \begin{cases}
-            \text{True if a solution exists} \\
-            \text{False if a solution does not exist}
-		\end{cases}
-\end{equation}
+		A magic square is a matrix of numbers with each column, row and diagonal summing to the same value, 
+		this value is known as a magic constant and the degree is the number of columns/rows.
+		A normal magic square is one containing the integers 1 to $n^2$.
+		Magic Squares with repeating digits are considered trivial.
+		Semimagic squares omit the diagnonal sums also summing to the magic constant.
 
+		Truly thought to be magic Shams Al-ma'arif.
 
+		Generation, there exists not completely general techniques. Diamond Method
 
-\subsection{Uniqueness is hard?}
-It is hard to determine if a puzzle has a unique solution?
+		Associative Magic Squares
+		Pandiagonal Magic Squares
+		Most-Perfect Magic Squares
+		
+		Equivalence classes for $n<=5$ but not for higher orders.
+		The enumeration of most perfect magic squares of any order.
 
-- generate uniqueness
+		880 distinct magic squares of order four
 
-\section{To Explore}
-\subsection{History}
-from latin squares to greco-latin 
-\subsection{Stochastic Methods}
-leads on from the complexity, if it is hard to do we must attempt to do the best we can
-Simulated annealing
-Genetic Algorithm
-\subsection{Validation is easy}
-Explore multiple rule sets and validation methods
-\subsection{Generating unique puzzles}
-\subsection{17 is the magic number}
-\subsection{Sparsity - information theory}
-bomb latin squares play with this
-\subsection{equivalence classes- group theory}
-\subsection{topology - torus}
-\subsection{latin squares}
-Orthogonality 
-Greco-latin
+		Properties
+			Normal magic squares can be constructed for all values except 2
+			Preserving the magic property when transformed
 
+		Methods of construction
+
+		Multiplicative magic squares - produce infinite
+
+		Sator square
+
+		magic square of squares - Parker Square is a failed example of this
+	
+	\subsection{Greco-Latin Squares}
+
+		Two orthogonal latin squares super imposed, such that the pairs of values are unique.
+		Group based greco latin squares
+		Eulers interest came from construction of magic squares
+		
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Solving Techniques}
+	\subsection{Backtracking}
+		
+		The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. 
+		This is a brute force method with a few optimisations.
+		One can expect to find this algorithm in a computer science course introduction to recursion, that is to say it is not a complex concept 
+		and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible.
+		Multiplication tables of quasigroups.
+		Orthogonal latin squares are used in error correcting codes.
+		
+		\begin{lstlisting}[caption=Backtracking]
+def Backtracking(grid):
+    for each row:
+        for each column:
+            if grid is empty at this potion:
+                try a value in this position
+                Backtracking(grid with new value)
+                if successful:
+                    return grid
+                else:
+                    try another value
+                if no values left to try:
+                    return False
+    return grid						
+		\end{lstlisting}
+		
+		Why does brute force not work for larger examples?
+
+	\subsection{Stochastic Methods}
+		\subsubsection{Simulated Annealing}
+		\subsubsection{Genetic Algorithm}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Generating  Techniques}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{17 is the Magic Number}
+	\subsection{Sparsity - information theory}
+		Bomb sudoku/latin squares - Additional rule: the same number can not occur in adjacent or diagonally adjacent squares .
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Group theory}
+	\subsection{Equivalence Classes}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Topology}
+	\subsection{Torus}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
+\begin{thebibliography}{100}
+	\bibitem{LatinSquaresAlgorithm} https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J
+	\bibitem{LatinSquareAgronomicResearch} http://joas.agrif.bg.ac.rs/archive/article/59
+	\bibitem{LatinSquareCommunication} https://www.semanticscholar.org/paper/Permutation-arrays-for-powerline-communication-and-Colbourn-Kløve/7e69cfdbd2082463c66de698da1e326f0556d1d4
+	\bibitem{MagicSquares1} http://www.multimagie.com/English/SquaresOfSquaresSearch.htm
+	\bibitem{MagicSquaresRelationToSudoku} https://plus.maths.org/content/anything-square-magic-squares-sudoku
+\end{thebibliography}
 
 
 \end{document}
