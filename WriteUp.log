@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.7)  26 NOV 2022 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.7)  26 NOV 2022 21:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -139,58 +139,53 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 [1
 
-{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (4.57509pt too wide) in paragraph at lines 72--75
-[]\OT1/cmr/m/n/12 Associative Magic Squares Pan-di-ag-o-nal Magic Squares Most-
-Perfect Magic
- []
-
-[2]
-Overfull \hbox (4.79932pt too wide) in paragraph at lines 124--125
+{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3]
+Overfull \hbox (4.79932pt too wide) in paragraph at lines 128--129
 [][][][][][][][][][][][] 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 []\OT1/cmr/m/n/12 https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 []\OT1/cmr/m/n/12 https://www.semanticscholar.org/paper/Permutation-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 \OT1/cmr/m/n/12 arrays-for-powerline-communication-and-Colbourn-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 []\OT1/cmr/m/n/12 https://plus.maths.org/content/anything-square-magic-squares-
 
  []
 
-[4] (WriteUp.aux) ) 
+[5] (WriteUp.aux) ) 
 Here is how much of TeX's memory you used:
- 2982 strings out of 478582
- 42306 string characters out of 2845289
- 532186 words of memory out of 3000000
- 21202 multiletter control sequences out of 15000+600000
- 475552 words of font info for 50 fonts, out of 8000000 for 9000
+ 2986 strings out of 478582
+ 42357 string characters out of 2845289
+ 530189 words of memory out of 3000000
+ 21205 multiletter control sequences out of 15000+600000
+ 475889 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,9n,62p,216b,1188s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Eve/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Eve/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Eve/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on WriteUp.pdf (4 pages, 93723 bytes).
+ 54i,9n,62p,216b,1700s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\tcrm1200.pk><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Eve/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Eve/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Eve/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on WriteUp.pdf (5 pages, 95067 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
