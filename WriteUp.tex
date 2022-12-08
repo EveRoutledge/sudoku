@@ -15,9 +15,13 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Introduction}
 		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
-		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
-		Yet it leads to interesting and difficult puzzles.
+		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all,
+		yet it is filled with mathematics. Through sudoku we can explore the connections between various areas of maths: complexity theory, graph theory, group theory and information theory.
+		
+
 	\subsection{History}
+	
+	\subsection{Defining Sudoku Notation}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Sudoku is Hard}
 
@@ -26,6 +30,9 @@
 		it is hardness through a provable, computational lense for which this section cares. 
 		
 	\subsection{Computational Complexity an Introduction}
+	
+	 \textit{TO COMPLETE: DEFINE BIG O NOTATION}
+	 
 		\textbf{What is NP completeness?}
 		We care about decision problems, these are problems that given an input  produce a 'yes' or 'no' answer. We care about three of the subsets of these problems: P is the the class of problems that can be solved in polynomial time by a Turing machine; NP is the class of problems that can be verified in polynomial time and solved in polynomial time by a non-deterministic Turing machine, finally, the NP-complete set has problems that any NP problem can be reduced to in polynomial time (if there is a NP-complete problem that can be solved in polynomial time then P=NP, this is one of the millenium prize problems).
 		This is to say NP problems are hard, it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs.
@@ -45,7 +52,7 @@
 
 \textit{Cook-Levin Theorem:} SAT is NP-Complete
 	
-\textit{Proof:} cite 
+\textit{Proof:}	 \textit{TO COMPLETE: CITE }
 
 \textit{Definition: } SAT is the following decision problem. Given a set of boolean variables $B$ and a collection of clauses $C$ does a valid truth assignment exist that satisfies $C$?
 
@@ -93,13 +100,15 @@ Now we need a \textbf{reduction} from sudoku to a known NP-complete problem to p
 
 \textit{What is the Latin Square decision problem?} Given a partially filled $n \times n$ grid, can the empty squares be filled in such that the grid satisfies the latin square properties (each row and column has values 1 to n exactly)?
 
-To reduce a given sudoku grid of size $n^2 \times n^2$ to a latin square (definition of which see in Other Related Problems - Latin Squares) take the first row of boxes and select the first column from each box, these will make a $n \times n$ latin square. If any numbers are repeated we can relabel without a problem 
+We must reduce a given latin square grid of size $n \times n$ to a sudoku grid size $n^2 \times n^2$ that is solvable iff the Latin square is. \textit{TO COMPLETE: UNDERSTAND \cite{Complexity}}
 
 \textbf{Latin Square $\geq_p$ Triangulated Tripartite}
 
-\textbf{Triangulated Tripartite $\geq_p$ 3SAT}
+\textit{What is the Triangulated Tripartite decision problem?} Given a graph G that is tripartite (can be split into 3 subgroup, within these subgroups vertices should not share edges) can it be triagulated ?
 
-\textbf{3SAT is NP-Complete}
+ \textit{TO COMPLETE: UNDERSTAND \cite{latin to tripartite}}
+
+\textbf{Triangulated Tripartite $\geq_p$ 3SAT}
 
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
 		\begin{equation}
@@ -110,7 +119,11 @@ To reduce a given sudoku grid of size $n^2 \times n^2$ to a latin square (defini
 		\end{equation}
 This decision problem is therefore an enforced limitation of SAT as defined in the subsection Computational Complexity an Introduction.
 
-		\textit{Proof}
+ \textit{TO COMPLETE: UNDERSTAND \cite{tripartite to sat}}
+
+\textbf{3SAT is NP-Complete}
+
+\textit{Proof}
 Given a truth assignment $t$ check each clause is satisfied, if all are satisfied return True else False, this algorithm is at most the length of $C$ multiplied by the length of $B$. $O(BC)$ is polynomial, a polynomial verifier exists. 
 
 Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form (every clause set can be converted to an equivalent set in CNF form \cite{CNF}) such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2 \lor ... \lor b_n$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3. 
@@ -121,11 +134,11 @@ Because we can convert a clause larger than 3 into multiple clauses of at most 3
 
 As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete. $\square$
 		
-Alternative reduction Sudoku $\geq_p$  $n^2$ Graph Colouring.
+Alternative reduction Sudoku $\geq_p$  Graph Colouring, to be explored later.
 
 	\subsection{Determining Uniqueness is Hard}
 
-It is hard to determine if a puzzle has a unique solution?
+It is hard to determine if a puzzle has a unique solution. 	 \textit{TO COMPLETE: FIND PAPER WITH PROOF}
 		
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Other Related Problems}
@@ -211,16 +224,17 @@ def Backtracking(grid):
     return grid						
 		\end{lstlisting}
 		
-		Why does brute force not work for larger examples?
+		Why does brute force not work for larger examples? It will work \textit{TO DO: PROVE ALG CORRECTNESS} but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeesible.
 
 	\subsection{Stochastic Methods}
 		\subsubsection{Simulated Annealing} 
+		\cite{simulated annealing} one of 100 most cited papers, one of the first AI algs
 		\subsubsection{Genetic Algorithm}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Generating  Techniques}
 
 	A polynomial generation algorithm without requiring a uniqueness checker which we have proven to be np-complete and therefore infeesible for large n.
-
+	
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{17 is the Magic Number}
 
@@ -242,24 +256,26 @@ def Backtracking(grid):
 \section{Topology}
 	\subsection{Torus}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Constraint Programming}
+\section{Polynomials \& Constraint Programming}
 	Use of polynomials
 	Roots of unity
 	Grobner Basis
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 
 \begin{thebibliography}{100}
-	\bibitem{P_NP_Figure} %https://en.wikipedia.org/wiki/NP_(complexity)
+	\bibitem{P_NP_Figure} https://en.wikipedia.org/wiki/NP\_(complexity)
 	\bibitem{CNF} Artificial Intelligence: A modern Approach Archived 2017-08-31 at the Wayback Machine [1995...] Russell and Norvig
-	\bibitem{GeneratingAlg}
-	\bibitem{Complexity}%https://fse.studenttheses.ub.rug.nl/22745/1/bMATH_2020_HoexumES.pdf.pdf
-
+	\bibitem{GeneratingAlg} https://www.researchgate.net/publication/251863893\_A\_New\_Algorithm\_for\_Generating\_Unique-Solution\_Sudoku
+	\bibitem{Complexity} https://fse.studenttheses.ub.rug.nl/22745/1/bMATH\_2020\_HoexumES.pdf.pdf
+	\bibitem{latin to tripartite} http://web.math.ucsb.edu/\~padraic/mathcamp\_2014/np\_and\_ls/mc2014\_np\_and\_ls\_lecture3.pdf, http://web.math.ucsb.edu/\~padraic/mathcamp\_2014/np\_and\_ls/mc2014\_np\_and\_ls\_lecture4.pdf
+	\bibitem{tripartite to sat} https://scholar.rose-hulman.edu/cgi/viewcontent.cgi?article=1398\&context=rhumj
 	\bibitem{LatinSquaresAlgorithm} https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J
 	\bibitem{LatinSquareAgronomicResearch} http://joas.agrif.bg.ac.rs/archive/article/59
 	\bibitem{LatinSquareCommunication} https://www.semanticscholar.org/paper/Permutation-arrays-for-powerline-communication-and-Colbourn-Kløve/7e69cfdbd2082463c66de698da1e326f0556d1d4
 	\bibitem{MagicSquares1} http://www.multimagie.com/English/SquaresOfSquaresSearch.htm
 	\bibitem{MagicSquaresRelationToSudoku} https://plus.maths.org/content/anything-square-magic-squares-sudoku
 	\bibitem{Programming Sudoku} https://link.springer.com/book/10.1007/978-1-4302-0138-0
+	\bibitem{simulatedannealing}an Laarhoven, P.J.M., Aarts, E.H.L. (1987). Simulated annealing. In: Simulated Annealing: Theory and Applications. Mathematics and Its Applications, vol 37. Springer, Dordrecht. https://doi.org/10.1007/978-94-015-7744-1\_2
 \end{thebibliography}
 
 
