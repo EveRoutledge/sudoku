@@ -17,11 +17,25 @@
 		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
 		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all,
 		yet it is filled with mathematics. Through sudoku we can explore the connections between various areas of maths: complexity theory, graph theory, group theory and information theory.
-		
 
+		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
+		Yet it leads to interesting and difficult puzzles.
+		%%%%% Define sudoku grid, values solution etc
 	\subsection{History}
 	
 	\subsection{Defining Sudoku Notation}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Classic solving techniques}
+\textbf{Def$^n$}: A sudoku puzzle is a function S(i,j) for values i,j $\in [0,...,n^2]$ satisfying the following:
+\begin{itemize}
+	\item{when S(a,b)$\neq$ S(a,b) $\neq$ S(a,c) }
+\end{itemize}
+
+
+define x wing
+define y wing
+define naked single
+define etc
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Sudoku is Hard}
 
@@ -106,9 +120,13 @@ We must reduce a given latin square grid of size $n \times n$ to a sudoku grid s
 
 \textit{What is the Triangulated Tripartite decision problem?} Given a graph G that is tripartite (can be split into 3 subgroup, within these subgroups vertices should not share edges) can it be triagulated ?
 
+
  \textit{TO COMPLETE: UNDERSTAND \cite{latin to tripartite}}
 
 \textbf{Triangulated Tripartite $\geq_p$ 3SAT}
+
+\textbf{3SAT is NP-Complete}
+%%%%% define clause
 
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
 		\begin{equation}
