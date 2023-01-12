@@ -17,7 +17,20 @@
 		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
 		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
 		Yet it leads to interesting and difficult puzzles.
+		%%%%% Define sudoku grid, values solution etc
 	\subsection{History}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Classic solving techniques}
+\textbf{Def$^n$}: A sudoku puzzle is a function S(i,j) for values i,j $\memberof \{0,...,n^2\}$ satisfying the following:
+\begin{itemize}
+	\item{when S(a,b)\noteS(a,b) \notequal S(a,c) }
+\end{itemize}
+
+
+define x wing
+define y wing
+define naked single
+define etc
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Sudoku is Hard}
 
@@ -100,7 +113,7 @@ To reduce a given sudoku grid of size $n^2 \times n^2$ to a latin square (defini
 \textbf{Triangulated Tripartite $\geq_p$ 3SAT}
 
 \textbf{3SAT is NP-Complete}
-
+%%%%% define clause
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
 		\begin{equation}
 		        \phi (C,B) = \begin{cases}
