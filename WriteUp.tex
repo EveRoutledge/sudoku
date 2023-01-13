@@ -21,18 +21,18 @@
 	
 	\subsection{Defining Sudoku Notation}
 	
-	\textbf{Def$^n$}: A valid sudoku puzzle is a function$ S(i,j)$ for values i,j $\in \{0,...,n^2\}$ satisfying the following:
+	\textbf{Def$^n$}: A valid sudoku puzzle is a function $ S: i,j \rightarrow x$ for values i,j $\in \{1,...,D^2\}$ and $x \in \{0,...,D^2\}$ satisfying the following:
 \begin{itemize}
-	\item{for all $a,b,c$  $\in \{0,...,n^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
-	\item{for all $a,b,c$  $\in \{0,...,n^2\}$ with $S(a,b)\neq$ 0 and$ S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
-	\item{for all $ a,b,c,d $ $\in \{0,...,n^2\}$ with $a mod n = c mod n$, $b mod n  =  d mod n$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
+	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
+	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and$ S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
+	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $a mod D = c mod D$, $b mod D  =  d mod D$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
 \end{itemize}
-\textbf{Def$^n$}: A completed sudoku puzzle is a function $S(i,j)$ as above but with the added condition that for all $a,b \in \{0,...,n^2\}$ $S(a,b) \neq$ 0.
+\textbf{Def$^n$}: A completed sudoku puzzle is a function $ S: i,j \rightarrow x$ as above but with the added condition that $x \neq 0$.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Classic solving techniques}
 
-\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,n^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,n^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,n^2\}/\{a\}$ or $S(i,j)$ where $a mod n = i mod n$ and $b mod n  =  j mod n$.
+\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,D^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,D^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,D^2\}/\{a\}$ or $S(i,j)$ where $a mod D = i mod D$ and $b mod D  =  j mod D$.
 
 define x wing
 define y wing
@@ -117,9 +117,19 @@ Now we need a \textbf{reduction} from sudoku to a known NP-complete problem to p
 
 \textbf{Sudoku $\geq_p$ Latin Square}
 
-\textit{What is the Latin Square decision problem?} Given a partially filled $n \times n$ grid, can the empty squares be filled in such that the grid satisfies the latin square properties (each row and column has values 1 to n exactly)?
+\textbf{Def$^n$}: A valid Latin Square puzzle is a function $L:i,j \rightarrow x$ for values $i,j \in \{1,..,D\} $ and $x \in \{0,...,D\}$ satisfying the following:
+\begin{itemize}
+\item{for all $a,b,c \in \{1,...,D\}$ with $L(a,b) \neq 0 $ and $L(a,c) \neq 0$ then $L(a,b) \neq L(a,c)$}
+\item{for all $a,b,c \in \{1,...,D\}$ with $L(a,b) \neq 0 $ and $L(c,b) \neq 0$ then $L(a,b) \neq L(c,b)$}
+\end{itemize}
+It is complete or solved if for all $i,j \in \{1,...,D\}$, $L(i,j) \neq 0$.
 
-We must reduce a given latin square grid of size $n \times n$ to a sudoku grid size $n^2 \times n^2$ that is solvable iff the Latin square is. \textit{TO COMPLETE: UNDERSTAND \cite{Complexity}}
+By observation we see this is a superset of the sudoku puzzle, we just add the restrictions that the dimension must be a square number and also add the third property of the sudoku puzzle defintion.
+
+\textit{What is the Latin Square decision problem?} Given a latin square puzzle $L(,)$, can the function be augmented, by changing only the value of the function for value pairs $i,j$ that previously gave $L(i,j) =0$, to get a complete latin square puzzle?
+
+
+We must reduce a given latin square grid of size $D \times D$ to a sudoku grid size $D^2 \times D^2$ that is solvable iff the Latin square is. \textit{TO COMPLETE: UNDERSTAND \cite{Complexity}}
 
 \textbf{Latin Square $\geq_p$ Triangulated Tripartite}
 
