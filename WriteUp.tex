@@ -15,33 +15,45 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Introduction}
 		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
-		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. 
-		Yet it leads to interesting and difficult puzzles.
-		%%%%% Define sudoku grid, values solution etc
+		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all,
+		yet it is filled with mathematics. Through sudoku we can explore the connections between various areas of maths: complexity theory, graph theory, group theory and information theory.
 	\subsection{History}
+	
+	\subsection{Defining Sudoku Notation}
+	
+	\textbf{Def$^n$}: A valid sudoku puzzle is a function$ S(i,j)$ for values i,j $\in \{0,...,n^2\}$ satisfying the following:
+\begin{itemize}
+	\item{for all $a,b,c$  $\in \{0,...,n^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
+	\item{for all $a,b,c$  $\in \{0,...,n^2\}$ with $S(a,b)\neq$ 0 and$ S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
+	\item{for all $ a,b,c,d $ $\in \{0,...,n^2\}$ with $a mod n = c mod n$, $b mod n  =  d mod n$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
+\end{itemize}
+\textbf{Def$^n$}: A completed sudoku puzzle is a function $S(i,j)$ as above but with the added condition that for all $a,b \in \{0,...,n^2\}$ $S(a,b) \neq$ 0.
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Classic solving techniques}
-\textbf{Def$^n$}: A sudoku puzzle is a function S(i,j) for values i,j $\memberof \{0,...,n^2\}$ satisfying the following:
-\begin{itemize}
-	\item{when S(a,b)\noteS(a,b) \notequal S(a,c) }
-\end{itemize}
 
+\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,n^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,n^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,n^2\}/\{a\}$ or $S(i,j)$ where $a mod n = i mod n$ and $b mod n  =  j mod n$.
 
 define x wing
 define y wing
-define naked single
-define etc
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Sudoku is Hard}
 
-		Sudoku can be described in a single rule but it is in fact a hard problem to solve.
-		Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard to solve,
-		it is hardness through a provable, computational lense for which this section cares. 
+Sudoku can be described in a single rule but it is in fact a hard problem to solve. Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard to solve, it is hardness through a provable, computational lense for which this section cares. 
 		
-	\subsection{Computational Complexity an Introduction}
-		\textbf{What is NP completeness?}
-		We care about decision problems, these are problems that given an input  produce a 'yes' or 'no' answer. We care about three of the subsets of these problems: P is the the class of problems that can be solved in polynomial time by a Turing machine; NP is the class of problems that can be verified in polynomial time and solved in polynomial time by a non-deterministic Turing machine, finally, the NP-complete set has problems that any NP problem can be reduced to in polynomial time (if there is a NP-complete problem that can be solved in polynomial time then P=NP, this is one of the millenium prize problems).
-		This is to say NP problems are hard, it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs.
+\subsection{Computational Complexity an Introduction}
+	
+	 \textit{TO COMPLETE: DEFINE BIG O NOTATION}
+	 
+\textbf{What is NP completeness?}
+We care about decision problems, these are problems that given an input  produce a 'yes' or 'no' answer. We will discuss three sets of these problems: 
+\begin{itemize}
+	\item{P is the the class of problems that can be solved in polynomial time (if the input is order n then the program halts in order $n^2$ steps) by a Turing machine;} 
+	\item{NP is the class of problems that can be verified in polynomial time and solved in polynomial time by a non-deterministic Turing machine;} 
+	\item{the NP-complete set has problems that any NP problem can be reduced to in polynomial time.} 
+\end{itemize}
+
+NP problems are hard as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs. We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -50,28 +62,29 @@ define etc
 	\caption{P, NP, NP-complete \& NP-hard sets \cite{P_NP_Figure}}
 \end{figure}
 
-		\textbf{How to prove NP completeness generally?}
-		Show verifier has a polynomial or less runtime.
-		Reduce a known NP-complete problem to the problem you wish to prove is NP-complete (call this $x$), one does this by transforming the input of a known NP-complete problem to the input $x$. This proves that the $x$ is at least as hard as the NP-complete problem as if we had access to an polynomial time algorithm to solve $x$ we could solve the known NP-complete problem in polynomial time too creating a contradiction.
+\textbf{How to prove NP completeness generally?}
+Call the problem we wish to prove is NP-complete $x$. First show there exists a verifier for $x$ with a polynomial or less runtime, this is a algorithm that decides if a proposed solution to problem $x$  is correct. Then reduce a known NP-complete problem call this $y$ to $x$, one does this by transforming the input of $y$ to the input of $x$ in polynomial time. If there exists a polynomial time algorithm to solve $x$ we could solve$y$ in polynomial time too, this implies P=NP, a contradiction. Therefore a polynomial time algorithm does not exist for $x$.
 
 \textbf{Our base NP-complete problem.} If, as the above suggests, we require a NP-complete problem to prove a problem is NP-complete then we seem to have reached a paradox. Luckily we have the Cook-Levin Theorem.
 
 \textit{Cook-Levin Theorem:} SAT is NP-Complete
 	
-\textit{Proof:} cite 
+\textit{Proof:}	 \textit{TO COMPLETE: CITE }
 
-\textit{Definition: } SAT is the following decision problem. Given a set of boolean variables $B$ and a collection of clauses $C$ does a valid truth assignment exist that satisfies $C$?
+\textbf{Def$^n$}: SAT is the following decision problem. Given a set of boolean variables $B$ and a collection of clauses $C$ does a valid truth assignment exist that satisfies $C$?
 
 We now have a NP-complete problem to reduce other problems to.
 
-	\subsection{Validation is Easy}
-Valid Grid decision problem:
+\textbf{More on polynomial time and big O notation.} 
+
+\subsection{Verification is Easy}
+Verificaiton decision problem, "is the sudoku puzzle complete?":
 
 		\begin{equation}
-			\Psi(\text{grid}(n^2,n^2)) = \begin{cases}	
-							     \text{True if the grid is valid} \\
-							     \text{False if the grid is invalid}.
-							     \end{cases}
+			\Psi(S(,)) = \begin{cases}	
+				\text{True if the puzzle is complete} \\
+				\text{False if the puzzle is not complete}.
+			\end{cases}
 		\end{equation}
 
 There exists an algorithm to do this in polynomial time with respect to the dimensions of the grid. 
@@ -81,20 +94,20 @@ There exists an algorithm to do this in polynomial time with respect to the dime
 \item For each box in the grid check there exists no repeated numbers. $O(n^2)$
 \end{enumerate}
 If all tests pass return True else return False.
-This algorithm has complexity of $O(n^2 + n^2 + n^2) = O(3n^2) = O(n^2)$, this is polynomial and therefore $\Psi(\text{grid}) \in P$.
+This algorithm has complexity of $O(n^2 + n^2 + n^2) = O(3n^2) = O(n^2)$, this is polynomial and therefore $\Psi(S(,)) \in P$.
 
 	\subsection{Finding a Solution is Hard}
 		
 Finding a solution to sudoku is NP-complete, let us define the decision problem:
 
 		\begin{equation}
-		        \Phi (\text{grid}(n^2,n^2)) = \begin{cases}
-		            \text{True if a solution exists} \\
-		            \text{False if a solution does not exist}.
+		        \Phi (S(,)) = \begin{cases}
+		            \text{True if a completion exists} \\
+		            \text{False if a completion does not exist}.
 				\end{cases}
 		\end{equation}
 
-Our question now is does there exist a function $\Phi$ that when given an instance of the problem (in this case a grid of numbers and blanks) will, in polynomial time or less return True if it can be solved and False otherwise.
+Our question now is does there exist a function $\Phi$ that when given an instance of the problem will, in polynomial time or less, return True if it can be solved and False otherwise.
 
 \textbf{\underline{Proof}}
 
@@ -106,14 +119,20 @@ Now we need a \textbf{reduction} from sudoku to a known NP-complete problem to p
 
 \textit{What is the Latin Square decision problem?} Given a partially filled $n \times n$ grid, can the empty squares be filled in such that the grid satisfies the latin square properties (each row and column has values 1 to n exactly)?
 
-To reduce a given sudoku grid of size $n^2 \times n^2$ to a latin square (definition of which see in Other Related Problems - Latin Squares) take the first row of boxes and select the first column from each box, these will make a $n \times n$ latin square. If any numbers are repeated we can relabel without a problem 
+We must reduce a given latin square grid of size $n \times n$ to a sudoku grid size $n^2 \times n^2$ that is solvable iff the Latin square is. \textit{TO COMPLETE: UNDERSTAND \cite{Complexity}}
 
 \textbf{Latin Square $\geq_p$ Triangulated Tripartite}
+
+\textit{What is the Triangulated Tripartite decision problem?} Given a graph G that is tripartite (can be split into 3 subgroup, within these subgroups vertices should not share edges) can it be triagulated ?
+
+
+ \textit{TO COMPLETE: UNDERSTAND \cite{latin to tripartite}}
 
 \textbf{Triangulated Tripartite $\geq_p$ 3SAT}
 
 \textbf{3SAT is NP-Complete}
 %%%%% define clause
+
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
 		\begin{equation}
 		        \phi (C,B) = \begin{cases}
@@ -123,7 +142,11 @@ To reduce a given sudoku grid of size $n^2 \times n^2$ to a latin square (defini
 		\end{equation}
 This decision problem is therefore an enforced limitation of SAT as defined in the subsection Computational Complexity an Introduction.
 
-		\textit{Proof}
+ \textit{TO COMPLETE: UNDERSTAND \cite{tripartite to sat}}
+
+\textbf{3SAT is NP-Complete}
+
+\textit{Proof}
 Given a truth assignment $t$ check each clause is satisfied, if all are satisfied return True else False, this algorithm is at most the length of $C$ multiplied by the length of $B$. $O(BC)$ is polynomial, a polynomial verifier exists. 
 
 Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form (every clause set can be converted to an equivalent set in CNF form \cite{CNF}) such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2 \lor ... \lor b_n$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3. 
@@ -134,11 +157,11 @@ Because we can convert a clause larger than 3 into multiple clauses of at most 3
 
 As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete. $\square$
 		
-Alternative reduction Sudoku $\geq_p$  $n^2$ Graph Colouring.
+Alternative reduction Sudoku $\geq_p$  Graph Colouring, to be explored later.
 
 	\subsection{Determining Uniqueness is Hard}
 
-It is hard to determine if a puzzle has a unique solution?
+It is hard to determine if a puzzle has a unique solution. 	 \textit{TO COMPLETE: FIND PAPER WITH PROOF}
 		
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Other Related Problems}
@@ -196,19 +219,11 @@ It is hard to determine if a puzzle has a unique solution?
 		\item{Eulers interest came from construction of magic squares}
 		\item{Exists for all but 2 and 6.}
 		\end{itemize}
-
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Solving Techniques}
-	\subsection{Backtracking}
-		
-		The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. 
-		This is a brute force method with a few optimisations.
-		One can expect to find this algorithm in a computer science course introduction to recursion, that is to say it is not a complex concept 
-		and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible.
-		Multiplication tables of quasigroups.
-		Orthogonal latin squares are used in error correcting codes.
-		
-		\begin{lstlisting}[caption=Backtracking]
+\subsection{Backtracking}
+The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. This is a brute force method with a few optimisations. One can expect to find this algorithm in a computer science course introduction to recursion, that is to say it is not a complex concept and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible. 
+\begin{lstlisting}[caption=Backtracking]
 def Backtracking(grid):
     for each row:
         for each column:
@@ -222,59 +237,48 @@ def Backtracking(grid):
                 if no values left to try:
                     return False
     return grid						
-		\end{lstlisting}
-		
-		Why does brute force not work for larger examples?
-
-	\subsection{Stochastic Methods}
-		\subsubsection{Simulated Annealing} 
-		\subsubsection{Genetic Algorithm}
+\end{lstlisting}
+Why does brute force not work for larger examples? It will work \textit{TO DO: PROVE ALG CORRECTNESS} but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeesible.
+\subsection{Stochastic Methods}
+\subsubsection{Simulated Annealing} 
+\cite{simulated annealing} one of 100 most cited papers, one of the first AI algs
+\subsubsection{Genetic Algorithm}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Generating  Techniques}
-
 	A polynomial generation algorithm without requiring a uniqueness checker which we have proven to be np-complete and therefore infeesible for large n.
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{17 is the Magic Number}
-
 	4 for shidoku
 	\subsection{Sparsity - information theory}
 		Bomb sudoku/latin squares - Additional rule: the same number can not occur in adjacent or diagonally adjacent squares.
-		
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Group theory}
 	\subsection{Starting Simple}
-		Let us use Shidoku which is specifically a sudoku with $n=2$.
-
-		Only 2 fundamentally different.
-		One has 96 identical, other has 192. Why not the same amount?
-		
+		Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
 	\subsection{Equivalence Classes}
-	
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Topology}
 	\subsection{Torus}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Constraint Programming}
+\section{Polynomials \& Constraint Programming}
 	Use of polynomials
 	Roots of unity
 	Grobner Basis
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-
 \begin{thebibliography}{100}
-	\bibitem{P_NP_Figure} %https://en.wikipedia.org/wiki/NP_(complexity)
+	\bibitem{P_NP_Figure} https://en.wikipedia.org/wiki/NP\_(complexity)
 	\bibitem{CNF} Artificial Intelligence: A modern Approach Archived 2017-08-31 at the Wayback Machine [1995...] Russell and Norvig
-	\bibitem{GeneratingAlg}
-	\bibitem{Complexity}%https://fse.studenttheses.ub.rug.nl/22745/1/bMATH_2020_HoexumES.pdf.pdf
-
+	\bibitem{GeneratingAlg} https://www.researchgate.net/publication/251863893\_A\_New\_Algorithm\_for\_Generating\_Unique-Solution\_Sudoku
+	\bibitem{Complexity} https://fse.studenttheses.ub.rug.nl/22745/1/bMATH\_2020\_HoexumES.pdf.pdf
+	\bibitem{latin to tripartite} http://web.math.ucsb.edu/\~padraic/mathcamp\_2014/np\_and\_ls/mc2014\_np\_and\_ls\_lecture3.pdf, http://web.math.ucsb.edu/\~padraic/mathcamp\_2014/np\_and\_ls/mc2014\_np\_and\_ls\_lecture4.pdf
+	\bibitem{tripartite to sat} https://scholar.rose-hulman.edu/cgi/viewcontent.cgi?article=1398\&context=rhumj
 	\bibitem{LatinSquaresAlgorithm} https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J
 	\bibitem{LatinSquareAgronomicResearch} http://joas.agrif.bg.ac.rs/archive/article/59
 	\bibitem{LatinSquareCommunication} https://www.semanticscholar.org/paper/Permutation-arrays-for-powerline-communication-and-Colbourn-Kløve/7e69cfdbd2082463c66de698da1e326f0556d1d4
 	\bibitem{MagicSquares1} http://www.multimagie.com/English/SquaresOfSquaresSearch.htm
 	\bibitem{MagicSquaresRelationToSudoku} https://plus.maths.org/content/anything-square-magic-squares-sudoku
 	\bibitem{Programming Sudoku} https://link.springer.com/book/10.1007/978-1-4302-0138-0
+	\bibitem{simulatedannealing}an Laarhoven, P.J.M., Aarts, E.H.L. (1987). Simulated annealing. In: Simulated Annealing: Theory and Applications. Mathematics and Its Applications, vol 37. Springer, Dordrecht. https://doi.org/10.1007/978-94-015-7744-1\_2
 \end{thebibliography}
-
-
 \end{document}
 \vspace{5mm}
