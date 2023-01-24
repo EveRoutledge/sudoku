@@ -44,6 +44,8 @@ Sudoku can be described in a single rule but it is in fact a hard problem to sol
 \subsection{Computational Complexity an Introduction}
 	
 	 \textit{TO COMPLETE: DEFINE BIG O NOTATION}
+
+	\textit{KARP REDUCTION}
 	 
 \textbf{What is NP completeness?}
 We care about decision problems, these are problems that given an input  produce a 'yes' or 'no' answer. We will discuss three sets of these problems: 
@@ -129,7 +131,7 @@ By observation we see this is a superset of the sudoku puzzle, we just add the r
 \textit{What is the Latin Square decision problem?} Given a latin square puzzle $L(,)$, can the function be augmented, by changing only the value of the function for value pairs $i,j$ that previously gave $L(i,j) =0$, to get a complete latin square puzzle?
 
 
-\textit{Proof idea:} We must reduce a given latin square grid of size $D \times D$ to a sudoku grid size $D^2 \times D^2$ that is solvable iff the Latin square is. %%%%
+\textit{Proof idea:} We must reduce a given latin square grid of size $D \times D$ to a sudoku grid size $D^2 \times D^2$ that is solvable iff the Latin square is. 
 
 \textbf{Lemma:} Let $S_l$ be a Sudoku problem with the following construction 
 \begin{equation}
@@ -138,7 +140,7 @@ By observation we see this is a superset of the sudoku puzzle, we just add the r
 ((i-1 \text{ mod } n)n + \left\lfloor{i-1/n}\right\rfloor+j-1)\text{ mod } n^2 +1 \quad\text{otherwise}
 \end{cases}
 \end{equation}
-where $L_s=\{(i,j)| \left\lfloor{i/n}\right\rfloor=0 \text{ and }(j \text{ mod }n)=0\}$. Then  there exists an augmentation $S_l'$ to complete the sudoku puzzle if and only if the square $L$ such that $L(i,j/n)=S_l'(i,j)/n$ for all $(i,j) \in L_s$ is a Latin square.
+where $L_s=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod }n)=1\}$. Then  there exists an augmentation $S_l'$ to complete the sudoku puzzle if and only if the square $L$ such that $L(i,j/n)=S_l'(i,j)-1/n+1$ for all $(i,j) \in L_s$ is a Latin square.
 
 \textit{Proof:}
 
@@ -166,30 +168,59 @@ When i is fixed (particular column) assume two cells have the same value, that i
 
 For the third condition fix $\left\lfloor{i-1/n}\right\rfloor$. (i-1 \text{ mod } n,j) takes all value pairs of integers 0 to n-1 so if a cell has the same value as another within the n by n square $S_l(i,j)=S_l(i',j')$ implying $(i-1 \text{ mod } n,j)=(i'-1 \text{ mod } n,j')$ which means $i=i'$ and $j=j'$. Therefore $S_l$ is a valid and complete sudoku puzzle.
 
-Next we must consider which integers fill the blanks in $L_s$. For $(i,j)\in L_s$, $S_l(i,j)= ((i-1 \text{ mod } n)n+j-1)\text{ mod } n^2 +1$
-%%%%%%%%%%%%
+Now consider which integers fill the blanks in $L_s$. For $(i,j)\in L_s$, $S_l(i,j)-1= ((i-1 \text{ mod } n)n+j-1)\text{ mod } n^2$ as $j mod n=1$, $j-1modn=0$ therfore $S_l(i,j)-1$ is divisible by n so $S_l-1/n+1$ gives integers between $[1,...,n]$. Therefore $L(i,j) \in [0,...,n]$.
 
+We must validate the Latin square conditions. The row constraint in $S_l$ ensures $S'(i,j)=S'(i,j') \implies j=j'$, $S'(i,j)-1/n+1=S'(i,j')-1/n+1 \implies j=j'$, $L(i,j/n)=S'(i,j'/n) \implies j=j'$  is equivalent to the row constraint of L. The column constraint of $S_l$ is equivalent to the column constraint of L. The small square constraint of $S_l$ is equivalent to the column constraint of L. $\square$
 
-\subsubsection{Latin Square $\geq_p$ Triangulated Tripartite}
+\subsubsection{Latin Square $\geq_p$ Triangulate A Tripartite Graph}
 
-\textit{What is the Triangulated Tripartite decision problem?} Given a graph G that is tripartite (can be split into 3 subgroup, within these subgroups vertices should not share edges) can it be triangulated ?
-
-\textbf{Def$^n$}: A graph $G=(V,E)$ is tripartite if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $ but edges between all other vertex pairs.
+\textbf{Def$^n$}: A graph $G=(V,E)$ is tripartite if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $.
 
 \textbf{Def$^n$:} A triangulation T of a graph is a way to divide edges into disjoint subsets $T_i$, each forming a triangle ($T_i=\{(v_{1}, v_{2}),(v_{2}, v_{3}),(v_{3},v_{1})\}$).
 
-\textbf{Theorem:} Completeing a Latin square with dimensions n by n is equivalent to  triangulating a tripartite graph $G= V_1, V_2, V_3$ with subsets size n.
+If a tripartite graph can be triangulated it must be uniform, that is: every vertex in $V_1$ (or $V_2$ or $V_3$) has the same number of neighbour in $V_2$ and $V_3$ (or the respective sets).
+
+\textit{What is the Triangulated Tripartite decision problem?} Given a graph G that is tripartite (can be split into 3 subgroup, within these subgroups vertices should not share edges) can it be triangulated ?
+
+\textbf{Theorem:} Completing a Latin square with dimensions n by n is equivalent to triangulating a tripartite graph $G= V_1, V_2, V_3$.
 
 \textit{Proof:} 
 
-Observe a partial Latin square is equivalent to a partially triangulated tripartite graph, we map the problems to each other through the following: $S(i,j) = x$ where $x \neq0$ corresponds to the subset of edges $\{(v_{1i}, v_{2j}),(v_{2j}, v_{3x}),(v_{3x},v_{1i})\}$ and vice versa. %diagram%
+Observe completing a partial Latin square is equivalent to triangulating tripartite graph, we map the Latin square to this through the following: 
+given tripartite graph G=(V,E) label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...r_n\}$. Add edges such that:
+\begin{itemize}
+\item{If $L(i,j) = 0$ then add the edge $(r_i,c_j)$ }
+\item{If for all $i \in [0,...,n]$ and constant j, $L(i,j) \neq k$ then add the edge $(r_i,e_k)$}
+\item{If for all $j \in [0,...,n]$ and constant i, $L(i,j) \neq k$ then add the edge $(c_j,e_k)$}
+\end{itemize}
+This graph has a triangulation iff L(i,j) can be solved.
 
-%incorrect cell corresponds to incorrect subset%
+Let us show every uniform tripartite graph is the above formulation of a Latin square.
 
- \textit{TO COMPLETE: UNDERSTAND \cite{latin to tripartite}}
+Defn: A Latin framework LF for tripartite graph G, size (r,s,t) is a r by s array with values [1,...,t]. With constraints:
+\begin{itemize}
+\item{Each row/column contain each element only once.}
+\item{If $(r_i,c_j)\in E$ then LF(i,j)=empty else LF(i,j)= k $k\in [1,...,t]$}
+\item{If $(r_i,e_k)\in E$  then for constant i $LF(i,j)\neq k$}
+\item{If $(c_i,e_k)\in E$  then for constant j $LF(i,j)\neq k$}
+\end{itemize}
+If r=s=t then LF is a latin square which can be completed iff G has a triangle partition.
+
+Lemma: For graph G=(V,E) with |V|=n, there's a Latin framework of (n,n,2n).
+
+Define LF an n by n array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)mod n)$. LF is a latin framework. $\square$
+
+Lemma: Latin framework L  (r,s,t) for uniform tripartite graph G. R(k) = the number of times k appears in L plus half $|e_k|$. Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to (r,s+1,t) to give L' in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$.
+
+\textit{proof of this lemma to be added}
+
+Lemma: Latin framework (r,s,s) can be extended to (s,s,s).
+
+We can transpose the array and do the same as the previous lemma. $\square$
+
+Given a tripartite graph G, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
 
 \subsubsection{Triangulated Tripartite $\geq_p$ 3SAT}
-
 
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
 		\begin{equation}
@@ -199,6 +230,13 @@ Observe a partial Latin square is equivalent to a partially triangulated tripart
 				\end{cases}
 		\end{equation}
 This decision problem is therefore an enforced limitation of SAT as defined in the subsection Computational Complexity an Introduction.
+
+\textit{Proof:}
+
+Describe the special graph $H_{3,p}$.
+Show graph constructed is tripartite.
+
+
 
  \textit{TO COMPLETE: UNDERSTAND \cite{tripartite to sat}}
 
