@@ -15,6 +15,8 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
+\usepackage{wrapfig}
+
 
 % ====================
 % Lengths
@@ -42,7 +44,7 @@
 
 \author{Eve Routledge}
 
-\institute[shortinst]{Durham University}
+%\institute[shortinst]{Durham University}
 
 % ====================
 % Footer (optional)
@@ -58,7 +60,7 @@
 % ====================
 
 % use this to include logos on the left and/or right side of the header:
-\logoleft{\includegraphics[height=4cm]{DurhamUniversityLogo_WHITE.png}}
+\logoleft{\includegraphics[height=3cm]{DurhamUniversityLogo_WHITE.png}}
 
 % ====================
 % Sudoku
@@ -96,36 +98,53 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{NP complete}
+  \begin{block}{Computational Complexity}
 
+Sudoku is a common puzzle with simple rules however when solving, one often requires complex reasoning skills and an element of guess work. This puzzle is hard, even for computers to solve. We judge difficulty on the time taken for an algorithm to solve a puzzle in relation to it's input, we can quantify this using big o notation.
+
+\textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm $\Phi$ and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)\forall x\geq x_0$.
+
+\textbf{Def$^\text{n}$:} Reduction
+
+\textbf{Def$^\text{n}$:} Turing Machine
+
+A puzzle is $O(g(x))$ means $f(x)=O(g(x))$ this can be considered an abuse of notation.
+
+ \begin{itemize}
+	\item{P is the set of problems solved in polynomial time $O(x^c)$ by a Turing machine;} 
+	\item{NP is the set verified in $O(x^c)$ and solved in $O(x^c)$ by non-deterministic Turing machine;} 
+	\item{the NP-complete set has problems that any NP problem can be reduced to in $O(x^c)$.} 
+\end{itemize}
+Problems in P are considered feasible and those in NP are considered infeasible as their complexity scales exponentially with respect to the input size, this is if we assume $P\neq NP$ which is of course yet to be proven and remains one of the unsolved Millennium Prize problems.
+
+To show sudoku is hard we must show it belongs to NP-complete, in order to do this we can reduce a known NP-complete problem to sudoku (in our case SAT) in polynomial time. It is important to get the reduction the correct way around. \textbf{Let us outline the proof:} Assume we have an algorithm $\Phi$ solving sudoku in polynomial time then if there exists a reduction from SAT to sudoku in polynomial time $\Gamma$ then given SAT problem $x$, $\Phi(\Gamma(x))$ will give a solution to SAT in polynomial time which given the Cook-Levin theorem is a contradiction. Therefore a polynomial time algorithm does not exist for sudoku.
 
   \end{block}
   \begin{block}{Reduction}
-karp reduction
 
    \textbf{Sudoku $\leq_p$ Latin Square $\leq_p$ Triangulate a Tripartite Graph $\leq_p$ 3-SAT $\leq_p$ SAT}
 
-	\textbf{Def$^n$}: A valid \textbf{Sudoku} puzzle is a function $ S: i,j \rightarrow x$ for values i,j $\in \{1,...,D^2\}$ and $x \in \{0,...,D^2\}$ satisfying the following:
+	\textbf{Def$^\text{n}$}: A valid \textbf{Sudoku} puzzle is a function $ S: i,j \rightarrow x$ for values $i,j \in \{1,...,D^2\}$ and $x \in \{0,...,D^2\}$ satisfying the following:
 \begin{itemize}
-	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
-	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and$ S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
+	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq 0$ and $S(a,c)\neq 0$, then $ S(a,b)\neq$ S(a,c) }
+	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq 0$ and$ S(c,b)\neq 0$, then $S(a,b)\neq$ S(c,b) }
 	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $a\text{ mod }D = c\text{ mod }D$, $b\text{ mod }D  =  d\text{ mod }D$, $S(a,b)\neq 0$  and $S(c,d) \neq 0$, then $S(a,b)\neq S(a,c)$ }
 \end{itemize}
 It is completed if $x \in \{1,...,D\}$.
 
 
-\textbf{Def$^n$}: A valid \textbf{Latin Square} puzzle is a function $L:i,j \rightarrow x$ for values $i,j \in \{1,..,D\} $ and $x \in \{0,...,D\}$ satisfying the following:
+\textbf{Def$^\text{n}$}: A valid \textbf{Latin Square} puzzle is a function $L:i,j \rightarrow x$ for values $i,j \in \{1,..,D\} $ and $x \in \{0,...,D\}$ satisfying the following:
 \begin{itemize}
 \item{for all $a,b,c \in \{1,...,D\}$ with $L(a,b) \neq 0 $ and $L(a,c) \neq 0$ then $L(a,b) \neq L(a,c)$}
 \item{for all $a,b,c \in \{1,...,D\}$ with $L(a,b) \neq 0 $ and $L(c,b) \neq 0$ then $L(a,b) \neq L(c,b)$}
 \end{itemize}
 It is complete or solved if for all $i,j \in \{1,...,D\}$, $L(i,j) \neq 0$.
 
-\textbf{Def$^n$}: A graph $G=(V,E)$ is tripartite if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $.
+\textbf{Def$^\text{n}$}: A graph $G=(V,E)$ is \textbf{Tripartite} if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $. A \textbf{Triangulation} T of a graph G is a way to divide all edges into disjoint subsets $T_i$, each forming a triangle ($T_i=\{(v_{1}, v_{2}),(v_{2}, v_{3}),(v_{3},v_{1})\}$).
 
-\textbf{Def$^n$:} A \textbf{Triangulation} T of a graph G is a way to divide all edges into disjoint subsets $T_i$, each forming a triangle ($T_i=\{(v_{1}, v_{2}),(v_{2}, v_{3}),(v_{3},v_{1})\}$).
+\textbf{Def$^\text{n}$:} A \textbf{boolean expression} is a formula made of variables $\in B$ and operations (conjunction $\land$, disjunction $\lor$, not $\neg$).A literal is $b\in B$ or $\neg b$. A clause $c\in C$ is a disjunction of literals, $b_1 \lor b_2 \lor ... b_i$. For this to be in conjugate normal form the formula must be a conjunction of clauses. A boolean expression is satisfiable if a truth assignment to all members of $B$ exists such that the expression evaluates to true. 
 
-\textbf{Def$^n$:} A \textbf{boolean expression}  With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies all clauses in $C$?
+\textbf{Def$^\text{n}$:}  \textbf{SAT} is the decision problem determining whether a boolean expression is satisfiable or not. \textbf{3-SAT} is an enforced limitation of SAT such that each clause is made up of 3 literals. 
 
 
   \end{block}
@@ -234,43 +253,103 @@ where $S_l=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod
 
   \end{block}
   \begin{block}{Latin Square $\leq_p$ Triangulated Tripartite Graph}
+
+\begin{wrapfigure}{r}{5cm}
+\begin{figure}
+		\includegraphics[width=50mm]{ttg.png}
+\end{figure}
+\end{wrapfigure}
+
 Observe completing a partial Latin square is equivalent to triangulating tripartite graph, we map the Latin square to this through the following: 
-given tripartite graph G=(V,E) label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
+given tripartite graph $G=(V,E)$ label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
 \begin{itemize}
 \item{If $L(i,j) = 0$ then add the edge $(r_i,c_j)$ }
 \item{If for all $i \in [0,...,n]$ and constant j, $L(i,j) \neq k$ then add the edge $(r_i,e_k)$}
 \item{If for all $j \in [0,...,n]$ and constant i, $L(i,j) \neq k$ then add the edge $(c_j,e_k)$}
 \end{itemize}
-This graph has a triangulation iff L(i,j) can be solved.
+This graph has a triangulation iff $L(i,j)$ can be solved.
 
 Let us show every uniform tripartite graph is the above formulation of a Latin square.
 
-Defn: A Latin framework LF for tripartite graph G, size (r,s,t) is a r by s array with values [1,...,t]. With constraints:
+\begin{wrapfigure}{r}{4cm}
+\begin{tikzpicture}
+\begin{scope}
+    \draw (0, 0) grid (3, 3);
+
+    \setcounter{rowa}{1}
+
+    \setrowa {1}{ }{ }
+    \setrowa {2}{3}{} 
+    \setrowa { }{ }{ } 
+
+    \node[anchor=center] at (1.5, -0.5) {L(i,j)};
+
+  \end{scope}
+\end{tikzpicture}
+\end{wrapfigure}
+
+\textbf{Def$^{\text{n}}$:} A Latin framework $LF$ for tripartite graph $G$, size $(r,s,t)$ is a $r \times s$ array with values $[1,...,t]$. With constraints:
 \begin{itemize}
 \item{Each row/column contain each element only once.}
 \item{If $(r_i,c_j)\in E$ then LF(i,j)=empty else LF(i,j)= k $k\in [1,...,t]$}
 \item{If $(r_i,e_k)\in E$  then for constant i $LF(i,j)\neq k$}
 \item{If $(c_i,e_k)\in E$  then for constant j $LF(i,j)\neq k$}
 \end{itemize}
-If r=s=t then LF is a latin square which can be completed iff G has a triangle partition.
+If $r=s=t$ then $LF$ is a latin square which can be completed iff $G$ has a triangle partition.
 
-Lemma: For graph G=(V,E) with |V|=n, there's a Latin framework of size (n,n,2n).
+\textbf{Lemma:} For graph $G=(V,E)$ with $|V|=n$, there's a Latin framework of size $(n,n,2n)$.
 
-Define LF an n by n array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)mod n)$. LF is a latin framework. $\square$
+Define $LF$ an $n \times n$ array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)\text{mod }n)$.$ LF$ is a latin framework. 
 
-Lemma: Latin framework L  (r,s,t) for uniform tripartite graph G. R(k) = the number of times k appears in L plus half $|e_k|$. Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to (r,s+1,t) to give L' in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$.
-Lemma: Latin framework of size (r,s,s) can be extended to a Latin framework size (s,s,s).
+\textbf{Lemma:} Latin framework $L$  $(r,s,t)$ for uniform tripartite graph $G$. $R(k) =$ the number of times $k$ appears in $L$ plus half $|e_k|$. Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to $(r,s+1,t)$ to give $L'$ in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$.
 
-Given a tripartite graph G, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
+\textbf{Lemma:} Latin framework of size $(r,s,s)$ can be extended to a Latin framework size $(s,s,s)$.
+
+Given a tripartite graph $G$, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size $(2n,2n,2n)$ in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
+
   \end{block}
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
   \begin{block}{Triangulated Tripartite Graph $\leq_p$ 3 SAT}
+
+Consider the graph $H_{3,p}$ defined as $V=\{(x_1,x_2,x_3)\in \mathbb{Z}^3|x_1+x_2+x_3=0(\text{mod }p )\}$, $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ are adjacent if there exists distinct $i,j,k$ such that $x_i=y_i (\text{mod }p )$, $x_j=y_j+1 (\text{mod }p )$ and $x_k=y_k-1 (\text{mod }p )$.
+
+Observe $H_{3,p}$ is a tripartite graph iff $p=0 (\text{mod }3)$.
+
+$H_{3,p}$ is constructed such that there exists only two triangulations termed a true and a false triangulation. We glue graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, such that the vertices sets are the same size.
+
+Define A-patch and B-patch.
+
+\textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$
+
+\textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then removing the centre triangles from both graphs we get triangulations $(T,F)$ or $(F,T)$.
+
+\textbf{Lemma:} Connecting $x$ $H_{3,p}$ by $x$ A-patches then removing the centre triangles from all graphs we get triangulations $\in \{(a_1,...,a_x)| a_i=F\text{ and } \forall j\neq i\text{ } a_j=T \}$.
+
+Using the above lemmas we can change a 3SAT boolean expression into a tripartite graoh that has a triangulation iff the boolean expression is satisfiable.
+
+For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$. For all $c_j\in C$, for each literal $l_{i,j}$ $i\in [1,2,3]$  create $H_{3,p}$ called $G_{i,j}$. For $b_i \in B$ connect an A-patch to each $G_{i,j}$ such that $l_{i,j}=b_i$ and a B-patch to $G_{i,j}$ such that $l_{i,j}=\neg b_i$. For each $c_i\in C$ connect an A-patch from $G_{1,i}$, $G_{2,i}$ and $G_{3,i}$ then delete the centre triangle. Select p large enough to prevent patche overlap. $G = \{G_{b_i} \forall b_i \in B\}\cup\{G_{i,j} \forall c_j\in C\text{ and }l_{i,j}\in c_j \}$
+
+If a triangulation $T$ of $G$ exists then:...
+
+
+
+
+
+
+
+
+
+
 
   \end{block}
   \begin{block}{3 SAT $\leq_p$  SAT}
 
-Given a truth assignment $t$ check each clause is satisfied, if all are satisfied return True else False, this algorithm is at most the length of $C$ multiplied by the length of $B$. $O(BC)$ is polynomial, a polynomial verifier exists. 
-
-Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form (every clause set can be converted to an equivalent set in CNF form \cite{CNF}) such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2 \lor ... \lor b_n$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3. 
+Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2 \lor ... \lor b_n$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3. 
 
 For $c = b_1 \lor b_2 \lor ... \lor b_n$ we introduce a new literal: $a_1$ to give $b_1 \lor b_2 \lor a_1$, $\bar{b_1} \lor a_1$, $\bar{b_2} \lor a_1$ and $a_1 \lor b_3 \lor ... \lor b_n$. Then $a_1 \lor b_3 \lor ... \lor b_n$ becomes $b_3 \lor b_4 \lor a_2$, $\bar{b_3} \lor a_2$, $\bar{b_4} \lor a_2$ and $a_1 \lor a_2 \lor b_5 \lor ... \lor b_n$. This continues at most $n/2$ times to give $a_1 \lor ... \lor a_{n/2}$ or $a_1 \lor ... \lor a_{n/2} \lor b_n$ if n is odd. 
 
@@ -279,17 +358,21 @@ Because we can convert a clause larger than 3 into multiple clauses of at most 3
 As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete. $\square$
 
   \end{block}
-\end{column}
-
-\separatorcolumn
-
-\begin{column}{\colwidth}
   \begin{exampleblock}{Stochastic Methods}
+
+
+
+
+
+
+
+
+
+
+
+
+
   \end{exampleblock}
-
-  \begin{block}{}
-  \end{block}
-
   \begin{block}{References}
     \nocite{*}
     \footnotesize{\bibliographystyle{plain}\bibliography{poster}}

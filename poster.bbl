@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{article1}
+Elineo Hoexum.
+\newblock Revisiting the proof of the complexity of the sudoku puzzle.
+\newblock 2020.
+
+\bibitem{doi:10.1137/0210054}
+Ian Holyer.
+\newblock The np-completeness of some edge-partition problems.
+\newblock {\em SIAM Journal on Computing}, 10(4):713--717, 1981.
+
+\bibitem{article}
+Takayuki YATO and Takahiro SETA.
+\newblock Complexity and completeness of finding another solution and its
+  application to puzzles.
+\newblock {\em IEICE Transactions on Fundamentals of Electronics,
+  Communications and Computer Sciences}, E86-A, 05 2003.
+
+\end{thebibliography}
