@@ -98,15 +98,15 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Computational Complexity}
+  \begin{exampleblock}{Computational Complexity}
 
 Sudoku is a common puzzle with simple rules however when solving, one often requires complex reasoning skills and an element of guess work. This puzzle is hard, even for computers to solve. We judge difficulty on the time taken for an algorithm to solve a puzzle in relation to it's input, we can quantify this using big o notation.
 
 \textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm $\Phi$ and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)\forall x\geq x_0$.
 
-\textbf{Def$^\text{n}$:} Reduction
+\textbf{Def$^\text{n}$:} A \textbf{Reduction} is a way to transform a problem into another problem. $A \leq_p B$ indicates a transformation that can be done in polynomial time $O(x^c)$ from problem $A$ to $B$.
 
-\textbf{Def$^\text{n}$:} Turing Machine
+\textbf{Def$^\text{n}$:} A \textbf{Turing Machine} is the mathematical model of a CPU  , the nondeterministic version of this gives multiple steps that could be taken and all possibilities are explored.
 
 A puzzle is $O(g(x))$ means $f(x)=O(g(x))$ this can be considered an abuse of notation.
 
@@ -119,7 +119,7 @@ Problems in P are considered feasible and those in NP are considered infeasible 
 
 To show sudoku is hard we must show it belongs to NP-complete, in order to do this we can reduce a known NP-complete problem to sudoku (in our case SAT) in polynomial time. It is important to get the reduction the correct way around. \textbf{Let us outline the proof:} Assume we have an algorithm $\Phi$ solving sudoku in polynomial time then if there exists a reduction from SAT to sudoku in polynomial time $\Gamma$ then given SAT problem $x$, $\Phi(\Gamma(x))$ will give a solution to SAT in polynomial time which given the Cook-Levin theorem is a contradiction. Therefore a polynomial time algorithm does not exist for sudoku.
 
-  \end{block}
+  \end{exampleblock}
   \begin{block}{Reduction}
 
    \textbf{Sudoku $\leq_p$ Latin Square $\leq_p$ Triangulate a Tripartite Graph $\leq_p$ 3-SAT $\leq_p$ SAT}
@@ -145,12 +145,7 @@ It is complete or solved if for all $i,j \in \{1,...,D\}$, $L(i,j) \neq 0$.
 \textbf{Def$^\text{n}$:} A \textbf{boolean expression} is a formula made of variables $\in B$ and operations (conjunction $\land$, disjunction $\lor$, not $\neg$).A literal is $b\in B$ or $\neg b$. A clause $c\in C$ is a disjunction of literals, $b_1 \lor b_2 \lor ... b_i$. For this to be in conjugate normal form the formula must be a conjunction of clauses. A boolean expression is satisfiable if a truth assignment to all members of $B$ exists such that the expression evaluates to true. 
 
 \textbf{Def$^\text{n}$:}  \textbf{SAT} is the decision problem determining whether a boolean expression is satisfiable or not. \textbf{3-SAT} is an enforced limitation of SAT such that each clause is made up of 3 literals. 
-
-
   \end{block}
-  \begin{alertblock}{Cook Levin Theorem}
-SAT is NP-complete.
-  \end{alertblock}
 \end{column}
 
 \separatorcolumn
@@ -167,101 +162,64 @@ SAT is NP-complete.
 \end{equation}
 where $S_l=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod }n)=1\}$. Then there exists an augmentation $S'$ to complete the sudoku puzzle if and only if the square $L$ such that $L(i,j/n)=(S'(i,j)-1)/n+1$ for all $(i,j) \in S_l$ is a Latin square.
 
+\begin{wrapfigure}{l}{12.8cm}
 \begin{tikzpicture}[scale=.5]
-
-  \begin{scope}
+\begin{scope}[xshift=4cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowa}{1}
+    \setrowa {1}{}{}
+    \setrowa {2}{3}{} 
+    \setrowa {}{}{} 
+    \node[anchor=center] at (1.5, -0.5) {$L$};
+  \end{scope}
+  \begin{scope}[xshift=8cm]
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
-
     \setcounter{row}{1}
-    \setrow {1}{2}{3}  {4}{5}{6}  {7}{8}{9}
-    \setrow {4}{5}{6}  {7}{8}{9}  {1}{2}{3}
-    \setrow {7}{8}{9}  {1}{2}{3}  {4}{5}{6}
-
+    \setrow {0}{2}{3}  {0}{5}{6}  {0}{8}{9}
+    \setrow {0}{5}{6}  {0}{8}{9}  {0}{2}{3}
+    \setrow {0}{8}{9}  {0}{2}{3}  {0}{5}{6}
     \setrow {2}{3}{4}  {5}{6}{7}  {8}{9}{1}
     \setrow {5}{6}{7}  {8}{9}{1}  {2}{3}{4}
     \setrow {8}{9}{1}  {2}{3}{4}  {5}{6}{7}
-
     \setrow {3}{4}{5}  {6}{7}{8}  {9}{1}{2}
     \setrow {6}{7}{8}  {9}{1}{2}  {3}{4}{5}
     \setrow {9}{1}{2}  {3}{4}{5}  {6}{7}{8}
-
-    \node[anchor=center] at (4.5, -0.5) {S(i,j), n=3, blanks removed};
+    \node[anchor=center] at (4.5, -0.5) {Lemma construction of $S$};
   \end{scope}
-
- \begin{scope}[blue, font=\sffamily\slshape]
-      \setcounter{row}{1}
-      \setrow {1}{ }{}  {4}{}{ }  {7}{ }{}
-      \setrow {4}{}{}  {7}{}{ }  {1}{}{ }
-      \setrow {7}{ }{}  {1}{ }{}  {4}{ }{}
-
-      \setrow {}{}{ }  {}{}{}  { }{}{}
-      \setrow { }{ }{}  {}{}{}  {}{ }{ }
-      \setrow {}{}{ }  {}{}{}  { }{}{}
-
-      \setrow {}{ }{}  {}{ }{}  {}{ }{}
-      \setrow { }{}{}  { }{}{ }  {}{}{ }
-      \setrow {}{ }{}  { }{}{ }  {}{ }{}
-    \end{scope}
-
-  \begin{scope}[xshift=12cm]
+  \begin{scope}[xshift=18.5cm]
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
-
     \setcounter{row}{1}
-
-    \setrow { }{2}{3}  { }{5}{6}  { }{8}{9}
-    \setrow { }{5}{6}  { }{8}{9}  { }{2}{3}
-    \setrow { }{8}{9}  { }{2}{3}  { }{5}{6}
-
+    \setrow {1}{2}{3}  {0}{5}{6}  {0}{8}{9}
+    \setrow {4}{5}{6}  {7}{8}{9}  {0}{2}{3}
+    \setrow {0}{8}{9}  {0}{2}{3}  {0}{5}{6}
     \setrow {2}{3}{4}  {5}{6}{7}  {8}{9}{1}
     \setrow {5}{6}{7}  {8}{9}{1}  {2}{3}{4}
     \setrow {8}{9}{1}  {2}{3}{4}  {5}{6}{7}
-
     \setrow {3}{4}{5}  {6}{7}{8}  {9}{1}{2}
     \setrow {6}{7}{8}  {9}{1}{2}  {3}{4}{5}
     \setrow {9}{1}{2}  {3}{4}{5}  {6}{7}{8}
-
-    \node[anchor=center] at (4.5, -0.5) {S(i,j)};
-
-  \end{scope}
-\begin{scope}[xshift=24cm]
-    \draw (0, 0) grid (3, 3);
-
-    \setcounter{rowa}{1}
-
-    \setrowa {1}{4}{7}
-    \setrowa {4}{7}{1} 
-    \setrowa {7}{1}{4} 
-
-    \node[anchor=center] at (1.5, -0.5) {$S_l(i,j)$};
-
-  \end{scope}
-\begin{scope}[xshift=30cm]
-    \draw (0, 0) grid (3, 3);
-
-    \setcounter{rowa}{1}
-
-    \setrowa {1}{2}{3}
-    \setrowa {2}{3}{1} 
-    \setrowa {3}{1}{2} 
-
-    \node[anchor=center] at (1.5, -0.5) {L(i,j)};
-
+    \node[anchor=center] at (4.5, -0.5) {$S$ augmented};
   \end{scope}
 \end{tikzpicture}
+\end{wrapfigure}
+
+Given partial Latin Square $L$, construct $S$ as above and augment so $\forall (i,j)$ such that $L(i,j)\neq0$ $S(i,n(j-1)+1)= n(L(i,j)-1)+1$. $S$ after the augmentation can be solved if and only if $L$ can be solved. $\square$
 
   \end{block}
+
+
   \begin{block}{Latin Square $\leq_p$ Triangulated Tripartite Graph}
 
-\begin{wrapfigure}{r}{5cm}
-\begin{figure}
+\begin{wrapfigure}{r}{4cm}
 		\includegraphics[width=50mm]{ttg.png}
-\end{figure}
+		\caption{Tripartite Graph equivalent to partial $L$}
 \end{wrapfigure}
 
 Observe completing a partial Latin square is equivalent to triangulating tripartite graph, we map the Latin square to this through the following: 
 given tripartite graph $G=(V,E)$ label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
+
 \begin{itemize}
 \item{If $L(i,j) = 0$ then add the edge $(r_i,c_j)$ }
 \item{If for all $i \in [0,...,n]$ and constant j, $L(i,j) \neq k$ then add the edge $(r_i,e_k)$}
@@ -271,27 +229,10 @@ This graph has a triangulation iff $L(i,j)$ can be solved.
 
 Let us show every uniform tripartite graph is the above formulation of a Latin square.
 
-\begin{wrapfigure}{r}{4cm}
-\begin{tikzpicture}
-\begin{scope}
-    \draw (0, 0) grid (3, 3);
-
-    \setcounter{rowa}{1}
-
-    \setrowa {1}{ }{ }
-    \setrowa {2}{3}{} 
-    \setrowa { }{ }{ } 
-
-    \node[anchor=center] at (1.5, -0.5) {L(i,j)};
-
-  \end{scope}
-\end{tikzpicture}
-\end{wrapfigure}
-
 \textbf{Def$^{\text{n}}$:} A Latin framework $LF$ for tripartite graph $G$, size $(r,s,t)$ is a $r \times s$ array with values $[1,...,t]$. With constraints:
 \begin{itemize}
 \item{Each row/column contain each element only once.}
-\item{If $(r_i,c_j)\in E$ then LF(i,j)=empty else LF(i,j)= k $k\in [1,...,t]$}
+\item{If $(r_i,c_j)\in E$ then $LF(i,j)=$empty else $LF(i,j)= k$ $k\in [1,...,t]$}
 \item{If $(r_i,e_k)\in E$  then for constant i $LF(i,j)\neq k$}
 \item{If $(c_i,e_k)\in E$  then for constant j $LF(i,j)\neq k$}
 \end{itemize}
@@ -308,7 +249,9 @@ Define $LF$ an $n \times n$ array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j
 Given a tripartite graph $G$, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size $(2n,2n,2n)$ in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
 
   \end{block}
-
+  \begin{alertblock}{Cook Levin Theorem}
+SAT is NP-complete.
+  \end{alertblock}
 \end{column}
 
 \separatorcolumn
@@ -316,13 +259,21 @@ Given a tripartite graph $G$, if it is not uniform then no triangulation exists,
 \begin{column}{\colwidth}
   \begin{block}{Triangulated Tripartite Graph $\leq_p$ 3 SAT}
 
-Consider the graph $H_{3,p}$ defined as $V=\{(x_1,x_2,x_3)\in \mathbb{Z}^3|x_1+x_2+x_3=0(\text{mod }p )\}$, $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ are adjacent if there exists distinct $i,j,k$ such that $x_i=y_i (\text{mod }p )$, $x_j=y_j+1 (\text{mod }p )$ and $x_k=y_k-1 (\text{mod }p )$.
+\begin{wrapfigure}{r}{6cm}
+		\includegraphics[width=70mm]{holyer_graph.png}
+		\caption{$H_{3,3}$, 3-colouring, true triangulation, false triangulation}
+\end{wrapfigure}
 
-Observe $H_{3,p}$ is a tripartite graph iff $p=0 (\text{mod }3)$.
+Consider the graph $H_{3,p}$ defined as $V=\{(x_1,x_2,x_3)\in \mathbb{Z}^3|x_1+x_2+x_3=0\text{ mod }p \}$, $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ are adjacent if there exists distinct $i,j,k$ such that $x_i=y_i \text{ mod }p $, $x_j=(y_j+1) \text{ mod }p $ and $x_k=(y_k-1) \text{ mod }p $.
 
-$H_{3,p}$ is constructed such that there exists only two triangulations termed a true and a false triangulation. We glue graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, such that the vertices sets are the same size.
+Observe $H_{3,p}$ is a tripartite graph iff $p=0 \text{ mod }3$.
 
-Define A-patch and B-patch.
+$H_{3,p}$ is constructed such that there exists only two triangulations termed a true and a false triangulation, we say $G=T$ if graph $G$ has a true triangulation and $G=F$ if it has a false triangulation. We glue graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, such that the vertices sets are the same size.
+
+\begin{wrapfigure}{r}{4.5cm}
+		\includegraphics[width=50mm]{patches.png}
+		\caption{A-patch, B-patch}
+\end{wrapfigure}
 
 \textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$
 
@@ -332,20 +283,17 @@ Define A-patch and B-patch.
 
 Using the above lemmas we can change a 3SAT boolean expression into a tripartite graoh that has a triangulation iff the boolean expression is satisfiable.
 
-For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$. For all $c_j\in C$, for each literal $l_{i,j}$ $i\in [1,2,3]$  create $H_{3,p}$ called $G_{i,j}$. For $b_i \in B$ connect an A-patch to each $G_{i,j}$ such that $l_{i,j}=b_i$ and a B-patch to $G_{i,j}$ such that $l_{i,j}=\neg b_i$. For each $c_i\in C$ connect an A-patch from $G_{1,i}$, $G_{2,i}$ and $G_{3,i}$ then delete the centre triangle. Select p large enough to prevent patche overlap. $G = \{G_{b_i} \forall b_i \in B\}\cup\{G_{i,j} \forall c_j\in C\text{ and }l_{i,j}\in c_j \}$
+For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$. For all $c_j\in C$, for each literal $l_{i,j}$ $i\in [1,2,3]$  create $H_{3,p}$ called $G_{i,j}$. For $b_i \in B$ connect an A-patch to each $G_{i,j}$ such that $l_{i,j}=b_i$ and a B-patch to $G_{i,j}$ such that $l_{i,j}=\neg b_i$. For each $c_i\in C$ connect an A-patch from $G_{1,i}$, $G_{2,i}$ and $G_{3,i}$ then delete the centre triangle. Select p large enough to prevent patch overlap. $G = \{G_{b_i} \forall b_i \in B\}\cup\{G_{i,j} \forall c_j\in C\text{ and }l_{i,j}\in c_j \}$
 
-If a triangulation $T$ of $G$ exists then:...
+If a triangulation $T$ of $G$ exists then: 
+\begin{itemize}
+\item $G_{b_i}$ has a true or false triangulation. 
+\item If $l_{i,j}=b_i$, $G_{i,j}= T$ when $G_{b_i}=F$ but when $G_{b_i}=T$ $G_{i,j}$ can be a true or false triangulation. 
+\item If $l_{i,j}=\neg b_i$, $G_{i,j}= T$ when $G_{b_i}=T$ but when $G_{b_i}=T$ $G_{i,j}$ can be a true or false triangulation. 
+\item Exactly one of $G_{i,1}, G_{i,2}$ or $G_{i,3}$ have a false triangualtion and the other have a true triangulations.
+\end{itemize}
 
-
-
-
-
-
-
-
-
-
-
+These statements come from the above lemmas and allow a 3SAT formula to be converted to the problem of triangulating a tripartite graph. Conversely if we can find a triangulation this will give us a truth assignment which can be determined from the $G_{b_i}$ portions of the graph. If $G_{b_i}$ is a true triangulation $b_i = T$ in our truth assignment. $\square$
   \end{block}
   \begin{block}{3 SAT $\leq_p$  SAT}
 
@@ -358,21 +306,7 @@ Because we can convert a clause larger than 3 into multiple clauses of at most 3
 As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete. $\square$
 
   \end{block}
-  \begin{exampleblock}{Stochastic Methods}
 
-
-
-
-
-
-
-
-
-
-
-
-
-  \end{exampleblock}
   \begin{block}{References}
     \nocite{*}
     \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
