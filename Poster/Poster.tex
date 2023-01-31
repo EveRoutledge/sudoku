@@ -44,15 +44,15 @@
 
 \author{Eve Routledge}
 
-%\institute[shortinst]{Durham University}
+\institute[shortinst]{Durham University}
 
 % ====================
 % Footer (optional)
 % ====================
 
 \footercontent{
-  \href{https://www.example.com}{https://www.example.com} \hfill
-  \href{mailto:alyssa.p.hacker@example.com}{eve.routledge@durham.ac.uk}}
+ \hfill
+  \href{}{eve.routledge@durham.ac.uk}}
 % (can be left out to remove footer)
 
 % ====================
@@ -113,7 +113,7 @@ We will transform sudoku to SAT in 4 steps:
 	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq 0$ and$ S(c,b)\neq 0$, then $S(a,b)\neq$ S(c,b) }
 	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $a\text{ mod }D = c\text{ mod }D$, $b\text{ mod }D  =  d\text{ mod }D$, $S(a,b)\neq 0$  and $S(c,d) \neq 0$, then $S(a,b)\neq S(a,c)$ }
 \end{itemize}
-It is completed if $x \in \{1,...,D\}$.
+It is completed if $x \in \{1,...,D^2\}$.
 
 
 \textbf{Def$^\text{n}$}: A valid \textbf{Latin Square} puzzle is a function $L:i,j \rightarrow x$ for values $i,j \in \{1,..,D\} $ and $x \in \{0,...,D\}$ satisfying the following:
@@ -135,7 +135,7 @@ For those with a mathematical mind, outraged by the lack of definitions of 'diff
 
 \textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$.
 
-\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \geq_p B$, is a transformation in $O(x^c)$ from problem $B$ to $A$.
+\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in $O(x^c)$ from problem $A$ to $B$.
 
 \textbf{Def$^\text{n}$:} A \textbf{Turing Machine} is the mathematical model of a CPU.
 
@@ -148,19 +148,20 @@ Problems in P are considered feasible and those in NP are infeasible as their co
 
 So when we state sudoku is hard we are actually saying sudoku belongs to NP.
 
-By outlining a reduction Sudoku$ \geq_p $SAT we show sudoku is NP-complete and therfore in NP. 
+By outlining a reduction SAT $ \leq_p $ Sudoku we show sudoku is NP-complete and therfore in NP. 
 
-\textbf{Intuition:} Assume we have an algorithm $\Phi$ solving sudoku in $O(x^{c_1})$ then if there exists a reduction algorithm $\Gamma$ of Sudoku$ \geq_p $SAT in $O(x^{c_2})$  then for a given SAT problem $x$, $\Phi(\Gamma(x))$ will give an algorithm solving SAT in $O(x^{c_1+c_2})$ which, given the Cook-Levin theorem, is a contradiction. 
+\textbf{Intuition:} Assume we have an algorithm $\Phi$ solving sudoku in $O(x^{c_1})$ then if there exists a reduction algorithm $\Gamma$ of SAT $ \leq_p $ Sudoku in $O(x^{c_2})$  then for a given SAT problem $x$, $\Phi(\Gamma(x))$ will give an algorithm solving SAT in $O(x^{c_1+c_2})$ which, given the Cook-Levin theorem, is a contradiction. 
 
   \end{block}
-  \begin{alertblock}{Cook Levin Theorem}
-SAT is NP-complete.
-  \end{alertblock}
+
 \end{column}
 
 \separatorcolumn
 
-\begin{column}{\colwidth}
+\begin{column}{\colwidth}  
+\begin{alertblock}{Cook Levin Theorem}
+SAT is hard.
+  \end{alertblock}
   \begin{block}{SAT $\leq_p$ 3 SAT}
 To begin we look at the bread and butter of complexity theory.
 
@@ -168,39 +169,47 @@ Given a SAT instance with the input sets of $B$ and $C$. For each $c \in C$ with
 
 For $c = b_1 \lor b_2 \lor ... \lor b_n$ we introduce a new literal: $a_1$ to give $b_1 \lor b_2 \lor a_1$, $\bar{b_1} \lor a_1$, $\bar{b_2} \lor a_1$ and $a_1 \lor b_3 \lor ... \lor b_n$. Then $a_1 \lor b_3 \lor ... \lor b_n$ becomes $b_3 \lor b_4 \lor a_2$, $\bar{b_3} \lor a_2$, $\bar{b_4} \lor a_2$ and $a_1 \lor a_2 \lor b_5 \lor ... \lor b_n$. This continues at most $n/2$ times to give $a_1 \lor ... \lor a_{n/2}$ or $a_1 \lor ... \lor a_{n/2} \lor b_n$ if n is odd. 
 
-Because we can convert a clause larger than 3 into multiple clauses of at most 3 literals in linear time ($O(n/2 + n/4 + ...) = O(n)$) this means we can reduce SAT to 3SAT in polynomial time. 
+Because we can convert a clause larger than 3 into multiple clauses of at most 3 literals in linear time ($O(n/2 + n/4 + ...) = O(n)$) this means we can reduce SAT to 3 SAT in polynomial time. 
 
-3SAT is NP-Complete. $\square$
+3SAT is hard. $\square$
 
   \end{block}
-  \begin{block}{Triangulated Tripartite Graph $\geq_p$ 3 SAT}
+  \begin{block}{3 SAT $\leq_p$ Triangulated Tripartite Graph \cite{doi:10.1137/0210054}}
 This reduction is a little trickier as we need to introduce the Holyer graph $H$ which dips a toe into topology as it is a torus.
 
 \begin{wrapfigure}{r}{7cm}
+		\vspace{-25pt}
 		\includegraphics[width=70mm]{holyer_graph.png}
-		\caption{$H_{3,3}$, 3-colouring, true triangulation, false triangulation}
+		\caption{$H_{3,3}$, false, true triangulation}
+		\vspace{-15pt}
 \end{wrapfigure}
 
-Consider the graph $H_{3,p}$ defined as $V=\{(x_1,x_2,x_3)\in \mathbb{Z}^3|x_1+x_2+x_3=0\text{ mod }p \}$, $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ are adjacent if there exists distinct $i,j,k$ such that $x_i=y_i \text{ mod }p $, $x_j=(y_j+1) \text{ mod }p $ and $x_k=(y_k-1) \text{ mod }p $.
+Consider the graph $H_{3,p}$ defined as $V=\{(x_1,x_2,x_3)\in \mathbb{Z}^3$ $|$ $x_1+x_2+x_3\equiv 0$ (mod $p)\}$, $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ are adjacent if there exists distinct $i,j,k$ such that $x_i\equiv y_i \text{ (mod }p)$, $x_j\equiv y_j+1 \text{ (mod }p)$ and $x_k\equiv y_k-1 \text{ (mod }p)$.
 
-Observe $H_{3,p}$ is a tripartite graph iff $p=0 \text{ mod }3$.
-
-$H_{3,p}$ has only two triangulations, termed a true and a false triangulation, we say $G=T$ if graph $G$ has a true triangulation and $G=F$ if it has a false triangulation. We glue graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, such that the vertices sets are the same size.
-
-\begin{wrapfigure}{r}{5cm}
-		\includegraphics[width=50mm]{patches.png}
-		\caption{A-patch, B-patch}
+\begin{wrapfigure}{r}{4cm}
+		\includegraphics[width=40mm]{patches.png}
+		\caption{A, B-patch}
+		\vspace{-20pt}
 \end{wrapfigure}
+
+Observe $H_{3,p}$ is a tripartite graph iff $p\equiv0 \text{ (mod }3)$, see the 3-colouring in Figure 1.
+
+$H_{3,p}$ has only two triangulations, termed a true and a false triangulation, we say $G=T$ if graph $G$ has a true triangulation and $G=F$ if it has a false triangulation. We connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
 
 \textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$
 
 \textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then removing the centre triangles from both graphs we get triangulations $(T,F)$ or $(F,T)$.
 
-\textbf{Lemma:} Connecting $x$ $H_{3,p}$ by $x$ A-patches then removing the centre triangles from all graphs we get triangulations $\in \{(a_1,...,a_x)| a_i=F\text{ and } \forall j\neq i\text{ } a_j=T \}$.
+\textbf{Lemma:} Connecting $x$ $H_{3,p}$ by $x$ A-patches then removing the centre triangles from all graphs we get only one false triangulation.
 
-Using the above lemmas we can change a 3SAT boolean expression into a tripartite graoh that has a triangulation iff the boolean expression is satisfiable.
-
-For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$. For all $c_j\in C$, for each literal $l_{i,j}$ $i\in [1,2,3]$  create $H_{3,p}$ called $G_{i,j}$. For $b_i \in B$ connect an A-patch to each $G_{i,j}$ such that $l_{i,j}=b_i$ and a B-patch to $G_{i,j}$ such that $l_{i,j}=\neg b_i$. For each $c_i\in C$ connect an A-patch from $G_{1,i}$, $G_{2,i}$ and $G_{3,i}$ then delete the centre triangle. Select p large enough to prevent patch overlap. $G = \{G_{b_i} \forall b_i \in B\}\cup\{G_{i,j} \forall c_j\in C\text{ and }l_{i,j}\in c_j \}$
+Transformation process: (select p large enough to prevent patch overlap)
+\begin{itemize}
+\item For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$.
+\item For all $c_j\in C$, for each literal $l_{i,j}$ $i\in [1,2,3]$ create $H_{3,p}$ called $G_{i,j}$.
+\item For $b_i \in B$ connect an A-patch to each $G_{i,j}$ when $l_{i,j}=b_i$ or a B-patch to $G_{i,j}$ when $l_{i,j}=\neg b_i$. 
+\item For each $c_i\in C$ connect an A-patch from $G_{1,i}$, $G_{2,i}$ and $G_{3,i}$ then delete the centre triangle. 
+\item $G = \{G_{b_i}$ $|$ $b_i \in B\}\cup\{G_{i,j}$ $|$ $ c_j\in C\text{ and }l_{i,j}\in c_j \}$
+\end{itemize}
 
 If a triangulation $T$ of $G$ exists then: 
 \begin{itemize}
@@ -210,72 +219,74 @@ If a triangulation $T$ of $G$ exists then:
 \item Exactly one of $G_{i,1}, G_{i,2}$ or $G_{i,3}$ have a false triangualtion and the other have a true triangulations.
 \end{itemize}
 
-These statements come from the above lemmas and allow a 3SAT formula to be converted to the problem of triangulating a tripartite graph. Conversely if we can find a triangulation this will give us a truth assignment which can be determined from the $G_{b_i}$ portions of the graph. If $G_{b_i}$ is a true triangulation $b_i = T$ in our truth assignment. $\square$
+These statements come from the above lemmas and allow a 3SAT formula to be converted to the problem of triangulating a tripartite graph. Conversely if we can find a triangulation this will give us a truth assignment which can be determined from the $G_{b_i}$ portions of the graph. If $G_{b_i}$ is a true triangulation $b_i = T$ in our truth assignment. 
+
+Triangulating a Tripartite Graph is hard. $\square$
   \end{block}
 
-
-  \begin{block}{References}
-    \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
-  \end{block}
 \end{column}
 
 \separatorcolumn
 \begin{column}{\colwidth}
  
-  \begin{block}{Latin Square $\geq_p$ Triangulated Tripartite Graph}
+  \begin{block}{Triangulated Tripartite Graph $\leq_p$ Latin Square \cite{COLBOURN198425}}
+
+We map a Latin square to a graph through the following: given tripartite graph $G=(V,E)$ label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
 
 \begin{wrapfigure}{r}{5cm}
+		\vspace{-100pt}
 		\includegraphics[width=50mm]{ttg.png}
-		\caption{Tripartite Graph equivalent to partial $L$}
+		\caption{Graph Equivalent to $L$}
+		\vspace{-30pt}
 \end{wrapfigure}
-
-Observe completing a partial Latin square is equivalent to triangulating tripartite graph, we map the Latin square to this through the following: 
-given tripartite graph $G=(V,E)$ label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
 
 \begin{itemize}
 \item{If $L(i,j) = 0$ then add the edge $(r_i,c_j)$ }
-\item{If for all $i \in [0,...,n]$ and constant j, $L(i,j) \neq k$ then add the edge $(r_i,e_k)$}
-\item{If for all $j \in [0,...,n]$ and constant i, $L(i,j) \neq k$ then add the edge $(c_j,e_k)$}
+\item{If $\forall$ and constant j, $L(i,j) \neq k$ then add the edge $(r_i,e_k)$}
+\item{If $\forall$ and constant i, $L(i,j) \neq k$ then add the edge $(c_j,e_k)$}
 \end{itemize}
-This graph has a triangulation iff $L(i,j)$ can be solved.
+This graph has a triangulation if and only if $L(i,j)$ can be solved.
 
 Let us show every uniform tripartite graph is the above formulation of a Latin square.
 
-\textbf{Def$^{\text{n}}$:} A Latin framework $LF$ for tripartite graph $G$, size $(r,s,t)$ is a $r \times s$ array with values $[1,...,t]$. With constraints:
+\textbf{Def$^{\text{n}}$:} A Latin framework $LF$ for tripartite graph $G=(V,E)$, size $(r,s,t)$ is a $r \times s$ array with values $[1,...,t]$. With constraints:
 \begin{itemize}
 \item{Each row/column contain each element only once.}
-\item{If $(r_i,c_j)\in E$ then $LF(i,j)=$empty else $LF(i,j)= k$ $k\in [1,...,t]$}
-\item{If $(r_i,e_k)\in E$  then for constant i $LF(i,j)\neq k$}
-\item{If $(c_i,e_k)\in E$  then for constant j $LF(i,j)\neq k$}
+\item{If $(r_i,c_j)\in E$ then $LF(i,j)=0$ else $LF(i,j)= k$ where $k\in [1,...,t]$}
+\item{If $(r_i,e_k)\in E$  then for constant $i$, $LF(i,j)\neq k$}
+\item{If $(c_i,e_k)\in E$  then for constant $j$, $LF(i,j)\neq k$}
 \end{itemize}
 If $r=s=t$ then $LF$ is a latin square which can be completed iff $G$ has a triangle partition.
 
-\textbf{Lemma:} For graph $G=(V,E)$ with $|V|=n$, there's a Latin framework of size $(n,n,2n)$.
+\textbf{Lemma:} For graph $G=(V,E)$ with $|V|=n$, construct $LF$ such that for $(r_i,c_j)\in E$, $LF(i,j)=0$ and for $(r_i,c_j)\not\in E$, $LF(i,j)=1+n+((i+j)\text{mod }n)$. $ LF$ is a latin framework of size $(n,n,2n)$. 
 
-Define $LF$ an $n \times n$ array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)\text{mod }n)$.$ LF$ is a latin framework. 
-
-\textbf{Lemma:} Latin framework $L$  $(r,s,t)$ for uniform tripartite graph $G$. $R(k) =$ the number of times $k$ appears in $L$ plus half $|e_k|$. Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to $(r,s+1,t)$ to give $L'$ in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$.
+\textbf{Lemma:} Latin framework $L$  $(r,s,t)$ for uniform tripartite graph $G$. $R(k)$ is the number of times $k$ appears in $L$ plus half $|e_k|$. Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to $(r,s+1,t)$ to give $L'$ in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$.
 
 \textbf{Lemma:} Latin framework of size $(r,s,s)$ can be extended to a Latin framework size $(s,s,s)$.
 
-Given a tripartite graph $G$, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size $(2n,2n,2n)$ in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
+Given a tripartite graph $G$, if it is not uniform then no triangulation exists, else we apply the above lemmas to produce a latin framework of size $(2n,2n,2n)$ in polynomial time. This is a Latin square which can be completed if and only if G has a triangulation. 
+
+Latin Square is hard. $\square$
 
   \end{block}
-\begin{block}{Sudoku $\geq_p$ Latin Square}
+\begin{block}{ Latin Square $\leq_p$ Sudoku \cite{article}}
+
+Finally we reach our star puzzle.
 
 \textbf{Lemma:} Let $S$ be a Sudoku problem with the following construction 
 \begin{equation}
 	S(i,j) =\begin{cases}
-0 \qquad\qquad\qquad\qquad\qquad\qquad\text{when } (i,j) \in S_l \\ 
+0 \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad\qquad\qquad\text{   when  } (i,j) \in S_l \\ 
 ((i-1 \text{ mod } n)n + \left\lfloor{i-1/n}\right\rfloor+j-1)\text{ mod } n^2 +1 \quad\text{otherwise}
 \end{cases}
 \end{equation}
 where $S_l=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod }n)=1\}$. Then there exists an augmentation $S'$ to complete the sudoku puzzle if and only if the square $L$ such that $L(i,j/n)=(S'(i,j)-1)/n+1$ for all $(i,j) \in S_l$ is a Latin square.
 
-\begin{wrapfigure}{l}{12.8cm}
+\begin{wrapfigure}{r}{12cm}
+\vspace{-28pt}
+\hspace{5pt}
 \begin{tikzpicture}[scale=.5]
-\begin{scope}[xshift=4cm]
+\begin{scope}[xshift=6cm]
     \draw (0, 0) grid (3, 3);
     \setcounter{rowa}{1}
     \setrowa {1}{}{}
@@ -283,7 +294,7 @@ where $S_l=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod
     \setrowa {}{}{} 
     \node[anchor=center] at (1.5, -0.5) {$L$};
   \end{scope}
-  \begin{scope}[xshift=8cm]
+  \begin{scope}[xshift=10cm]
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
     \setcounter{row}{1}
@@ -298,7 +309,7 @@ where $S_l=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod
     \setrow {9}{1}{2}  {3}{4}{5}  {6}{7}{8}
     \node[anchor=center] at (4.5, -0.5) {Lemma construction of $S$};
   \end{scope}
-  \begin{scope}[xshift=18.5cm]
+  \begin{scope}[xshift=20cm]
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
     \setcounter{row}{1}
@@ -314,10 +325,19 @@ where $S_l=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod
     \node[anchor=center] at (4.5, -0.5) {$S$ augmented};
   \end{scope}
 \end{tikzpicture}
+\vspace{-20pt}
 \end{wrapfigure}
 
-Given partial Latin Square $L$, construct $S$ as above and augment so $\forall (i,j)$ such that $L(i,j)\neq0$ $S(i,n(j-1)+1)= n(L(i,j)-1)+1$. $S$ after the augmentation can be solved if and only if $L$ can be solved. $\square$
+Given partial Latin Square $L$, construct $S$ as above and augment so $\forall (i,j)$ such that $L(i,j)\neq0$ $S(i,n(j-1)+1)= n(L(i,j)-1)+1$. $S$ after the augmentation can be solved if and only if $L$ can be solved. 
 
+Sudoku is hard. $\square$
+
+  \end{block}
+
+
+  \begin{block}{References}
+    \nocite{*}
+    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
   \end{block}
 \end{column}
 

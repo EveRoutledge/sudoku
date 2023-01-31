@@ -5,46 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 Database file #1: poster.bib
-Warning--empty journal in article1
 You've used 3 entries,
             2118 wiz_defined-function locations,
-            512 strings with 4381 characters,
-and the built_in function-call counts, 758 in all, are:
-= -- 72
+            516 strings with 4431 characters,
+and the built_in function-call counts, 826 in all, are:
+= -- 80
 > -- 27
 < -- 0
-+ -- 12
++ -- 13
 - -- 8
-* -- 46
-:= -- 141
+* -- 57
+:= -- 149
 add.period$ -- 9
 call.type$ -- 3
 change.case$ -- 13
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 31
-empty$ -- 62
+cite$ -- 3
+duplicate$ -- 32
+empty$ -- 70
 format.name$ -- 8
-if$ -- 151
+if$ -- 168
 int.to.chr$ -- 0
 int.to.str$ -- 3
 missing$ -- 3
 newline$ -- 18
 num.names$ -- 6
-pop$ -- 11
+pop$ -- 7
 preamble$ -- 1
 purify$ -- 10
 quote$ -- 0
 skip$ -- 23
 stack$ -- 0
-substring$ -- 37
-swap$ -- 2
+substring$ -- 53
+swap$ -- 3
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 12
-warning$ -- 1
-while$ -- 7
+warning$ -- 0
+while$ -- 8
 width$ -- 4
-write$ -- 33
-(There was 1 warning)
+write$ -- 35

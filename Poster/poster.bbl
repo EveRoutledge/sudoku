@@ -1,9 +1,9 @@
 \begin{thebibliography}{1}
 
-\bibitem{article1}
-Elineo Hoexum.
-\newblock Revisiting the proof of the complexity of the sudoku puzzle.
-\newblock 2020.
+\bibitem{COLBOURN198425}
+Charles~J. Colbourn.
+\newblock The complexity of completing partial latin squares.
+\newblock {\em Discrete Applied Mathematics}, 8(1):25--30, 1984.
 
 \bibitem{doi:10.1137/0210054}
 Ian Holyer.

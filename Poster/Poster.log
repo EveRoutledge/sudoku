@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.12) (format=lualatex 2023.1.24)  31 JAN 2023 17:43
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.12) (format=lualatex 2023.1.24)  31 JAN 2023 21:49
  restricted system commands enabled.
 **Poster.tex
 (./Poster.tex
@@ -1488,6 +1488,9 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.18} (current compat level: 1.14).
 
 (./Poster.nav)
+
+Package hyperref Warning: Suppressing link with empty target on input line 93.
+
 File: DurhamUniversityLogo_WHITE.png Graphic file (type png)
 <use DurhamUniversityLogo_WHITE.png>
 Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 93.
@@ -1495,7 +1498,6 @@ Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 93.
 (luatex.def)             Requested size: 144.7632pt x 85.35826pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
 3.
-
 (C:/Users/Eve/AppData/Local/Programs/MiKTeX/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1515,84 +1517,78 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <6> on input line 93.
 LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <5> on input line 93.
-LaTeX Font Info:    Calculating math sizes for size <12.44> on input line 327.
+LaTeX Font Info:    Calculating math sizes for size <12.44> on input line 347.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6.22> on input line 327.
-LaTeX Font Info:    Calculating math sizes for size <14.93> on input line 327.
+(Font)              <6.22> on input line 347.
+LaTeX Font Info:    Calculating math sizes for size <14.93> on input line 347.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.465> on input line 327.
-<holyer_graph.png, id=15, 485.304pt x 231.702pt>
+(Font)              <7.465> on input line 347.
+<holyer_graph.png, id=14, 485.304pt x 231.702pt>
 File: holyer_graph.png Graphic file (type png)
 <use holyer_graph.png>
-Package luatex.def Info: holyer_graph.png  used on input line 327.
+Package luatex.def Info: holyer_graph.png  used on input line 347.
 (luatex.def)             Requested size: 199.16928pt x 95.09035pt.
-LaTeX Font Info:    Calculating math sizes for size <10.37> on input line 327.
+LaTeX Font Info:    Calculating math sizes for size <10.37> on input line 347.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.25896> on input line 327.
+(Font)              <7.25896> on input line 347.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.185> on input line 327.
-<patches.png, id=16, 557.793pt x 254.04pt>
+(Font)              <5.185> on input line 347.
+
+
+Package wrapfig Warning: Collision between wrapping environments on input line 
+347.
+
+<patches.png, id=15, 557.793pt x 254.04pt>
 File: patches.png Graphic file (type png)
 <use patches.png>
-Package luatex.def Info: patches.png  used on input line 327.
-(luatex.def)             Requested size: 142.26378pt x 64.79291pt.
+Package luatex.def Info: patches.png  used on input line 347.
+(luatex.def)             Requested size: 113.81102pt x 51.83044pt.
 
-(./Poster.bbl)
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+7.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+7.
+
 <ttg.png, id=17, 475.7775pt x 398.23781pt>
 File: ttg.png Graphic file (type png)
 <use ttg.png>
-Package luatex.def Info: ttg.png  used on input line 327.
+Package luatex.def Info: ttg.png  used on input line 347.
 (luatex.def)             Requested size: 142.26378pt x 119.07727pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
-[][]\TU/Lato(1)/m/n/12.44 Given par-tial Latin
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+7.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+7.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+7.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+7.
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 347--347
+\TU/Lato(1)/m/n/12.44 con-struct $\OML/lmm/m/it/12.44 S$ \TU/Lato(1)/m/n/12.44 
+as above and
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
-\TU/Lato(1)/m/n/12.44 Square $\OML/lmm/m/it/12.44 L$\TU/Lato(1)/m/n/12.44 , con-
-struct
- []
-
-
-Underfull \hbox (badness 4492) in paragraph at lines 327--327
-\OML/lmm/m/it/12.44 S$ \TU/Lato(1)/m/n/12.44 as above and aug-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
-\TU/Lato(1)/m/n/12.44 ment so $\OMS/lmsy/m/n/12.44 8\OT1/lmr/m/n/12.44 (\OML/lm
-m/m/it/12.44 i; j\OT1/lmr/m/n/12.44 )$ \TU/Lato(1)/m/n/12.44 such
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
-\TU/Lato(1)/m/n/12.44 that $\OML/lmm/m/it/12.44 L\OT1/lmr/m/n/12.44 (\OML/lmm/m
-/it/12.44 i; j\OT1/lmr/m/n/12.44 ) \OMS/lmsy/m/n/12.44 6\OT1/lmr/m/n/12.44 = 0$
-
- []
-
-
-Underfull \hbox (badness 2932) in paragraph at lines 327--327
-\OML/lmm/m/it/12.44 S\OT1/lmr/m/n/12.44 (\OML/lmm/m/it/12.44 i; n\OT1/lmr/m/n/1
-2.44 (\OML/lmm/m/it/12.44 j \OMS/lmsy/m/n/12.44 ^^@ \OT1/lmr/m/n/12.44 1) + 1) 
-=
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
-\TU/Lato(1)/m/n/12.44 the aug-men-ta-tion can
- []
-
-
-Overfull \vbox (47.16832pt too high) detected at line 327
- []
-
+(./Poster.bbl)
 File: DurhamUniversityLogo_WHITE.png Graphic file (type png)
 <use DurhamUniversityLogo_WHITE.png>
-Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 327
+Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 347
 .
 (luatex.def)             Requested size: 144.7632pt x 85.35826pt.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 347.
+
+
 [1{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 <./DurhamUniversityLogo_WHITE.png><./holyer_graph.png><./patches.png><./ttg.png>
@@ -1613,21 +1609,22 @@ Package rerunfilecheck Info: File `Poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40707 strings out of 478379
- 745305,1977958 words of node,token memory allocated
- 180075 words of node memory still in use:
-   2052 hlist, 51 vlist, 67 rule, 632 disc, 124 local_par, 525 math, 6109 glue, 
-1554 kern, 451 penalty, 9516 glyph, 5756 attribute, 83 glue_spec, 5756 attribute
-_list, 4 write, 1889 pdf_literal, 3 pdf_dest, 358 pdf_colorstack, 4 pdf_setmatri
-x, 4 pdf_save, 4 pdf_restore nodes
-   avail lists: 1:5,2:431,3:7090,4:1245,5:4750,6:383,7:48881,8:52,9:6660,10:84,1
-1:1908
- 59004 multiletter control sequences out of 65536+600000
+ 40717 strings out of 478379
+ 745188,1977958 words of node,token memory allocated
+ 178881 words of node memory still in use:
+   2059 hlist, 51 vlist, 72 rule, 604 disc, 130 local_par, 547 math, 6152 glue, 
+1515 kern, 457 penalty, 9259 glyph, 5838 attribute, 83 glue_spec, 5838 attribute
+_list, 4 write, 1889 pdf_literal, 3 pdf_start_link, 3 pdf_end_link, 3 pdf_dest, 
+3 pdf_action, 386 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 4 pdf_restore nod
+es
+   avail lists: 1:1,2:433,3:7108,4:1329,5:4599,6:399,7:48170,8:50,9:6696,10:22,1
+1:1815
+ 59014 multiletter control sequences out of 65536+600000
  123 fonts using 19988071 bytes
- 128i,20n,115p,726b,1442s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}<C:
-/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/truetype/typoland/lato/lato-light
-italic.ttf>{C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
+ 128i,20n,115p,726b,1452s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/truetype/typoland/lato/lato-li
+ghtitalic.ttf>{C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
+mathsy.enc}{C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
 hit.enc}{C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc
 }<C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/truetype/typoland/lato/lato-r
 egular.ttf><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/truetype/typoland/l
@@ -1648,9 +1645,9 @@ c/lm/lmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmsy9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/symbols/msam10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on Poster.pdf (1 page, 496542 bytes).
+Output written on Poster.pdf (1 page, 496857 bytes).
 
-PDF statistics: 131 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 130 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
