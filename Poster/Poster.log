@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.11.25 NEXT) (format=lualatex 2023.1.23)  30 JAN 2023 14:30
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.11.25 NEXT) (format=lualatex 2023.1.23)  31 JAN 2023 10:08
  restricted system commands enabled.
 **Poster.tex
 (./Poster.tex
@@ -1587,11 +1587,11 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <7.25896> on input line 318.
 LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <5.185> on input line 318.
-<holyer_graph.png, id=16, 742.848pt x 346.02pt>
+<holyer_graph.png, id=16, 485.304pt x 231.702pt>
 File: holyer_graph.png Graphic file (type png)
 <use holyer_graph.png>
 Package luatex.def Info: holyer_graph.png  used on input line 318.
-(luatex.def)             Requested size: 199.16928pt x 92.77194pt.
+(luatex.def)             Requested size: 199.16928pt x 95.09035pt.
 
 Overfull \hbox (28.45276pt too wide) in paragraph at lines 318--318
 [][] 
@@ -1670,7 +1670,7 @@ public/lm/lmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmsy9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/symbols/msam10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Poster.pdf (1 page, 659204 bytes).
+Output written on Poster.pdf (1 page, 480679 bytes).
 
 PDF statistics: 127 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 131072)
