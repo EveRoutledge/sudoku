@@ -50,9 +50,6 @@
 % Footer (optional)
 % ====================
 
-\footercontent{
- \hfill
-  \href{}{eve.routledge@durham.ac.uk}}
 % (can be left out to remove footer)
 
 % ====================
@@ -61,6 +58,8 @@
 
 % use this to include logos on the left and/or right side of the header:
 \logoleft{\includegraphics[height=3cm]{DurhamUniversityLogo_WHITE.png}}
+\logoright{\includegraphics[height=3cm]{qr-code.png}}
+
 
 % ====================
 % Sudoku
@@ -131,16 +130,25 @@ It is complete or solved if for all $i,j \in \{1,...,D\}$, $L(i,j) \neq 0$.
   \end{exampleblock}
  \begin{block}{Computational Complexity}
 
+
 For those with a mathematical mind, outraged by the lack of definitions of 'difficulty' and 'hardness', let's take a detour into complexity theory. 
 
 \textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$.
 
-\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in $O(x^c)$ from problem $A$ to $B$.
+\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$.
+
+\begin{wrapfigure}{r}{4cm}
+		\vspace{-5pt}
+		\includegraphics[width=30mm]{np.png}
+		\vspace{-40pt}
+\end{wrapfigure}
 
 \textbf{Def$^\text{n}$:} A \textbf{Turing Machine} is the mathematical model of a CPU.
 
+
+
  \begin{itemize}
-	\item{P is the set of problems solved in polynomial time $O(x^c)$ by a Turing machine;} 
+	\item{P is the set of problems solved in $O(x^c)$ by a Turing machine;} 
 	\item{NP is the set verified in $O(x^c)$ and but not solved in $O(x^c)$ ;} 
 	\item{the NP-complete set has problems that any NP problem can be reduced to in $O(x^c)$.} 
 \end{itemize}
@@ -163,6 +171,13 @@ By outlining a reduction SAT $ \leq_p $ Sudoku we show sudoku is NP-complete and
 SAT is hard.
   \end{alertblock}
   \begin{block}{SAT $\leq_p$ 3 SAT}
+
+\begin{wrapfigure}{r}{6cm}
+		\includegraphics[width=60mm]{sat_example.png}
+		\caption{Truth Assignment Example with Highlighted Valid Assignment}
+		\vspace{-10pt}
+\end{wrapfigure}
+
 To begin we look at the bread and butter of complexity theory.
 
 Given a SAT instance with the input sets of $B$ and $C$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3. 
@@ -186,21 +201,32 @@ This reduction is a little trickier as we need to introduce the Holyer graph $H$
 
 Consider the graph $H_{3,p}$ defined as $V=\{(x_1,x_2,x_3)\in \mathbb{Z}^3$ $|$ $x_1+x_2+x_3\equiv 0$ (mod $p)\}$, $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ are adjacent if there exists distinct $i,j,k$ such that $x_i\equiv y_i \text{ (mod }p)$, $x_j\equiv y_j+1 \text{ (mod }p)$ and $x_k\equiv y_k-1 \text{ (mod }p)$.
 
-\begin{wrapfigure}{r}{4cm}
-		\includegraphics[width=40mm]{patches.png}
-		\caption{A, B-patch}
-		\vspace{-20pt}
-\end{wrapfigure}
 
 Observe $H_{3,p}$ is a tripartite graph iff $p\equiv0 \text{ (mod }3)$, see the 3-colouring in Figure 1.
 
+
+
 $H_{3,p}$ has only two triangulations, termed a true and a false triangulation, we say $G=T$ if graph $G$ has a true triangulation and $G=F$ if it has a false triangulation. We connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
+
+\begin{wrapfigure}{r}{3cm}
+		\includegraphics[width=30mm]{patches.png}
+		\caption{A,B-patch}
+		\vspace{-60pt}
+\end{wrapfigure}
+
 
 \textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$
 
 \textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then removing the centre triangles from both graphs we get triangulations $(T,F)$ or $(F,T)$.
 
+\begin{wrapfigure}{r}{4cm}
+		\includegraphics[width=40mm]{lemma.png}
+		\caption{Second Lemma Illustration}
+		\vspace{-80pt}
+\end{wrapfigure}
+
 \textbf{Lemma:} Connecting $x$ $H_{3,p}$ by $x$ A-patches then removing the centre triangles from all graphs we get only one false triangulation.
+
 
 Transformation process: (select p large enough to prevent patch overlap)
 \begin{itemize}
