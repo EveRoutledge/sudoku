@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{arora2006computational}
+S.~Arora and B.~Barak.
+\newblock {\em Computational Complexity: A Modern Approach}.
+\newblock Cambridge University Press, 2006.
+
 \bibitem{COLBOURN198425}
 Charles~J. Colbourn.
 \newblock The complexity of completing partial latin squares.
