@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.12) (format=lualatex 2023.1.24)  31 JAN 2023 21:49
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.12) (format=lualatex 2023.1.24)  5 FEB 2023 23:52
  restricted system commands enabled.
 **Poster.tex
 (./Poster.tex
@@ -1362,39 +1362,44 @@ Package: wrapfig 2003/01/31  v 3.6
 <DurhamUniversityLogo_WHITE.png, id=10, 339.9099pt x 200.4288pt>
 File: DurhamUniversityLogo_WHITE.png Graphic file (type png)
 <use DurhamUniversityLogo_WHITE.png>
-Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 63.
+Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 60.
 
 (luatex.def)             Requested size: 144.7632pt x 85.35826pt.
+<qr-code.png, id=11, 1159.33125pt x 1159.33125pt>
+File: qr-code.png Graphic file (type png)
+<use qr-code.png>
+Package luatex.def Info: qr-code.png  used on input line 61.
+(luatex.def)             Requested size: 85.35399pt x 85.35826pt.
 
 (./Poster.aux)
 \openout1 = Poster.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
-3.
+2.
 
 (C:/Users/Eve/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1454,7 +1459,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:/Users/Eve/AppData/Local/Programs/MiKTeX/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 93.
+Package hyperref Info: Link coloring OFF on input line 92.
  (./Poster.out) (./Poster.out)
 \@outlinefile=\write5
 
@@ -1488,92 +1493,97 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.18} (current compat level: 1.14).
 
 (./Poster.nav)
-
-Package hyperref Warning: Suppressing link with empty target on input line 93.
-
 File: DurhamUniversityLogo_WHITE.png Graphic file (type png)
 <use DurhamUniversityLogo_WHITE.png>
-Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 93.
+Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 92.
 
 (luatex.def)             Requested size: 144.7632pt x 85.35826pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
-3.
+2.
+
 (C:/Users/Eve/AppData/Local/Programs/MiKTeX/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-3.
+2.
 
 (C:/Users/Eve/AppData/Local/Programs/MiKTeX/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-93.
+92.
 
 (C:/Users/Eve/AppData/Local/Programs/MiKTeX/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 93.
+(Font)              <6> on input line 92.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5> on input line 93.
-LaTeX Font Info:    Calculating math sizes for size <12.44> on input line 347.
+(Font)              <5> on input line 92.
+File: qr-code.png Graphic file (type png)
+<use qr-code.png>
+Package luatex.def Info: qr-code.png  used on input line 92.
+(luatex.def)             Requested size: 85.35399pt x 85.35826pt.
+LaTeX Font Info:    Calculating math sizes for size <12.44> on input line 373.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6.22> on input line 347.
-LaTeX Font Info:    Calculating math sizes for size <14.93> on input line 347.
+(Font)              <6.22> on input line 373.
+<np.png, id=14, 121.45375pt x 151.56625pt>
+File: np.png Graphic file (type png)
+<use np.png>
+Package luatex.def Info: np.png  used on input line 373.
+(luatex.def)             Requested size: 85.35826pt x 106.52118pt.
+LaTeX Font Info:    Calculating math sizes for size <14.93> on input line 373.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.465> on input line 347.
-<holyer_graph.png, id=14, 485.304pt x 231.702pt>
+(Font)              <7.465> on input line 373.
+<sat_example.png, id=15, 390.696pt x 175.2pt>
+File: sat_example.png Graphic file (type png)
+<use sat_example.png>
+Package luatex.def Info: sat_example.png  used on input line 373.
+(luatex.def)             Requested size: 170.71652pt x 76.55356pt.
+<holyer_graph.png, id=17, 485.304pt x 231.702pt>
 File: holyer_graph.png Graphic file (type png)
 <use holyer_graph.png>
-Package luatex.def Info: holyer_graph.png  used on input line 347.
+Package luatex.def Info: holyer_graph.png  used on input line 373.
 (luatex.def)             Requested size: 199.16928pt x 95.09035pt.
-LaTeX Font Info:    Calculating math sizes for size <10.37> on input line 347.
+LaTeX Font Info:    Calculating math sizes for size <10.37> on input line 373.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7.25896> on input line 347.
+(Font)              <7.25896> on input line 373.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.185> on input line 347.
-
-
-Package wrapfig Warning: Collision between wrapping environments on input line 
-347.
-
-<patches.png, id=15, 557.793pt x 254.04pt>
+(Font)              <5.185> on input line 373.
+<patches.png, id=18, 557.793pt x 254.04pt>
 File: patches.png Graphic file (type png)
 <use patches.png>
-Package luatex.def Info: patches.png  used on input line 347.
-(luatex.def)             Requested size: 113.81102pt x 51.83044pt.
-
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-7.
-
-
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-7.
-
-<ttg.png, id=17, 475.7775pt x 398.23781pt>
+Package luatex.def Info: patches.png  used on input line 373.
+(luatex.def)             Requested size: 85.35826pt x 38.87186pt.
+<lemma.png, id=19, 446.66875pt x 166.6225pt>
+File: lemma.png Graphic file (type png)
+<use lemma.png>
+Package luatex.def Info: lemma.png  used on input line 373.
+(luatex.def)             Requested size: 113.81102pt x 42.45384pt.
+<ttg.png, id=21, 475.7775pt x 398.23781pt>
 File: ttg.png Graphic file (type png)
 <use ttg.png>
-Package luatex.def Info: ttg.png  used on input line 347.
+Package luatex.def Info: ttg.png  used on input line 373.
 (luatex.def)             Requested size: 142.26378pt x 119.07727pt.
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-7.
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 37
+3.
 
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-7.
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 37
+3.
 
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-7.
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 37
+3.
 
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-7.
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 37
+3.
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 347--347
+Underfull \hbox (badness 2653) in paragraph at lines 373--373
 \TU/Lato(1)/m/n/12.44 con-struct $\OML/lmm/m/it/12.44 S$ \TU/Lato(1)/m/n/12.44 
 as above and
  []
@@ -1581,18 +1591,17 @@ as above and
 (./Poster.bbl)
 File: DurhamUniversityLogo_WHITE.png Graphic file (type png)
 <use DurhamUniversityLogo_WHITE.png>
-Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 347
+Package luatex.def Info: DurhamUniversityLogo_WHITE.png  used on input line 373
 .
 (luatex.def)             Requested size: 144.7632pt x 85.35826pt.
+File: qr-code.png Graphic file (type png)
+<use qr-code.png>
+Package luatex.def Info: qr-code.png  used on input line 373.
+(luatex.def)             Requested size: 85.35399pt x 85.35826pt.
+ [1{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
-
-Package hyperref Warning: Suppressing link with empty target on input line 347.
-
-
-[1{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-
-<./DurhamUniversityLogo_WHITE.png><./holyer_graph.png><./patches.png><./ttg.png>
-]
+<./DurhamUniversityLogo_WHITE.png><./qr-code.png><./np.png><./sat_example.png><.
+/holyer_graph.png><./patches.png><./lemma.png><./ttg.png>]
 \tf@nav=\write6
 
 \openout6 = Poster.nav
@@ -1602,24 +1611,23 @@ Package hyperref Warning: Suppressing link with empty target on input line 347.
 \tf@snm=\write8
 
 \openout8 = Poster.snm
-
-(./Poster.aux)
+ (./Poster.aux)
 Package rerunfilecheck Info: File `Poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40717 strings out of 478379
- 745188,1977958 words of node,token memory allocated
- 178881 words of node memory still in use:
-   2059 hlist, 51 vlist, 72 rule, 604 disc, 130 local_par, 547 math, 6152 glue, 
-1515 kern, 457 penalty, 9259 glyph, 5838 attribute, 83 glue_spec, 5838 attribute
+ 40765 strings out of 478379
+ 745187,1977958 words of node,token memory allocated
+ 181555 words of node memory still in use:
+   2107 hlist, 54 vlist, 81 rule, 617 disc, 137 local_par, 544 math, 6236 glue, 
+1545 kern, 486 penalty, 9366 glyph, 5918 attribute, 83 glue_spec, 5918 attribute
 _list, 4 write, 1889 pdf_literal, 3 pdf_start_link, 3 pdf_end_link, 3 pdf_dest, 
-3 pdf_action, 386 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 4 pdf_restore nod
+3 pdf_action, 396 pdf_colorstack, 8 pdf_setmatrix, 8 pdf_save, 8 pdf_restore nod
 es
-   avail lists: 1:1,2:433,3:7108,4:1329,5:4599,6:399,7:48170,8:50,9:6696,10:22,1
-1:1815
- 59014 multiletter control sequences out of 65536+600000
+   avail lists: 1:4,2:391,3:7222,4:1311,5:4665,6:414,7:48551,8:50,9:6828,10:63,1
+1:1851
+ 59038 multiletter control sequences out of 65536+600000
  123 fonts using 19988071 bytes
  128i,20n,115p,726b,1452s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/truetype/typoland/lato/lato-li
@@ -1645,9 +1653,9 @@ c/lm/lmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmsy9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/symbols/msam10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on Poster.pdf (1 page, 496857 bytes).
+Output written on Poster.pdf (1 page, 565812 bytes).
 
-PDF statistics: 130 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 137 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
