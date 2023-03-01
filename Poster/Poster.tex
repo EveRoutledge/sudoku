@@ -97,7 +97,7 @@
 \begin{column}{\colwidth}
   \begin{exampleblock}{Sudoku: An Introduction}
 
-Sudoku is the classic puzzle where one is given a $9\time 9$ grid and must fill in the blank entries with numbers 1 to 9, such that there is no repeated number in the row, column or subsquare.
+Sudoku is the classic puzzle where one is given a $9\time 9$ grid and must fill in the blank entries with numbers 1 to 9, such that there is no repeated number in the row, column or sub square.
 
 Let's imagine a sudoku of size $D^2\times D^2$. How big does $D$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Don't worry if you said a smaller number than your friends, this has nothing to do with your problem solving skills, even a computer finds sudoku hard. In fact just incrementing $D$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
 
@@ -157,7 +157,7 @@ Problems in P are considered feasible and those in NP are infeasible as their co
 
 So when we state sudoku is hard we are actually saying sudoku belongs to NP.
 
-By outlining a reduction SAT $ \leq_p $ Sudoku we show sudoku is NP-complete and therfore in NP. 
+By outlining a reduction SAT $ \leq_p $ Sudoku we show sudoku is NP-complete and therefore in NP. 
 
 \textbf{Intuition:} Assume we have an algorithm $\Phi$ solving sudoku in $O(x^{c_1})$ then if there exists a reduction algorithm $\Gamma$ of SAT $ \leq_p $ Sudoku in $O(x^{c_2})$  then for a given SAT problem $x$, $\Phi(\Gamma(x))$ will give an algorithm solving SAT in $O(x^{c_1+c_2})$ which, given the Cook-Levin theorem, is a contradiction. 
 
@@ -242,7 +242,7 @@ Transformation process: (select p large enough to prevent patch overlap)
 
 Now we can take a 3SAT formula and convert it to the problem of triangulating a tripartite graph.
 
-See figure 5 for an example. By the lemma; one of $l_{1,1}$, $l_{1,2}$ and $l_{1,3}$ must be a false triangulation and therefore the variable connexted to this false triangulation must be true, this satisfies the formula.
+See figure 5 for an example. By the lemma; one of $l_{1,1}$, $l_{1,2}$ and $l_{1,3}$ must be a false triangulation and therefore the variable connected to this false triangulation must be true, this satisfies the formula.
 
 Triangulating a Tripartite Graph is hard. $\square$
   \end{block}
@@ -254,7 +254,7 @@ Triangulating a Tripartite Graph is hard. $\square$
  
   \begin{block}{Triangulated Tripartite Graph $\leq_p$ Latin Square \cite{COLBOURN198425}}
 
-We map a Latin square to a graph through the following: given tripartite graph $G=(V,E)$ label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
+We map a Latin square to a graph through the following: given tripartite graph $G=(V,E)$ label vertices in $V_1$ with distinct labels $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct labels $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct labels $\{e_1,...e_n\}$. Add edges such that:
 \begin{wrapfigure}{r}{3cm}
 \begin{tikzpicture}[scale=.5]
 \begin{scope}[xshift=6cm]
