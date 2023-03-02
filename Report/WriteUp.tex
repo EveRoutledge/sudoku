@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 
 \author{E. Routledge}
 \date{01 Nov 2022}
@@ -39,13 +40,20 @@ define y wing
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Sudoku is Hard}
 
-Sudoku can be described in a single rule but it is in fact a hard problem to solve. Instances of the puzzle requiring complex x wing and y wing strategies are not what makes the puzzle hard to solve, it is hardness through a provable, computational lense for which this section cares. 
-		
-\subsection{Computational Complexity an Introduction}
-	
-	 \textit{TO COMPLETE: DEFINE BIG O NOTATION}
+Let's imagine a sudoku of size $D^2\times D^2$. How big does $D$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Don't worry if you said a smaller number than your friends, this has nothing to do with your problem solving skills, even a computer finds sudoku hard. In fact just incrementing $D$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
 
-	\textit{KARP REDUCTION}
+We prove sudoku's hardness by transforming it into a known 'difficult' problem; we will use SAT, a problem that has plagued computer scientists for decades. 
+
+\subsection{Computational Complexity an Introduction}
+
+For those with a mathematical mind, outraged by the lack of definitions of 'difficulty' and 'hardness', let's take a detour into complexity theory. 
+
+\textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$.
+
+\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$.
+	
+\textbf{Def$^\text{n}$:} A \textbf{Turing Machine} is the mathematical model of a CPU.
+
 	 
 \textbf{What is NP completeness?}
 We care about decision problems, these are problems that given an input  produce a 'yes' or 'no' answer. We will discuss three sets of these problems: 
@@ -55,7 +63,9 @@ We care about decision problems, these are problems that given an input  produce
 	\item{the NP-complete set has problems that any NP problem can be reduced to in polynomial time.} 
 \end{itemize}
 
-NP problems are hard as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs. We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.
+Problems in P are considered feasible and those in NP are infeasible as their complexity scales exponentially with respect to the input size and as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs. We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.
+
+So when we state sudoku is hard we are actually saying sudoku belongs to NP.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -77,7 +87,7 @@ Call the problem we wish to prove is NP-complete $x$. First show there exists a 
 
 We now have a NP-complete problem to reduce other problems to.
 
-\textbf{More on polynomial time and big O notation.} 
+\textbf{Let's make this more intuitive with examples.} 
 
 \subsection{Verification is Easy}
 Verificaiton decision problem, "is the sudoku puzzle complete?":
@@ -98,6 +108,10 @@ There exists an algorithm to do this in polynomial time with respect to the dime
 If all tests pass return True else return False.
 This algorithm has complexity of $O(n^2 + n^2 + n^2) = O(3n^2) = O(n^2)$, this is polynomial and therefore $\Psi(S(,)) \in P$.
 
+
+%%%%%%%%%%%%%%%%%%%%%
+
+
 	\subsection{Finding a Solution is Hard}
 		
 Finding a solution to sudoku is NP-complete, let us define the decision problem:
@@ -116,6 +130,10 @@ Our question now is does there exist a function $\Phi$ that when given an instan
 The \textbf{verifier} is $O(n^2)$, as will be seen in the above subsection 'Validation is Easy'.
 
 Now we need a \textbf{reduction} from sudoku to a known NP-complete problem to prove sudoku is at least as hard. We will be creating a chain of reductions: Sudoku $\geq_p$  Latin Square $\geq_p$  Triangulated Tripartite $\geq_p$  3SAT and then prove 3SAT is NP-complete.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsubsection{Sudoku $\geq_p$ Latin Square}
 
@@ -172,6 +190,10 @@ Now consider which integers fill the blanks in $L_s$. For $(i,j)\in L_s$, $S_l(i
 
 We must validate the Latin square conditions. The row constraint in $S_l$ ensures $S'(i,j)=S'(i,j') \implies j=j'$, $S'(i,j)-1/n+1=S'(i,j')-1/n+1 \implies j=j'$, $L(i,j/n)=S'(i,j'/n) \implies j=j'$  is equivalent to the row constraint of L. The column constraint of $S_l$ is equivalent to the column constraint of L. The small square constraint of $S_l$ is equivalent to the column constraint of L. $\square$
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsubsection{Latin Square $\geq_p$ Triangulate A Tripartite Graph}
 
 \textbf{Def$^n$}: A graph $G=(V,E)$ is tripartite if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $.
@@ -220,6 +242,10 @@ We can transpose the array and do the same as the previous lemma. $\square$
 
 Given a tripartite graph G, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsubsection{Triangulated Tripartite $\geq_p$ 3SAT}
 
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
@@ -233,12 +259,29 @@ This decision problem is therefore an enforced limitation of SAT as defined in t
 
 \textit{Proof:}
 
-Describe the special graph $H_{3,p}$.
-Show graph constructed is tripartite.
+This reduction is a little trickier as we need to introduce the Holyer graph $H$ which dips a toe into topology as it is a torus.
+
+Consider the graph $H_{3,p}$, a version of which can be seen in figure 2. Observe $H_{3,p}$ is a tripartite graph iff $p\equiv0 \text{ (mod }3)$, see the 3-colouring ($p$ refers to the 'height' and 'width').
+
+$H_{3,p}$ has only two triangulations, termed a true and a false triangulation, we say $G=T$ if graph $G$ has a true triangulation and $G=F$ if it has a false triangulation. We connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
+
+\textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$. Then by removing the centre triangles from both graphs we get only the triangulations $(T,F)$ or $(F,T)$. If we expand this to $x$ $H_{3,p}$ we get only one false triangulation and the rest true.
 
 
+Transformation process: (select p large enough to prevent patch overlap)
+\begin{itemize}
+\item For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$.
+\item For all $c_j\in C$, for each literal $l_{i,j}$ $i\in [1,2,3]$ create $H_{3,p}$ called $G_{i,j}$.
+\item For $b_i \in B$ connect an A-patch to each $G_{i,j}$ when $l_{i,j}=b_i$ or a B-patch to $G_{i,j}$ when $l_{i,j}=\neg b_i$. 
+\item For each $c_i\in C$ connect an A-patch from $G_{1,i}$, $G_{2,i}$ and $G_{3,i}$ then delete the centre triangle. 
+\item $G = \{G_{b_i}$ $|$ $b_i \in B\}\cup\{G_{i,j}$ $|$ $ c_j\in C\text{ and }i\in [1,..,3] \}$
+\end{itemize}
 
- \textit{TO COMPLETE: UNDERSTAND \cite{tripartite to sat}}
+Now we can take a 3SAT formula and convert it to the problem of triangulating a tripartite graph.
+
+See figure 5 for an example. By the lemma; one of $l_{1,1}$, $l_{1,2}$ and $l_{1,3}$ must be a false triangulation and therefore the variable connexted to this false triangulation must be true, this satisfies the formula.
+
+Triangulating a Tripartite Graph is hard. $\square$
 
 \subsubsection{3SAT is NP-Complete}
 %%%%% define clause
@@ -255,68 +298,20 @@ Because we can convert a clause larger than 3 into multiple clauses of at most 3
 
 As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete. $\square$
 		
+\begin{figure}
+\begin{center}
+		\includegraphics[width=70mm]{figures/sat_example.png}
+\end{center}
+		\caption{Truth Assignment Example with Highlighted Valid Assignment}
+\end{figure}
+
+
 Alternative reduction Sudoku $\geq_p$  Graph Colouring, to be explored later.
 
 	\subsection{Determining Uniqueness is Hard}
 
 It is hard to determine if a puzzle has a unique solution. 	 \textit{TO COMPLETE: FIND PAPER WITH PROOF}
 		
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Other Related Problems}
-	\subsection{Latin Squares}
-
-		\begin{itemize}
-		\item{A latin square is an n by n matrix filled with n characters that must not repeat along columns or rows.}
-		\item{Reduced Form - f first row and column is in the natural order}
-		\item{Equivalence classes}
-		\item{Number of n by n latin squares is bounded}
-		\item{Latin squares can be considered a bipartite graph}
-		\item{Agronomic Research}
-		\item{Latin hypercube}
-		\end{itemize}
-
-	\subsection{Magic Squares}
-
-		\begin{itemize}
-		\item{A magic square is a matrix of numbers with each column, row and diagonal summing to the same value, 
-		this value is known as a magic constant and the degree is the number of columns/rows.}
-		\item{A normal magic square is one containing the integers 1 to $n^2$.}
-		\item{Magic Squares with repeating digits are considered trivial.}
-		\item{Semimagic squares omit the diagnonal sums also summing to the magic constant.}
-
-		\item{Truly thought to be magic Shams Al-ma'arif.}
-
-		\item{Generation, there exists not completely general techniques. Diamond Method}
-
-		\item{Associative Magic Squares}
-		\item{Pandiagonal Magic Squares}
-		\item{Most-Perfect Magic Squares}
-		
-		\item{Equivalence classes for $n<=5$ but not for higher orders.}
-		\item{The enumeration of most perfect magic squares of any order.}
-
-		\item{880 distinct magic squares of order four}
-
-		\item{Normal magic squares can be constructed for all values except 2}
-		\item{Preserving the magic property when transformed}
-
-		\item{Methods of construction}
-
-		\item{Multiplicative magic squares - produce infinite}
-
-		\item{Sator square}
-
-		\item{magic square of squares - Parker Square is a failed example of this}
-		\end{itemize}
-	
-	\subsection{Greco-Latin Squares}
-
-		\begin{itemize}
-		\item{Two orthogonal latin squares super imposed, such that the pairs of values are unique.}
-		\item{Group based greco latin squares}
-		\item{Eulers interest came from construction of magic squares}
-		\item{Exists for all but 2 and 6.}
-		\end{itemize}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Solving Techniques}
 \subsection{Backtracking}
@@ -340,8 +335,60 @@ Why does brute force not work for larger examples? It will work \textit{TO DO: P
 \subsection{Stochastic Methods}
 \subsubsection{Simulated Annealing} 
 \cite{simulated annealing} one of 100 most cited papers, one of the first AI algs
-\subsubsection{Genetic Algorithm}
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Group theory}
+	\subsection{Starting Simple}
+		Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
+	\subsection{Equivalence Classes}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\section{Other Related Problems}
+	\subsection{Latin Squares}
+
+		\begin{itemize}
+		\item{A latin square is an n by n matrix filled with n characters that must not repeat along columns or rows.}
+		\item{Reduced Form - f first row and column is in the natural order}
+		\item{Equivalence classes}
+		\item{Number of n by n latin squares is bounded}
+		\item{Latin squares can be considered a bipartite graph}
+		\item{Agronomic Research}
+		\item{Latin hypercube}
+		\end{itemize}
+
+	\subsection{Magic Squares}
+
+		\begin{itemize}
+		\item{A magic square is a matrix of numbers with each column, row and diagonal summing to the same value, 
+		this value is known as a magic constant and the degree is the number of columns/rows.}
+		\item{A normal magic square is one containing the integers 1 to $n^2$.}
+		\item{Magic Squares with repeating digits are considered trivial.}
+		\item{Semimagic squares omit the diagnonal sums also summing to the magic constant.}
+		\item{Truly thought to be magic Shams Al-ma'arif.}
+		\item{Generation, there exists not completely general techniques. Diamond Method}
+		\item{Associative Magic Squares}
+		\item{Pandiagonal Magic Squares}
+		\item{Most-Perfect Magic Squares}
+		\item{Equivalence classes for $n<=5$ but not for higher orders.}
+		\item{The enumeration of most perfect magic squares of any order.}
+		\item{880 distinct magic squares of order four}
+		\item{Normal magic squares can be constructed for all values except 2}
+		\item{Preserving the magic property when transformed}
+		\item{Methods of construction}
+		\item{Multiplicative magic squares - produce infinite}
+		\item{Sator square}
+		\item{magic square of squares - Parker Square is a failed example of this}
+		\end{itemize}
+	
+	\subsection{Greco-Latin Squares}
+
+		\begin{itemize}
+		\item{Two orthogonal latin squares super imposed, such that the pairs of values are unique.}
+		\item{Group based greco latin squares}
+		\item{Eulers interest came from construction of magic squares}
+		\item{Exists for all but 2 and 6.}
+		\end{itemize}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
 \section{Generating  Techniques}
 	A polynomial generation algorithm without requiring a uniqueness checker which we have proven to be np-complete and therefore infeesible for large n.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
@@ -350,11 +397,7 @@ Why does brute force not work for larger examples? It will work \textit{TO DO: P
 	\subsection{Sparsity - information theory}
 		Bomb sudoku/latin squares - Additional rule: the same number can not occur in adjacent or diagonally adjacent squares.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Group theory}
-	\subsection{Starting Simple}
-		Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
-	\subsection{Equivalence Classes}
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
 \section{Topology}
 	\subsection{Torus}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
