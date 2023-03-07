@@ -1,61 +1,103 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{report}
+\usepackage[margin=2cm]{geometry}
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+%%%%%%%%TIKZ SUDOKU%%%%%%%%%%
+\newcounter{row}
+\newcounter{col}
+\newcounter{rowa}
+\newcounter{cola}
+\newcounter{rowb}
+\newcounter{colb}
 
+\newcommand\setrow[9]{
+  \setcounter{col}{1}
+  \foreach \n in {#1, #2, #3, #4, #5, #6, #7, #8, #9} {
+    \edef\x{\value{col} - 0.5}
+    \edef\y{9.5 - \value{row}}
+    \node[anchor=center] at (\x, \y) {\n};
+    \stepcounter{col}
+  }
+  \stepcounter{row}
+}
+\newcommand\setrowa[4]{
+  \setcounter{cola}{1}
+  \foreach \n in {#1, #2, #3, #4} {
+    \edef\x{\value{cola} - 0.5}
+    \edef\y{4.5 - \value{rowa}}
+    \node[anchor=center] at (\x, \y) {\n};
+    \stepcounter{cola}
+  }
+  \stepcounter{rowa}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
 \author{E. Routledge}
 \date{01 Nov 2022}
-\title{Sudoku and Other Related Problems}
+\title{Sudoku is Hard}
+
 
 \begin{document}
 \lstset{language=Python}
 \maketitle
-
+\begin{abstract}
+sudoku overview
+\end{abstract}
+\tableofcontents
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Introduction}
-		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) 
-		one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all,
-		yet it is filled with mathematics. Through sudoku we can explore the connections between various areas of maths: complexity theory, graph theory, group theory and information theory.
-	\subsection{History}
+\chapter{Introduction}
+		Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all, yet it is filled with mathematics. Through sudoku we can explore the connections between various areas of maths: complexity theory, graph theory, group theory and information theory.
+
+	\section{History}
 	
-	\subsection{Defining Sudoku Notation}
+	\section{Defining Sudoku Notation}
 	
 	\textbf{Def$^n$}: A valid sudoku puzzle is a function $ S: i,j \rightarrow x$ for values i,j $\in \{1,...,D^2\}$ and $x \in \{0,...,D^2\}$ satisfying the following:
 \begin{itemize}
 	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
 	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and$ S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
-	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $a mod D = c mod D$, $b mod D  =  d mod D$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
+	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $a\text{ mod }D = c\text{ mod }D$, $b\text{ mod }D  =  d\text{ mod }D$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
 \end{itemize}
 \textbf{Def$^n$}: A completed sudoku puzzle is a function $ S: i,j \rightarrow x$ as above but with the added condition that $x \neq 0$.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Classic solving techniques}
+\chapter{Classic solving techniques}
 
-\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,D^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,D^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,D^2\}/\{a\}$ or $S(i,j)$ where $a mod D = i mod D$ and $b mod D  =  j mod D$.
+\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,D^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,D^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,D^2\}/\{a\}$ or $S(i,j)$ where $a\text{ mod }D = i\text{ mod }D$ and $b\text{ mod }D  =  j\text{ mod }D$.
 
 define x wing
 define y wing
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Sudoku is Hard}
+\chapter{Sudoku is Hard}
 
 Let's imagine a sudoku of size $D^2\times D^2$. How big does $D$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Don't worry if you said a smaller number than your friends, this has nothing to do with your problem solving skills, even a computer finds sudoku hard. In fact just incrementing $D$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
 
 We prove sudoku's hardness by transforming it into a known 'difficult' problem; we will use SAT, a problem that has plagued computer scientists for decades. 
 
-\subsection{Computational Complexity an Introduction}
+\section{Computational Complexity}
 
-For those with a mathematical mind, outraged by the lack of definitions of 'difficulty' and 'hardness', let's take a detour into complexity theory. 
+For those with a mathematical mind, outraged by the lack of definitions for 'difficulty' and 'hardness', let's take a detour into complexity theory. 
 
-\textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$.
+\textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$. This is coined \textbf{Big O Notation}.
+
+Example of a linear time algorithm. Given a sudoku board and a square to check it takes a linear amount of time to validate this.
+Example of a polynomial time algorithm, checking a whole sudoku board is polynomial.
+Example of an exponential time algorithm. Brute Force Alg?
+
 
 \textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$.
 	
 \textbf{Def$^\text{n}$:} A \textbf{Turing Machine} is the mathematical model of a CPU.
 
-	 
-\textbf{What is NP completeness?}
+\textbf{Def$^\text{n}$:} A \textbf{non-deterministic} Turing Machine is the mathematical model of a CPU that can undertake any possible action all at once, for example with a sudoku it would be able to explore solutions with a cell taking all values 1 to $n^2$ all at once.
+
+\textbf{Sets of Difficulty:} 
 We care about decision problems, these are problems that given an input  produce a 'yes' or 'no' answer. We will discuss three sets of these problems: 
 \begin{itemize}
 	\item{P is the the class of problems that can be solved in polynomial time (if the input is order n then the program halts in order $n^2$ steps) by a Turing machine;} 
@@ -63,9 +105,9 @@ We care about decision problems, these are problems that given an input  produce
 	\item{the NP-complete set has problems that any NP problem can be reduced to in polynomial time.} 
 \end{itemize}
 
-Problems in P are considered feasible and those in NP are infeasible as their complexity scales exponentially with respect to the input size and as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs. We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.
+Problems in P are considered feasible and those in NP-complete are infeasible as their complexity scales exponentially with respect to the input size and as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs. \footnote{We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.}
 
-So when we state sudoku is hard we are actually saying sudoku belongs to NP.
+So when we state sudoku is hard we are actually saying sudoku belongs to NP-complete. We cannot just prove sudoku belongs to NP as this also includes problems in P. \footnote{Due to Ladner's Theorem there exists problem $\in$ NP but $\not\in$ NP-complete and $\not\in$ P iff $P\neq NP$.}
 
 \begin{figure}[h!]
 	\begin{center}
@@ -75,13 +117,11 @@ So when we state sudoku is hard we are actually saying sudoku belongs to NP.
 \end{figure}
 
 \textbf{How to prove NP completeness generally?}
-Call the problem we wish to prove is NP-complete $x$. First show there exists a verifier for $x$ with a polynomial or less runtime, this is a algorithm that decides if a proposed solution to problem $x$  is correct. Then reduce a known NP-complete problem call this $y$ to $x$, one does this by transforming the input of $y$ to the input of $x$ in polynomial time. If there exists a polynomial time algorithm to solve $x$ we could solve$y$ in polynomial time too, this implies P=NP, a contradiction. Therefore a polynomial time algorithm does not exist for $x$.
+Call the problem we wish to prove is NP-complete $x$. First show there exists a verifier for $x$ with a polynomial or less runtime, this is a algorithm that decides if a proposed solution to problem $x$ is correct. Then take a known NP-complete problem call this $y$, and reduce it to $x$, one does this by transforming the input of $y$ to the input of $x$ in polynomial time, we call this function $g(y)=x$. Assume there exists a polynomial time algorithm to solve $x$, $f()$ we could solve $y$ in polynomial time too, $f(g(y))$, this implies P=NP, a contradiction. Therefore a polynomial time algorithm does not exist for $x$.
 
 \textbf{Our base NP-complete problem.} If, as the above suggests, we require a NP-complete problem to prove a problem is NP-complete then we seem to have reached a paradox. Luckily we have the Cook-Levin Theorem.
 
-\textit{Cook-Levin Theorem:} SAT is NP-Complete
-	
-\textit{Proof:}	 \textit{TO COMPLETE: CITE }
+\textit{Cook-Levin Theorem:} SAT is NP-Complete \textit{CITE }
 
 \textbf{Def$^n$}: SAT is the following decision problem. Given a set of boolean variables $B$ and a collection of clauses $C$ does a valid truth assignment exist that satisfies $C$?
 
@@ -89,7 +129,7 @@ We now have a NP-complete problem to reduce other problems to.
 
 \textbf{Let's make this more intuitive with examples.} 
 
-\subsection{Verification is Easy}
+\section{Verification is Easy}
 Verificaiton decision problem, "is the sudoku puzzle complete?":
 
 		\begin{equation}
@@ -112,9 +152,9 @@ This algorithm has complexity of $O(n^2 + n^2 + n^2) = O(3n^2) = O(n^2)$, this i
 %%%%%%%%%%%%%%%%%%%%%
 
 
-	\subsection{Finding a Solution is Hard}
+	\section{Existance is Hard}
 		
-Finding a solution to sudoku is NP-complete, let us define the decision problem:
+Checking if a solution to sudoku exists is NP-complete, let us define the decision problem:
 
 		\begin{equation}
 		        \Phi (S(,)) = \begin{cases}
@@ -123,19 +163,22 @@ Finding a solution to sudoku is NP-complete, let us define the decision problem:
 				\end{cases}
 		\end{equation}
 
-Our question now is does there exist a function $\Phi$ that when given an instance of the problem will, in polynomial time or less, return True if it can be solved and False otherwise.
+Our question is does there exist a function $\Phi$ that when given an instance of the problem will, in polynomial time or less, return True if it can be solved and False otherwise.
 
-\subsubsection{\textbf{\underline{Proof}}}
+\subsection{Proof Outline}
 
-The \textbf{verifier} is $O(n^2)$, as will be seen in the above subsection 'Validation is Easy'.
+The verifier is $O(n^2)$, as will be seen in the above subsection 'Validation is Easy', this shows the Sudoku decision problem belongs to the set NP.
 
-Now we need a \textbf{reduction} from sudoku to a known NP-complete problem to prove sudoku is at least as hard. We will be creating a chain of reductions: Sudoku $\geq_p$  Latin Square $\geq_p$  Triangulated Tripartite $\geq_p$  3SAT and then prove 3SAT is NP-complete.
+Now we need a reduction from sudoku to a known NP-complete problem to prove sudoku is also NP-hard. We will be creating a chain of reductions: \textbf{Sudoku $\geq_p$  Latin Square $\geq_p$  Triangulated Tripartite $\geq_p$  3SAT $\geq_p$ SAT}.
 
+As the Sudoku decision problem is a member of NP and NP-hard it is NP-complete by definition.
+
+\textbf{Note}: Theoretically any problem in the set NP-complete can be reduced to Sudoku and therefore this reduction is not unique, however, it is the most intuitive way. Some readers may question why we are not looking at a reduction to a Graph $n^2$-Colouring problem but in section \textbf{cite} we explore this is the wrong direction of reduction.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Sudoku $\geq_p$ Latin Square}
+\subsection{Sudoku $\geq_p$ Latin Square}
 
 \textbf{Def$^n$}: A valid Latin Square puzzle is a function $L:i,j \rightarrow x$ for values $i,j \in \{1,..,D\} $ and $x \in \{0,...,D\}$ satisfying the following:
 \begin{itemize}
@@ -159,6 +202,42 @@ By observation we see this is a superset of the sudoku puzzle, we just add the r
 \end{cases}
 \end{equation}
 where $L_s=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod }n)=1\}$. Then  there exists an augmentation $S_l'$ to complete the sudoku puzzle if and only if the square $L$ such that $L(i,j/n)=S_l'(i,j)-1/n+1$ for all $(i,j) \in L_s$ is a Latin square.
+
+\textbf{Note:} The fact we have a formula to generate a valid sudoku for any size $D^2$ is interesting and we should explore if this can be done for a $M\times N$ sudoku too. (explored in section 3).
+Figure \ref{formula} gives examples of generated sudokus from this formula.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=10cm]
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{1}{2}
+    \setrowa {2}{3}{4}{1}
+    \setrowa {4}{1}{2}{3} 
+    \node[anchor=center] at (1.5, -0.5) {$n=2$};
+  \end{scope}
+  \begin{scope}[xshift=16cm]
+    \draw (0, 0) grid (9, 9);
+    \draw[very thick, scale=3] (0, 0) grid (3, 3);
+    \setcounter{row}{1}
+    \setrow {1}{2}{3}  {4}{5}{6}  {7}{8}{9}
+    \setrow {4}{5}{6}  {7}{8}{9}  {1}{2}{3}
+    \setrow {7}{8}{9}  {1}{2}{3}  {4}{5}{6}
+    \setrow {2}{3}{4}  {5}{6}{7}  {8}{9}{1}
+    \setrow {5}{6}{7}  {8}{9}{1}  {2}{3}{4}
+    \setrow {8}{9}{1}  {2}{3}{4}  {5}{6}{7}
+    \setrow {3}{4}{5}  {6}{7}{8}  {9}{1}{2}
+    \setrow {6}{7}{8}  {9}{1}{2}  {3}{4}{5}
+    \setrow {9}{1}{2}  {3}{4}{5}  {6}{7}{8}
+    \node[anchor=center] at (4.5, -0.5) {$n=4$};
+  \end{scope}
+\end{tikzpicture}
+\caption{Formula Generation of Valid Sudoku}
+\label{formula}
+\end{figure}
 
 \textit{Proof:}
 
@@ -194,7 +273,7 @@ We must validate the Latin square conditions. The row constraint in $S_l$ ensure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Latin Square $\geq_p$ Triangulate A Tripartite Graph}
+\subsection{Latin Square $\geq_p$ Triangulate A Tripartite Graph}
 
 \textbf{Def$^n$}: A graph $G=(V,E)$ is tripartite if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $.
 
@@ -208,35 +287,40 @@ If a tripartite graph can be triangulated it must be uniform, that is: every ver
 
 \textit{Proof:} 
 
-Observe completing a partial Latin square is equivalent to triangulating tripartite graph, we map the Latin square to this through the following: 
-given tripartite graph G=(V,E) label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...r_n\}$. Add edges such that:
+Intuitively, we map a graph to a Latin square $L$ through the following: 
+given tripartite graph G=(V,E) label vertices in $V_1$ with distinct lables $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct lables $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct lables $\{e_1,...e_n\}$. Add edges such that:
 \begin{itemize}
 \item{If $L(i,j) = 0$ then add the edge $(r_i,c_j)$ }
 \item{If for all $i \in [0,...,n]$ and constant j, $L(i,j) \neq k$ then add the edge $(r_i,e_k)$}
 \item{If for all $j \in [0,...,n]$ and constant i, $L(i,j) \neq k$ then add the edge $(c_j,e_k)$}
 \end{itemize}
-This graph has a triangulation iff L(i,j) can be solved.
+This graph has a triangulation iff $L(i,j)$ can be solved.
 
-Let us show every uniform tripartite graph is the above formulation of a Latin square.
+\textbf{EXAMPLE}
 
-Defn: A Latin framework LF for tripartite graph G, size (r,s,t) is a r by s array with values [1,...,t]. With constraints:
+Let us show every uniform tripartite graph can be transformed to the above formulation of a Latin square.
+
+First we need an intermediate that is a generalisation of a latin square
+
+\textbf{Def$^n$}: A Latin framework LF for tripartite graph G, size (r,s,t) is a r by s array with values [1,...,t]. With constraints:
 \begin{itemize}
 \item{Each row/column contain each element only once.}
-\item{If $(r_i,c_j)\in E$ then LF(i,j)=empty else LF(i,j)= k $k\in [1,...,t]$}
-\item{If $(r_i,e_k)\in E$  then for constant i $LF(i,j)\neq k$}
-\item{If $(c_i,e_k)\in E$  then for constant j $LF(i,j)\neq k$}
+\item{If $(r_i,c_j)\in E$ then LF(i,j)=0 else LF(i,j)= k, $k\in [1,...,t]$}
+\item{If $(r_i,e_k)\in E$  then $\forall j$ $LF(i,j)\neq k$}
+\item{If $(c_j,e_k)\in E$  then $\forall i$ $LF(i,j)\neq k$}
 \end{itemize}
-If r=s=t then LF is a latin square which can be completed iff G has a triangle partition.
+If r=s=t then LF is a latin square (formulation above) which can be completed iff G has a triangle partition.
 
-Lemma: For graph G=(V,E) with |V|=n, there's a Latin framework of (n,n,2n).
+\textbf{Lemma}: For tripartite graph G=(V,E) with $|V_1|=|V_2|=|V_3|=n$ (uniform), there's a Latin framework of (n,n,2n).
 
-Define LF an n by n array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)mod n)$. LF is a latin framework. $\square$
+\textit{Define LF an n by n array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)mod n)$. LF is a latin framework as the first two bullet points of the definition hold by construction and as $1+n\leq LF(i,j)\leq 2n$ LF will never equal a value in $1,...n$ and therefore the last two bullet points hold. The size is trivial. $\square$}
 
-Lemma: Latin framework L  (r,s,t) for uniform tripartite graph G. R(k) = the number of times k appears in L plus half $|e_k|$. Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to (r,s+1,t) to give L' in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$.
+\textbf{Lemma}: Given latin framework LF(n,n,2n) for uniform tripartite graph G, we can extend the latin framework to have size (n,2n,2n).
 
-\textit{proof of this lemma to be added}
+\textit{First we have a few denotions: R(k) = the number of times k appears in L plus half $|e_k|$; $S_i=\{k|k \not\in LF(i,j) \forall j \cap (r_i,e_k)\not\in E\}$; $M=\{k|R(k)=r+s-t\}$. 
+Whenever $R(k)\ge r+s-t$ for $1 \le k \le t$, L can be extended to (r,s+1,t) to give L' in which $R'(k)\ge r + s+1-t$ for all $1\le k \le t$}
 
-Lemma: Latin framework (r,s,s) can be extended to (s,s,s).
+\textbf{Lemma}: Latin framework (n,2n,2n) for grpah G, can be extended to (2n,2n,2n).
 
 We can transpose the array and do the same as the previous lemma. $\square$
 
@@ -246,7 +330,7 @@ Given a tripartite graph G, if it is not uniform then no triangulation exists, e
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Triangulated Tripartite $\geq_p$ 3SAT}
+\subsection{Triangulated Tripartite $\geq_p$ 3SAT}
 
 \textit{What is 3SAT?} With a set of boolean variables $B$ and a collection of clauses $C$, with at most 3 literals (a literal is any $b \in B$ or its negation $\bar{b}$) in each, does a valid truth assignment exist that satisfies $C$?
 		\begin{equation}
@@ -265,7 +349,7 @@ Consider the graph $H_{3,p}$, a version of which can be seen in figure 2. Observ
 
 $H_{3,p}$ has only two triangulations, termed a true and a false triangulation, we say $G=T$ if graph $G$ has a true triangulation and $G=F$ if it has a false triangulation. We connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
 
-\textbf{Lemma:} Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$. Then by removing the centre triangles from both graphs we get only the triangulations $(T,F)$ or $(F,T)$. If we expand this to $x$ $H_{3,p}$ we get only one false triangulation and the rest true.
+\textbf{Lemma}: Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$. Then by removing the centre triangles from both graphs we get only the triangulations $(T,F)$ or $(F,T)$. If we expand this to $x$ $H_{3,p}$ we get only one false triangulation and the rest true.
 
 
 Transformation process: (select p large enough to prevent patch overlap)
@@ -283,7 +367,7 @@ See figure 5 for an example. By the lemma; one of $l_{1,1}$, $l_{1,2}$ and $l_{1
 
 Triangulating a Tripartite Graph is hard. $\square$
 
-\subsubsection{3SAT is NP-Complete}
+\subsection{3SAT is NP-Complete}
 %%%%% define clause
 
 \textit{Proof:}
@@ -306,41 +390,105 @@ As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete
 \end{figure}
 
 
-Alternative reduction Sudoku $\geq_p$  Graph Colouring, to be explored later.
+\subsection{Sudoku $\geq_p$  Graph Colouring}
 
-	\subsection{Determining Uniqueness is Hard}
+\subsection{Example, dimension analysis}
+
+\section{Determining Uniqueness is Hard}
+
+\textbf{Def$^n$:} The Sudoku Uniqueness problem is: Given a partially completed sudoku grid $S$ does only a single completion exist? 
+		\begin{equation}
+		        \Gamma (S) = \begin{cases}
+		            \text{True if only a single completion exists} \\
+		            \text{False if multiple completions or none exist}.
+				\end{cases}
+		\end{equation}
+
+This is NP-hard (no polynomial verifier exists), NP-complete reduction exists.
 
 It is hard to determine if a puzzle has a unique solution. 	 \textit{TO COMPLETE: FIND PAPER WITH PROOF}
 		
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Solving Techniques}
-\subsection{Backtracking}
+\chapter{Solving Techniques}
+\section{Backtracking}
 The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. This is a brute force method with a few optimisations. One can expect to find this algorithm in a computer science course introduction to recursion, that is to say it is not a complex concept and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible. 
-\begin{lstlisting}[caption=Backtracking]
-def Backtracking(grid):
-    for each row:
-        for each column:
-            if grid is empty at this potion:
-                try a value in this position
-                Backtracking(grid with new value)
-                if successful:
-                    return grid
-                else:
-                    try another value
-                if no values left to try:
-                    return False
-    return grid						
-\end{lstlisting}
+
+\begin{algorithm}
+\caption{Backtracking}
+\begin{algorithmic}
+\Procedure{ Backtracking}{grid}
+    \For {row}
+        \For {column}
+            \If{grid(row,column) = 0}
+                \State{try a value in this position}
+                \State{Backtracking(grid with new value)}
+                \If{successful}
+                    \State{return grid}
+                \Else:
+                    \State{try another value}
+	       \EndIf
+                \If{no values left to try}
+                    \State{return False}
+		\EndIf
+\EndIf
+\EndFor
+\EndFor
+    \State{return grid}
+\EndProcedure						
+\end{algorithmic}
+\end{algorithm}
 Why does brute force not work for larger examples? It will work \textit{TO DO: PROVE ALG CORRECTNESS} but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeesible.
-\subsection{Stochastic Methods}
-\subsubsection{Simulated Annealing} 
+\section{Simulated Annealing} 
+
+Based on metalurgy
+
+\begin{algorithm}
+\caption{Simulated Annealing}
+\begin{algorithmic}
+\Procedure{SimAnnealing}{grid, schedule, f}
+	\State{current = initialise state}
+	\For {$t=1 \text{to} \inf$ }
+		\State{T=schedule[t]}
+		\If{$T\leq  \epsilon$}
+			\State{return current}
+		\Else
+			\State{choose successor at random}
+			\State{$\Delta E$ = f(successor) - f(current)}
+			\If{$\Delta E \geq 0$}
+				\State{current = succ}
+			\Else{ choose with probability $e^{\frac{\Delta E}{T}}$}
+				\State{current = successor}
+			\EndIf
+		\EndIf
+	\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Convergence}
+\subsection{Speed of Convergence}
 \cite{simulated annealing} one of 100 most cited papers, one of the first AI algs
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Group theory}
-	\subsection{Starting Simple}
-		Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
-	\subsection{Equivalence Classes}
+\chapter{Group theory}
+\section{Starting Simple $4 \times 4$}
+Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
+
+
+
+	\section{Equivalence Classes}
+	\section{$6 \times 6$}
+
+Define Rodoku 
+Define which sudoku sizes can exist
+
+
+812
+	\section{$8 \times 8$}
+	\section{$9 \times  9$}
+5,472,730,538
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+\chapter{Other}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \section{Other Related Problems}
 	\subsection{Latin Squares}
@@ -355,7 +503,7 @@ Why does brute force not work for larger examples? It will work \textit{TO DO: P
 		\item{Latin hypercube}
 		\end{itemize}
 
-	\subsection{Magic Squares}
+	\section{Magic Squares}
 
 		\begin{itemize}
 		\item{A magic square is a matrix of numbers with each column, row and diagonal summing to the same value, 
