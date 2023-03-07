@@ -1,5 +1,5 @@
 s =''
-n=3
+n=4
 
 # as defined
 #for i in range(0,n**2):
