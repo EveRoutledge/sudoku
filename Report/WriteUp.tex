@@ -440,16 +440,50 @@ This reduction is a little trickier as we need to introduce the Holyer graph $H$
 \item $x_j\equiv y_j+1 (\text{mod }p)$
 \item $x_k\equiv y_k-1 (\text{mod }p)$
 \end{itemize}
-This is much easier to grasp with a diagram see figure \textbf{FIGURE}.
-This graph is tripartite if and only if $p\equiv 0 $ (mod 3), this is demonstrated by a 3-colouring (a graph is tripartite if and only if it is 3-colourable) in figure \textbf{FIGURE}.
+See figure \ref{holyer} for an example.
 
-\textbf{Def$^n$}: $H_{3,p}$ has only two triangulations, termed a true and a false triangulation \textbf{FIGURE}. 
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=70mm]{figures/holyer_coord.png}
+		\includegraphics[width=70mm]{figures/holyer_3_4.png}
+\end{center}
+		\caption{$H_{3,3} $ and $H_{3,4}$, the torus is embedded in the 2 dimensional plane.}
+		\label{holyer}
+\end{figure}
+
+This graph is tripartite if and only if $p\equiv 0 $ (mod 3), this is demonstrated by a 3-colouring (a graph is tripartite if and only if it is 3-colourable) in figure \ref{holyercolour}.
+
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=70mm]{figures/colour_holyer_coord.png}
+		\includegraphics[width=70mm]{figures/colour_holyer.png}
+\end{center}
+		\caption{3-colouring of $H_{3,3} $ and $H_{3,4}$ }
+		\label{holyercolour}
+\end{figure}
+
+\textbf{Def$^n$}: $H_{3,p}$ has only two triangulations, termed a true and a false triangulation, see figure \ref{truefalsetri}. 
+
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=70mm]{figures/holyer_true_triangulation.png}
+		\includegraphics[width=70mm]{figures/holyer_false_triangulation.png}
+\end{center}
+		\caption{True triangulation and a False triangulation }
+		\label{truefalsetri}
+\end{figure}
 
 \textbf{Note:} We connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
 
-\textbf{Def$^n$}: We will connect out graph with F-patches and T-patches \textbf{FIGURE}. 
+\textbf{Def$^n$}: We will connect out graph with F-patches and T-patches, see figure \ref{patches}. 
 
-\textbf{Lemma}: Connecting two $H_{3,p}$ by two A-patches then our triangulations of these graphs can be of the form $(T,T)$, $(T,F)$ or $(F,T)$. Then by removing the centre triangles from both graphs we get only the triangulations $(T,F)$ or $(F,T)$. If we expand this to $x$ $H_{3,p}$ we get only one false triangulation and the rest true.
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=70mm]{figures/patches.png}
+\end{center}
+		\caption{F-patch and a T-patch}
+		\label{patches}
+\end{figure}
 
 Transformation process: (select p large enough to prevent patch overlap and  $p\equiv 0 $ (mod 3))
 \begin{itemize}
@@ -464,9 +498,31 @@ We now need to prove the graph produced by the above transformation can be trian
 
  Assume a triangulation of G exists, consider a H within the construction of G. H is eitehr a true triangulation or a false triangulation. Now assume $l_{i,j}$ is $b_k$ and consider the join between $G_{i,j}$ and $G_{b_k}$ as this joins two F-patches we get at least one true triangulation. (if $G_{i,j}$ is a true triangulation this acounts for all edges near the joining patch but the actual patch can be attributed to $G_{b_k}$ which can be triangulated either way, if both are false triangulations the connecting patch is forced to belong to both $G_{i,j}$ and $G_{b_k}$ which is a contradiction.)
 
-Similarly if  $l_{i,j}=\neg b_i$ then $G_{i,j}$ is a false triangulatio or $G_{b_k}$ is a true triangulation.
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=100mm]{figures/first_holyer_lemma.png}
+\end{center}
+		\caption{Graphs connected by two F-patches, the only complete triangulations are shown, one of each or two true triangulations.}
+\end{figure}
+
+
+Similarly if  $l_{i,j}=\neg b_i$ then $G_{i,j}$ is a false triangulation or $G_{b_k}$ is a true triangulation.
+
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=100mm]{figures/lemma_two_holyer.png}
+\end{center}
+		\caption{Graphs connected by a T-patch and a F-patch, the only complete triangulation is show.}
+\end{figure}
 
 Next the join between clause graphs allow for one false triangulation and the rest  are true triangulations. As the centre of the patch is missing a single $G_{i,j}$ must take the outer edges of the patch by being a false triangulation.
+
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=120mm]{figures/lemma_three_holyer.png}
+\end{center}
+		\caption{Graphs connected by F-patches with the centre removed, the only complete triangulation is show, exactly one must be a false triangualtion.}
+\end{figure}
 
 If G can be triangulated a truth assignment exists such that variable $b_k$ is true if $G_{b_k}$ has a true partition otherwise it is false.
 
@@ -507,6 +563,9 @@ As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Solving Sudoku is Hard}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sudoku $\geq_p$  Graph Colouring}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

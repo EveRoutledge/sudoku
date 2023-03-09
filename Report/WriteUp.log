@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.8)  7 MAR 2023 20:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.8)  9 MAR 2023 00:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -670,53 +670,134 @@ Package pdftex.def Info: P_np.svg.png  used on input line 143.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] [7] [8] [9]
-<figures/sat_example.png, id=63, 390.696pt x 175.2pt>
+[6] [7] [8]
+<figures/holyer_coord.png, id=58, 384.43625pt x 237.88875pt>
+File: figures/holyer_coord.png Graphic file (type png)
+<use figures/holyer_coord.png>
+Package pdftex.def Info: figures/holyer_coord.png  used on input line 447.
+(pdftex.def)             Requested size: 199.16928pt x 123.24911pt.
+<figures/holyer_3_4.png, id=59, 383.4325pt x 284.06125pt>
+File: figures/holyer_3_4.png Graphic file (type png)
+<use figures/holyer_3_4.png>
+Package pdftex.def Info: figures/holyer_3_4.png  used on input line 448.
+(pdftex.def)             Requested size: 199.16928pt x 147.5523pt.
+<figures/colour_holyer_coord.png, id=60, 313.17pt x 237.88875pt>
+File: figures/colour_holyer_coord.png Graphic file (type png)
+<use figures/colour_holyer_coord.png>
+Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 45
+8.
+(pdftex.def)             Requested size: 199.16928pt x 151.29724pt.
+<figures/colour_holyer.png, id=61, 383.4325pt x 284.06125pt>
+File: figures/colour_holyer.png Graphic file (type png)
+<use figures/colour_holyer.png>
+Package pdftex.def Info: figures/colour_holyer.png  used on input line 459.
+(pdftex.def)             Requested size: 199.16928pt x 147.5523pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/holyer_true_triangulation.png, id=62, 312.16624pt x 237.88875pt>
+File: figures/holyer_true_triangulation.png Graphic file (type png)
+<use figures/holyer_true_triangulation.png>
+Package pdftex.def Info: figures/holyer_true_triangulation.png  used on input l
+ine 469.
+(pdftex.def)             Requested size: 199.16928pt x 151.78001pt.
+<figures/holyer_false_triangulation.png, id=63, 312.16624pt x 237.88875pt>
+File: figures/holyer_false_triangulation.png Graphic file (type png)
+<use figures/holyer_false_triangulation.png>
+Package pdftex.def Info: figures/holyer_false_triangulation.png  used on input 
+line 470.
+(pdftex.def)             Requested size: 199.16928pt x 151.78001pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/patches.png, id=64, 382.42876pt x 181.67876pt>
+File: figures/patches.png Graphic file (type png)
+<use figures/patches.png>
+Package pdftex.def Info: figures/patches.png  used on input line 482.
+(pdftex.def)             Requested size: 199.16928pt x 94.61765pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
+<figures/first_holyer_lemma.png, id=71, 1286.8075pt x 1006.76125pt>
+File: figures/first_holyer_lemma.png Graphic file (type png)
+<use figures/first_holyer_lemma.png>
+Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 503
+.
+(pdftex.def)             Requested size: 284.52756pt x 222.60957pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/lemma_two_holyer.png, id=72, 1286.8075pt x 484.81125pt>
+File: figures/lemma_two_holyer.png Graphic file (type png)
+<use figures/lemma_two_holyer.png>
+Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 513.
+(pdftex.def)             Requested size: 284.52756pt x 107.19882pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/lemma_three_holyer.png, id=73, 1891.065pt x 484.81125pt>
+File: figures/lemma_three_holyer.png Graphic file (type png)
+<use figures/lemma_three_holyer.png>
+Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 522
+.
+(pdftex.def)             Requested size: 341.43306pt x 87.52856pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figure
+s/holyer_true_triangulation.png> <./figures/holyer_false_triangulation.png>]
+<figures/sat_example.png, id=82, 390.696pt x 175.2pt>
 File: figures/sat_example.png Graphic file (type png)
 <use figures/sat_example.png>
-Package pdftex.def Info: figures/sat_example.png  used on input line 503.
+Package pdftex.def Info: figures/sat_example.png  used on input line 559.
 (pdftex.def)             Requested size: 199.16928pt x 89.31339pt.
- [10 <./figures/sat_example.png>] [11]
+
+[11 <./figures/patches.png> <./figures/first_holyer_lemma.png>] [12 <./figures/
+lemma_two_holyer.png> <./figures/lemma_three_holyer.png> <./figures/sat_example
+.png>]
 Chapter 4.
 
-LaTeX Warning: Citation `simulated annealing' on page 12 undefined on input lin
-e 596.
+LaTeX Warning: Citation `simulated annealing' on page 13 undefined on input lin
+e 655.
 
-[12
+[13
 
-] [13]
+] [14]
 Chapter 5.
-[14
+[15
 
 ]
 Chapter 6.
-[15
+[16
 
-] [16]
-Overfull \hbox (6.28883pt too wide) in paragraph at lines 690--691
+] [17]
+Overfull \hbox (6.28883pt too wide) in paragraph at lines 749--750
 []\OT1/cmr/m/n/10.95 https://www.researchgate.net/publication/251863893[]A[]New
 []Algorithm[]for[]Generating[]Unique-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 692--694
+Underfull \hbox (badness 10000) in paragraph at lines 751--753
 []\OT1/cmr/m/n/10.95 http://web.math.ucsb.edu/~padraic/mathcamp[]2014/np[]and[]
 ls/mc2014[]np[]and[]ls[]lecture3.pdf,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
+Underfull \hbox (badness 10000) in paragraph at lines 754--755
 []\OT1/cmr/m/n/10.95 https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-661
 0(1996)4:6<405::AID-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 698--699
+Underfull \hbox (badness 10000) in paragraph at lines 757--758
 []\OT1/cmr/m/n/10.95 https://www.semanticscholar.org/paper/Permutation-arrays-f
 or-powerline-communication-
  []
 
-[17
+[18
 
 ] (WriteUp.aux)
 
@@ -724,10 +805,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15987 strings out of 476374
- 311897 string characters out of 5789799
+ 16061 strings out of 476374
+ 314160 string characters out of 5789799
  1903340 words of memory out of 5000000
- 36096 multiletter control sequences out of 15000+600000
+ 36160 multiletter control sequences out of 15000+600000
  527311 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,89p,636b,768s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -755,9 +836,9 @@ nts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Eve/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Eve/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Eve/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on WriteUp.pdf (19 pages, 360137 bytes).
+Output written on WriteUp.pdf (20 pages, 561398 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
+ 205 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
