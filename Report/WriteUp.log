@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.8)  9 MAR 2023 00:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.8)  31 MAR 2023 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -155,6 +155,45 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+)
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
+
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen162
+\ar@mcellbox=\box55
+\extrarowheight=\dimen163
+\NC@list=\toks24
+\extratabsurround=\skip53
+\backup@length=\skip54
+\ar@cellbox=\box56
+)
+\everycr=\toks25
+\minrowclearance=\skip55
+\rownum=\count283
+)
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -168,17 +207,15 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen162
-\Gin@req@width=\dimen163
+)
+\Gin@req@height=\dimen164
+\Gin@req@width=\dimen165
 ) (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen164
-\WF@size=\dimen165
-\c@WF@wrappedlines=\count283
-\WF@box=\box55
-\WF@everypar=\toks24
+\wrapoverhang=\dimen166
+\WF@size=\dimen167
+\c@WF@wrappedlines=\count284
+\WF@box=\box57
+\WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
@@ -187,33 +224,33 @@ nment
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count284
-\float@exts=\toks25
-\float@box=\box56
-\@float@everytoks=\toks26
-\@floatcapt=\box57
+\c@float@type=\count285
+\float@exts=\toks27
+\float@box=\box58
+\@float@everytoks=\toks28
+\@floatcapt=\box59
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks27
-\c@algorithm=\count285
+\@float@every@algorithm=\toks29
+\c@algorithm=\count286
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx
 .sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count286
-\c@ALG@rem=\count287
-\c@ALG@nested=\count288
-\ALG@tlm=\skip53
-\ALG@thistlm=\skip54
-\c@ALG@Lnr=\count289
-\c@ALG@blocknr=\count290
-\c@ALG@storecount=\count291
-\c@ALG@tmpcounter=\count292
-\ALG@tmplength=\skip55
+\c@ALG@line=\count287
+\c@ALG@rem=\count288
+\c@ALG@nested=\count289
+\ALG@tlm=\skip56
+\ALG@thistlm=\skip57
+\c@ALG@Lnr=\count290
+\c@ALG@blocknr=\count291
+\c@ALG@storecount=\count292
+\c@ALG@tmpcounter=\count293
+\ALG@tmplength=\skip58
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocod
 e.sty
@@ -226,13 +263,13 @@ y (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-c
 ommon.tex
-\pgfutil@everybye=\toks28
-\pgfutil@tempdima=\dimen166
-\pgfutil@tempdimb=\dimen167
+\pgfutil@everybye=\toks30
+\pgfutil@tempdima=\dimen168
+\pgfutil@tempdimb=\dimen169
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-l
 atex.def
-\pgfutil@abb=\box58
+\pgfutil@abb=\box60
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.co
 de.tex
@@ -251,33 +288,33 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.c
 ode.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
+\pgfkeys@pathtoks=\toks31
+\pgfkeys@temptoks=\toks32
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysli
 braryfiltered.code.tex
-\pgfkeys@tmptoks=\toks31
+\pgfkeys@tmptoks=\toks33
 ))
-\pgf@x=\dimen168
-\pgf@y=\dimen169
-\pgf@xa=\dimen170
-\pgf@ya=\dimen171
-\pgf@xb=\dimen172
-\pgf@yb=\dimen173
-\pgf@xc=\dimen174
-\pgf@yc=\dimen175
-\pgf@xd=\dimen176
-\pgf@yd=\dimen177
+\pgf@x=\dimen170
+\pgf@y=\dimen171
+\pgf@xa=\dimen172
+\pgf@ya=\dimen173
+\pgf@xb=\dimen174
+\pgf@yb=\dimen175
+\pgf@xc=\dimen176
+\pgf@yc=\dimen177
+\pgf@xd=\dimen178
+\pgf@yd=\dimen179
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count293
-\c@pgf@countb=\count294
-\c@pgf@countc=\count295
-\c@pgf@countd=\count296
-\t@pgf@toka=\toks32
-\t@pgf@tokb=\toks33
-\t@pgf@tokc=\toks34
-\pgf@sys@id@count=\count297
+\c@pgf@counta=\count294
+\c@pgf@countb=\count295
+\c@pgf@countc=\count296
+\c@pgf@countd=\count297
+\t@pgf@toka=\toks34
+\t@pgf@tokb=\toks35
+\t@pgf@tokc=\toks36
+\pgf@sys@id@count=\count298
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -295,32 +332,13 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyss
 oftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count298
-\pgfsyssoftpath@bigbuffer@items=\count299
+\pgfsyssoftpath@smallbuffer@items=\count299
+\pgfsyssoftpath@bigbuffer@items=\count300
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysp
 rotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
-(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
-Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
-
-(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 227.
-
-(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
-Package xcolor Info: Model `RGB' extended on input line 1369.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.
 code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
@@ -331,12 +349,12 @@ ex
 de.tex)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.
 code.tex
-\pgfmath@dimen=\dimen178
-\pgfmath@count=\count300
-\pgfmath@box=\box59
-\pgfmath@toks=\toks35
-\pgfmath@stack@operand=\toks36
-\pgfmath@stack@operation=\toks37
+\pgfmath@dimen=\dimen180
+\pgfmath@count=\count301
+\pgfmath@box=\box61
+\pgfmath@toks=\toks37
+\pgfmath@stack@operand=\toks38
+\pgfmath@stack@operation=\toks39
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctio
 ns.code.tex)
@@ -360,59 +378,59 @@ ns.integerarithmetics.code.tex)
 de.tex)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.c
 ode.tex
-\c@pgfmathroundto@lastzeros=\count301
+\c@pgfmathroundto@lastzeros=\count302
 ))
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.te
 x)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorep
 oints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen179
-\pgf@picmaxx=\dimen180
-\pgf@picminy=\dimen181
-\pgf@picmaxy=\dimen182
-\pgf@pathminx=\dimen183
-\pgf@pathmaxx=\dimen184
-\pgf@pathminy=\dimen185
-\pgf@pathmaxy=\dimen186
-\pgf@xx=\dimen187
-\pgf@xy=\dimen188
-\pgf@yx=\dimen189
-\pgf@yy=\dimen190
-\pgf@zx=\dimen191
-\pgf@zy=\dimen192
+\pgf@picminx=\dimen181
+\pgf@picmaxx=\dimen182
+\pgf@picminy=\dimen183
+\pgf@picmaxy=\dimen184
+\pgf@pathminx=\dimen185
+\pgf@pathmaxx=\dimen186
+\pgf@pathminy=\dimen187
+\pgf@pathmaxy=\dimen188
+\pgf@xx=\dimen189
+\pgf@xy=\dimen190
+\pgf@yx=\dimen191
+\pgf@yy=\dimen192
+\pgf@zx=\dimen193
+\pgf@zy=\dimen194
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorep
 athconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen193
-\pgf@path@lasty=\dimen194
+\pgf@path@lastx=\dimen195
+\pgf@path@lasty=\dimen196
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorep
 athusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen195
-\pgf@shorten@start@additional=\dimen196
+\pgf@shorten@end@additional=\dimen197
+\pgf@shorten@start@additional=\dimen198
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcores
 copes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box60
-\pgf@hbox=\box61
-\pgf@layerbox@main=\box62
-\pgf@picture@serial@count=\count302
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count303
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreg
 raphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen197
+\pgflinewidth=\dimen199
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoret
 ransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen198
-\pgf@pt@y=\dimen199
-\pgf@pt@temp=\dimen256
+\pgf@pt@x=\dimen256
+\pgf@pt@y=\dimen257
+\pgf@pt@temp=\dimen258
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreq
 uick.code.tex
@@ -429,14 +447,14 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorea
 rrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen257
+\pgfarrowsep=\dimen259
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcores
 hade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen258
-\pgf@sys@shading@range@num=\count303
-\pgf@shadingcount=\count304
+\pgf@max=\dimen260
+\pgf@sys@shading@range@num=\count304
+\pgf@shadingcount=\count305
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorei
 mage.code.tex
@@ -445,7 +463,7 @@ File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoree
 xternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box63
+\pgfexternal@startupbox=\box65
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorel
 ayers.code.tex
@@ -466,7 +484,7 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulesh
 apes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box64
+\pgfnodeparttextbox=\box66
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulepl
 ot.code.tex
@@ -475,8 +493,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp
 -version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen259
-\pgf@nodesepend=\dimen260
+\pgf@nodesepstart=\dimen261
+\pgf@nodesepend=\dimen262
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp
 -version-1-18.sty
@@ -493,10 +511,10 @@ ex))
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.co
 de.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen261
-\pgffor@skip=\dimen262
-\pgffor@stack=\toks38
-\pgffor@toks=\toks39
+\pgffor@iter=\dimen263
+\pgffor@skip=\dimen264
+\pgffor@stack=\toks40
+\pgffor@toks=\toks41
 ))
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\
 tikz.code.tex
@@ -505,68 +523,83 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibrar
 yplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count305
-\pgfplotmarksize=\dimen263
+\pgf@plot@mark@count=\count306
+\pgfplotmarksize=\dimen265
 )
-\tikz@lastx=\dimen264
-\tikz@lasty=\dimen265
-\tikz@lastxsaved=\dimen266
-\tikz@lastysaved=\dimen267
-\tikz@lastmovetox=\dimen268
-\tikz@lastmovetoy=\dimen269
-\tikzleveldistance=\dimen270
-\tikzsiblingdistance=\dimen271
-\tikz@figbox=\box65
-\tikz@figbox@bg=\box66
-\tikz@tempbox=\box67
-\tikz@tempbox@bg=\box68
-\tikztreelevel=\count306
-\tikznumberofchildren=\count307
-\tikznumberofcurrentchild=\count308
-\tikz@fig@count=\count309
+\tikz@lastx=\dimen266
+\tikz@lasty=\dimen267
+\tikz@lastxsaved=\dimen268
+\tikz@lastysaved=\dimen269
+\tikz@lastmovetox=\dimen270
+\tikz@lastmovetoy=\dimen271
+\tikzleveldistance=\dimen272
+\tikzsiblingdistance=\dimen273
+\tikz@figbox=\box67
+\tikz@figbox@bg=\box68
+\tikz@tempbox=\box69
+\tikz@tempbox@bg=\box70
+\tikztreelevel=\count307
+\tikznumberofchildren=\count308
+\tikznumberofcurrentchild=\count309
+\tikz@fig@count=\count310
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulema
 trix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count310
-\pgfmatrixcurrentcolumn=\count311
-\pgf@matrix@numberofcolumns=\count312
+\pgfmatrixcurrentrow=\count311
+\pgfmatrixcurrentcolumn=\count312
+\pgf@matrix@numberofcolumns=\count313
 )
-\tikz@expandcount=\count313
+\tikz@expandcount=\count314
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/
 libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
-\c@row=\count314
-\c@col=\count315
-\c@rowa=\count316
-\c@cola=\count317
-\c@rowb=\count318
-\c@colb=\count319
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)) (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count315
+))
+\c@row=\count316
+\c@col=\count317
+\c@rowa=\count318
+\c@cola=\count319
+\c@rowb=\count320
+\c@colb=\count321
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdfte
 x.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count320
-\l__pdf_internal_box=\box69
+\l__color_backend_stack_int=\count322
+\l__pdf_internal_box=\box71
 ) (WriteUp.aux)
 \openout1 = `WriteUp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -602,21 +635,21 @@ LaTeX Font Info:    ... okay on input line 48.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count321
+\c@lstlisting=\count323
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
-\scratchdimen=\dimen272
-\scratchbox=\box70
-\nofMPsegments=\count323
-\nofMParguments=\count324
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count325
-\MPscratchDim=\dimen273
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count324
+\scratchdimen=\dimen274
+\scratchbox=\box72
+\nofMPsegments=\count325
+\nofMParguments=\count326
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen275
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
+\everyMPtoPDFconversion=\toks43
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-bas
 e.sty
@@ -628,217 +661,203 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 )) (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+) (titlepage.tex
+<DurhamUniversityMasterLogo_RGB.jpg, id=4, 339.9099pt x 200.4288pt>
+File: DurhamUniversityMasterLogo_RGB.jpg Graphic file (type jpg)
+<use DurhamUniversityMasterLogo_RGB.jpg>
+Package pdftex.def Info: DurhamUniversityMasterLogo_RGB.jpg  used on input line
+ 23.
+(pdftex.def)             Requested size: 290.22107pt x 171.12984pt.
+ [1
+
+{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./DurhamUniver
+sityMasterLogo_RGB.jpg>]) (WriteUp.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-[1
-
-{C:/Users/Eve/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [1]
-(WriteUp.toc)
+))
 \tf@toc=\write4
 \openout4 = `WriteUp.toc'.
 
- [1
+
+[1
 
 ]
 Chapter 1.
 [2
 
-]
+] [3]
 Chapter 2.
-[3
-
-]
-Chapter 3.
-<P_np.svg.png, id=30, 451.6875pt x 282.05376pt>
-File: P_np.svg.png Graphic file (type png)
-<use P_np.svg.png>
-Package pdftex.def Info: P_np.svg.png  used on input line 143.
-(pdftex.def)             Requested size: 170.71652pt x 106.60483pt.
 [4
 
-] [5 <./P_np.svg.png>]
+]
+<figures/turing_non_determinism.png, id=34, 2201.22375pt x 822.07124pt>
+File: figures/turing_non_determinism.png Graphic file (type png)
+<use figures/turing_non_determinism.png>
+Package pdftex.def Info: figures/turing_non_determinism.png  used on input line
+ 136.
+(pdftex.def)             Requested size: 284.52756pt x 106.25836pt.
+<figures/turing_determinism.png, id=36, 202.7575pt x 1166.3575pt>
+File: figures/turing_determinism.png Graphic file (type png)
+<use figures/turing_determinism.png>
+Package pdftex.def Info: figures/turing_determinism.png  used on input line 143
+.
+(pdftex.def)             Requested size: 28.45274pt x 163.66267pt.
+ [5 <./figures/turing_non_determinism.png> <./figures/turing_determinism.png>]
+<P_np.svg.png, id=42, 451.6875pt x 282.05376pt>
+File: P_np.svg.png Graphic file (type png)
+<use P_np.svg.png>
+Package pdftex.def Info: P_np.svg.png  used on input line 180.
+(pdftex.def)             Requested size: 170.71652pt x 106.60483pt.
+ [6 <./P_np.svg.png>] [7] [8] [9] [10] [11]
+<figures/ttg.png, id=70, 475.7775pt x 398.23781pt>
+File: figures/ttg.png Graphic file (type png)
+<use figures/ttg.png>
+Package pdftex.def Info: figures/ttg.png  used on input line 523.
+(pdftex.def)             Requested size: 135.96823pt x 113.81102pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] [7] [8]
-<figures/holyer_coord.png, id=58, 384.43625pt x 237.88875pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13 <./figures/ttg.png>]
+<figures/holyer_coord.png, id=81, 384.43625pt x 237.88875pt>
 File: figures/holyer_coord.png Graphic file (type png)
 <use figures/holyer_coord.png>
-Package pdftex.def Info: figures/holyer_coord.png  used on input line 447.
-(pdftex.def)             Requested size: 199.16928pt x 123.24911pt.
-<figures/holyer_3_4.png, id=59, 383.4325pt x 284.06125pt>
+Package pdftex.def Info: figures/holyer_coord.png  used on input line 594.
+(pdftex.def)             Requested size: 183.9231pt x 113.81102pt.
+<figures/holyer_3_4.png, id=82, 383.4325pt x 284.06125pt>
 File: figures/holyer_3_4.png Graphic file (type png)
 <use figures/holyer_3_4.png>
-Package pdftex.def Info: figures/holyer_3_4.png  used on input line 448.
-(pdftex.def)             Requested size: 199.16928pt x 147.5523pt.
-<figures/colour_holyer_coord.png, id=60, 313.17pt x 237.88875pt>
+Package pdftex.def Info: figures/holyer_3_4.png  used on input line 595.
+(pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
+<figures/colour_holyer_coord.png, id=83, 313.17pt x 237.88875pt>
 File: figures/colour_holyer_coord.png Graphic file (type png)
 <use figures/colour_holyer_coord.png>
-Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 45
-8.
-(pdftex.def)             Requested size: 199.16928pt x 151.29724pt.
-<figures/colour_holyer.png, id=61, 383.4325pt x 284.06125pt>
+Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 60
+5.
+(pdftex.def)             Requested size: 149.82768pt x 113.81102pt.
+<figures/colour_holyer.png, id=84, 383.4325pt x 284.06125pt>
 File: figures/colour_holyer.png Graphic file (type png)
 <use figures/colour_holyer.png>
-Package pdftex.def Info: figures/colour_holyer.png  used on input line 459.
-(pdftex.def)             Requested size: 199.16928pt x 147.5523pt.
+Package pdftex.def Info: figures/colour_holyer.png  used on input line 606.
+(pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/holyer_true_triangulation.png, id=62, 312.16624pt x 237.88875pt>
+<figures/holyer_true_triangulation.png, id=85, 312.16624pt x 237.88875pt>
 File: figures/holyer_true_triangulation.png Graphic file (type png)
 <use figures/holyer_true_triangulation.png>
 Package pdftex.def Info: figures/holyer_true_triangulation.png  used on input l
-ine 469.
-(pdftex.def)             Requested size: 199.16928pt x 151.78001pt.
-<figures/holyer_false_triangulation.png, id=63, 312.16624pt x 237.88875pt>
+ine 616.
+(pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
+<figures/holyer_false_triangulation.png, id=86, 312.16624pt x 237.88875pt>
 File: figures/holyer_false_triangulation.png Graphic file (type png)
 <use figures/holyer_false_triangulation.png>
 Package pdftex.def Info: figures/holyer_false_triangulation.png  used on input 
-line 470.
-(pdftex.def)             Requested size: 199.16928pt x 151.78001pt.
+line 617.
+(pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/patches.png, id=64, 382.42876pt x 181.67876pt>
+[14 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
+<figures/patches.png, id=93, 382.42876pt x 181.67876pt>
 File: figures/patches.png Graphic file (type png)
 <use figures/patches.png>
-Package pdftex.def Info: figures/patches.png  used on input line 482.
+Package pdftex.def Info: figures/patches.png  used on input line 629.
 (pdftex.def)             Requested size: 199.16928pt x 94.61765pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
-<figures/first_holyer_lemma.png, id=71, 1286.8075pt x 1006.76125pt>
+ [15 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figur
+es/holyer_true_triangulation.png> <./figures/holyer_false_triangulation.png> <.
+/figures/patches.png>]
+<figures/first_holyer_lemma.png, id=103, 1286.8075pt x 1006.76125pt>
 File: figures/first_holyer_lemma.png Graphic file (type png)
 <use figures/first_holyer_lemma.png>
-Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 503
+Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 649
 .
 (pdftex.def)             Requested size: 284.52756pt x 222.60957pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/lemma_two_holyer.png, id=72, 1286.8075pt x 484.81125pt>
+<figures/lemma_two_holyer.png, id=104, 1286.8075pt x 484.81125pt>
 File: figures/lemma_two_holyer.png Graphic file (type png)
 <use figures/lemma_two_holyer.png>
-Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 513.
+Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 660.
 (pdftex.def)             Requested size: 284.52756pt x 107.19882pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/lemma_three_holyer.png, id=73, 1891.065pt x 484.81125pt>
+<figures/lemma_three_holyer.png, id=105, 1891.065pt x 484.81125pt>
 File: figures/lemma_three_holyer.png Graphic file (type png)
 <use figures/lemma_three_holyer.png>
-Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 522
+Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 670
 .
 (pdftex.def)             Requested size: 341.43306pt x 87.52856pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figure
-s/holyer_true_triangulation.png> <./figures/holyer_false_triangulation.png>]
-<figures/sat_example.png, id=82, 390.696pt x 175.2pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16 <./figures/first_holyer_lemma.png> <./figures/lemma_two_holyer.png>]
+<figures/sat_example.png, id=111, 390.696pt x 175.2pt>
 File: figures/sat_example.png Graphic file (type png)
 <use figures/sat_example.png>
-Package pdftex.def Info: figures/sat_example.png  used on input line 559.
+Package pdftex.def Info: figures/sat_example.png  used on input line 702.
 (pdftex.def)             Requested size: 199.16928pt x 89.31339pt.
 
-[11 <./figures/patches.png> <./figures/first_holyer_lemma.png>] [12 <./figures/
-lemma_two_holyer.png> <./figures/lemma_three_holyer.png> <./figures/sat_example
-.png>]
+[17 <./figures/lemma_three_holyer.png> <./figures/sat_example.png>] [18]
+[19]
+Chapter 3.
+[20
+
+] [21]
 Chapter 4.
+[22
 
-LaTeX Warning: Citation `simulated annealing' on page 13 undefined on input lin
-e 655.
-
-[13
-
-] [14]
+] [23]
 Chapter 5.
-[15
+(WriteUp.bbl [24
 
-]
-Chapter 6.
-[16
+]) [25
 
-] [17]
-Overfull \hbox (6.28883pt too wide) in paragraph at lines 749--750
-[]\OT1/cmr/m/n/10.95 https://www.researchgate.net/publication/251863893[]A[]New
-[]Algorithm[]for[]Generating[]Unique-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 751--753
-[]\OT1/cmr/m/n/10.95 http://web.math.ucsb.edu/~padraic/mathcamp[]2014/np[]and[]
-ls/mc2014[]np[]and[]ls[]lecture3.pdf,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 754--755
-[]\OT1/cmr/m/n/10.95 https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-661
-0(1996)4:6<405::AID-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 757--758
-[]\OT1/cmr/m/n/10.95 https://www.semanticscholar.org/paper/Permutation-arrays-f
-or-powerline-communication-
- []
-
-[18
-
-] (WriteUp.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (WriteUp.aux) ) 
 Here is how much of TeX's memory you used:
- 16061 strings out of 476374
- 314160 string characters out of 5789799
- 1903340 words of memory out of 5000000
- 36160 multiletter control sequences out of 15000+600000
- 527311 words of font info for 89 fonts, out of 8000000 for 9000
+ 17006 strings out of 476374
+ 330108 string characters out of 5789799
+ 1901340 words of memory out of 5000000
+ 37065 multiletter control sequences out of 15000+600000
+ 528986 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,89p,636b,768s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
-95.pk><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmbx8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Eve/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Eve/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Eve/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Eve/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Eve
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
-rs/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17
+ 84i,13n,80p,947b,756s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\tcrm1095.pk><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Eve/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Eve/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Eve/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Eve/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/User
+s/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6
 .pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr6.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Eve/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Eve/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Eve/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on WriteUp.pdf (20 pages, 561398 bytes).
+/cmmi8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmmi9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmr12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Eve/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Eve/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eve/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Eve/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/
+Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/
+Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.p
+fb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symb
+ols/msam10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb>
+Output written on WriteUp.pdf (26 pages, 894421 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
+ 246 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

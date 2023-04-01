@@ -1,0 +1,62 @@
+\begin{thebibliography}{10}
+
+\bibitem{compcomplexityamodernapproach}
+S.~Arora and B.~Barak.
+\newblock {\em Computational Complexity: A Modern Approach}.
+\newblock Cambridge University Press, 2009.
+
+\bibitem{simulatedannealing}
+Dimitris Bertsimas and John Tsitsiklis.
+\newblock {Simulated Annealing}.
+\newblock {\em Statistical Science}, 8(1):10 -- 15, 1993.
+
+\bibitem{lsttg}
+Charles~J. Colbourn.
+\newblock The complexity of completing partial latin squares.
+\newblock {\em Discrete Applied Mathematics}, 8(1):25--30, 1984.
+
+\bibitem{hall}
+P.~Hall.
+\newblock On representatives of subsets.
+\newblock {\em Journal of the London Mathematical Society}, s1-10(1):26--30,
+  1935.
+
+\bibitem{hoffman}
+A.~J. Hoffman and H.~W. Kuhn.
+\newblock Systems of distinct representatives and linear programming.
+\newblock {\em The American Mathematical Monthly}, 63(7):455--460, 1956.
+
+\bibitem{holyer}
+I.~J. Holer.
+\newblock {The computational complexity of graph theory problems.}
+\newblock 1981.
+
+\bibitem{hopcroft}
+John~E. Hopcroft and Richard~M. Karp.
+\newblock An algorithm for maximum matchings in bipartite graphs.
+\newblock {\em SIAM Journal on Computing}, 2(4):225--231, 1973.
+
+\bibitem{dpcomplexity}
+C.H. Papadimitriou and M.~Yannakakis.
+\newblock The complexity of facets (and some facets of complexity).
+\newblock {\em Journal of Computer and System Sciences}, 28(2):244--259, 1984.
+
+\bibitem{turing}
+A.~M. TURING.
+\newblock {I.—COMPUTING MACHINERY AND INTELLIGENCE}.
+\newblock {\em Mind}, LIX(236):433--460, 10 1950.
+
+\bibitem{dphardness}
+Klaus~W. Wagner.
+\newblock More complicated questions about maxima and minima, and some closures
+  of np.
+\newblock {\em Theoretical Computer Science}, 51(1):53--80, 1987.
+
+\bibitem{sls}
+Takayuki YATO and Takahiro SETA.
+\newblock Complexity and completeness of finding another solution and its
+  application to puzzles.
+\newblock {\em IEICE Transactions on Fundamentals of Electronics,
+  Communications and Computer Sciences}, E86-A, 05 2003.
+
+\end{thebibliography}

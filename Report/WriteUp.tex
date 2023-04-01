@@ -40,6 +40,16 @@
   }
   \stepcounter{rowa}
 }
+\newcommand\setrowb[3]{
+  \setcounter{colb}{1}
+  \foreach \n in {#1, #2, #3} {
+    \edef\x{\value{colb} - 0.5}
+    \edef\y{3.5 - \value{rowb}}
+    \node[anchor=center] at (\x, \y) {\n};
+    \stepcounter{colb}
+  }
+  \stepcounter{rowb}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{E. Routledge}
@@ -49,36 +59,47 @@
 
 \begin{document}
 \lstset{language=Python}
-\maketitle
-\begin{abstract}
-sudoku overview
-\end{abstract}
+\input{titlepage}
+%\begin{abstract}
+%sudoku overview
+%\end{abstract}
 \tableofcontents
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Introduction}
-Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all, yet it is filled with mathematics. Through sudoku we
-can explore the connections between various areas of maths: complexity theory, graph theory, group theory and information theory.
 
-	\section{History}
+Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all, yet it is filled with mathematics. Through sudoku we
+can explore the connections between various areas of maths: complexity theory, discrete mathematics and group theory.
+
+\section{History}
+
+Sudoku isnt as old as you think it is in fact the name sudoku only came about in 1986. It is seen in French newspapers from the 19th century but in different variations to the standard puzzle we know today, during this period it is named \textit{carre magique diabolique} refering to the magic square puzzles that were around as early as 190 BCE and can be seen in various art works over the centuries. So sudoku has a French origin as eventhough they are refered to as magic squares and do not mark the boxes within the sudoku, each subsquare did in fact contain the digits 1-9. Modern sudoku is thought to be first published in 1979, named Number Place. In 1984 the puzzle made its way to japan where a puzzle company trademarked the name we know today and enforced symmetrical puzzles (rotationally symmetry) for aesthetic reasons. Soon variants of sudoku with different box shapes started gaining popularity.
+
+Magic squares are the ancestors of sudoku, these are $n$ by $n$ grids with numbers such that rows, columns and the two diagonals add up to the same value, termed the magic constant. These squares were known by mathematicians around the world and the first example of a 4th order ($n=4$) square occurred in India in 587 CE. Euler too worked with magic squares and left many open questions; the existance of a $3\times 3$ magic square comprising of square numbers.
+
+Latin squares are another note worthy ancestor to the sudoku, this is a $n$ by $n$ grids with $n$ digits such that no digit repeats in the row or column of the grid. Sudokus are a version of latin squares but with an added box constraint. While the name is inspired by Euler, a  Korean mathematician in 1700 published an example of a Latin square, beating Euler by almost 70 years. 
 	
-	\section{Defining Sudoku Notation}
+\section{Defining Sudoku Notation}
 	
 \textbf{Def$^n$}: A valid sudoku puzzle is a function $ S: i,j \rightarrow x$ for values i,j $\in \{1,...,D^2\}$ and $x \in\{0,...,D^2\}$ satisfying the following:
 \begin{itemize}
 	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
-	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and$ S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
-\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $a\text{ mod }D = c\text{ mod }D$, $b\text{ mod }D = d\text{ mod }D$,
-$S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
+	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
+	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $\lfloor\frac{a-1}{D}\rfloor\equiv\lfloor\frac{c-1}{D}\rfloor$, $\lfloor\frac{b-1}{D}\rfloor\equiv\lfloor\frac{d-1}{D}\rfloor$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
 \end{itemize}
+
 \textbf{Def$^n$}: A completed sudoku puzzle is a function $ S: i,j \rightarrow x$ as above but with the added condition that $x \neq 0$.
 
+\textbf{Def$^n$:} We refer to the third condition as the box.
+
+\textbf{Def$^n$:} Given a sudoku grid $S$ and augmented sudoku grid $S'$ is such that: for all $i,j$ if $S(i,j)\neq0$ then $S(i,j)=S'(i,j)$. Empty cells of the grid may change but those assigned a value in $S$ must remain the same in $S'$. 
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\chapter{Classic solving techniques}
+%\chapter{Classic solving techniques}
 
-\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,D^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,D^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,D^2\}/\{a\}$ or $S(i,j)$ where $a\text{ mod }D = i\text{ mod }D$ and $b\text{ mod }D = j\text{ mod }D$.
+%\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,D^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,D^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,D^2\}/\{a\}$ or $S(i,j)$ where $a\text{ mod }D = i\text{ mod }D$ and $b\text{ mod }D = j\text{ mod }D$.
 
-define x wing
-define y wing
+%define x wing
+%define y wing
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Sudoku is Hard}
 
@@ -92,7 +113,7 @@ For those with a mathematical mind, outraged by the lack of definitions for 'dif
 
 \subsection{Turing Machines}
 
-We are working on the boundaries between computer science and mathematics, to stray into computer science we need a rigorous definition of a computer, that's where the Turing Machine comes in. In Turing's paper \textit{Computing Machinery and Intelligence} \textbf{CITE} the Turing Machine is introduced as a mathematical model of what is now known as a CPU, the difference beign that the theoretical machine has finite but unbounded memory. While the full definition isn't completely necessary for our discussion we include it for completeness.
+We are working on the boundaries between computer science and mathematics, to stray into computer science we need a rigorous definition of a computer, that's where the Turing Machine comes in. In Turing's paper \textit{Computing Machinery and Intelligence} \cite{turing} the Turing Machine is introduced as a mathematical model of what is now known as a CPU, the difference beign that the theoretical machine has finite but unbounded memory. While the full definition isn't completely necessary for our discussion we include it for completeness.
 
 \textbf{Def$^\text{n}$:} A \textbf{Turing Machine} $M={Q,\Gamma,b,\Sigma, \delta, q_0, F}$ such that:
 \begin{itemize}
@@ -102,9 +123,9 @@ We are working on the boundaries between computer science and mathematics, to st
 \item $\delta$ the set of transition functions, given the current state and symbol the transition function determines which state to progress to and wether to change the symbol, if the transition is undefined the machine halts
 \end{itemize}
 
-Anything computable should therefore have an instance of a turing machine with defined alphabet, states and state transitions. The input is the original contense of the tape and the output is the contense of the tape once the machine halts. \textbf{EXAMPLE, comparing two numbers}
+Anything computable should therefore have an instance of a turing machine with defined alphabet, states and state transitions. The input is the original contense of the tape and the output is the contense of the tape once the machine halts. 
 
-We now consider a less tangible version of teh Turing Machine one involving non determinism. When given a single state multiple transitions our new machine does not necessarily have a single transition, tehre may exist multiple avenues to explore. We can therefore explore all possible tranisitons at once by changing the set of state transitions $\delta$ from a function to a relation with each state transition explored on a seperate tape. 
+We now consider a less tangible version of the Turing Machine one involving non determinism. When given a single state multiple transitions our new machine does not necessarily have a single transition, tehre may exist multiple avenues to explore. We can therefore explore all possible tranisitons at once by changing the set of state transitions $\delta$ from a function to a relation with each state transition explored on a seperate tape. 
 
 \textbf{Def$^\text{n}$:} A \textbf{non-deterministic} Turing Machine is the mathematical model of a CPU that can undertake any possible action in a single time step.
 
@@ -125,9 +146,17 @@ See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two ve
 \end{figure}
 
 \subsection{Big O Notation}
-\textbf{REDO SUBSECTION}
 
 \textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$. This is coined \textbf{Big O Notation}.
+
+\textbf{Properties:} Following from the definition we get some immediate properties, assume $f,g,h,i$ are functions obeying the necessary conditions of the definition.
+\begin{itemize}
+\item Product - $f=O(g)$ and $h=O(i)$, $fh=O(gi)$.
+\item Sum - for $f=O(g)$ and $h=O(i)$, $f+h = O(max(g,i))$.
+\item Constant Multiplication - for constant $k\neq0$, $O(kg)=O(g)$.
+\end{itemize}
+
+\textbf{Def$^n$:} A polynomial time algorithm is an algorithm with $O(x^c)$.
 
 \textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$.
 
@@ -138,7 +167,8 @@ We care about decision problems, these are problems that given an input produce 
 \item{P (Polynomial) is the the class of problems that can be solved in polynomial time by a deterministic Turing machine;}
 \item{NP (Non-deterministic Polynomial) is the class of problems that can be verified in polynomial time by a deterministic Turing machine or solved in polynomial time by a non-deterministic Turing machine;}
 \item{the NP-hard class are at least as hard as the hardest NP problem;} 
-\item{the NP-complete set is the intersection of NP and NP-hard problems, these are the hardest problems in NP.} 
+\item{the NP-complete set is the intersection of NP and NP-hard problems, these are the hardest problems in NP;} 
+\item{the coNP class if the complement of all NP problems, for each problem in NP there exists a problem in coNP bu the True and False instances are reversed.}
 \end{itemize}
 
 Problems in P are considered feasible and those in NP-complete are infeasible as their complexity scales exponentially with respect to the input size and as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeesible for large inputs. \footnote{We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.}
@@ -149,7 +179,7 @@ So when we state sudoku is hard we are actually saying sudoku belongs to NP-comp
 	\begin{center}
 		\includegraphics[width=60mm]{P_np.svg}
 	\end{center}
-	\caption{P, NP, NP-complete \& NP-hard sets \cite{P_NP_Figure}\textbf{REDO IMAGE}}
+	\caption{P, NP, NP-complete \& NP-hard sets\textbf{REDO IMAGE}}
 \end{figure}
 
 \subsection{Proving NP completeness?}
@@ -168,7 +198,7 @@ Therefore $x\in $ NP-complete.
 
 If, as the above suggests, we require a NP-complete problem to prove a problem is NP-complete then we seem to have reached a paradox. Luckily we have the Cook-Levin Theorem.
 
-\textbf{Cook-Levin Theorem:} SAT is NP-Complete. \textbf{CITE}
+\textbf{Cook-Levin Theorem:} SAT is NP-Complete. \cite{compcomplexityamodernapproach}
 
 \textbf{Terminology}:
 \begin{itemize}
@@ -371,7 +401,7 @@ By observation we see this is a superset of the sudoku puzzle, we just add the r
 
 \textit{Proof idea:} We must reduce a given latin square grid of size $D \times D$ to a sudoku grid size $D^2 \times D^2$ that is solvable iff the Latin square is.
 
-\textbf{Lemma:} Let $S_l$ be a Sudoku problem with the following construction 
+\textbf{Lemma:} From \cite{sls}: let $S_l$ be a Sudoku problem with the following construction 
 \begin{equation}
 	S_l(i,j) =\begin{cases}
 0 \qquad\qquad\qquad\qquad\qquad\qquad\text{when } (i,j) \in L_s \\ 
@@ -463,7 +493,7 @@ If a tripartite graph can be triangulated it must be uniform, that is: every ver
 
 \noindent\rule{4cm}{0.4pt}
 
-\textbf{Theorem:} Completing a Latin square with dimensions n by n is equivalent to triangulating a tripartite graph $G= V_1, V_2, V_3$.
+\textbf{Theorem:} From \cite{lsttg}: completing a Latin square with dimensions n by n is equivalent to triangulating a tripartite graph $G= V_1, V_2, V_3$.
 
 \textit{Proof:} 
 
@@ -476,11 +506,25 @@ given tripartite graph G=(V,E) label vertices in $V_1$ with distinct lables $\{r
 \end{itemize}
 This graph has a triangulation iff $L(i,j)$ can be solved.
 
-\textbf{EXAMPLE}
-
 Let us show every uniform tripartite graph can be transformed to the above formulation of a Latin square.
 
-First we need an intermediate that is a generalisation of a latin square
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=10cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {1}{}{}
+    \setrowb {2}{3}{}
+    \setrowb {}{}{}
+  \end{scope}
+\end{tikzpicture}
+
+\includegraphics[height=40mm]{figures/ttg.png}
+\caption{The Latin Square is equivalent to the Tripartite Graph.}
+\end{figure}
+
+First we need a generalisation of a latin square
 
 \textbf{Def$^n$}: A Latin framework LF for tripartite graph G, size (r,s,t) is a r by s array with values [1,...,t]. With constraints:
 \begin{itemize}
@@ -500,9 +544,9 @@ If r=s=t then LF is a latin square (formulation above) which can be completed if
 
 \textit{First we have a few denotions: R(k) = the number of times k appears in L plus half $|e_k|$; $S_i=\{k|k \not\in LF(i,j) \forall j \cap (r_i,e_k)\not\in E\}$; $M=\{k|R(k)=r+s-t\}$. We show sets $S_1,...S_r$ have a system distinct representative (\textbf{DEFINE}) containing all elements of $M$, we then add this system as the $(s+1)$st column and repeat until we have $2n$ columns.}
 
-\textit{Using Hoffman and Kuhn's theorem \textbf{CITE} we need only show that $S_1,...S_r$ have a system distinct representative and that for every $M'\subseteq M$ at least $|M'|$ of sets $S_1,...S_r$ have non empty subsections with $M'$.}
+\textit{Using Hoffman and Kuhn's theorem \cite{hoffman} we need only show that $S_1,...S_r$ have a system distinct representative and that for every $M'\subseteq M$ at least $|M'|$ of sets $S_1,...S_r$ have non empty subsections with $M'$.}
 
-\textit{First choose any $m$ sets such that $1\leq m \leq r$. As G is uniform each set has t-s elements, so $m$ sets together have $m(t-s)$ cardinality. Each value $1,...,t$ appears at least r+s-t times in $LF$, so note each value appears in at most $t-s$ of the sets $S_i$. Consider the union of the $m$ sets, this contains some $p$ elements so we have $p(t-s)\geq m(t-s)$ therfore $p\geq m$. So any $m$ sets have at least $m$ elements in their union and by the P Hall theorem \textbf{CITE} a system distinct representative exists.}
+\textit{First choose any $m$ sets such that $1\leq m \leq r$. As G is uniform each set has t-s elements, so $m$ sets together have $m(t-s)$ cardinality. Each value $1,...,t$ appears at least r+s-t times in $LF$, so note each value appears in at most $t-s$ of the sets $S_i$. Consider the union of the $m$ sets, this contains some $p$ elements so we have $p(t-s)\geq m(t-s)$ therfore $p\geq m$. So any $m$ sets have at least $m$ elements in their union and by Hall's theorem \cite{hall} a system distinct representative exists.}
 
 \textit{Next take $M'\subseteq M$ and assume there are $p$ sets in $S_1,...S_r$ that have a nonempty intersection with $M'$. Each set has $t-s$ elements and together have caridinality $p(t-s)$, each element of $M$ appears in exactly $r-(r+s-t)=t-s$ of the $s_i$s, therefore $|M'|(t-s)\leq p(t-s)$ so $|M'|\leq p$. At least $|M'|$ sets have nonempty intersections with $M'$.}
 
@@ -512,7 +556,7 @@ If r=s=t then LF is a latin square (formulation above) which can be completed if
 
 \textit{We can transpose the array and do the same as the previous lemma. $\square$}
 
-\textbf{Note}: we can find a system distinct representative using the Hopcroft-Karp \textbf{CITE} algorithm which solves bipartite matching in polynomial time. 
+\textbf{Note}: we can find a system distinct representative using the Hopcroft-Karp \cite{hopcroft} algorithm which solves bipartite matching in polynomial time. 
 
 Given a tripartite graph G, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
 
@@ -535,7 +579,7 @@ This decision problem is therefore an enforced limitation of SAT as defined in t
 
 \textit{Proof:}
 
-This reduction is a little trickier as we need to introduce the Holyer graph $H$, this graph has the topology of torus.
+This reduction is a little trickier as we need to introduce the Holyer graph $H$ from \cite{holyer}, this graph has the topology of torus.
 
 \textbf{Def$^n$}: The Holyer graph $H_{3,p}$ is the set of vertices $V=\{(x_1,x_2,x_3)\in \mathbb{Z}_p^3 \| x_1+x_2+x_3 \equiv 0 (mod p)\}$ and an edge exists between vertices $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ if distinct i,j and k exist such that:
 \begin{itemize}
@@ -644,7 +688,7 @@ This transformation takes place in polynomial time and therefore Triangulated Tr
 
 Given a truth assignment $t$ check each clause is satisfied, if all are satisfied return True else False, this algorithm is at most the length of $C$ multiplied by the length of $B$. $O(BC)$ is polynomial, a polynomial verifier exists.
 
-Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form (every clause set can be converted to an equivalent set in CNF form \cite{CNF}) such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2
+Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form (every clause set can be converted to an equivalent set in CNF form ) such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2
 \lor ... \lor b_n$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3.
 
 For $c = b_1 \lor b_2 \lor ... \lor b_n$ we introduce a new literal: $a_1$ to give $b_1 \lor b_2 \lor a_1$, $\bar{b_1} \lor a_1$, $\bar{b_2} \lor a_1$ and $a_1 \lor b_3 \lor ... \lor b_n$. Then $a_1 \lor b_3 \lor ... \lor b_n$ becomes $b_3 \lor b_4 \lor a_2$, $\bar{b_3} \lor a_2$, $\bar{b_4} \lor a_2$ and $a_1 \lor a_2 \lor b_5 \lor ... \lor b_n$. This continues at most $n/2$ times to give $a_1 \lor ... \lor a_{n/2}$ or $a_1 \lor ... \lor a_{n/2} \lor b_n$ if n is odd.
@@ -668,30 +712,43 @@ $\Phi\in $ NP as $\exists$ a verifier $\Psi$ when given an instance $S$ can dete
 
 $\Phi\in $ NP-hard as an instance of SAT can be reduced to an instance of 3SAT in polynomial time which can be reduced to an instance of Triangulating a Tripartite Graph in polynomial time which can be reduced to an instance of Latin Square in polynomial time which can be reduced to an instance of Sudoku ($\Phi$) in polynomial time.
 
-\textbf{EXAMPLE}
-
 As $\Phi\in$ NP and $\Phi\in$ NP-hard, $\Phi\in$ NP-complete. $\square$
 
-Determining if a sudoku grid $S$ has a completion is hard and infeasible for large $D$.
+Determining if a sudoku grid $S$ has a completion is suspected hard and infeasible for large $D$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sudoku $\geq_p$  Graph Colouring}
+\subsection{Sudoku $\leq_p$  Graph Colouring}
 
-Intuitive but wrong.
+When reducing sudoku to a grpah problem the obvious thought is to change it to a $D^2$-colouring which we also know to be NP-complete. Unfortunately, this is the incorrect way round, while all sudokus can be turned into a $D^2$-colouring problem it is not immediately obvious how to change all 9 colouring problems into the input of the sudoku decision problem. 
+
+To transform a grid $S$ to sudoku:
+\begin{itemize}
+\item For each cell of the grid we create a vertex; $\forall i,j\in D^2$ create vertex $v_{i,j}$, giving $D^4$ vertices in total.
+\item Create edges such that: for each $i$ $(v_{i,j},v{i.k})\in E$; for each $j$ $(v_{i,j},v{k.j})\in E$ and for $\lfloor\frac{i-1}{D}\rfloor\equiv\lfloor\frac{k-1}{D}\rfloor$ and $\lfloor\frac{j-1}{D}\rfloor\equiv\lfloor\frac{l-1}{D}\rfloor$, $(v_{i,j},v_{k,l})\in E$.
+\item Then for all $D^2$ colours assign a numerical value and for all $S(i,j)\neq 0$ assign the $v_{i,j}$ the colour associated with value $S(i,j)$.
+\end{itemize}
+
+Now all sudoku problems can be converted to a $D^2$- colouring problem in polynomial time and since we have proven sudoku is NP-complete as long as $D^2$- colouring has a polynomial verifier (which is trivial to check) then it is also NP-complete.  
+
+This emphasises the importance of the reduction direction, it is easy to transform a problem in P to a problem in NP in polynomial time (it is easy to make something more complicated than it needs to be) but the other way round has not yet been done. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Dimension Analysis}
 
-\textbf{Motivate} - a natural question, not conclusive as from definition of NP-complete class we know there is multiple ways to create a reduction.
+The large string of reductions performed to change a SAT instance into a Sudoku instance can shroud the link between the two as the proofs are somewhat flamboyant, let us abstract the proofs away and focus on the change in size of the SAT instance to a Sudoku instance. Note that this is not conclusive as from definition of NP-complete class we know there is multiple ways to create a reduction and one may be more efficent than what we have described, but it is interesting to visit the problem from a view of space complexity (the memory used when computing a result).
 
-A SAT instance with $A$ clauses and $B$ variables is transformed into a 3SAT instance with clauses and $B+b$ variables where $b=\Sigma_{c\in C'}|c|-3$, $C'=\{c\in C | |c|>3\}$.
+A SAT instance with $A$ clauses and $B$ variables is transformed into a 3SAT instance with $A + 3a$ clauses and $B+a$ variables where $a=\Sigma_{c\in C'}|c|-3$, $C'=\{c\in C | |c|>3\}$. \textbf{PROOF BY INDUCTION NEEDED?}
 
 A 3SAT instance with $C$ clauses and $D$ variables is transformed into a Triangulating a Tripartite Graph instance with $p(D+3C)$ nodes where $p\equiv 0 (\text{mod}3)$.
 
-A Triangulating a Tripartite Graph instance with $E$ nodes is transformed into a Latin Square instance with dimension $\frac{2/3}E$.
+A Triangulating a Tripartite Graph instance with $E$ nodes is transformed into a Latin Square instance with dimension $\frac{2}{3}E$.
 
 A Latin Square instance with dimension $F$ is transformed into a Sudoku with dimension $F^2$.
+
+In summation, a SAT instance of $A$ clauses and $B$ variables becomes a sudoku instance of dimension $(\frac{2}{3}p(3A+B+10a))^2 $.
+
+\textbf{AN EXAMPLE TRANSFORMATION}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -706,29 +763,40 @@ Where $S'$ is a completed version of $S$.
 
 It is intuitive that the search problem is harder than the decision problem but let's quantify this into our concepts of P and NP. If $P \neq NP$ then both are infeesible to solve as the search problem is harder than an NP-complete decision problem. However, we have hope, if $P=NP$ the corresponding search problem to an NP decision problem $\Gamma$ can be solved in polynomial time. 
 
-\textbf{Theorem}: 
+\textbf{Theorem}: From \cite{compcomplexityamodernapproach}. Suppose $P=NP$ then for every problem $\rho\in$ NP there exists a polynomial time Turing Machine $T$ that on input $x$ where $\rho(x)=True$ will output a certificate of $x$.
 
-\textbf{ADD THEOREM}
+\textbf{Note:} A certificate in complexity theory refers to a solution path of the decision problem, here it is a completed sudoku grid that is the augmented version of the input. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Determining Uniqueness is Hard}
 
-\textbf{Def$^n$:} The Sudoku Uniqueness problem is: Given a partially completed sudoku grid $S$ does only a single completion
-exist?
+\textbf{Def$^n$:} The Sudoku Uniqueness problem is: Given a partially completed sudoku grid $S$ does there exist exactly 1 completion?
 		\begin{equation}
 		        \Gamma (S) = \begin{cases}
-		            \text{True if only a single completion exists} \\
+		            \text{True if only one completion exists} \\
 		            \text{False if multiple completions or none exist}.
 				\end{cases}
 		\end{equation}
 
-This is NP-hard (no polynomial verifier exists), NP-complete reduction exists.
+This decision problem belongs to the class called Difference Polynomial Time (or DP/ BH$_2$) \cite{dpcomplexity}.
 
-It is hard to determine if a puzzle has a unique solution. 	 \textit{TO COMPLETE: FIND PAPER WITH PROOF}
+\textbf{Def$^n$:} DP is the class of problems which are the intersection of a problem in NP and a problem in coNP, this is not NP $\cap$ coNP, it is all problems $\Delta$ such that for $a \in $NP and $b\in $coNP:
+		\begin{equation}
+		        \Delta (x) = \begin{cases}
+		            \text{True if $a(x)$ and $b(x)$ are True} \\
+		            \text{False otherwise }.
+				\end{cases}
+		\end{equation}
+
+We can reformulate the definition of $\Gamma$ to immediately show $\Gamma\in$ DP. Instead of saying uniqueness is satisfied by all sudoku grids that have a single solution, we can say it is all sudoku grids that have a solution minus all sudoku grids that have at least two solutions; this is the same as $\Delta = \Phi \cap \bar{\Upsilon}$ when $\Upsilon$ is the problem satisfied by sudokus that have at least two solutions. We know already $\Phi\in$ NP now we must show $\Upsilon$ is in NP which is easily done; when given a sudoku and two or more solutions it is easy to verify these separately (as shown in Verification is Easy).$\bar{\Upsilon}$ is satisfied by sudokus with one or no solution and is in coNP by definition. Therefore the intersection of $\Phi$ and $\bar{\Upsilon}$ gives $\Delta$, this formulation is exactly what is needed for $\Gamma\in$ DP.
+
+This is helpful but now we must determine the difficulty of DP \cite{dphardness}. \textbf{SEE BOOLEAN HIERARCHY WIKI}
 		
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
 \chapter{Solving Techniques}
+
 \section{Backtracking}
 The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. This is a brute force method with a few optimisations. One can expect to find this algorithm in a computer science course introduction to recursion, that is to say
 it is not a complex concept and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible.
@@ -758,6 +826,7 @@ it is not a complex concept and while useful for the usual sizes, as soon as we 
 \end{algorithmic}
 \end{algorithm}
 Why does brute force not work for larger examples? It will work \textit{TO DO: PROVE ALG CORRECTNESS} but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeesible.
+
 \section{Simulated Annealing} 
 
 Based on metalurgy
@@ -787,12 +856,40 @@ Based on metalurgy
 
 \subsection{Convergence}
 \subsection{Speed of Convergence}
-\cite{simulated annealing} one of 100 most cited papers, one of the first AI algs
+\cite{simulatedannealing} one of 100 most cited papers, one of the first AI algs
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Group theory}
 \section{Starting Simple $4 \times 4$}
 Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
+
+\begin{itemize}
+\item Set upper B1 - $4!$
+\item R1 permutation of 3,4 - $2$
+\item C1 permutation of 2,4 - $2$
+\item Now how can we complete the final square - exhaustion - $3$
+\item 288
+\end{itemize}
+
+Equivalence classes
+\begin{itemize}
+\item relabel digits
+\item permute rows in a band
+\item permute columns in a pillar
+\item Permute bands
+\item Permute pillars
+\item Rotation
+\item Reflection
+\end{itemize}
+Complete Adler Adler fundamental transformations of the sudoku grid.
+
+from our calc of how many we can be sure we have at most 3 fundamentally different - in fact 2
+
+Symmetries form a group 
+
+Burnside Lemma,  We have x Orbits where x is the average of the sum that wach symmetry element fixes. - used to work out how many orbits which is equivalent to how many unique sudokus exist
+9 by 9 case russell and jarvis 2
+
 
 
 
@@ -808,92 +905,10 @@ Define which sudoku sizes can exist
 	\section{$9 \times  9$}
 5,472,730,538
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
+
 \chapter{Other}
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Other Related Problems}
-	\subsection{Latin Squares}
-
-		\begin{itemize}
-		\item{A latin square is an n by n matrix filled with n characters that must not repeat along columns or rows.}
-		\item{Reduced Form - f first row and column is in the natural order}
-		\item{Equivalence classes}
-		\item{Number of n by n latin squares is bounded}
-		\item{Latin squares can be considered a bipartite graph}
-		\item{Agronomic Research}
-		\item{Latin hypercube}
-		\end{itemize}
-
-	\section{Magic Squares}
-
-		\begin{itemize}
-		\item{A magic square is a matrix of numbers with each column, row and diagonal summing to the same value, 
-		this value is known as a magic constant and the degree is the number of columns/rows.}
-		\item{A normal magic square is one containing the integers 1 to $n^2$.}
-		\item{Magic Squares with repeating digits are considered trivial.}
-		\item{Semimagic squares omit the diagnonal sums also summing to the magic constant.}
-		\item{Truly thought to be magic Shams Al-ma'arif.}
-		\item{Generation, there exists not completely general techniques. Diamond Method}
-		\item{Associative Magic Squares}
-		\item{Pandiagonal Magic Squares}
-		\item{Most-Perfect Magic Squares}
-		\item{Equivalence classes for $n<=5$ but not for higher orders.}
-		\item{The enumeration of most perfect magic squares of any order.}
-		\item{880 distinct magic squares of order four}
-		\item{Normal magic squares can be constructed for all values except 2}
-		\item{Preserving the magic property when transformed}
-		\item{Methods of construction}
-		\item{Multiplicative magic squares - produce infinite}
-		\item{Sator square}
-		\item{magic square of squares - Parker Square is a failed example of this}
-		\end{itemize}
-	
-	\subsection{Greco-Latin Squares}
-
-		\begin{itemize}
-		\item{Two orthogonal latin squares super imposed, such that the pairs of values are unique.}
-		\item{Group based greco latin squares}
-		\item{Eulers interest came from construction of magic squares}
-		\item{Exists for all but 2 and 6.}
-		\end{itemize}
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-
-\section{Generating  Techniques}
-A polynomial generation algorithm without requiring a uniqueness checker which we have proven to be np-complete and therefore
-infeesible for large n.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{17 is the Magic Number}
-	4 for shidoku
-	\subsection{Sparsity - information theory}
-		Bomb sudoku/latin squares - Additional rule: the same number can not occur in adjacent or diagonally adjacent squares.
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-
-\section{Topology}
-	\subsection{Torus}
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\section{Polynomials \& Constraint Programming}
-	Use of polynomials
-	Roots of unity
-	Grobner Basis
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\begin{thebibliography}{100}
-	\bibitem{P_NP_Figure} https://en.wikipedia.org/wiki/NP\_(complexity)
-\bibitem{CNF} Artificial Intelligence: A modern Approach Archived 2017-08-31 at the Wayback Machine [1995...] Russell and
-Norvig
-\bibitem{GeneratingAlg}
-https://www.researchgate.net/publication/251863893\_A\_New\_Algorithm\_for\_Generating\_Unique-Solution\_Sudoku
-	\bibitem{Complexity} https://fse.studenttheses.ub.rug.nl/22745/1/bMATH\_2020\_HoexumES.pdf.pdf
-\bibitem{latin to tripartite} http://web.math.ucsb.edu/\~padraic/mathcamp\_2014/np\_and\_ls/mc2014\_np\_and\_ls\_lecture3.pdf,
-http://web.math.ucsb.edu/\~padraic/mathcamp\_2014/np\_and\_ls/mc2014\_np\_and\_ls\_lecture4.pdf
-	\bibitem{tripartite to sat} https://scholar.rose-hulman.edu/cgi/viewcontent.cgi?article=1398\&context=rhumj
-	\bibitem{LatinSquaresAlgorithm} https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J
-	\bibitem{LatinSquareAgronomicResearch} http://joas.agrif.bg.ac.rs/archive/article/59
-\bibitem{LatinSquareCommunication}
-https://www.semanticscholar.org/paper/Permutation-arrays-for-powerline-communication-and-Colbourn-Kløve/7e69cfdbd2082463c66de698da1e326f0556d1d4
-	\bibitem{MagicSquares1} http://www.multimagie.com/English/SquaresOfSquaresSearch.htm
-	\bibitem{MagicSquaresRelationToSudoku} https://plus.maths.org/content/anything-square-magic-squares-sudoku
-	\bibitem{Programming Sudoku} https://link.springer.com/book/10.1007/978-1-4302-0138-0
-\bibitem{simulatedannealing}an Laarhoven, P.J.M., Aarts, E.H.L. (1987). Simulated annealing. In: Simulated Annealing: Theory
-and Applications. Mathematics and Its Applications, vol 37. Springer, Dordrecht. https://doi.org/10.1007/978-94-015-7744-1\_2
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{refs}
 \end{document}
-\vspace{5mm}
