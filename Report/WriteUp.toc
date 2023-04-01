@@ -1,39 +1,35 @@
 \contentsline {chapter}{\numberline {1}Introduction}{2}{}%
 \contentsline {section}{\numberline {1.1}History}{2}{}%
 \contentsline {section}{\numberline {1.2}Defining Sudoku Notation}{2}{}%
-\contentsline {chapter}{\numberline {2}Classic solving techniques}{3}{}%
-\contentsline {chapter}{\numberline {3}Sudoku is Hard}{4}{}%
-\contentsline {section}{\numberline {3.1}Computational Complexity}{4}{}%
-\contentsline {section}{\numberline {3.2}Verification is Easy}{5}{}%
-\contentsline {section}{\numberline {3.3}Existance is Hard}{5}{}%
-\contentsline {subsection}{\numberline {3.3.1}Proof Outline}{6}{}%
-\contentsline {subsection}{\numberline {3.3.2}Sudoku $\geq _p$ Latin Square}{6}{}%
-\contentsline {subsection}{\numberline {3.3.3}Latin Square $\geq _p$ Triangulate A Tripartite Graph}{7}{}%
-\contentsline {subsection}{\numberline {3.3.4}Triangulated Tripartite $\geq _p$ 3SAT}{9}{}%
-\contentsline {subsection}{\numberline {3.3.5}3SAT is NP-Complete}{11}{}%
-\contentsline {subsection}{\numberline {3.3.6}Solving Sudoku is Hard}{12}{}%
-\contentsline {subsection}{\numberline {3.3.7}Sudoku $\geq _p$ Graph Colouring}{12}{}%
-\contentsline {subsection}{\numberline {3.3.8}Example, dimension analysis}{12}{}%
-\contentsline {section}{\numberline {3.4}Determining Uniqueness is Hard}{12}{}%
-\contentsline {chapter}{\numberline {4}Solving Techniques}{13}{}%
-\contentsline {section}{\numberline {4.1}Backtracking}{13}{}%
-\contentsline {section}{\numberline {4.2}Simulated Annealing}{13}{}%
-\contentsline {subsection}{\numberline {4.2.1}Convergence}{13}{}%
-\contentsline {subsection}{\numberline {4.2.2}Speed of Convergence}{13}{}%
-\contentsline {chapter}{\numberline {5}Group theory}{15}{}%
-\contentsline {section}{\numberline {5.1}Starting Simple $4 \times 4$}{15}{}%
-\contentsline {section}{\numberline {5.2}Equivalence Classes}{15}{}%
-\contentsline {section}{\numberline {5.3}$6 \times 6$}{15}{}%
-\contentsline {section}{\numberline {5.4}$8 \times 8$}{15}{}%
-\contentsline {section}{\numberline {5.5}$9 \times 9$}{15}{}%
-\contentsline {chapter}{\numberline {6}Other}{16}{}%
-\contentsline {section}{\numberline {6.1}Other Related Problems}{16}{}%
-\contentsline {subsection}{\numberline {6.1.1}Latin Squares}{16}{}%
-\contentsline {section}{\numberline {6.2}Magic Squares}{16}{}%
-\contentsline {subsection}{\numberline {6.2.1}Greco-Latin Squares}{17}{}%
-\contentsline {section}{\numberline {6.3}Generating Techniques}{17}{}%
-\contentsline {section}{\numberline {6.4}17 is the Magic Number}{17}{}%
-\contentsline {subsection}{\numberline {6.4.1}Sparsity - information theory}{17}{}%
-\contentsline {section}{\numberline {6.5}Topology}{17}{}%
-\contentsline {subsection}{\numberline {6.5.1}Torus}{17}{}%
-\contentsline {section}{\numberline {6.6}Polynomials \& Constraint Programming}{17}{}%
+\contentsline {chapter}{\numberline {2}Sudoku is Hard}{4}{}%
+\contentsline {section}{\numberline {2.1}Computational Complexity}{4}{}%
+\contentsline {subsection}{\numberline {2.1.1}Turing Machines}{4}{}%
+\contentsline {subsection}{\numberline {2.1.2}Big O Notation}{5}{}%
+\contentsline {subsection}{\numberline {2.1.3}Sets of Difficulty}{6}{}%
+\contentsline {subsection}{\numberline {2.1.4}Proving NP completeness?}{6}{}%
+\contentsline {subsection}{\numberline {2.1.5}The First NP-complete Problem}{7}{}%
+\contentsline {subsection}{\numberline {2.1.6}Examples}{7}{}%
+\contentsline {section}{\numberline {2.2}Existance is Hard}{10}{}%
+\contentsline {subsection}{\numberline {2.2.1}Proof Outline}{10}{}%
+\contentsline {subsection}{\numberline {2.2.2}Verification is Easy}{10}{}%
+\contentsline {subsection}{\numberline {2.2.3}Sudoku $\geq _p$ Latin Square}{10}{}%
+\contentsline {subsection}{\numberline {2.2.4}Latin Square $\geq _p$ Triangulate A Tripartite Graph}{12}{}%
+\contentsline {subsection}{\numberline {2.2.5}Triangulated Tripartite $\geq _p$ 3SAT}{14}{}%
+\contentsline {subsection}{\numberline {2.2.6}3SAT is NP-Complete}{17}{}%
+\contentsline {subsection}{\numberline {2.2.7}Wrap Up}{17}{}%
+\contentsline {subsection}{\numberline {2.2.8}Sudoku $\leq _p$ Graph Colouring}{18}{}%
+\contentsline {subsection}{\numberline {2.2.9}Dimension Analysis}{18}{}%
+\contentsline {section}{\numberline {2.3}Solving Sudoku is Hard}{18}{}%
+\contentsline {section}{\numberline {2.4}Determining Uniqueness is Hard}{19}{}%
+\contentsline {chapter}{\numberline {3}Solving Techniques}{20}{}%
+\contentsline {section}{\numberline {3.1}Backtracking}{20}{}%
+\contentsline {section}{\numberline {3.2}Simulated Annealing}{20}{}%
+\contentsline {subsection}{\numberline {3.2.1}Convergence}{21}{}%
+\contentsline {subsection}{\numberline {3.2.2}Speed of Convergence}{21}{}%
+\contentsline {chapter}{\numberline {4}Group theory}{22}{}%
+\contentsline {section}{\numberline {4.1}Starting Simple $4 \times 4$}{22}{}%
+\contentsline {section}{\numberline {4.2}Equivalence Classes}{23}{}%
+\contentsline {section}{\numberline {4.3}$6 \times 6$}{23}{}%
+\contentsline {section}{\numberline {4.4}$8 \times 8$}{23}{}%
+\contentsline {section}{\numberline {4.5}$9 \times 9$}{23}{}%
+\contentsline {chapter}{\numberline {5}Other}{24}{}%
