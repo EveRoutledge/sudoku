@@ -63,6 +63,9 @@
 %\begin{abstract}
 %sudoku overview
 %\end{abstract}
+\begin{center}{\huge\textbf{Plagarism Declaration}}\end{center}
+\textit{This piece of work is a result of my own work except where it forms an assessment based on group project work. In the case of a group project, the work has been prepared in collaboration with other members of the group. Material from the work of others not involved in the project has been acknowledged and quotations and paraphrases suitably indicated.}
+
 \tableofcontents
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Introduction}
@@ -868,34 +871,93 @@ One of the main important questions is how many exist.
 \section{Starting Simple $4 \times 4$}
 Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. 
 
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[scale=.5]
-\begin{scope}
-    \draw (0, 0) grid (4, 4);
-    \draw[very thick, scale=2] (0, 0) grid (2, 2);
-    \setcounter{rowa}{1}
-    \setrowa {1}{2}{3}{4}
-    \setrowa {3}{4}{}{}
-    \setrowa {}{}{}{}
-    \setrowa {}{}{}{} 
-    \node[anchor=center] {$n=2$};
-  \end{scope}
-\end{tikzpicture}
-\label{fig:b2r1}
-\end{figure}
-
 \subsection{How many Shidoku squares exist?}
 
 $x=$ number of Shidoku squares
 
-First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabellings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this was until we get to a reasonable search space. $x = 4!\times x_1$.
+First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabellings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this way until we get to a reasonable search space.
 
-Next we set the values for B2 R1. This must be a permutation of $\{3,4\}$, as this only has two possible permutations we explore the one outlined in \ref{fig:b2r1}. $x_1 = 2\times x_2$. The same applied for B3 C1 although we have a permutation of $\{2,4\}$. $x_2 = 2\times x_3$.
+\begin{equation}
+x = 4!\times x_1
+\end{equation}
 
-The final stage is easy enough to brute force. Observe there exists only three ways to fill in the remaining cells.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{}{}
+    \setrowa {3}{4}{}{}
+    \setrowa {}{}{}{}
+    \setrowa {}{}{}{} 
+  \end{scope}
+\end{tikzpicture}
+\caption{B1 standardised}
+\label{fig:shidokurelabelling}
+\end{figure}
 
+Next we set the values for B2 $\cap$ R1. This must be a permutation of $\{3,4\}$, there exists 2! permutations. $x_1 = 2\times x_2$. The same applied for B3 $\cap$ C1, we permute the set $\{2,4\}$. 
 
+\begin{eqnarray}x_2 &= 2\times x_3\\ x_3 &=2\times x_4\end{eqnarray}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{\{3}{4\}}
+    \setrowa {3}{4}{}{}
+    \setrowa {\{2}{}{}{}
+    \setrowa {4\}}{}{}{} 
+  \end{scope}
+\end{tikzpicture}
+\caption{Permutations}
+\label{fig:shidokurelabelling}
+\end{figure}
+
+The final stage is easy enough to brute force. Observe there exists only three ways to complete the remaining cells.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=0cm]
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{1}{2}
+    \setrowa {2}{1}{4}{3}
+    \setrowa {4}{3}{2}{1} 
+  \end{scope}
+\begin{scope}[xshift=6cm]
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{2}{1}
+    \setrowa {2}{1}{4}{3}
+    \setrowa {4}{3}{1}{2} 
+  \end{scope}
+\begin{scope}[xshift=12cm]
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{1}{2}
+    \setrowa {2}{3}{4}{1}
+    \setrowa {4}{1}{2}{3} 
+  \end{scope}
+\end{tikzpicture}
+\caption{Three Complete Shidokus}
+\label{fig:shidoku}
+\end{figure}
+
+This completes the enumeration, we have $x=4!\times 2 \times 2 \times 3 = 288$. 
+
+Observe that the last three shidokus squares are not in fact unique, we can transform the second to the third. 
 
 \begin{figure}[h]
 \centering
@@ -905,29 +967,80 @@ The final stage is easy enough to brute force. Observe there exists only three w
     \draw[very thick, scale=2] (0, 0) grid (2, 2);
     \setcounter{rowa}{1}
     \setrowa {1}{2}{3}{4}
-    \setrowa {3}{4}{}{}
-    \setrowa {}{}{}{}
-    \setrowa {}{}{}{} 
-    \node[anchor=center] {$n=2$};
+    \setrowa {3}{4}{2}{1}
+    \setrowa {2}{1}{4}{3}
+    \setrowa {4}{3}{1}{2} 
+\end{scope}
+\node[anchor=center] at (5, 2) {$\rightarrow$};
+\begin{scope}[xshift=6cm]
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{3}{2}{4}
+    \setrowa {2}{4}{1}{3}
+    \setrowa {3}{2}{4}{1}
+    \setrowa {4}{1}{3}{2} 
+  \end{scope}
+\node[anchor=center] at (11, 2) {$\rightarrow$};
+\begin{scope}[xshift=12cm]
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{1}{2}
+    \setrowa {2}{3}{4}{1}
+    \setrowa {4}{1}{2}{3} 
   \end{scope}
 \end{tikzpicture}
-\label{fig:b2r1}
+\caption{Transformation}
+\label{fig:shidokutransformation}
 \end{figure}
 
+Ultimately, we only have two completely unique shidokus. One of these shidokus has 192 others equivalent and the other 96 this can be seen from the final step of our enumeration, three shidokus are found each wiith 96 corresponding equivalents but we can reduce three to two combining the equivalents. This shows the amount of equivalent shidokus is dependent on the shidoku square and not all symmetries produce a valid shidoku that hasnt been seen before.
+
+We have answered two interesting questions about shidoku through a singular analysis however this will not apply for the larger cases. Let us generalise the use of symmetries and equivlance relations into a way to count our truely unique shidokus.
 
 \subsection{Equivalence classes}
-\begin{itemize}
-\item relabel digits
-\item permute rows in a band
-\item permute columns in a pillar
-\item Permute bands
-\item Permute pillars
-\item Rotation
-\item Reflection
-\end{itemize}
-Complete Adler Adler fundamental transformations of the sudoku grid.
+Let us take a group theory approach. We define a Shidoku Symmetry as a map from the set of Shidoku boards to itself. There is two type which we shall explore. Relabeling symmetries, $x\mapsto y$, change the labels within the shidoku so that all cells with label $x$ change to $y$, set $R_4$ defines all such symmetries. Structural symmetries describe movements of cells, there are many such moves so we shall define possible symmetries and then condense these into the necessary minial generators of this set. We name the set $S_4$. Our entire set of symmetries is formed from the cartesian product of these sets as we can combine them to get further symmetries (as seen above where we transform a sudoku using a reflection and a relabeling), $G_4=S_4\times R_4$.
 
-from our calc of how many we can be sure we have at most 3 fundamentally different - in fact 2
+Which manipulations of the cells within the Shidoku board map to another valid shidoku board? 
+\begin{itemize}
+\item Swap R1 and R2,
+\item swap R3 and R4,
+\item swap C1 and C2,
+\item swap C3 and C4,
+\item swap S1 and S2,
+\item permute P1 and P2,
+\item rotate the board 90$^\circ$ clockwise,
+\item transpose the board (in the natural way, as though the board were a matrix).
+\end{itemize}
+Note these structural symmetries are neither extensive (we could include further rotations) nor minimal (swapping C1 and C2 can be achieved by rotating, swapping R1 and R2 then rotating 3 more times). Denoting $s$ as the swap of R3 and R4, $r$ the 90$^\circ$ clockwise rotation and $t$ the transpose, we can generate $H_4$ through these.
+
+\begin{equation}H_4 = \langle s,r,t | e=s^2=r^4=t^2\rangle\end{equation}
+
+We then get $G_4$ to be of order $128\times 4!=3072$. However this is much larger than the set of shidoku boards. We note from our previous analysis the largest set of equivalent shidokus is of size 192. This suggests we can find a smaller $G_4$ group as its minimum possible size is 192. \cite{} explores the possible minimal groups in detail we will summarise them here for completeness.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ |c|c|c|  }
+ \hline
+Group & Order & Orbits\\
+ \hline
+ $\langle r,t \rangle \times S_4$ & 192 & 5\\
+ $\langle r,s \rangle \times S_4$ & 1536 & 2\\
+ $\langle r,s \rangle \times \langle (123)\rangle$ & 192 & 2\\
+ $\langle s,t \rangle \times S_4$ & 192 & 2\\
+ $H_4 \times\langle (123) \rangle $ & 384 & 2\\
+ $\langle r^2,s,t \rangle \times \langle (123) \rangle$ & 192 & 2\\
+ \hline
+\end{tabular}
+\end{center}
+\caption{\label{table:group}Groups, Order and Orbits}
+\end{table}
+
+Burnsides Lemma
+
+Complete Adler Adler fundamental transformations of the sudoku grid.
 
 Symmetries form a group 
 
