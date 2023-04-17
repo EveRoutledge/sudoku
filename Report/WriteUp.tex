@@ -93,6 +93,8 @@ Latin squares are another note worthy ancestor to the sudoku, this is a $n$ by $
 
 \textbf{Def$^n$:} Given a sudoku grid $S$ and augmented sudoku grid $S'$ is such that: for all $i,j$ if $S(i,j)\neq0$ then $S(i,j)=S'(i,j)$. Empty cells of the grid may change but those assigned a value in $S$ must remain the same in $S'$. 
 
+Define B1, C1, R1
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 %\chapter{Classic solving techniques}
 
@@ -860,18 +862,60 @@ Based on metalurgy
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Group theory}
+Motivation - most proven things about sudoku are not generalised to the n case but instead worked out for specifics, leading to lots of coputer use to calculate things.
+One of the main important questions is how many exist.
+
 \section{Starting Simple $4 \times 4$}
-Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. Why not the same amount?
+Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. 
 
-\begin{itemize}
-\item Set upper B1 - $4!$
-\item R1 permutation of 3,4 - $2$
-\item C1 permutation of 2,4 - $2$
-\item Now how can we complete the final square - exhaustion - $3$
-\item 288
-\end{itemize}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{}{}
+    \setrowa {}{}{}{}
+    \setrowa {}{}{}{} 
+    \node[anchor=center] {$n=2$};
+  \end{scope}
+\end{tikzpicture}
+\label{fig:b2r1}
+\end{figure}
 
-Equivalence classes
+\subsection{How many Shidoku squares exist?}
+
+$x=$ number of Shidoku squares
+
+First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabellings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this was until we get to a reasonable search space. $x = 4!\times x_1$.
+
+Next we set the values for B2 R1. This must be a permutation of $\{3,4\}$, as this only has two possible permutations we explore the one outlined in \ref{fig:b2r1}. $x_1 = 2\times x_2$. The same applied for B3 C1 although we have a permutation of $\{2,4\}$. $x_2 = 2\times x_3$.
+
+The final stage is easy enough to brute force. Observe there exists only three ways to fill in the remaining cells.
+
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}
+    \draw (0, 0) grid (4, 4);
+    \draw[very thick, scale=2] (0, 0) grid (2, 2);
+    \setcounter{rowa}{1}
+    \setrowa {1}{2}{3}{4}
+    \setrowa {3}{4}{}{}
+    \setrowa {}{}{}{}
+    \setrowa {}{}{}{} 
+    \node[anchor=center] {$n=2$};
+  \end{scope}
+\end{tikzpicture}
+\label{fig:b2r1}
+\end{figure}
+
+
+\subsection{Equivalence classes}
 \begin{itemize}
 \item relabel digits
 \item permute rows in a band
@@ -890,19 +934,22 @@ Symmetries form a group
 Burnside Lemma,  We have x Orbits where x is the average of the sum that wach symmetry element fixes. - used to work out how many orbits which is equivalent to how many unique sudokus exist
 9 by 9 case russell and jarvis 2
 
-
-
-
-	\section{Equivalence Classes}
 	\section{$6 \times 6$}
-
+\subsection{How many?}
+\subsection{Equivalent Classes}
 Define Rodoku 
 Define which sudoku sizes can exist
-
-
 812
 	\section{$8 \times 8$}
+\subsection{How many?}
+\subsection{Equivalent Classes}
 	\section{$9 \times  9$}
+\subsection{How many?}
+\begin{itemize}
+\item Set upper B1 - $9!$
+\item R1 permutations - case
+\end{itemize}
+\subsection{Equivalent Classes}
 5,472,730,538
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 

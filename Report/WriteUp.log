@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.8)  31 MAR 2023 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.8)  13 APR 2023 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,183 +681,187 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+)
+[1
+
+])
 \tf@toc=\write4
 \openout4 = `WriteUp.toc'.
 
-
-[1
-
-]
+ [2]
 Chapter 1.
-[2
+[3
 
-] [3]
+] [4]
 Chapter 2.
-[4
+[5
 
 ]
-<figures/turing_non_determinism.png, id=34, 2201.22375pt x 822.07124pt>
+<figures/turing_non_determinism.png, id=37, 2201.22375pt x 822.07124pt>
 File: figures/turing_non_determinism.png Graphic file (type png)
 <use figures/turing_non_determinism.png>
 Package pdftex.def Info: figures/turing_non_determinism.png  used on input line
- 136.
+ 138.
 (pdftex.def)             Requested size: 284.52756pt x 106.25836pt.
-<figures/turing_determinism.png, id=36, 202.7575pt x 1166.3575pt>
+<figures/turing_determinism.png, id=39, 202.7575pt x 1166.3575pt>
 File: figures/turing_determinism.png Graphic file (type png)
 <use figures/turing_determinism.png>
-Package pdftex.def Info: figures/turing_determinism.png  used on input line 143
+Package pdftex.def Info: figures/turing_determinism.png  used on input line 145
 .
 (pdftex.def)             Requested size: 28.45274pt x 163.66267pt.
- [5 <./figures/turing_non_determinism.png> <./figures/turing_determinism.png>]
-<P_np.svg.png, id=42, 451.6875pt x 282.05376pt>
+ [6 <./figures/turing_non_determinism.png> <./figures/turing_determinism.png>]
+<P_np.svg.png, id=46, 451.6875pt x 282.05376pt>
 File: P_np.svg.png Graphic file (type png)
 <use P_np.svg.png>
-Package pdftex.def Info: P_np.svg.png  used on input line 180.
+Package pdftex.def Info: P_np.svg.png  used on input line 182.
 (pdftex.def)             Requested size: 170.71652pt x 106.60483pt.
- [6 <./P_np.svg.png>] [7] [8] [9] [10] [11]
-<figures/ttg.png, id=70, 475.7775pt x 398.23781pt>
+ [7 <./P_np.svg.png>] [8] [9] [10] [11] [12]
+<figures/ttg.png, id=74, 475.7775pt x 398.23781pt>
 File: figures/ttg.png Graphic file (type png)
 <use figures/ttg.png>
-Package pdftex.def Info: figures/ttg.png  used on input line 523.
+Package pdftex.def Info: figures/ttg.png  used on input line 525.
 (pdftex.def)             Requested size: 135.96823pt x 113.81102pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13 <./figures/ttg.png>]
-<figures/holyer_coord.png, id=81, 384.43625pt x 237.88875pt>
+[13] [14 <./figures/ttg.png>]
+<figures/holyer_coord.png, id=84, 384.43625pt x 237.88875pt>
 File: figures/holyer_coord.png Graphic file (type png)
 <use figures/holyer_coord.png>
-Package pdftex.def Info: figures/holyer_coord.png  used on input line 594.
+Package pdftex.def Info: figures/holyer_coord.png  used on input line 596.
 (pdftex.def)             Requested size: 183.9231pt x 113.81102pt.
-<figures/holyer_3_4.png, id=82, 383.4325pt x 284.06125pt>
+<figures/holyer_3_4.png, id=85, 383.4325pt x 284.06125pt>
 File: figures/holyer_3_4.png Graphic file (type png)
 <use figures/holyer_3_4.png>
-Package pdftex.def Info: figures/holyer_3_4.png  used on input line 595.
+Package pdftex.def Info: figures/holyer_3_4.png  used on input line 597.
 (pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
-<figures/colour_holyer_coord.png, id=83, 313.17pt x 237.88875pt>
+<figures/colour_holyer_coord.png, id=86, 313.17pt x 237.88875pt>
 File: figures/colour_holyer_coord.png Graphic file (type png)
 <use figures/colour_holyer_coord.png>
 Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 60
-5.
+7.
 (pdftex.def)             Requested size: 149.82768pt x 113.81102pt.
-<figures/colour_holyer.png, id=84, 383.4325pt x 284.06125pt>
+<figures/colour_holyer.png, id=87, 383.4325pt x 284.06125pt>
 File: figures/colour_holyer.png Graphic file (type png)
 <use figures/colour_holyer.png>
-Package pdftex.def Info: figures/colour_holyer.png  used on input line 606.
+Package pdftex.def Info: figures/colour_holyer.png  used on input line 608.
 (pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/holyer_true_triangulation.png, id=85, 312.16624pt x 237.88875pt>
+<figures/holyer_true_triangulation.png, id=88, 312.16624pt x 237.88875pt>
 File: figures/holyer_true_triangulation.png Graphic file (type png)
 <use figures/holyer_true_triangulation.png>
 Package pdftex.def Info: figures/holyer_true_triangulation.png  used on input l
-ine 616.
+ine 618.
 (pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
-<figures/holyer_false_triangulation.png, id=86, 312.16624pt x 237.88875pt>
+<figures/holyer_false_triangulation.png, id=89, 312.16624pt x 237.88875pt>
 File: figures/holyer_false_triangulation.png Graphic file (type png)
 <use figures/holyer_false_triangulation.png>
 Package pdftex.def Info: figures/holyer_false_triangulation.png  used on input 
-line 617.
+line 619.
 (pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
-<figures/patches.png, id=93, 382.42876pt x 181.67876pt>
+[15 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
+<figures/patches.png, id=96, 382.42876pt x 181.67876pt>
 File: figures/patches.png Graphic file (type png)
 <use figures/patches.png>
-Package pdftex.def Info: figures/patches.png  used on input line 629.
+Package pdftex.def Info: figures/patches.png  used on input line 631.
 (pdftex.def)             Requested size: 199.16928pt x 94.61765pt.
- [15 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figur
+ [16 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figur
 es/holyer_true_triangulation.png> <./figures/holyer_false_triangulation.png> <.
 /figures/patches.png>]
-<figures/first_holyer_lemma.png, id=103, 1286.8075pt x 1006.76125pt>
+<figures/first_holyer_lemma.png, id=106, 1286.8075pt x 1006.76125pt>
 File: figures/first_holyer_lemma.png Graphic file (type png)
 <use figures/first_holyer_lemma.png>
-Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 649
+Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 651
 .
 (pdftex.def)             Requested size: 284.52756pt x 222.60957pt.
-<figures/lemma_two_holyer.png, id=104, 1286.8075pt x 484.81125pt>
+<figures/lemma_two_holyer.png, id=107, 1286.8075pt x 484.81125pt>
 File: figures/lemma_two_holyer.png Graphic file (type png)
 <use figures/lemma_two_holyer.png>
-Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 660.
+Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 662.
 (pdftex.def)             Requested size: 284.52756pt x 107.19882pt.
-<figures/lemma_three_holyer.png, id=105, 1891.065pt x 484.81125pt>
+<figures/lemma_three_holyer.png, id=108, 1891.065pt x 484.81125pt>
 File: figures/lemma_three_holyer.png Graphic file (type png)
 <use figures/lemma_three_holyer.png>
-Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 670
+Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 672
 .
 (pdftex.def)             Requested size: 341.43306pt x 87.52856pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16 <./figures/first_holyer_lemma.png> <./figures/lemma_two_holyer.png>]
-<figures/sat_example.png, id=111, 390.696pt x 175.2pt>
+[17 <./figures/first_holyer_lemma.png> <./figures/lemma_two_holyer.png>]
+<figures/sat_example.png, id=114, 390.696pt x 175.2pt>
 File: figures/sat_example.png Graphic file (type png)
 <use figures/sat_example.png>
-Package pdftex.def Info: figures/sat_example.png  used on input line 702.
+Package pdftex.def Info: figures/sat_example.png  used on input line 704.
 (pdftex.def)             Requested size: 199.16928pt x 89.31339pt.
 
-[17 <./figures/lemma_three_holyer.png> <./figures/sat_example.png>] [18]
-[19]
+[18 <./figures/lemma_three_holyer.png> <./figures/sat_example.png>] [19]
+[20]
 Chapter 3.
-[20
+[21
 
-] [21]
+] [22]
 Chapter 4.
-[22
+[23
 
-] [23]
+] [24]
 Chapter 5.
-(WriteUp.bbl [24
+(WriteUp.bbl [25
 
-]) [25
+]) [26
 
-] (WriteUp.aux) ) 
+] (WriteUp.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 17006 strings out of 476374
- 330108 string characters out of 5789799
+ 17007 strings out of 476374
+ 330118 string characters out of 5789799
  1901340 words of memory out of 5000000
- 37065 multiletter control sequences out of 15000+600000
+ 37066 multiletter control sequences out of 15000+600000
  528986 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,80p,947b,756s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\tcrm1095.pk><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmbx10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Eve/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Eve/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Eve/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Eve/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/User
-s/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6
-.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmmi8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmr12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Eve/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Eve/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eve/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Eve/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/
-Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/
-Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.p
-fb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symb
-ols/msam10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb>
-Output written on WriteUp.pdf (26 pages, 894421 bytes).
+ <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
+95.pk><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmbx8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Eve/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Eve/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Eve/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Eve/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/
+Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/
+Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pf
+b><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr17.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Eve/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Eve/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Eve/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ev
+e/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+<C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb>
+Output written on WriteUp.pdf (27 pages, 897596 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
+ 249 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
