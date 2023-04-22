@@ -82,21 +82,34 @@ Latin squares are another note worthy ancestor to the sudoku, this is a $n$ by $
 	
 \section{Defining Sudoku Notation}
 	
-\textbf{Def$^n$}: A valid sudoku puzzle is a function $ S: i,j \rightarrow x$ for values i,j $\in \{1,...,D^2\}$ and $x \in\{0,...,D^2\}$ satisfying the following:
+\textbf{Def$^n$}: A $n$ by $n$ Sudoku puzzle $P$ is a function $P:  \{1,...,n\}^2\rightarrow\mathbb D \cup \{0\}$ where $\mathbb D$ is an alphabet of size $n$ most commonly $\mathbb D = \{1,...,n\}$, the $\{0\}$ represents the blank symbol. $P$ is usually displayed as a board and the blank symbol ommitted. There are three rules a valid sudoku puzzle follows, the row restriction, column restriction and box restriction.
+
+The column restriction: for all $i,j,k\in \{1,...,n\}$ if $P(i,j)\neq0$ and $P(i,k)\neq0$ then $P(i,j)\neq P(i,k)$. This is to say: non blank values cannot be repeated in a column. When referencing columns we use C1,...,C$n$.
+
+The row restriction: this is the same as the column restriction but applied to rows. For all $i,j,k\in \{1,...,n\}$ if $P(i,j)\neq0$ and $P(k,j)\neq0$ then $P(i,j)\neq P(k,j)$. We call rows in $P$ R1,...,R$n$.
+
+Puzzles conforming to just the two above rules are named Latin squares. 
+
+The box restriction: for $x\leq y$ such that $xy=n$ and for all $i,j,k,l\in\{1,...,n\}$ with $\lfloor \frac{j-1}{x} \rfloor=\lfloor \frac{l-1}{x}\rfloor$, $\lfloor \frac{i-1}{y} \rfloor=\lfloor \frac{k-1}{y}\rfloor$, $P(i,j)\neq0$ and $P(k,l)\neq0$ then $P(i,j)\neq P(k,l)$. We introduce box regions of size $x\times y$, these cannot have repeated values. We label these B1,..,B$n$ from left to right and top to bottom.
+
+\textbf{Remark}: when $n$ is prime the box condition is the same as the row condition which reduces the sudoku puzzle to a latin square puzzle, therefore we omit these values of $n$. The most common sudokus are square numbers with boxes of size $\sqrt{n}$. If the box size is not stated then it is assumed to be the factor pair excluding 1 and $n$.
+
+A few sudokus have specific names:
 \begin{itemize}
-	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(a,c)\neq$ 0, then $ S(a,b)\neq$ S(a,c) }
-	\item{for all $a,b,c$  $\in \{1,...,D^2\}$ with $S(a,b)\neq$ 0 and $S(c,b)\neq$ 0, then $S(a,b)\neq$ S(c,b) }
-	\item{for all $ a,b,c,d $ $\in \{1,...,D^2\}$ with $\lfloor\frac{a-1}{D}\rfloor\equiv\lfloor\frac{c-1}{D}\rfloor$, $\lfloor\frac{b-1}{D}\rfloor\equiv\lfloor\frac{d-1}{D}\rfloor$, $S(a,b)\neq$ 0 and $S(c,d) \neq$ 0, then $S(a,b)\neq S(a,c)$ }
-\end{itemize}
+\item Shidoku is $4\times 4$,
+\item Rudoku is $6\times 6$ and
+\item Sudoku without specification is $9\times 9$.
+\end{itemize} 
 
-\textbf{Def$^n$}: A completed sudoku puzzle is a function $ S: i,j \rightarrow x$ as above but with the added condition that $x \neq 0$.
+\textbf{Def$^n$}: A completed sudoku puzzle does not have any blank symbols. $P:  \{1,...,n\}^2\rightarrow\mathbb D$ 
 
-\textbf{Def$^n$:} We refer to the third condition as the box.
+\textbf{Def$^n$:} A sudoku $P$ has a solution if there exists an augmentation of the puzzle such that blank symbols are changed to values from $\mathbb D$ and no other values of $P$ are changed.
 
-\textbf{Def$^n$:} Given a sudoku grid $S$ and augmented sudoku grid $S'$ is such that: for all $i,j$ if $S(i,j)\neq0$ then $S(i,j)=S'(i,j)$. Empty cells of the grid may change but those assigned a value in $S$ must remain the same in $S'$. 
+\textbf{Def$^n$}: The set $P_n$ includes all complete sudoku grids with size $n$ by $n$, if $n$ has more than one factor pair that is not itself and 1 we have to specify the box size. For example when $n=12$ we have two sets $P_{2,6}$ and $P_{3,4}$. For cases where $n$ is a square number but has multiple factor pairs $P_n$ denotes the puzzles with $\sqrt{n}$ sized boxes.
 
-Define B1, C1, R1, S1, P1.
+\textbf{Def$^n$}: To aid us in describing positions on a board we use the following terminology: a cell is a single (i,j) location in $P$, a sash is the rows split into $y$ groups ($y$ from the box restriciton definition) enumerated S1,..,S$y$ and a tower is the coloums split into $x$ groups  ($x$ from the box restriciton definition) enumerated T1,..,T$x$.
 
+\textbf{Add examples}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 %\chapter{Classic solving techniques}
@@ -1128,11 +1141,66 @@ Define which sudoku sizes can exist
 \subsection{How many?}
 \subsection{Equivalent Classes}
 	\section{$9 \times  9$}
+
+Now it is time to tackle the big one. The 9 by 9 sudoku is the largest board size for which enumerations have been widely discussed with this author only finding one website discussing the 10 by 10 case. Similarly enumerations for the latin square stop at 11. Chapter 2 explored theoretical exponential increase in difficulty when sudoku boards increase in size and we have seen it in action throughout this chapter. A generalised and efficient enumeration method seems unlikely but is certainly fun to try so let us continue to our final enumeration.
+
 \subsection{How many?}
-\begin{itemize}
-\item Set upper B1 - $9!$
-\item R1 permutations - case
-\end{itemize}
+We start as usual by standarising B1. This shrinks the search space by a factor of 9!. 
+
+To calculate the amount of possibilities for S1 we examine the pure and mixed case. The pure case uses the set  in B1$\cup$R2 ($\{4,5,6\}$) in either B2$\cup$R1 or B3$\cup$R1 and B1$\cup$R3 ($\{7,8,9\}$) in the other. This forces the sets in the other rows of S1. Counting these we get $3!^6$ for the permutations of each set and as we can switch P2 and P3 we multiply by two. There are $2\times 3!^6$ pure cases of S1. 
+
+The mixed case is a little more complicated. We first list the possible R1$\cup$B2$\cup$B3 options, see table \ref{table:mixed99}. This will set three values in the second and three in the third row leaving $\{1,2,3\}$ to be placed in the remaining cells. See diagram... Counting these we get $3\times3!^6$ for each configuration of the top row. Finally there are $9\times 2$ top row configurations from the table selecion and by swapping the P2 and P3. 
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{ |c|c| }
+ \hline
+B2$\cup$R1  & B3$\cup$R1\\
+ \hline
+$\{4,5,7\}$&$\{6,8,9\}$\\
+$\{4,5,8\}$&$\{6,7,9\}$\\
+$\{4,5,9\}$&$\{6,7,8\}$\\
+$\{4,6,7\}$&$\{5,8,9\}$\\
+$\{4,6,8\}$&$\{5,7,9\}$\\
+$\{4,6,9\}$&$\{5,7,8\}$\\
+$\{5,6,7\}$&$\{4,8,9\}$\\
+$\{5,6,8\}$&$\{4,7,9\}$\\
+$\{5,6,9\}$&$\{4,7,8\}$\\
+\hline
+\end{tabular}
+\end{center}
+\caption{\label{table:mixed99}}
+\end{table}
+
+In total there are 
+\begin{equation}2\times3!^6+18\times 3\times 3!^6 = 2612736\end{equation}
+S1 configerations with the standardised B1. This is an unreasonably large search space so we must reduce this like we have done previously through equivalence relations to discover which boards will have have the same amount of completions. 
+
+We will explore a few reductions. We have already exploited relabeling as best we can so we now focus on structural equivalences. Let us look at swapping columns and pillars. For each 
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=0cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {4}{5}{6}
+    \setrowb {7}{8}{9}
+    \setrowb {1}{2}{3}
+  \end{scope}
+\begin{scope}[xshift=6cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {6}{4}{5}
+    \setrowb {9}{7}{8}
+    \setrowb {3}{1}{2}
+  \end{scope}
+\end{tikzpicture}
+\caption{\label{fig:equiv99}Two configurations of B2 which are essentially equivalent}
+\end{figure}
+
+
+ 
 \subsection{Equivalent Classes}
 5,472,730,538
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
