@@ -69,8 +69,19 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Introduction}
 
-Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all, yet it is filled with mathematics. Through sudoku we
-can explore the connections between various areas of maths: complexity theory, discrete mathematics and group theory.
+Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. For many, this is a brain teaser at the back of a newspaper or a game on their phone used to pass the time on a commute. So why are we bothered about the mathematics behind the game? The answer is multifaceted. 
+
+Sudoku is a serious hobby for many and even a job. All major newspapers will have a sudoku section the New york times has three sudokus set each day (https://www.nytimes.com/puzzles/sudoku), these all need to be created and verified which is no easy task (not even for a computer as we shall soon find out). Then there are the freely available apps with thousands of sudokus of varying difficulty. Sudokus get so hard that there is even a world sudoku Championship (https://www.worldpuzzle.org/championships/wsc/) where teams and individuals compete to get the best time for a sudoku solve. In 2022 Mark Goodliffe came first in the WSCs over 50s challenge. This is significant as Mark is half of a duo creating entertaining videos on the solution of sudokus and its variants on the youtube channel Cracking the Cryptic (https://www.youtube.com/@CrackingTheCryptic). During the coronavirus pandemic this author spent many hundreds of hours learning techniques from Cracking the Cryptic and putting them into practise. With that said, sudoku provides many opportunities for revenue and by studying the mathematics behind this puzzle those jobs may be made easier.
+
+- Mental Exercise 
+
+The literature on the mathematics of sudoku is extensive and ranges through many different areas such as group theory, discrete mathematics, complexity theory and information theory all while being digestable for a undergraduate audience. Theory is best learnt through application so examining sudoku through these lenses can consolidate learning as well as encourage and motivate students to continue learning mathematics at a higher level. An excellent example of this is the book Taking Sudoku Seriously \cite{}, using sudoku as the catalyst many foundational maths ideas are made accessible to those who haven't studied mathematics past GCSE.
+
+An exploration of sudoku also serves to unite the authors favourite subjects, mathematics and computer science. While it is known underlying knowledge of mathematics is required to study computer science, the opposite is not entirely obvious. Through our exploration of sudoku we link theory to tangible computation, for we often study theory in mathematics without regard for what it means in practise, the time taken to execute such mathematical processes is important it is the difference between trivial and the heat death of the universe. This author believes it important for mathematicians to have a grasp of such concepts and we use sudoku as the lens for motivating this. Discuss the lack of mathematical proof but evidence of success in AI.
+
+Sudoku stems from magic and latin squares (more to be discussed later). Many variants have popped up from the original we have killer and thermo and this authors personal favourites are magic squares within a sudoku, feels very full circle. This is clearly a branching puzzle with no signs of stopping (see Cracking the Cryptic for new variants every week).
+
+We can see that sudoku is not just a brain teaser, its popularity is ever expanding and its use for educational and monetary are self evident. So it makes sense to study the mathematical structure of sudoku.
 
 \section{History}
 
@@ -109,7 +120,12 @@ A few sudokus have specific names:
 
 \textbf{Def$^n$}: To aid us in describing positions on a board we use the following terminology: a cell is a single (i,j) location in $P$, a sash is the rows split into $y$ groups ($y$ from the box restriciton definition) enumerated S1,..,S$y$ and a tower is the coloums split into $x$ groups  ($x$ from the box restriciton definition) enumerated T1,..,T$x$.
 
-\textbf{Add examples}
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=50mm]{figures/highlighted_cells.png}
+	\end{center}
+	\caption{\label{fig:labels}From Left to Right, Top to Bottom. C1, B1, R1, cell 1, S1, P1 }
+\end{figure}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 %\chapter{Classic solving techniques}
@@ -118,6 +134,8 @@ A few sudokus have specific names:
 
 %define x wing
 %define y wing
+% ariadnes thread
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Sudoku is Hard}
 
@@ -177,6 +195,13 @@ See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two ve
 \textbf{Def$^n$:} A polynomial time algorithm is an algorithm with $O(x^c)$.
 
 \textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=30mm]{figures/reduction.png}
+	\end{center}
+	\caption{\label{fig:reduction}A$\leq_p$B}
+\end{figure}
 
 \subsection{Sets of Difficulty} 
 
@@ -383,6 +408,13 @@ return True if it can be solved and False otherwise.
 The verifier must be shown to be $\in$ P, this means the Sudoku decision problem belongs to the set NP.
 
 Then we need a reduction from sudoku to a known NP-complete problem to prove sudoku is also NP-hard. We will be creating a chain of reductions: \textbf{Sudoku $\geq_p$ Latin Square $\geq_p$ Triangulated Tripartite $\geq_p$ 3SAT $\geq_p$ SAT}.
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=50mm]{figures/subset.png}
+	\end{center}
+	\caption{\label{fig:sudokureduction}}
+\end{figure}
 
 As the Sudoku decision problem is a member of NP and NP-hard it is NP-complete by definition.
 
@@ -1051,7 +1083,7 @@ Group & Order & Orbits\\
 \caption{\label{table:group}Groups, Order and Orbits}
 \end{table}
 
-\textbf{Burnside's Lemma:} For a thorough overview of this result see \cite{analysis and applications of burnsides lemma jenny jin}, an account and analysis that the author found very useful. For a finite group $G=G_4$ acting on the set $S$ of shidoku boards we have $S/G_4$ denoting the set of orbits of $S$. 
+\textbf{Burnside's Lemma:} For a thorough overview of this result see \cite{analysis and applications of burnsides lemma jenny jin}, an account and analysis that this author found very useful. For a finite group $G=G_4$ acting on the set $S$ of shidoku boards we have $S/G_4$ denoting the set of orbits of $S$. 
 \begin{equation} |S/G_4|=\frac{1}{|G_4|}\sum_{g\in G_4}|S^g|\end{equation}
 where $|S^g|$ is the set of all elements in $S$ that are unchanged by element $g$ acting upon it. In english this means we can count the orbits of the shidoku symmetries acting on the set of shidoku boards (how many distinct shidokus exist) by calculating the avergae of the boards left unchanged by each element of teh symmetry group. 
 
@@ -1133,10 +1165,15 @@ The main issue here of course is fining a minimal symmetry group, luckily this p
 
 	\section{$6 \times 6$}
 \subsection{How many?}
+
+Standardise B1 
+Pure/Mixed S1
+Reduce P1
+Enumerate
+
 \subsection{Equivalent Classes}
-Define Rodoku 
-Define which sudoku sizes can exist
-812
+
+
 	\section{$8 \times 8$}
 \subsection{How many?}
 \subsection{Equivalent Classes}
@@ -1145,7 +1182,7 @@ Define which sudoku sizes can exist
 Now it is time to tackle the big one. The 9 by 9 sudoku is the largest board size for which enumerations have been widely discussed with this author only finding one website discussing the 10 by 10 case. Similarly enumerations for the latin square stop at 11. Chapter 2 explored theoretical exponential increase in difficulty when sudoku boards increase in size and we have seen it in action throughout this chapter. A generalised and efficient enumeration method seems unlikely but is certainly fun to try so let us continue to our final enumeration.
 
 \subsection{How many?}
-We start as usual by standarising B1. This shrinks the search space by a factor of 9!. 
+We start as usual by standarising B1. This shrinks the search space by a factor of 9!. Then our usual technique takes place, find all possible S1 configurations, group them into sets that will have the same amount of completions for S2 and S3 then brute force the completions with an optimised algorithm.
 
 To calculate the amount of possibilities for S1 we examine the pure and mixed case. The pure case uses the set  in B1$\cup$R2 ($\{4,5,6\}$) in either B2$\cup$R1 or B3$\cup$R1 and B1$\cup$R3 ($\{7,8,9\}$) in the other. This forces the sets in the other rows of S1. Counting these we get $3!^6$ for the permutations of each set and as we can switch P2 and P3 we multiply by two. There are $2\times 3!^6$ pure cases of S1. 
 
@@ -1172,11 +1209,14 @@ $\{5,6,9\}$&$\{4,7,8\}$\\
 \caption{\label{table:mixed99}}
 \end{table}
 
-In total there are 
+In total there are
 \begin{equation}2\times3!^6+18\times 3\times 3!^6 = 2612736\end{equation}
 S1 configerations with the standardised B1. This is an unreasonably large search space so we must reduce this like we have done previously through equivalence relations to discover which boards will have have the same amount of completions. 
 
-We will explore a few reductions. We have already exploited relabeling as best we can so we now focus on structural equivalences. Let us look at swapping columns and pillars. For each 
+Let us explore a few reductions.
+
+\textbf{Column Permutations}
+Observe boards with different permutations of C4-6 have the same number of completions (see \ref{fig:equiv99}). This is expanded to permutations of C7-9 and B2-3. Therefore from a single board we can derive $3!\times3!\times2=72$ other boards that are essentially equivalent. Our search space becomes $\frac{2612736}{72}=36288$, better but not ideal.
 
 \begin{figure}[h!]
 \centering
@@ -1199,10 +1239,126 @@ We will explore a few reductions. We have already exploited relabeling as best w
 \caption{\label{fig:equiv99}Two configurations of B2 which are essentially equivalent}
 \end{figure}
 
+\textbf{Optimised Column Permutations and Relabelling}
+We have excluded B1 in our permutation above in order to preserve our standardised B1 labeling but note relabeling is a symmetry and we can still utilise this further to improve our search space ($r_1pr_2$). We permute C1-3, C4-6, C7-9 and B1-3 giving $3!\times 3!\times 3! \times 3!=1296$ possibly equivalent boards to be derived from a single board. We then we can relabel the new boards to again standardise B1. From \cite{}enumerating possible sudoku grids, page 4 we note this reduces the search space to 2051 boards. If each board had exactly 1296 equivalent boards we would have $\frac{2612736}{1296}= 2016$ boards in our search space \textbf{why dont we}.  We now have to catalog the amount of boards corresponding to each of the 2051 as, unlike the previous reduction, this reduction does not affect all boards equally.
 
+\textbf{Permutations of S1 Rows}
+Taking a leaf out of the Optimised Column Permutations and Relabelling book we can apply this to the rows of sash 1. We do this by permuting the rows and relabeling B1 to it's standardised form. This gives each board another the possibility of having $3!$ more equivalent boards now giving a grand maximum of $1296\times 3!=7776$ eqivalent boards, of course this is not the case for every board as we discussed, otherwise we could have had a search space of $\frac{2612736}{7776}=336$ but we are not far off with the reduction coming out at 416 (from \cite{}enumerating possible sudoku grids, page 4).
+
+\textbf{Reducing Twins}
+Twins are two values in Cn lying in Rx and Ry such that the values also lie in Cm in Rx and Ry where $n\neq m$. For example figure \ref{fig:twins} has values 1 and 4 in R1, R2, C1, C4. By the relabeling $1\mapsto 4$, $4\mapsto 1$ we get another board with the same amount of completions, that is to say the complete S2,3 are independent of the lables 1 and 4. This gives us another equivalence reduction. From \cite{}enumerating possible sudoku grids, page 5 we reduce the 416 equivalence classes to 174.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=0cm]
+    \draw (0, 0) grid (3, 3);
+\draw[very thick, scale=3] (0, 0) grid (3, 1);
+    \setcounter{rowb}{1}
+    \setrowb {1}{2}{3}
+    \setrowb {4}{5}{6}
+    \setrowb {7}{8}{9}
+  \end{scope}
+\begin{scope}[xshift=3cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {4}{5}{7}
+    \setrowb {1}{8}{9}
+    \setrowb {2}{3}{6}
+  \end{scope}
+\begin{scope}[xshift=6cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {6}{8}{9}
+    \setrowb {2}{3}{7}
+    \setrowb {1}{4}{5}
+  \end{scope}
+\end{tikzpicture}
+\caption{\label{fig:twins}}
+\end{figure}
+
+Observe this can be expanded to larger subsets, see figure \ref{}. This uses 3 columns. and figure \ref{} uses 4 columns with the values 1,5. Again from \cite{} this reduces us to 71 classes.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=0cm]
+    \draw (0, 0) grid (3, 3);
+\draw[very thick, scale=3] (0, 0) grid (3, 1);
+    \setcounter{rowb}{1}
+    \setrowb {1}{2}{3}
+    \setrowb {4}{5}{6}
+    \setrowb {7}{8}{9}
+  \end{scope}
+\begin{scope}[xshift=3cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {5}{4}{7}
+    \setrowb {1}{8}{9}
+    \setrowb {2}{3}{6}
+  \end{scope}
+\begin{scope}[xshift=6cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {6}{8}{9}
+    \setrowb {2}{3}{7}
+    \setrowb {1}{4}{5}
+  \end{scope}
+\end{tikzpicture}
+\caption{\label{fig:twins}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=.5]
+\begin{scope}[xshift=0cm]
+    \draw (0, 0) grid (3, 3);
+\draw[very thick, scale=3] (0, 0) grid (3, 1);
+    \setcounter{rowb}{1}
+    \setrowb {1}{2}{3}
+    \setrowb {4}{5}{6}
+    \setrowb {7}{8}{9}
+  \end{scope}
+\begin{scope}[xshift=3cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {4}{5}{7}
+    \setrowb {1}{8}{9}
+    \setrowb {2}{3}{6}
+  \end{scope}
+\begin{scope}[xshift=6cm]
+    \draw (0, 0) grid (3, 3);
+    \setcounter{rowb}{1}
+    \setrowb {6}{8}{9}
+    \setrowb {2}{3}{7}
+    \setrowb {1}{4}{5}
+  \end{scope}
+\end{tikzpicture}
+\caption{\label{fig:twins}}
+\end{figure}
+
+Brilliant we have reduced our S1 to only 71 boards to search. However we still need to enumerate the solutions for each of these which is alot of searching and as we know from Chapter 2 finding a single solution isnt very efficient so counting how many exist is worse. Let us attempt to improve this. By using the exact same argument as S1 on P1 we get 2612736 completions which can be reduced to 36288 equivalence classes with 72 members. We can repeat the twins equivalence relation idea but \cite{} reason the search space ahs been reduced enough that the computation is feasible. 44 distinct counts.
+
+For algorithmic details consult \cite{}. This paper states the number of valid sudoku grids is 6,670,903,752,021,072,936,960 6 sextillion. This has been corroborated by the first discover of this number by \cite{} lin keh ying.
  
-\subsection{Equivalent Classes}
+\subsection{Unique} 
+
+Discuss symmetries
+Equivalence definition as 4 by 4
+group size
+Conjugacy classes
+Many classes have no equivalent grids
+Burnside Lemma
+Conclusion
+Discuss GAP
+
 5,472,730,538
+
+\section{Verification}
+On the number of sudoku grids
+
+
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Other}
 Interesting questions I've dipped my toe in:
