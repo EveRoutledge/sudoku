@@ -9,6 +9,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
+\usepackage{bbm}
 \usepackage{tikz}
 \usepackage[skip=10pt, indent=0pt]{parskip}
 
@@ -101,7 +102,7 @@ The row restriction: this is the same as the column restriction but applied to r
 
 Puzzles conforming to just the two above rules are named Latin squares. 
 
-The box restriction: for $x\leq y$ such that $xy=n$ and for all $i,j,k,l\in\{1,...,n\}$ with $\lfloor \frac{j-1}{x} \rfloor=\lfloor \frac{l-1}{x}\rfloor$, $\lfloor \frac{i-1}{y} \rfloor=\lfloor \frac{k-1}{y}\rfloor$, $P(i,j)\neq0$ and $P(k,l)\neq0$ then $P(i,j)\neq P(k,l)$. We introduce box regions of size $x\times y$, these cannot have repeated values. We label these B1,..,B$n$ from left to right and top to bottom.
+The box restriction: for $x\leq y$ such that $xy=n$ and for all $i,j,k,l\in\{1,...,n\}$ with $\lfloor \frac{j-1}{x} \rfloor=\lfloor \frac{l-1}{x}\rfloor$, $\lfloor \frac{i-1}{y} \rfloor=\lfloor \frac{k-1}{y}\rfloor$, $P(i,j)\neq0$ and $P(k,l)\neq0$ then $P(i,j)\neq P(k,l)$. We introduce box regions of size $x\times y$, these cannot have repeated values. We label these B1,..,B$n$ from left to right and top to bottom. Note we can enforce $x\leq y$. 
 
 \textbf{Remark}: when $n$ is prime the box condition is the same as the row condition which reduces the sudoku puzzle to a latin square puzzle, therefore we omit these values of $n$. The most common sudokus are square numbers with boxes of size $\sqrt{n}$. If the box size is not stated then it is assumed to be the factor pair excluding 1 and $n$.
 
@@ -846,6 +847,12 @@ This is helpful but now we must determine the difficulty of DP \cite{dphardness}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 
 \chapter{Solving Techniques}
+\section{Pencil Solutions}
+x wing
+y wing
+forced
+cells
+ariadnes thread
 
 \section{Backtracking}
 The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. This is a brute force method with a few optimisations. One can expect to find this algorithm in a computer science course introduction to recursion, that is to say
@@ -918,7 +925,7 @@ Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4
 
 \subsection{How many Shidoku squares exist?}
 
-$x=$ number of Shidoku squares
+$X_4=x$ is the number of Shidoku squares.
 
 First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabellings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this way until we get to a reasonable search space.
 
@@ -1164,19 +1171,39 @@ To prove what we already knew! Not amazing but at least we get the point and can
 The main issue here of course is fining a minimal symmetry group, luckily this paper addresses it \cite{minimal complete shidoku symmetry groups} through considering the structural and relabeling symmetries separately as we have determined is a helpful technique. We will not discuss this further as we must move on to bigger but not necessarily better sudokus.
 
 	\section{$6 \times 6$}
+	
 \subsection{How many?}
 
-Standardise B1 
-Pure/Mixed S1
-Reduce P1
+We follow a similar strategy to count our rudoku boards, however the literature on this is limited and this author provides the enumeration calculations. 
+
+The first move is alwasy the easiest, we standardise B1. Reducing our search space by 9!.  $x_6=9!\times x_a$
+
+Our R1 will be seperated into two cases coined pure and mixed. A pure R1 consists of B1 $\cap$ R2 in a single box (B2 $\cap$ R1 or B3 $\cap$ R1) and B1 $\cap$ R3 in the other. A mixed, like the name suggests has B2 $\cap$ R1 as an amalgamation of B1's R2 and R3. The pure case is simple, the first row consists of set $\{3,4\}$ $\{5,6\}$ which forces the sets in R2 and R3. Our count is therefore $2^6$ for the different permutations of these sets multipled by 2 as B2 and B3 can be permuted. $2^7=128$
+
+Mixed takes more consideration. R1 must be a permutation of sets has two choices $\{\{3,5\},\{4,6\}\}$ or $\{\{3,6\},\{4,5\}\}$. This forces 5,6 to be in R2 and 3,4 into R3 leaving 1,2 to be placed. Counting these decisions we get 2 for where we put 1 (forcing 2), 2 for which R1 set we take, 2 to flip B2 and B3 then $2^6$ to permute each of the sets. Overall we have $2\times 2 \times 2 \times 2^6=2^9=512$ 
+
+S1 has $2^9+2^7=640$ possible completions. We now must count how many S2 completions there are for each board, call this $b_i$.
+
+\begin{equation}x_a = \sum^{640}_{i=1}b_i\end{equation}
+
+This will take a lot of computation power so let's simplify this further. Observe a completion of S1 has the same $b_i$ as the same completion of S1 but with B2 and B3 flipped, currently we compute this twice but this is a waste. We expand this idea further to permutation of R3-4 and R5-6. This means each board in the 640 completions has $2\times 2\times 2$ boards that are equivalent when columns and boxes are permuted. This limits the search space to $\frac{640}{8}=80$. In practise this means we do not allow some of teh choices described above. For the pure case we set R1 to be 1,2,3,4,5,6 leaving only $2^4=16$ choices. Then for the mixed we set R1 to be 1,2,3,5,4,6 or 1,2,3,6,4,5 leaving $2^5$ choices left and remember the choice between these two R1s so we get $2^6=64$, however we can do better than this and make it only $2^5$ choices as we we have a twin in the 1,2 pair. Therefore we have only $16+32=48$ to enumerate. Note not all sudoku board is made equal, for every pure strategy we have 8  equivalent boards but for each mixed S1 we have 16 equivalent boards so we must make sure to multiply accordingly. 
+
+\begin{equation}x_a=\sum^{48}_{i=1}[\mathbbm{1}_{pure}(i)\times16\times b_i+\mathbbm{1}_{mixed}(i)\times8\times b_i]\end{equation}
+
+Where $\mathbbm{1}_A$ is the indicator function such that $\mathbbm{1}_A(x) = 1$ if $x\in A$ else $\mathbbm{1}_A(x) = 0$.
+
+There is still work to be done, for all 48 boards we must compute $b_i$. Lets do a brief approximation currently that would mean there for each column in S2 there are three possible numbers this gives $3!^6 = 46656$ possible solutions that need to be checked. 
+
+We can reduce this further by a factor of 3!. For C1 $\cup$ S2 set 2,4,6, not this has 3! permutations each of which have the same amount of completions as the board with forced C1. So we redefine $b_i$ count only solutions with C1 1,3,5,2,4,6.
+
+\begin{equation}x_6=9!3!\sum^{48}_{i=1}[\mathbbm{1}_{pure}(i)\times16\times b_i+\mathbbm{1}_{mixed}(i)\times8\times b_i]\end{equation}
+
 Enumerate
+28200960.
 
-\subsection{Equivalent Classes}
+\subsection{Unique}
 
-
-	\section{$8 \times 8$}
-\subsection{How many?}
-\subsection{Equivalent Classes}
+49
 	\section{$9 \times  9$}
 
 Now it is time to tackle the big one. The 9 by 9 sudoku is the largest board size for which enumerations have been widely discussed with this author only finding one website discussing the 10 by 10 case. Similarly enumerations for the latin square stop at 11. Chapter 2 explored theoretical exponential increase in difficulty when sudoku boards increase in size and we have seen it in action throughout this chapter. A generalised and efficient enumeration method seems unlikely but is certainly fun to try so let us continue to our final enumeration.
@@ -1277,7 +1304,7 @@ Twins are two values in Cn lying in Rx and Ry such that the values also lie in C
 \caption{\label{fig:twins}}
 \end{figure}
 
-Observe this can be expanded to larger subsets, see figure \ref{}. This uses 3 columns. and figure \ref{} uses 4 columns with the values 1,5. Again from \cite{} this reduces us to 71 classes.
+Observe this can be expanded to larger subsets, see figure \ref{}. This uses 3 columns. and figure \ref{} uses 4 columns with the values 1,5. Again from \cite{} this reduces us to 71 classes. see mathematics of sudoku I for in depth
 
 \begin{figure}[h!]
 \centering
@@ -1313,7 +1340,7 @@ Observe this can be expanded to larger subsets, see figure \ref{}. This uses 3 c
 \begin{tikzpicture}[scale=.5]
 \begin{scope}[xshift=0cm]
     \draw (0, 0) grid (3, 3);
-\draw[very thick, scale=3] (0, 0) grid (3, 1);
+    \draw[very thick, scale=3] (0, 0) grid (3, 1);
     \setcounter{rowb}{1}
     \setrowb {1}{2}{3}
     \setrowb {4}{5}{6}
@@ -1350,14 +1377,21 @@ Conjugacy classes
 Many classes have no equivalent grids
 Burnside Lemma
 Conclusion
+Reflection not a symmetry for all sizes
 Discuss GAP
 
 5,472,730,538
 
 \section{Verification}
-On the number of sudoku grids
 
+discussion of 4 colour theorem proof
+sceptical mathematicians
+Sudokus answer to this is: On the number of sudoku grids
 
+\section{Discussion}
+Exponsential increaase
+12 by 12 two cases very interesting
+generalised method
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Other}
