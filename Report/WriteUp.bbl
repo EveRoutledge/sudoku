@@ -1,9 +1,19 @@
 \begin{thebibliography}{10}
 
+\bibitem{appel1989every}
+Kenneth~I Appel and Wolfgang Haken.
+\newblock {\em Every planar map is four colorable}, volume~98.
+\newblock American Mathematical Soc., 1989.
+
 \bibitem{compcomplexityamodernapproach}
 S.~Arora and B.~Barak.
 \newblock {\em Computational Complexity: A Modern Approach}.
 \newblock Cambridge University Press, 2009.
+
+\bibitem{BarNatan1996LieAA}
+Dror Bar-Natan.
+\newblock Lie algebras and the four color theorem.
+\newblock {\em Combinatorica}, 17:43--52, 1996.
 
 \bibitem{simulatedannealing}
 Dimitris Bertsimas and John Tsitsiklis.
@@ -14,6 +24,11 @@ Dimitris Bertsimas and John Tsitsiklis.
 Charles~J. Colbourn.
 \newblock The complexity of completing partial latin squares.
 \newblock {\em Discrete Applied Mathematics}, 8(1):25--30, 1984.
+
+\bibitem{gonthier2008formal}
+Georges Gonthier et~al.
+\newblock Formal proof--the four-color theorem.
+\newblock {\em Notices of the AMS}, 55(11):1382--1393, 2008.
 
 \bibitem{hall}
 P.~Hall.
@@ -36,10 +51,25 @@ John~E. Hopcroft and Richard~M. Karp.
 \newblock An algorithm for maximum matchings in bipartite graphs.
 \newblock {\em SIAM Journal on Computing}, 2(4):225--231, 1973.
 
+\bibitem{jones2014number}
+Si{\^a}n~K Jones, Stephanie Perkins, and Paul~A Roach.
+\newblock On the number of 6$\times$ 6 sudoku grids.
+\newblock {\em J. Combin. Math. Combin. Comput}, 89:33--43, 2014.
+
+\bibitem{mima2013number}
+Si{\^a}n K Jones~CMath MIMA and Stephanie~Perkins CMath.
+\newblock On the number of sudoku grids.
+\newblock 2013.
+
 \bibitem{dpcomplexity}
 C.H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em Journal of Computer and System Sciences}, 28(2):244--259, 1984.
+
+\bibitem{swart1980philosophical}
+Edward~R Swart.
+\newblock The philosophical implications of the four-color problem.
+\newblock {\em The American mathematical monthly}, 87(9):697--707, 1980.
 
 \bibitem{turing}
 A.~M. TURING.

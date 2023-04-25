@@ -128,9 +128,6 @@ A few sudokus have specific names:
 \end{figure}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Sudoku is Hard}
 
 Let's imagine a sudoku of size $D^2\times D^2$. How big does $D$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Don't worry if you said a smaller number than your friends, this has nothing to do with your problem solving skills, even a computer finds sudoku hard. In fact just incrementing $D$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
@@ -521,10 +518,6 @@ Therefore $L(i,j) \in [0,...,n]$.
 
 We must validate the Latin square conditions. The row constraint in $S_l$ ensures $S'(i,j)=S'(i,j') \implies j=j'$, $S'(i,j)-1/n+1=S'(i,j')-1/n+1 \implies j=j'$, $L(i,j/n)=S'(i,j'/n) \implies j=j'$ is equivalent to the row constraint of L. The column constraint of $S_l$ is equivalent to the column constraint of L. The small square constraint of $S_l$ is equivalent to the column constraint of L. $\square$
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \subsection{Latin Square $\geq_p$ Triangulate A Tripartite Graph}
 
 \textbf{Def$^n$}: A graph $G=(V,E)$ is tripartite if a partition $V_1$, $V_2$, $V_3$ exists such that the vertices are split into three sets with no edges between vertices that belong to the same set, i.e for all $(v_i,v_j) \in E\text{ if } v_i \in V_i\text{ then }v_j \not\in V_i $.
@@ -603,10 +596,6 @@ If r=s=t then LF is a latin square (formulation above) which can be completed if
 \textbf{Note}: we can find a system distinct representative using the Hopcroft-Karp \cite{hopcroft} algorithm which solves bipartite matching in polynomial time. 
 
 Given a tripartite graph G, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \subsection{Triangulated Tripartite $\geq_p$ 3SAT}
 
@@ -723,8 +712,6 @@ If there exists a truth assignment we can triangulate $G_{b_k}$ according to thi
 
 This transformation takes place in polynomial time and therefore Triangulated Tripartite $\geq_p$ 3SAT. $\square$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{3SAT is NP-Complete}
 %%%%% define clause
 
@@ -748,9 +735,9 @@ As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete
 		\caption{Truth Assignment Example with Highlighted Valid Assignment}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\rule{4cm}{0.4pt}
 
-\subsection{Wrap Up} 
+\textbf{Wrap Up} 
 
 $\Phi\in $ NP as $\exists$ a verifier $\Psi$ when given an instance $S$ can determine if it is complete/solved in polynomial time, $\Psi\in$ P.
 
@@ -760,7 +747,6 @@ As $\Phi\in$ NP and $\Phi\in$ NP-hard, $\Phi\in$ NP-complete. $\square$
 
 Determining if a sudoku grid $S$ has a completion is suspected hard and infeasible for large $D$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sudoku $\leq_p$  Graph Colouring}
 
 When reducing sudoku to a grpah problem the obvious thought is to change it to a $D^2$-colouring which we also know to be NP-complete. Unfortunately, this is the incorrect way round, while all sudokus can be turned into a $D^2$-colouring problem it is not immediately obvious how to change all 9 colouring problems into the input of the sudoku decision problem. 
@@ -775,8 +761,6 @@ To transform a grid $S$ to sudoku:
 Now all sudoku problems can be converted to a $D^2$- colouring problem in polynomial time and since we have proven sudoku is NP-complete as long as $D^2$- colouring has a polynomial verifier (which is trivial to check) then it is also NP-complete.  
 
 This emphasises the importance of the reduction direction, it is easy to transform a problem in P to a problem in NP in polynomial time (it is easy to make something more complicated than it needs to be) but the other way round has not yet been done. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Dimension Analysis}
 
@@ -794,8 +778,6 @@ In summation, a SAT instance of $A$ clauses and $B$ variables becomes a sudoku i
 
 \textbf{AN EXAMPLE TRANSFORMATION}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Solving Sudoku is Hard}
 
 We have only focused on decision problems with a boolean yes or no answer so far, but, when it comes to being given a sudoku most people assume it is solvable and then search for a solution so let us change our perspective to search problems; is it hard to solve sudoku? 
@@ -810,8 +792,6 @@ It is intuitive that the search problem is harder than the decision problem but 
 \textbf{Theorem}: From \cite{compcomplexityamodernapproach}. Suppose $P=NP$ then for every problem $\rho\in$ NP there exists a polynomial time Turing Machine $T$ that on input $x$ where $\rho(x)=True$ will output a certificate of $x$.
 
 \textbf{Note:} A certificate in complexity theory refers to a solution path of the decision problem, here it is a completed sudoku grid that is the augmented version of the input. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Determining Uniqueness is Hard}
 
@@ -951,12 +931,14 @@ Heuristics better
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Group theory}
 
-Sudoku still remains elusive, we cannot seem to find a good way to generalise solving sudokus without having to throw tonnes of computational power at it. What if we were to simply store all possible $n$ by $n$ sudokus and loop over these to check if our partially complete sudoku fits into any. Unfortunately as we shall see in this chapter the amount of sudokus has not been generalised and instead must be calculated or computed on a case by case basis. This is a somewhat disheartening result but luckily there are some fun mathematicss we can do along the way to improve efficiency of our calculations and show the beautiful relationship between computers scientist and mathematicians.
+Sudoku still remains elusive, we cannot seem to find a good way to generalise solving sudokus without having to throw tonnes of computational power at it. What if we were to simply store all possible $n$ by $n$ sudokus and loop over these to check if our partially complete sudoku fits into any. Unfortunately as we shall see in this chapter the amount of sudokus has not been generalised and instead must be calculated or computed on a case by case basis. This is a somewhat disheartening result but luckily there are some fun mathematics than can done along the way to improve efficiency of our calculations and show the need for communication between computers science and mathematics.
 
 \section{Starting Simple $4 \times 4$}
 Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. 
 
-\subsection{How many Shidoku squares exist?}
+\noindent\rule{4cm}{0.4pt}
+
+\textbf{How many Shidoku squares exist?}
 
 $x_4$ is the number of Shidoku squares.
 
@@ -983,7 +965,7 @@ x_4 = 4!\times x_a
 \label{fig:shidokurelabelling}
 \end{figure}
 
-Next we set the values for B2 $\cap$ R1. This must be a permutation of $\{3,4\}$, there exists 2! permutations. $x_a = 2\times x_b$. The same applied for B3 $\cap$ C1, we permute the set $\{2,4\}$. 
+Next set the values for B2 $\cap$ R1. This must be a permutation of $\{3,4\}$, there exists 2! permutations. $x_a = 2\times x_b$. The same applied for B3 $\cap$ C1, we permute the set $\{2,4\}$. 
 
 \begin{eqnarray}x_b &= 2\times x_c\\ x_c &=2\times x_d\end{eqnarray}
 \begin{figure}[h]
@@ -1085,7 +1067,10 @@ Ultimately, we only have two completely unique shidokus. One of these shidokus h
 
 We have answered two interesting questions about shidoku through a singular analysis however this will not apply for the larger cases. Let us generalise the use of symmetries and equivlance relations into a way to count our truely unique shidokus.
 
-\subsection{Equivalence classes}
+\noindent\rule{4cm}{0.4pt}
+
+\textbf{Unique}
+
 Let us take a group theory approach. We define a Shidoku Symmetry as a map from the set of Shidoku boards to itself. There is two type which we shall explore. Relabeling symmetries, $x\mapsto y$, change the labels within the shidoku so that all cells with label $x$ change to $y$, set $R_4$ defines all such symmetries. Structural symmetries describe movements of cells, there are many such moves so we shall define possible symmetries and then condense these into the necessary minial generators of this set. We name the set $S_4$. Our entire set of symmetries is formed from the cartesian product of these sets as we can combine them to get further symmetries (as seen above where we transform a sudoku using a reflection and a relabeling), $G_4=S_4\times R_4$.
 
 Which manipulations of the cells within the Shidoku board map to another valid shidoku board? 
@@ -1205,7 +1190,8 @@ The main issue here of course is fining a minimal symmetry group, luckily this p
 
 	\section{$6 \times 6$}
 	
-\subsection{How many?}
+\noindent\rule{4cm}{0.4pt}
+\textbf{How many?}
 
 We follow a similar strategy to count our rudoku boards, however the literature on this is limited and this author provides the enumeration calculations. 
 
@@ -1231,7 +1217,9 @@ From my own computation $\sum^{80}_{i=1} b_i=816$. \footnote{The source code can
 
 Finally we have $x_6=28200960$. This does not look promising, there is a massive difference from $x_4=288$. This number has been calculated but without detailed account of method. 
 
-\subsection{Unique}
+\noindent\rule{4cm}{0.4pt}
+
+\textbf{Unique}
 
 Already we are becoming too large
 Leading on from 4 by 4 approach
@@ -1264,7 +1252,8 @@ GAP
 
 Now it is time to tackle the big one. The 9 by 9 sudoku is the largest board size for which enumerations have been widely discussed with this author only finding one website discussing the 10 by 10 case. Similarly enumerations for the latin square stop at 11. Chapter 2 explored theoretical exponential increase in difficulty when sudoku boards increase in size and we have seen it in action throughout this chapter. A generalised and efficient enumeration method seems unlikely but is certainly fun to try so let us continue to our final enumeration.
 
-\subsection{How many?}
+\textbf{How many?}
+
 We start as usual by standarising B1. This shrinks the search space by a factor of 9!. Then our usual technique takes place, find all possible S1 configurations, group them into sets that will have the same amount of completions for S2 and S3 then brute force the completions with an optimised algorithm.
 
 To calculate the amount of possibilities for S1 we examine the pure and mixed case. The pure case uses the set  in B1 $\cup$ R2 ($\{4,5,6\}$) in either B2 $\cup$ R1 or B3 $\cup$ R1 and B1 $\cup$ R3 ($\{7,8,9\}$) in the other. This forces the sets in the other rows of S1. Counting these we get $3!^6$ for the permutations of each set and as we can switch P2 and P3 we multiply by two. There are $2\times 3!^6$ pure cases of S1. 
@@ -1424,7 +1413,9 @@ Brilliant we have reduced our S1 to only 71 boards to search. However we still n
 
 For algorithmic details consult \cite{}. This paper states the number of valid sudoku grids is 6,670,903,752,021,072,936,960 6 sextillion. This has been corroborated by the first discover of this number by \cite{} lin keh ying.
  
-\subsection{Unique} 
+ \noindent\rule{4cm}{0.4pt}
+ 
+\textbf{Unique} 
 
 Discuss symmetries
 Equivalence definition as 4 by 4
@@ -1440,23 +1431,29 @@ Discuss GAP
 
 \section{Verification}
 
-discussion of 4 colour theorem proof
-sceptical mathematicians
-Sudokus answer to this is: On the number of sudoku grids
+Enumerating sudoku requires a computer to work through the laborious and trivial tasks described in this chapter. This is both a strength and a weakness of the computers place in modern mathematics. Previously this work would be enscribed in large notebooks by someone who enjoys monotonous work. Now hundreds of man hours become an hour of coding and pressing run. The improvement is mathematicians are freed up to explore new questions and leave the trivial to the machine but it also means there is a middle man between the mathematician and the answer, a middle man that may have created errors. Scepticism follows any computational proof, the pure nature of mathematics and logic sullied. This author, straddling the worlds of mathematics and computer science sees the merits of the machine but too feels the lack of satisfaction at the inelegance of the code. 
+
+A famous example of the conflict between mathematics and the computer is the proof of the Four Colour Theorem. The Theorem states: a map requires no more than four colours to colour it in such a way that no adjacent regions have the same colour. The idea of the proof being the mathematicians reduced the map possibilities and a computer then exhausts all possible colourings to confirm each instance only requires four colours. The proof was controversial no person could feasibly check the computation \cite{swart1980philosophical}. The theorem has been proven three times\cite{appel1989every}\cite{BarNatan1996LieAA}\cite{gonthier2008formal}, all using a computer, the most recent of which uses software specifically designed to assist with proving theorems, much like the GAP software used for the sudoku proofs. 
+
+The literature on enumertaion of sudokus answers this computer based scepticism with a complete mathematical proof outline in the works by Jones, Perkins and Roach \cite{mima2013number} where a formula is given to enumerate $n$ by $n$ sudokus by enumerating the number od reduced sudoku. Further work by Jones, Perkins and Roach \cite{jones2014number} provides a completely mathematical calculation of the $6\times6$ sudoku.
 
 \section{Discussion}
-Exponsential increaase
-12 by 12 two cases very interesting
-generalised method
+
+If the reader remained unconvinced that sudoku is hard from the chapter on NP-completeness then this chapter providing concrete numbers on the exponential increase of the amount of sudoku grids will hopefully persuade the reader of the seemingly non generalisable puzzle that is sudoku. The sequence of enumerations starts: 288, 28200960, ..., 6670903752021072936960. Within the first four terms we have reached 6 sextillion. 
+
+While it does not seem to be coming any time soon, an exploration of the 12 by 12 case will prove interesting as there exist two factorisations $P_{2,6}$ and $P_{3,4}$. The comparison between these and determining which has more enumerations is not intuitive and to shed light on this is intriguing. The same applied to the 16 by 16 place but with the added bonus we can compare a grid allowing for transposes the $P_{16}$ and one that does not $P_{2,8}$.
+
+As far as a generalised method goes, first standardise B1, categorise R1 into pure and mixed, count how many S1 exist, standardise C1, then enumerate using an optimised backtracking. The unique case is a lot less simple and requires a categorisation of the symmetries, we then group into conjugacy classes, determine how many boards the conjugacy class fixes the apply burnside lemma, use of GAP can simplify this.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\chapter{Other}
-Interesting questions I've dipped my toe in:
-How to generate a puzzle.
-Orthogonal sudoku squares.
+\chapter{Further Work}
+
+Solutions and enumerations of sudoku are not the only difficult and seemingly impossible to generalise questions within sudoku. Generation, Minimum clue to provide unique solution.
+
+Orthogonal sudoku squares. uniqueness solution 
+
 Information Theory application.
 Grobner Basis
-17 clue minimum.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \bibliographystyle{plain}
 \bibliography{refs}
