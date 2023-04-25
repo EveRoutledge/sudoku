@@ -63,9 +63,8 @@
 \input{titlepage}
 \begin{center}{\huge\textbf{Plagarism Declaration}}\end{center}
 \textit{This piece of work is a result of my own work except where it forms an assessment based on group project work. In the case of a group project, the work has been prepared in collaboration with other members of the group. Material from the work of others not involved in the project has been acknowledged and quotations and paraphrases suitably indicated.}
-\begin{abstract}
-%sudoku overview
-\end{abstract}
+\begin{center}{\textbf{Abstract}}\end{center}
+
 \tableofcontents
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Introduction}
@@ -129,13 +128,7 @@ A few sudokus have specific names:
 \end{figure}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-%\chapter{Classic solving techniques}
 
-%\textbf{Def$^n$}: A forced cell is a value pair $(a,b)$ such that $S(a,b)$ can only be a single value call this $x$ as $\{1,...,D^2\}/\{x\}$ are already present in $S(a,j)$ for $j \in\{1,...,D^2\}/\{b\}$ or $S(i,b)$ for $i \in\{1,...,D^2\}/\{a\}$ or $S(i,j)$ where $a\text{ mod }D = i\text{ mod }D$ and $b\text{ mod }D = j\text{ mod }D$.
-
-%define x wing
-%define y wing
-% ariadnes thread
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Sudoku is Hard}
@@ -847,16 +840,39 @@ This is helpful but now we must determine the difficulty of DP \cite{dphardness}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 
 \chapter{Solving Techniques}
+Chapter 2 showed it is hard to solve sudoku, yet a quick google search will yield many websites that do the exactly that. We take this chapter to explore how we go about designing optimising and ensuring mathematical rigor in our solution algorithms.
 \section{Pencil Solutions}
-x wing
-y wing
-forced
-cells
-ariadnes thread
+Taking a human approach we shall see if this sheds any light on the problem.
+
+Given an incomplete sudoku puzzle $p\in P_n$ how does one go about completing this.
+
+The easiest technique to observe and implement is coined a Forced cell. Given an empty cell ($p(x,y)=0$) in C$x$ R$y$ B$z$ this cell is forced if the set $F=\{1,...,n\} / \{$ C$x$ $\cup$ R$y$ $\cup$ B$z$ $\}$ has only one element. This is to say $p(x,y)$ has only one valid value other than 0. 
+
+The remining techniques require pencil marks, that is for the average player, notes in each of remaining candidates ($F=\{1,...,n\} / \{$ C$x$ $\cup$ R$y$ $\cup$ B$z$ $\}$), usually only notes if less than 3 or 4 candidates exist. Denote the candidate set for the cell with C$x$ R$y$ B$z$ as $F_{x,y,z}$. $F_{\text{C}x} = \{F_{x,i,j}|i\in\{1,...,n\}, j \in \text{set of boxes C$x$ passes through}\}$, the corresponding definition for $F_{\text{R}x}$ and $F_{\text{B}x}$ applies.
+
+Hidden singles: when a value $v$ appears only in $F_{x,y,z}$ from $F_{\text{C}x}$ (or respectively row or box) this is the only possible place in that column (or row or box) for that value therefore $p(x,y)=v$. This can be extended to doubles, triples etc as when a subset of values of size $m$ occurs in only $m$ sets in $F_{\text{C}x}$ then those candidate cells are reduced to the subset of values.
+
+Pointing values: when a value $v$ appears $F_{\text{B}z}$ (repectively $F_{i,y,z}$) only in sets of form $F_{x,i,z}$  where $i\in \{1,...,n\}$ then all sets in $F_{\text{C}x}/F_{x,i,z}$ must have $v$ eliminated (repectively $F_{\text{R}y}/F_{i,t,z}$). If a candidate value within a box appears onlt in a single row (or column) then the rest of that row (or column), outside of the box, cannot have that candidate value.
+
+X wing: when a value $v$ appears in four remaining candidate sets such that: two belong to $F_{\text{C}x_1}$, two belong to $F_{\text{C}x_2}$, two belong to $F_{\text{R}y_1}$ and two belong to $F_{\text{R}y_2}$. Then $v$ cannot appear in any other candidate sets for columns C$x_1$, C$x_2$ or rows R$y_1$, R$y_2$. There is a technique called the swordfish that extends this strategy to six cells over the four used here.\footnote{This author recommends the following video by Cracking the Cryptic if one endevours to learn the X wing technique: https://www.youtube.com/watch?v=gVT786t1Kjk}
+
+Y wing: take a cell at C$x_1$ R$y_1$ with only two reminaing candidates, if there exists two more cells with two remaining candidates, one of which is in the first cells remaining candidates, the other being a set value $v$, one belonging to the column of the first cell, the other the row of the first cell(C$x_1$ R$y_2$, C$x_2$ R$y_1$). Then $v$ cannot occur in the remaing candidate set of the cell at C$x_2$ R$y_2$.\footnote{Similarly this author recommends this Cracking the Cryptic video on the Y wing technique: https://www.youtube.com/watch?v=PpHOknAnh4g}
+
+Ariadnes thread\footnote{Named for the mythological Greek princess who helped Theseus escape the maze of the Minotaur by giving him a ball of string allowing him to retrace his steps out of the maze.}: This final technique is one that is difficult for those using pen and paper to implement but is perfect for a computational approach and we will base out entire solution around this in the next section. Choose the cell with the least amount of elements in its remaining candidate set $F_{x,y,z}$, take the first element $v$ with the set to be the value for $p(x,y)$, work with the above techniques until a contradiction is found (the sudoku board is invalid) and remove $v$ from $F_{x,y,z}$. If no contradiction is found or no technique can be applied to the board it is up to the views of the player when they give up with value $v$. This is ultimately trial and error and is best to leave until last, some may find this an unsatisfying way to solve a sudoku as it lacks the elegance of the other techniques. 
+
 
 \section{Backtracking}
-The standard way to solve a $9 \times 9$ sudoku puzzle is by the backtracking algorithm. This is a brute force method with a few optimisations. One can expect to find this algorithm in a computer science course introduction to recursion, that is to say
-it is not a complex concept and while useful for the usual sizes, as soon as we increase to $16 \times 16$ this becomes infeesible.
+Ask any first year student how to solve a sudoku puzzle and the backtracking algorithm will be mentioned within the first breath. One can expect to find this algorithm in a computer science algorithm course as an introduction to recursion, that is to say it is not a complex concept and while useful for the usual sizes of newspaper sudoku, as soon as we increase to $16 \times 16$ this becomes infeesible.
+
+Recursion in terms of computer science is the concept of an algorithm calling itself. As mind bending as a solution using itself as the answer may sound we only require two  things. The base case, our smallest version of the problem. And the recursive step, reducing our problem instance to a smaller version of itself. 
+
+One can observe the factorial function ($\Gamma$) as a recursive function. The base case $\Gamma(1)=1$, the recursive step $\Gamma(n)=n\times \Gamma(n-1)$.
+
+Sierpinskis triangle is a more visual version of this ...
+
+Self reference theorem 
+
+Now we know recursion is possible how does it serve to solve sudoku. Our non deterministic Turing Machine can help with this.
 
 \begin{algorithm}
 \caption{Backtracking}
@@ -882,11 +898,14 @@ it is not a complex concept and while useful for the usual sizes, as soon as we 
 \EndProcedure						
 \end{algorithmic}
 \end{algorithm}
-Why does brute force not work for larger examples? It will work \textit{TO DO: PROVE ALG CORRECTNESS} but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeesible.
+
+Why does brute force not work for larger examples? It will work but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeesible.
+
+Many optimisations can be made and it will be used later on in 6 by 6 enumeration, but it is not a silver bullet, we cannot continually optimise it until it is feasible.
 
 \section{Simulated Annealing} 
 
-Based on metalurgy
+Based on metalurgy, intro on how it  came about, amount of citations
 
 \begin{algorithm}
 \caption{Simulated Annealing}
@@ -911,26 +930,40 @@ Based on metalurgy
 \end{algorithmic}
 \end{algorithm}
 
+Formulate the problem for sudoku
+\begin{itemize}
+\item Finite set S
+\item cost function J
+\item set of neighbours
+\item probability of neighbour selection
+\item schedule
+\item initial state
+\end{itemize}
+
 \subsection{Convergence}
-\subsection{Speed of Convergence}
 \cite{simulatedannealing} one of 100 most cited papers, one of the first AI algs
+
+discuss problems 
+Heuristics better
+
+
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Group theory}
-Motivation - most proven things about sudoku are not generalised to the n case but instead worked out for specifics, leading to lots of coputer use to calculate things.
-One of the main important questions is how many exist.
+
+Sudoku still remains elusive, we cannot seem to find a good way to generalise solving sudokus without having to throw tonnes of computational power at it. What if we were to simply store all possible $n$ by $n$ sudokus and loop over these to check if our partially complete sudoku fits into any. Unfortunately as we shall see in this chapter the amount of sudokus has not been generalised and instead must be calculated or computed on a case by case basis. This is a somewhat disheartening result but luckily there are some fun mathematicss we can do along the way to improve efficiency of our calculations and show the beautiful relationship between computers scientist and mathematicians.
 
 \section{Starting Simple $4 \times 4$}
 Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4 the smallest non trivial sudoku puzzle. Only 2 fundamentally different. One has 96 identical, other has 192. 
 
 \subsection{How many Shidoku squares exist?}
 
-$X_4=x$ is the number of Shidoku squares.
+$x_4$ is the number of Shidoku squares.
 
 First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabellings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this way until we get to a reasonable search space.
 
 \begin{equation}
-x = 4!\times x_1
+x_4 = 4!\times x_a
 \end{equation}
 
 \begin{figure}[h]
@@ -950,9 +983,9 @@ x = 4!\times x_1
 \label{fig:shidokurelabelling}
 \end{figure}
 
-Next we set the values for B2 $\cap$ R1. This must be a permutation of $\{3,4\}$, there exists 2! permutations. $x_1 = 2\times x_2$. The same applied for B3 $\cap$ C1, we permute the set $\{2,4\}$. 
+Next we set the values for B2 $\cap$ R1. This must be a permutation of $\{3,4\}$, there exists 2! permutations. $x_a = 2\times x_b$. The same applied for B3 $\cap$ C1, we permute the set $\{2,4\}$. 
 
-\begin{eqnarray}x_2 &= 2\times x_3\\ x_3 &=2\times x_4\end{eqnarray}
+\begin{eqnarray}x_b &= 2\times x_c\\ x_c &=2\times x_d\end{eqnarray}
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=.5]
@@ -1007,7 +1040,7 @@ The final stage is easy enough to brute force. Observe there exists only three w
 \label{fig:shidoku}
 \end{figure}
 
-This completes the enumeration, we have $x=4!\times 2 \times 2 \times 3 = 288$. 
+This completes the enumeration, we have $x_4=4!\times 2 \times 2 \times 3 = 288$. 
 
 Observe that the last three shidokus squares are not in fact unique, we can transform the second to the third. 
 
@@ -1092,7 +1125,7 @@ Group & Order & Orbits\\
 
 \textbf{Burnside's Lemma:} For a thorough overview of this result see \cite{analysis and applications of burnsides lemma jenny jin}, an account and analysis that this author found very useful. For a finite group $G=G_4$ acting on the set $S$ of shidoku boards we have $S/G_4$ denoting the set of orbits of $S$. 
 \begin{equation} |S/G_4|=\frac{1}{|G_4|}\sum_{g\in G_4}|S^g|\end{equation}
-where $|S^g|$ is the set of all elements in $S$ that are unchanged by element $g$ acting upon it. In english this means we can count the orbits of the shidoku symmetries acting on the set of shidoku boards (how many distinct shidokus exist) by calculating the avergae of the boards left unchanged by each element of teh symmetry group. 
+where $|S^g|$ is the set of all elements in $S$ that are unchanged by element $g$ acting upon it. In english this means we can count the orbits of the shidoku symmetries acting on the set of shidoku boards (how many distinct shidokus exist) by calculating the avergae of the boards left unchanged by each element of the symmetry group. 
 
 Now we are going to change our idea of invariance a bit but it will not change its underlying meanin, only how we interact with it and use it in this context. We can view all elements of the symmetry group as a structual symmetry action followed by a relabling action so a board $s\in S$ is invariant if for $g\in S_4$ and $h\in H_4$, $h(g(s))=s$ or $g(s)=h^{-1}(s)$ as $H_4 $ is a group, $h^{-1}\in H_4$. So with the maths asside we can observe invariance through the lens of just the structural symmetries. A shidoku board $b\in S$ if invariant under structural symmetry $x$ if there exists a  relabeling symmetry $r\in R_4$ such that $r$ can undo the action $x$.
 
@@ -1180,28 +1213,51 @@ The first move is alwasy the easiest, we standardise B1. Reducing our search spa
 
 Our R1 will be seperated into two cases coined pure and mixed. A pure R1 consists of B1 $\cap$ R2 in a single box (B2 $\cap$ R1 or B3 $\cap$ R1) and B1 $\cap$ R3 in the other. A mixed, like the name suggests has B2 $\cap$ R1 as an amalgamation of B1's R2 and R3. The pure case is simple, the first row consists of set $\{3,4\}$ $\{5,6\}$ which forces the sets in R2 and R3. Our count is therefore $2^6$ for the different permutations of these sets multipled by 2 as B2 and B3 can be permuted. $2^7=128$
 
-Mixed takes more consideration. R1 must be a permutation of sets has two choices $\{\{3,5\},\{4,6\}\}$ or $\{\{3,6\},\{4,5\}\}$. This forces 5,6 to be in R2 and 3,4 into R3 leaving 1,2 to be placed. Counting these decisions we get 2 for where we put 1 (forcing 2), 2 for which R1 set we take, 2 to flip B2 and B3 then $2^6$ to permute each of the sets. Overall we have $2\times 2 \times 2 \times 2^6=2^9=512$ 
+Mixed takes more consideration. R1 must be a permutation of sets has two choices $\{\{3,5\},\{4,6\}\}$ or $\{\{3,6\},\{4,5\}\}$. This forces 5,6 to be in R2 and 3,4 into R3 leaving 1,2 to be placed. Counting these decisions we get 2 for where we put 1 (forcing 2), 2 for which R1 set we take, 2 to flip B2 and B3 then $2^6$ to permute each of the sets. Overall we have $2\times 2 \times 2 \times 2^6=2^9=512$. 
 
 S1 has $2^9+2^7=640$ possible completions. We now must count how many S2 completions there are for each board, call this $b_i$.
 
 \begin{equation}x_a = \sum^{640}_{i=1}b_i\end{equation}
 
-This will take a lot of computation power so let's simplify this further. Observe a completion of S1 has the same $b_i$ as the same completion of S1 but with B2 and B3 flipped, currently we compute this twice but this is a waste. We expand this idea further to permutation of R3-4 and R5-6. This means each board in the 640 completions has $2\times 2\times 2$ boards that are equivalent when columns and boxes are permuted. This limits the search space to $\frac{640}{8}=80$. In practise this means we do not allow some of teh choices described above. For the pure case we set R1 to be 1,2,3,4,5,6 leaving only $2^4=16$ choices. Then for the mixed we set R1 to be 1,2,3,5,4,6 or 1,2,3,6,4,5 leaving $2^5$ choices left and remember the choice between these two R1s so we get $2^6=64$, however we can do better than this and make it only $2^5$ choices as we we have a twin in the 1,2 pair. Therefore we have only $16+32=48$ to enumerate. Note not all sudoku board is made equal, for every pure strategy we have 8  equivalent boards but for each mixed S1 we have 16 equivalent boards so we must make sure to multiply accordingly. 
+This will take a lot of computation power so let's simplify this further. Observe a completion of S1 has the same $b_i$ as the same completion of S1 but with B2 and B3 flipped, currently we compute this twice but this is a waste. We expand this idea further to permutation of R3-4 and R5-6. This means each board in the 640 completions has $2\times 2\times 2$ boards that are equivalent when columns and boxes are permuted. This limits the search space to $\frac{640}{8}=80$. In practise this means we do not allow some of teh choices described above. For the pure case we set R1 to be 1,2,3,4,5,6 leaving only $2^4=16$ choices. Then for the mixed we set R1 to be 1,2,3,5,4,6 or 1,2,3,6,4,5 leaving $2^5$ choices left and remember the choice between these two R1s so we get $2^6=64$. 
 
-\begin{equation}x_a=\sum^{48}_{i=1}[\mathbbm{1}_{pure}(i)\times16\times b_i+\mathbbm{1}_{mixed}(i)\times8\times b_i]\end{equation}
+\begin{equation}x_a=8\sum^{80}_{i=1}b_i\end{equation}
 
-Where $\mathbbm{1}_A$ is the indicator function such that $\mathbbm{1}_A(x) = 1$ if $x\in A$ else $\mathbbm{1}_A(x) = 0$.
+There is still work to be done, for all 80 boards we must compute $b_i$. Lets do a brief approximation currently that would mean there for each column in S2 there are three possible numbers this gives $3!^6 = 46656$ possible solutions that need to be checked. We can reduce this further by a factor of 3!. For C1 $\cup$ S2 set 2,4,6, not this has 3! permutations each of which have the same amount of completions as the board with forced C1. So we redefine $b_i$ count only solutions with C1 1,3,5,2,4,6.
 
-There is still work to be done, for all 48 boards we must compute $b_i$. Lets do a brief approximation currently that would mean there for each column in S2 there are three possible numbers this gives $3!^6 = 46656$ possible solutions that need to be checked. 
+\begin{equation}x_6=9!3!8\sum^{80}_{i=1} b_i\end{equation}
 
-We can reduce this further by a factor of 3!. For C1 $\cup$ S2 set 2,4,6, not this has 3! permutations each of which have the same amount of completions as the board with forced C1. So we redefine $b_i$ count only solutions with C1 1,3,5,2,4,6.
+From my own computation $\sum^{80}_{i=1} b_i=816$. \footnote{The source code can be found at https://github.com/EveRoutledge/sudoku, the code is in python and yet still runs in under a minute.}
 
-\begin{equation}x_6=9!3!\sum^{48}_{i=1}[\mathbbm{1}_{pure}(i)\times16\times b_i+\mathbbm{1}_{mixed}(i)\times8\times b_i]\end{equation}
-
-Enumerate
-28200960.
+Finally we have $x_6=28200960$. This does not look promising, there is a massive difference from $x_4=288$. This number has been calculated but without detailed account of method. 
 
 \subsection{Unique}
+
+Already we are becoming too large
+Leading on from 4 by 4 approach
+possible symmetries
+\begin{itemize}
+\item Swap R1 and R2,
+\item swap R2 and R3,
+\item Swap R4 and R5,
+\item swap R5 and R6,
+\item swap C1 and C2,
+\item swap C3 and C4,
+\item swap C5 and C6
+\item swap S1 and S2,
+\item swap P1 and P2,
+\item swap P2 and P3,
+\item rotate the board 180$^\circ$,
+\item transpose the board (in the natural way, as though the board were a matrix).
+\end{itemize}
+no transpose
+no flip
+leads to less efficiencies
+equivalence 
+fixing lemmas
+order of the group
+conjugacy classes
+GAP 
 
 49
 	\section{$9 \times  9$}
@@ -1211,9 +1267,9 @@ Now it is time to tackle the big one. The 9 by 9 sudoku is the largest board siz
 \subsection{How many?}
 We start as usual by standarising B1. This shrinks the search space by a factor of 9!. Then our usual technique takes place, find all possible S1 configurations, group them into sets that will have the same amount of completions for S2 and S3 then brute force the completions with an optimised algorithm.
 
-To calculate the amount of possibilities for S1 we examine the pure and mixed case. The pure case uses the set  in B1$\cup$R2 ($\{4,5,6\}$) in either B2$\cup$R1 or B3$\cup$R1 and B1$\cup$R3 ($\{7,8,9\}$) in the other. This forces the sets in the other rows of S1. Counting these we get $3!^6$ for the permutations of each set and as we can switch P2 and P3 we multiply by two. There are $2\times 3!^6$ pure cases of S1. 
+To calculate the amount of possibilities for S1 we examine the pure and mixed case. The pure case uses the set  in B1 $\cup$ R2 ($\{4,5,6\}$) in either B2 $\cup$ R1 or B3 $\cup$ R1 and B1 $\cup$ R3 ($\{7,8,9\}$) in the other. This forces the sets in the other rows of S1. Counting these we get $3!^6$ for the permutations of each set and as we can switch P2 and P3 we multiply by two. There are $2\times 3!^6$ pure cases of S1. 
 
-The mixed case is a little more complicated. We first list the possible R1$\cup$B2$\cup$B3 options, see table \ref{table:mixed99}. This will set three values in the second and three in the third row leaving $\{1,2,3\}$ to be placed in the remaining cells. See diagram... Counting these we get $3\times3!^6$ for each configuration of the top row. Finally there are $9\times 2$ top row configurations from the table selecion and by swapping the P2 and P3. 
+The mixed case is a little more complicated. We first list the possible R1 $\cup$ B2 $\cup$ B3 options, see table \ref{table:mixed99}. This will set three values in the second and three in the third row leaving $\{1,2,3\}$ to be placed in the remaining cells. See diagram... Counting these we get $3\times3!^6$ for each configuration of the top row. Finally there are $9\times 2$ top row configurations from the table selecion and by swapping the P2 and P3. 
 
 \begin{table}[!h]
 \begin{center}
@@ -1273,7 +1329,7 @@ We have excluded B1 in our permutation above in order to preserve our standardis
 Taking a leaf out of the Optimised Column Permutations and Relabelling book we can apply this to the rows of sash 1. We do this by permuting the rows and relabeling B1 to it's standardised form. This gives each board another the possibility of having $3!$ more equivalent boards now giving a grand maximum of $1296\times 3!=7776$ eqivalent boards, of course this is not the case for every board as we discussed, otherwise we could have had a search space of $\frac{2612736}{7776}=336$ but we are not far off with the reduction coming out at 416 (from \cite{}enumerating possible sudoku grids, page 4).
 
 \textbf{Reducing Twins}
-Twins are two values in Cn lying in Rx and Ry such that the values also lie in Cm in Rx and Ry where $n\neq m$. For example figure \ref{fig:twins} has values 1 and 4 in R1, R2, C1, C4. By the relabeling $1\mapsto 4$, $4\mapsto 1$ we get another board with the same amount of completions, that is to say the complete S2,3 are independent of the lables 1 and 4. This gives us another equivalence reduction. From \cite{}enumerating possible sudoku grids, page 5 we reduce the 416 equivalence classes to 174.
+Twins are two values in C$n$ lying in R$x$ and R$y$ such that the values also lie in C$m$ in R$x$ and R$y$ where $n\neq m$. For example figure \ref{fig:twins} has values 1 and 4 in R1, R2, C1, C4. By the relabeling $1\mapsto 4$, $4\mapsto 1$ we get another board with the same amount of completions, that is to say the complete S2,3 are independent of the lables 1 and 4. This gives us another equivalence reduction. From \cite{}enumerating possible sudoku grids, page 5 we reduce the 416 equivalence classes to 174.
 
 \begin{figure}[h!]
 \centering

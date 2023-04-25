@@ -31,7 +31,7 @@ class Sudoku:
                     #transform grid
                     self.grid[y,x] = val
                     count += self.solve()
-                    # de trasform grid 
+                    # de transform grid 
                     self.grid[y,x] = 0
         else:
             return 1
