@@ -9,7 +9,7 @@
 \contentsline {subsection}{\numberline {2.1.4}Proving NP completeness?}{9}{}%
 \contentsline {subsection}{\numberline {2.1.5}The First NP-complete Problem}{10}{}%
 \contentsline {subsection}{\numberline {2.1.6}Examples}{10}{}%
-\contentsline {section}{\numberline {2.2}Existance is Hard}{13}{}%
+\contentsline {section}{\numberline {2.2}Existence is Hard}{13}{}%
 \contentsline {subsection}{\numberline {2.2.1}Verification is Easy}{14}{}%
 \contentsline {subsection}{\numberline {2.2.2}Sudoku $\geq _p$ Latin Square}{14}{}%
 \contentsline {subsection}{\numberline {2.2.3}Latin Square $\geq _p$ Triangulate A Tripartite Graph}{16}{}%
@@ -19,15 +19,16 @@
 \contentsline {subsection}{\numberline {2.2.7}Dimension Analysis}{22}{}%
 \contentsline {section}{\numberline {2.3}Solving Sudoku is Hard}{22}{}%
 \contentsline {section}{\numberline {2.4}Determining Uniqueness is Hard}{23}{}%
+\contentsline {section}{\numberline {2.5}Discussion}{23}{}%
 \contentsline {chapter}{\numberline {3}Solving Techniques}{24}{}%
 \contentsline {section}{\numberline {3.1}Pencil Solutions}{24}{}%
 \contentsline {section}{\numberline {3.2}Backtracking}{25}{}%
-\contentsline {section}{\numberline {3.3}Simulated Annealing}{25}{}%
+\contentsline {section}{\numberline {3.3}Simulated Annealing}{26}{}%
 \contentsline {subsection}{\numberline {3.3.1}Convergence}{27}{}%
-\contentsline {chapter}{\numberline {4}Group theory}{28}{}%
+\contentsline {chapter}{\numberline {4}Enumeration is Hard}{28}{}%
 \contentsline {section}{\numberline {4.1}Starting Simple $4 \times 4$}{28}{}%
 \contentsline {section}{\numberline {4.2}$6 \times 6$}{32}{}%
 \contentsline {section}{\numberline {4.3}$9 \times 9$}{34}{}%
 \contentsline {section}{\numberline {4.4}Verification}{36}{}%
-\contentsline {section}{\numberline {4.5}Discussion}{36}{}%
+\contentsline {section}{\numberline {4.5}Discussion}{37}{}%
 \contentsline {chapter}{\numberline {5}Further Work}{38}{}%
