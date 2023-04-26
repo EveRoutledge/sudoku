@@ -73,15 +73,13 @@ Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \tim
 
 Sudoku is a serious hobby for many and even a job. All major newspapers will have a sudoku section the New york times has three sudokus set each day (https://www.nytimes.com/puzzles/sudoku), these all need to be created and verified which is no easy task (not even for a computer as we shall soon find out). Then there are the freely available apps with thousands of sudokus of varying difficulty. Sudokus get so hard that there is even a world sudoku Championship (https://www.worldpuzzle.org/championships/wsc/) where teams and individuals compete to get the best time for a sudoku solve. In 2022 Mark Goodliffe came first in the WSCs over 50s challenge. This is significant as Mark is half of a duo creating entertaining videos on the solution of sudokus and its variants on the youtube channel Cracking the Cryptic (https://www.youtube.com/@CrackingTheCryptic). During the coronavirus pandemic this author spent many hundreds of hours learning techniques from Cracking the Cryptic and putting them into practise. With that said, sudoku provides many opportunities for revenue and by studying the mathematics behind this puzzle those jobs may be made easier.
 
-- Mental Exercise 
-
 The literature on the mathematics of sudoku is extensive and ranges through many different areas such as group theory, discrete mathematics, complexity theory and information theory all while being digestable for a undergraduate audience. Theory is best learnt through application so examining sudoku through these lenses can consolidate learning as well as encourage and motivate students to continue learning mathematics at a higher level. An excellent example of this is the book Taking Sudoku Seriously \cite{}, using sudoku as the catalyst many foundational maths ideas are made accessible to those who haven't studied mathematics past GCSE.
 
 An exploration of sudoku also serves to unite the authors favourite subjects, mathematics and computer science. While it is known underlying knowledge of mathematics is required to study computer science, the opposite is not entirely obvious. Through our exploration of sudoku we link theory to tangible computation, for we often study theory in mathematics without regard for what it means in practise, the time taken to execute such mathematical processes is important it is the difference between trivial and the heat death of the universe. This author believes it important for mathematicians to have a grasp of such concepts and we use sudoku as the lens for motivating this. Discuss the lack of mathematical proof but evidence of success in AI.
 
 Sudoku stems from magic and latin squares (more to be discussed later). Many variants have popped up from the original we have killer and thermo and this authors personal favourites are magic squares within a sudoku, feels very full circle. This is clearly a branching puzzle with no signs of stopping (see Cracking the Cryptic for new variants every week).
 
-We can see that sudoku is not just a brain teaser, its popularity is ever expanding and its use for educational and monetary are self evident. So it makes sense to study the mathematical structure of sudoku.
+We can see that sudoku is not just a brain teaser, its popularity is ever expanding and its use for educational and monetary are self evident. So it makes sense to study the mathematical structure of sudoku.  Throughout this paper is a discussion of how to solve sudoku specifically the generalisation of this, any insights into this work could optimise sudoku solving and consequently generation. Furthermore an unsolved problem belonging to the Millenium Prize problem is discussed, insights into this lead to direct monetary valie, unfortunately the solution to this problem is not contained within this paper.
 
 \section{History}
 
@@ -129,6 +127,8 @@ A few sudokus have specific names:
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Sudoku is Hard}
+
+For this chapter the discussion is limited to sudokus of size $n \times n$ where $n$ is a square number.
 
 Let's imagine a sudoku of size $D^2\times D^2$. How big does $D$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Don't worry if you said a smaller number than your friends, this has nothing to do with your problem solving skills, even a computer finds sudoku hard. In fact just incrementing $D$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
 
@@ -185,14 +185,16 @@ See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two ve
 
 \textbf{Def$^n$:} A polynomial time algorithm is an algorithm with $O(x^c)$.
 
-\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$.
+\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$. The converse applies for $A\geq_p$B; there exists a transformation in polynomial time from $A$ to $B$.
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=30mm]{figures/reduction.png}
+		\includegraphics{figures/reduction.png}
 	\end{center}
 	\caption{\label{fig:reduction}A$\leq_p$B}
 \end{figure}
+
+This author finds the reduction concept to be understood best when visualised as in \ref{fig:reduction}. The transformation (represented by the blue funnel) takes all problems in $A$ and maps them to a corresponding problem in $B$ such that all the transformed $A$ is now a subset of $B$. From this perspective the similarities between $\leq$ and $\leq_p$ are more apparent as the set of $B$ will always be as large or larger than $A$, it can even be thought of as a difficulty comparison of $A\leq_p B$ is the same as saying $B$ is as difficult as $A$ or has greater difficulty.
 
 \subsection{Sets of Difficulty} 
 
@@ -211,9 +213,9 @@ So when we state sudoku is hard we are actually saying sudoku belongs to NP-comp
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=60mm]{P_np.svg}
+		\includegraphics{figures/np.drawio.png}
 	\end{center}
-	\caption{P, NP, NP-complete \& NP-hard sets\textbf{REDO IMAGE}}
+	\caption{An illustration of complexity sets P, NP, NP-complete \& NP-hard sets}
 \end{figure}
 
 \subsection{Proving NP completeness?}
@@ -378,8 +380,6 @@ This algorithm has a complexity that is a bit above exponential as the base is d
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
 \section{Existance is Hard}
 		
 Checking if a solution to sudoku exists is NP-complete, let us define the decision problem:
@@ -394,15 +394,17 @@ Checking if a solution to sudoku exists is NP-complete, let us define the decisi
 Our question is does there exist a function $\Phi$ that when given an instance of the problem will, in polynomial time or less,
 return True if it can be solved and False otherwise.
 
-\subsection{Proof Outline}
+\noindent\rule{4cm}{0.4pt}
+
+\textbf{Proof Outline}
 
 The verifier must be shown to be $\in$ P, this means the Sudoku decision problem belongs to the set NP.
 
-Then we need a reduction from sudoku to a known NP-complete problem to prove sudoku is also NP-hard. We will be creating a chain of reductions: \textbf{Sudoku $\geq_p$ Latin Square $\geq_p$ Triangulated Tripartite $\geq_p$ 3SAT $\geq_p$ SAT}.
+Then we need a reduction from sudoku to a known NP-complete problem to prove sudoku is also NP-hard. We will be creating a chain of reductions: \textbf{Sudoku $\geq_p$ Latin Square $\geq_p$ Triangulated Tripartite $\geq_p$ 3SAT $\geq_p$ SAT}. This chain can be seen in figure \ref{fig:sudokureduction}, this visualisation emphasises the direction of the reduction as it is important that the set of sudoku problems has 3SAT as a subset (schieved through the transitivity of sets). If we can solve all sudoku problems and 3SAT transforms to a subset of sudoku then it is intuitive that we can solve 3SAT. The same cannot be said if sudoku was transformed to a subset of 3SAT as being able to solve sudoku does not help with the 3SAT problems existing outside of the sudoku transformation subset.  
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=50mm]{figures/subset.png}
+		\includegraphics[width=80mm]{figures/subset.png}
 	\end{center}
 	\caption{\label{fig:sudokureduction}}
 \end{figure}
@@ -803,7 +805,7 @@ It is intuitive that the search problem is harder than the decision problem but 
 				\end{cases}
 		\end{equation}
 
-This decision problem belongs to the class called Difference Polynomial Time (or DP/ BH$_2$) \cite{dpcomplexity}.
+This decision problem belongs to the class called Difference Polynomial Time (DP or BH$_2$) \cite{dpcomplexity}.
 
 \textbf{Def$^n$:} DP is the class of problems which are the intersection of a problem in NP and a problem in coNP, this is not NP $\cap$ coNP, it is all problems $\Delta$ such that for $a \in $NP and $b\in $coNP:
 		\begin{equation}
@@ -815,7 +817,9 @@ This decision problem belongs to the class called Difference Polynomial Time (or
 
 We can reformulate the definition of $\Gamma$ to immediately show $\Gamma\in$ DP. Instead of saying uniqueness is satisfied by all sudoku grids that have a single solution, we can say it is all sudoku grids that have a solution minus all sudoku grids that have at least two solutions; this is the same as $\Delta = \Phi \cap \bar{\Upsilon}$ when $\Upsilon$ is the problem satisfied by sudokus that have at least two solutions. We know already $\Phi\in$ NP now we must show $\Upsilon$ is in NP which is easily done; when given a sudoku and two or more solutions it is easy to verify these separately (as shown in Verification is Easy).$\bar{\Upsilon}$ is satisfied by sudokus with one or no solution and is in coNP by definition. Therefore the intersection of $\Phi$ and $\bar{\Upsilon}$ gives $\Delta$, this formulation is exactly what is needed for $\Gamma\in$ DP.
 
-This is helpful but now we must determine the difficulty of DP \cite{dphardness}. \textbf{SEE BOOLEAN HIERARCHY WIKI}
+The complexity of DP is unknown\cite{dphardness}. 
+
+\section{Discussion}
 		
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 
@@ -1190,6 +1194,7 @@ The main issue here of course is fining a minimal symmetry group, luckily this p
 
 	\section{$6 \times 6$}
 	
+Emphasis own work 
 \noindent\rule{4cm}{0.4pt}
 \textbf{How many?}
 
@@ -1439,7 +1444,7 @@ The literature on enumertaion of sudokus answers this computer based scepticism 
 
 \section{Discussion}
 
-If the reader remained unconvinced that sudoku is hard from the chapter on NP-completeness then this chapter providing concrete numbers on the exponential increase of the amount of sudoku grids will hopefully persuade the reader of the seemingly non generalisable puzzle that is sudoku. The sequence of enumerations starts: 288, 28200960, ..., 6670903752021072936960. Within the first four terms we have reached 6 sextillion. 
+If the reader remained unconvinced that sudoku is hard from the chapter on NP-completeness then this chapter providing concrete numbers on the exponential increase of the amount of sudoku grids will hopefully persuade the reader of the seemingly non generalisable puzzle that is sudoku. The sequence of enumerations starts: 288, 28200960, 29136487207403520\cite{https://oeis.org/A291187}, 6670903752021072936960. Within the first four terms we have reached 6 sextillion. 
 
 While it does not seem to be coming any time soon, an exploration of the 12 by 12 case will prove interesting as there exist two factorisations $P_{2,6}$ and $P_{3,4}$. The comparison between these and determining which has more enumerations is not intuitive and to shed light on this is intriguing. The same applied to the 16 by 16 place but with the added bonus we can compare a grid allowing for transposes the $P_{16}$ and one that does not $P_{2,8}$.
 

@@ -26,7 +26,6 @@ class Sudoku:
                     #transform grid
                     self.grid[y,x] = val
                     count += self.solve()
-                    print(count)
                     # de transform grid 
                     self.grid[y,x] = 0
         else:
@@ -49,5 +48,15 @@ class Sudoku:
     def print(self):
         print(np.array_str(self.grid, precision=0, suppress_small=True))
 
-sys.setrecursionlimit(2000)
+#pure
+sudoku=Sudoku()
+sudoku.grid[0] =[1,2,3,4,5,6,7,8]
+for i in range(3):
+    sudoku.grid[1,2+i*2:4+i*2]=[1,2]
+    if i == 0:
+        
+
+
+
+
 print(Sudoku().solve())

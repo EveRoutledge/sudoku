@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25 NEXT) (preloaded format=pdflatex 2023.1.23)  25 APR 2023 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25 NEXT) (preloaded format=pdflatex 2023.1.23)  25 APR 2023 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -724,7 +724,7 @@ s://www.worldpuzzle.org/championships/wsc/)
 <figures/highlighted_cells.png, id=33, 490.83376pt x 767.86874pt>
 File: figures/highlighted_cells.png Graphic file (type png)
 <use figures/highlighted_cells.png>
-Package pdftex.def Info: figures/highlighted_cells.png  used on input line 125.
+Package pdftex.def Info: figures/highlighted_cells.png  used on input line 123.
 
 (pdftex.def)             Requested size: 142.26378pt x 222.55907pt.
  [5 <./figures/highlighted_cells.png>]
@@ -754,199 +754,184 @@ Package pdftex.def Info: figures/turing_determinism.png  used on input line 170
 File: figures/reduction.png Graphic file (type png)
 <use figures/reduction.png>
 Package pdftex.def Info: figures/reduction.png  used on input line 192.
-(pdftex.def)             Requested size: 85.35826pt x 108.63748pt.
-<P_np.svg.png, id=53, 451.6875pt x 282.05376pt>
-File: P_np.svg.png Graphic file (type png)
-<use P_np.svg.png>
-Package pdftex.def Info: P_np.svg.png  used on input line 214.
-(pdftex.def)             Requested size: 170.71652pt x 106.60483pt.
+(pdftex.def)             Requested size: 121.45343pt x 154.5771pt.
 
-[8 <./figures/reduction.png>] [9 <./P_np.svg.png>] [10] [11] [12]
-<figures/subset.png, id=79, 330.23375pt x 474.77374pt>
+[8 <./figures/reduction.png>]
+<figures/np.drawio.png, id=57, 302.12875pt x 251.94125pt>
+File: figures/np.drawio.png Graphic file (type png)
+<use figures/np.drawio.png>
+Package pdftex.def Info: figures/np.drawio.png  used on input line 216.
+(pdftex.def)             Requested size: 302.128pt x 251.94063pt.
+ [9 <./figures/np.drawio.png>] [10] [11] [12]
+<figures/subset.png, id=77, 330.23375pt x 474.77374pt>
 File: figures/subset.png Graphic file (type png)
 <use figures/subset.png>
-Package pdftex.def Info: figures/subset.png  used on input line 405.
-(pdftex.def)             Requested size: 142.26378pt x 204.53993pt.
- [13 <./figures/subset.png>] [14]
-<figures/ttg.png, id=87, 475.7775pt x 398.23781pt>
+Package pdftex.def Info: figures/subset.png  used on input line 407.
+(pdftex.def)             Requested size: 227.62204pt x 327.26099pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13] [14 <./figures/subset.png>] [15]
+<figures/ttg.png, id=90, 475.7775pt x 398.23781pt>
 File: figures/ttg.png Graphic file (type png)
 <use figures/ttg.png>
-Package pdftex.def Info: figures/ttg.png  used on input line 560.
+Package pdftex.def Info: figures/ttg.png  used on input line 562.
 (pdftex.def)             Requested size: 135.96823pt x 113.81102pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15] [16 <./figures/ttg.png>]
-<figures/holyer_coord.png, id=97, 384.43625pt x 237.88875pt>
+[16] [17 <./figures/ttg.png>]
+<figures/holyer_coord.png, id=100, 384.43625pt x 237.88875pt>
 File: figures/holyer_coord.png Graphic file (type png)
 <use figures/holyer_coord.png>
-Package pdftex.def Info: figures/holyer_coord.png  used on input line 627.
+Package pdftex.def Info: figures/holyer_coord.png  used on input line 629.
 (pdftex.def)             Requested size: 183.9231pt x 113.81102pt.
-<figures/holyer_3_4.png, id=98, 383.4325pt x 284.06125pt>
+<figures/holyer_3_4.png, id=101, 383.4325pt x 284.06125pt>
 File: figures/holyer_3_4.png Graphic file (type png)
 <use figures/holyer_3_4.png>
-Package pdftex.def Info: figures/holyer_3_4.png  used on input line 628.
+Package pdftex.def Info: figures/holyer_3_4.png  used on input line 630.
 (pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
-<figures/colour_holyer_coord.png, id=99, 313.17pt x 237.88875pt>
+<figures/colour_holyer_coord.png, id=102, 313.17pt x 237.88875pt>
 File: figures/colour_holyer_coord.png Graphic file (type png)
 <use figures/colour_holyer_coord.png>
-Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 63
-8.
+Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 64
+0.
 (pdftex.def)             Requested size: 149.82768pt x 113.81102pt.
-<figures/colour_holyer.png, id=100, 383.4325pt x 284.06125pt>
+<figures/colour_holyer.png, id=103, 383.4325pt x 284.06125pt>
 File: figures/colour_holyer.png Graphic file (type png)
 <use figures/colour_holyer.png>
-Package pdftex.def Info: figures/colour_holyer.png  used on input line 639.
+Package pdftex.def Info: figures/colour_holyer.png  used on input line 641.
 (pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/holyer_true_triangulation.png, id=101, 312.16624pt x 237.88875pt>
+<figures/holyer_true_triangulation.png, id=104, 312.16624pt x 237.88875pt>
 File: figures/holyer_true_triangulation.png Graphic file (type png)
 <use figures/holyer_true_triangulation.png>
 Package pdftex.def Info: figures/holyer_true_triangulation.png  used on input l
-ine 649.
+ine 651.
 (pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
-<figures/holyer_false_triangulation.png, id=102, 312.16624pt x 237.88875pt>
+<figures/holyer_false_triangulation.png, id=105, 312.16624pt x 237.88875pt>
 File: figures/holyer_false_triangulation.png Graphic file (type png)
 <use figures/holyer_false_triangulation.png>
 Package pdftex.def Info: figures/holyer_false_triangulation.png  used on input 
-line 650.
+line 652.
 (pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
-[17 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
-<figures/patches.png, id=108, 382.42876pt x 181.67876pt>
+[18 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
+<figures/patches.png, id=112, 382.42876pt x 181.67876pt>
 File: figures/patches.png Graphic file (type png)
 <use figures/patches.png>
-Package pdftex.def Info: figures/patches.png  used on input line 662.
+Package pdftex.def Info: figures/patches.png  used on input line 664.
 (pdftex.def)             Requested size: 199.16928pt x 94.61765pt.
- [18 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figur
+ [19 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figur
 es/holyer_true_triangulation.png> <./figures/holyer_false_triangulation.png> <.
 /figures/patches.png>]
-<figures/first_holyer_lemma.png, id=119, 1286.8075pt x 1006.76125pt>
+<figures/first_holyer_lemma.png, id=122, 1286.8075pt x 1006.76125pt>
 File: figures/first_holyer_lemma.png Graphic file (type png)
 <use figures/first_holyer_lemma.png>
-Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 682
+Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 684
 .
 (pdftex.def)             Requested size: 284.52756pt x 222.60957pt.
-<figures/lemma_two_holyer.png, id=120, 1286.8075pt x 484.81125pt>
+<figures/lemma_two_holyer.png, id=123, 1286.8075pt x 484.81125pt>
 File: figures/lemma_two_holyer.png Graphic file (type png)
 <use figures/lemma_two_holyer.png>
-Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 693.
+Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 695.
 (pdftex.def)             Requested size: 284.52756pt x 107.19882pt.
-<figures/lemma_three_holyer.png, id=121, 1891.065pt x 484.81125pt>
+<figures/lemma_three_holyer.png, id=124, 1891.065pt x 484.81125pt>
 File: figures/lemma_three_holyer.png Graphic file (type png)
 <use figures/lemma_three_holyer.png>
-Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 703
+Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 705
 .
 (pdftex.def)             Requested size: 341.43306pt x 87.52856pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19 <./figures/first_holyer_lemma.png> <./figures/lemma_two_holyer.png>]
-<figures/sat_example.png, id=127, 390.696pt x 175.2pt>
+[20 <./figures/first_holyer_lemma.png> <./figures/lemma_two_holyer.png>]
+<figures/sat_example.png, id=130, 390.696pt x 175.2pt>
 File: figures/sat_example.png Graphic file (type png)
 <use figures/sat_example.png>
-Package pdftex.def Info: figures/sat_example.png  used on input line 733.
+Package pdftex.def Info: figures/sat_example.png  used on input line 735.
 (pdftex.def)             Requested size: 199.16928pt x 89.31339pt.
 
-[20 <./figures/lemma_three_holyer.png> <./figures/sat_example.png>] [21]
-[22]
+[21 <./figures/lemma_three_holyer.png> <./figures/sat_example.png>] [22]
+[23]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
+Underfull \hbox (badness 10000) in paragraph at lines 841--841
 [][]\OT1/cmr/m/n/9 Similarly this au-thor rec-om-mends this Crack-ing the Cryp-
 tic video on the Y wing tech-nique:
  []
 
-[23
+[24
 
-] [24] [25] [26]
+] [25] [26] [27]
 Chapter 4.
-[27
+[28
 
 ]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 9
-78.
+80.
  (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 978.
-
-[28]
-
-LaTeX Warning: Citation `analysis and applications of burnsides lemma jenny jin
-' on page 29 undefined on input line 1111.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 980.
 
 [29]
 
-LaTeX Warning: Reference `table:groups' on page 30 undefined on input line 1117
+LaTeX Warning: Citation `analysis and applications of burnsides lemma jenny jin
+' on page 30 undefined on input line 1113.
+
+[30]
+
+LaTeX Warning: Reference `table:groups' on page 31 undefined on input line 1119
 .
 
 
 LaTeX Warning: Citation `minimal complete shidoku symmetry groups pg 10' on pag
-e 30 undefined on input line 1138.
+e 31 undefined on input line 1140.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30]
+[31]
 
-LaTeX Warning: Citation `minimal complete shidoku symmetry groups' on page 31 u
-ndefined on input line 1189.
+LaTeX Warning: Citation `minimal complete shidoku symmetry groups' on page 32 u
+ndefined on input line 1191.
 
-[31] [32]
+[32] [33]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[33]
+[34]
 
-LaTeX Warning: Reference `' on page 34 undefined on input line 1352.
-
-
-LaTeX Warning: Reference `' on page 34 undefined on input line 1352.
+LaTeX Warning: Reference `' on page 35 undefined on input line 1355.
 
 
-Overfull \hbox (64.49326pt too wide) in paragraph at lines 1414--1415
+LaTeX Warning: Reference `' on page 35 undefined on input line 1355.
+
+
+Overfull \hbox (64.49326pt too wide) in paragraph at lines 1417--1418
 []\OT1/cmr/m/n/10.95 For al-go-rith-mic de-tails con-sult []. This pa-per state
 s the num-ber of valid su-doku grids is 6,670,903,752,021,072,936,960
  []
 
-[34]
+[35]
 
-LaTeX Warning: Citation `swart1980philosophical' on page 35 undefined on input 
-line 1436.
+LaTeX Warning: Citation `https://oeis.org/A291187' on page 36 undefined on inpu
+t line 1445.
 
-
-LaTeX Warning: Citation `appel1989every' on page 35 undefined on input line 143
-6.
-
-
-LaTeX Warning: Citation `BarNatan1996LieAA' on page 35 undefined on input line 
-1436.
-
-
-LaTeX Warning: Citation `gonthier2008formal' on page 35 undefined on input line
- 1436.
-
-
-LaTeX Warning: Citation `mima2013number' on page 35 undefined on input line 143
-8.
-
-
-LaTeX Warning: Citation `jones2014number' on page 35 undefined on input line 14
-38.
-
-[35] [36]
+[36] [37]
 Chapter 5.
-(WriteUp.bbl [37
+(WriteUp.bbl [38
 
-] [38
+] [39
 
-]) [39] (WriteUp.aux)
+]) [40] (WriteUp.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -955,10 +940,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16643 strings out of 478904
- 315563 string characters out of 2852853
- 823903 words of memory out of 3000000
- 34163 multiletter control sequences out of 15000+600000
+ 16638 strings out of 478904
+ 315554 string characters out of 2852853
+ 823927 words of memory out of 3000000
+ 34159 multiletter control sequences out of 15000+600000
  420129 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,83p,1196b,769s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -990,9 +975,9 @@ ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ev
 e/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 <C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on WriteUp.pdf (40 pages, 985651 bytes).
+Output written on WriteUp.pdf (41 pages, 989421 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
+ 301 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  108 words of extra memory for PDF output out of 10000 (max. 10000000)
 
