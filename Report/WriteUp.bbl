@@ -1,9 +1,14 @@
 \begin{thebibliography}{10}
 
 \bibitem{appel1989every}
-Kenneth~I Appel and Wolfgang Haken.
+K.~I. Appel and W.~Haken.
 \newblock {\em Every planar map is four colorable}, volume~98.
 \newblock American Mathematical Soc., 1989.
+
+\bibitem{Applegate2006}
+D.~L. Applegate, R.~E. Bixby, V.~Chvatal, and W.~J. Cook.
+\newblock {\em The Traveling Salesman Problem: A Computational Study}.
+\newblock Princeton University Press, Princeton, NJ, 2006.
 
 \bibitem{compcomplexityamodernapproach}
 S.~Arora and B.~Barak.
@@ -11,30 +16,58 @@ S.~Arora and B.~Barak.
 \newblock Cambridge University Press, 2009.
 
 \bibitem{BarNatan1996LieAA}
-Dror Bar-Natan.
+D.~Bar-Natan.
 \newblock Lie algebras and the four color theorem.
 \newblock {\em Combinatorica}, 17:43--52, 1996.
 
 \bibitem{simulatedannealing}
-Dimitris Bertsimas and John Tsitsiklis.
+D.~Bertsimas and J.~Tsitsiklis.
 \newblock {Simulated Annealing}.
 \newblock {\em Statistical Science}, 8(1):10 -- 15, 1993.
 
 \bibitem{lsttg}
-Charles~J. Colbourn.
+C.~J. Colbourn.
 \newblock The complexity of completing partial latin squares.
 \newblock {\em Discrete Applied Mathematics}, 8(1):25--30, 1984.
 
+\bibitem{eberhart1995new}
+R.~C. Eberhart and J.~Kennedy.
+\newblock A new optimizer using particle swarm theory.
+\newblock {\em Proceedings of the sixth international symposium on micro
+  machine and human science}, pages 39--43, 1995.
+
+\bibitem{euler1779quadratis}
+L.~Euler.
+\newblock De quadratis magicis.
+\newblock {\em Novi Commentarii Academiae Scientiarum Imperialis
+  Petropolitanae}, 23:86--101, 1779.
+
 \bibitem{gonthier2008formal}
-Georges Gonthier et~al.
+G.~Gonthier et~al.
 \newblock Formal proof--the four-color theorem.
 \newblock {\em Notices of the AMS}, 55(11):1382--1393, 2008.
+
+\bibitem{GAP2021}
+The~GAP Group.
+\newblock {GAP} -- groups, algorithms, and programming, version 4.11.0.
+\newblock 2021.
 
 \bibitem{hall}
 P.~Hall.
 \newblock On representatives of subsets.
 \newblock {\em Journal of the London Mathematical Society}, s1-10(1):26--30,
   1935.
+
+\bibitem{hart1968formal}
+P.~E. Hart, N.~J. Nilsson, and B.~Raphael.
+\newblock A formal basis for the heuristic determination of minimum cost paths.
+\newblock {\em IEEE transactions on Systems Science and Cybernetics},
+  4(2):100--107, 1968.
+
+\bibitem{heineman2016algorithms}
+G.~T. Heineman, G.~Pollice, and S.~Selkow.
+\newblock {\em Algorithms in a nutshell: A practical guide}.
+\newblock " O'Reilly Media, Inc.", 2016.
 
 \bibitem{hoffman}
 A.~J. Hoffman and H.~W. Kuhn.
@@ -47,43 +80,84 @@ I.~J. Holer.
 \newblock 1981.
 
 \bibitem{hopcroft}
-John~E. Hopcroft and Richard~M. Karp.
+J.~E. Hopcroft and R.~M. Karp.
 \newblock An algorithm for maximum matchings in bipartite graphs.
 \newblock {\em SIAM Journal on Computing}, 2(4):225--231, 1973.
 
-\bibitem{jones2014number}
-Si{\^a}n~K Jones, Stephanie Perkins, and Paul~A Roach.
-\newblock On the number of 6$\times$ 6 sudoku grids.
-\newblock {\em J. Combin. Math. Combin. Comput}, 89:33--43, 2014.
-
 \bibitem{mima2013number}
-Si{\^a}n K Jones~CMath MIMA and Stephanie~Perkins CMath.
+S.~K. Jones and S.~Perkins.
 \newblock On the number of sudoku grids.
 \newblock 2013.
 
+\bibitem{jones2014number}
+S.~K. Jones, S.~Perkins, and P.~A. Roach.
+\newblock On the number of 6$\times$ 6 sudoku grids.
+\newblock {\em J. Combin. Math. Combin. Comput}, 89:33--43, 2014.
+
+\bibitem{takingsudokuseriously}
+D.~Keedwell.
+\newblock Taking sudoku seriously by jason rosenhouse and louise taalman, pp.
+  214, £18.49, isbn 978-0-19-975656-8, oxford university press (2011).
+\newblock {\em The Mathematical Gazette}, 102:186--187, 03 2018.
+
+\bibitem{kirkpatrick1983optimization}
+C.D.~Jr. Kirkpatrick, S. annd~Gelatt and M.P. Vecchi.
+\newblock Optimization by simulated annealing.
+\newblock {\em Science}, 220(4598):671--680, 1983.
+
 \bibitem{dpcomplexity}
-C.H. Papadimitriou and M.~Yannakakis.
+C.~H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em Journal of Computer and System Sciences}, 28(2):244--259, 1984.
 
+\bibitem{salomaa1985computation}
+A.~Salomaa.
+\newblock {\em Computation and automata}.
+\newblock Number~25. Cambridge University Press, 1985.
+
+\bibitem{Shortz2006}
+W.~Shortz.
+\newblock {\em The New York Times Will Shortz's Favorite Sudoku: 200 Easy to
+  Hard Puzzles}.
+\newblock St. Martin's Griffin, New York, 2006.
+
 \bibitem{swart1980philosophical}
-Edward~R Swart.
+E.~R. Swart.
 \newblock The philosophical implications of the four-color problem.
 \newblock {\em The American mathematical monthly}, 87(9):697--707, 1980.
 
+\bibitem{crackingthecryptic}
+Cracking the Cryptic.
+\newblock Youtube channel.
+\newblock \url{https://www.youtube.com/CrackingTheCryptic/}, n.d.
+\newblock Accessed: April 27, 2023.
+
+\bibitem{oeis_a291187}
+{The OEIS Foundation Inc.}
+\newblock {Sequence A291187}.
+\newblock \url{https://oeis.org/A291187}, 2021.
+\newblock [Online; accessed 27-April-2023].
+
 \bibitem{turing}
-A.~M. TURING.
-\newblock {I.—COMPUTING MACHINERY AND INTELLIGENCE}.
+A.~M. Turing.
+\newblock {I.—Computing Machinery and Intelligence}.
 \newblock {\em Mind}, LIX(236):433--460, 10 1950.
 
 \bibitem{dphardness}
-Klaus~W. Wagner.
+K.~W. Wagner.
 \newblock More complicated questions about maxima and minima, and some closures
   of np.
 \newblock {\em Theoretical Computer Science}, 51(1):53--80, 1987.
 
+\bibitem{sudokuworldchampionship}
+{World Puzzle Federation}.
+\newblock {Sudoku World Championship}.
+\newblock
+  \url{https://www.worldpuzzle.org/championships/championships-sudoku/},
+  Accessed: 2023.
+
 \bibitem{sls}
-Takayuki YATO and Takahiro SETA.
+T.~Yato and T.~Seta.
 \newblock Complexity and completeness of finding another solution and its
   application to puzzles.
 \newblock {\em IEICE Transactions on Fundamentals of Electronics,

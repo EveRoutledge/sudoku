@@ -1,15 +1,15 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: WriteUp.aux
-White space in argument---line 98 of file WriteUp.aux
+White space in argument---line 115 of file WriteUp.aux
  : \citation{analysis
  :                    and applications of burnsides lemma jenny jin}
 I'm skipping whatever remains of this command
-White space in argument---line 101 of file WriteUp.aux
+White space in argument---line 118 of file WriteUp.aux
  : \citation{minimal
  :                   complete shidoku symmetry groups pg 10}
 I'm skipping whatever remains of this command
-White space in argument---line 104 of file WriteUp.aux
+White space in argument---line 121 of file WriteUp.aux
  : \citation{minimal
  :                   complete shidoku symmetry groups}
 I'm skipping whatever remains of this command
@@ -17,47 +17,49 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: refs.bib
+Warning--empty journal in GAP2021
 Warning--empty journal in holyer
 Warning--empty journal in mima2013number
-You've used 17 entries,
+Warning--there's a number but no series in salomaa1985computation
+You've used 30 entries,
             2118 wiz_defined-function locations,
-            610 strings with 6107 characters,
-and the built_in function-call counts, 4879 in all, are:
-= -- 482
-> -- 184
-< -- 1
-+ -- 77
-- -- 56
-* -- 336
-:= -- 842
-add.period$ -- 51
-call.type$ -- 17
-change.case$ -- 76
+            691 strings with 7929 characters,
+and the built_in function-call counts, 8437 in all, are:
+= -- 834
+> -- 325
+< -- 3
++ -- 138
+- -- 100
+* -- 538
+:= -- 1446
+add.period$ -- 93
+call.type$ -- 30
+change.case$ -- 133
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 186
-empty$ -- 410
-format.name$ -- 56
-if$ -- 1006
+cite$ -- 34
+duplicate$ -- 327
+empty$ -- 715
+format.name$ -- 100
+if$ -- 1755
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 19
-newline$ -- 88
-num.names$ -- 34
-pop$ -- 63
+int.to.str$ -- 30
+missing$ -- 33
+newline$ -- 155
+num.names$ -- 60
+pop$ -- 142
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 109
 quote$ -- 0
-skip$ -- 128
+skip$ -- 223
 stack$ -- 0
-substring$ -- 333
-swap$ -- 16
-text.length$ -- 1
+substring$ -- 519
+swap$ -- 36
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 2
-while$ -- 50
-width$ -- 19
-write$ -- 184
+type$ -- 108
+warning$ -- 4
+while$ -- 86
+width$ -- 32
+write$ -- 325
 (There were 3 error messages)

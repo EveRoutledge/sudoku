@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25 NEXT) (preloaded format=pdflatex 2023.1.23)  26 APR 2023 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25 NEXT) (preloaded format=pdflatex 2023.1.23)  27 APR 2023 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -218,6 +218,10 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \WF@box=\box56
 \WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
@@ -608,20 +612,20 @@ LaTeX Warning: Label `fig:twins' multiply defined.
 )
 \openout1 = `WriteUp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -712,23 +716,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-
-Overfull \hbox (19.66916pt too wide) in paragraph at lines 73--74
-\OT1/cmr/m/n/10.95 hard that there is even a world su-doku Cham-pi-onship (http
-s://www.worldpuzzle.org/championships/wsc/)
- []
-
 [3
 
 ] [4]
 <figures/highlighted_cells.png, id=33, 490.83376pt x 767.86874pt>
 File: figures/highlighted_cells.png Graphic file (type png)
 <use figures/highlighted_cells.png>
-Package pdftex.def Info: figures/highlighted_cells.png  used on input line 122.
+Package pdftex.def Info: figures/highlighted_cells.png  used on input line 123.
 
 (pdftex.def)             Requested size: 142.26378pt x 222.55907pt.
  [5 <./figures/highlighted_cells.png>]
 Chapter 2.
+
+LaTeX Warning: Citation `ppad' on page 6 undefined on input line 139.
+
 [6
 
 ]
@@ -736,114 +737,119 @@ Chapter 2.
 File: figures/turing_non_determinism.png Graphic file (type png)
 <use figures/turing_non_determinism.png>
 Package pdftex.def Info: figures/turing_non_determinism.png  used on input line
- 162.
+ 163.
 (pdftex.def)             Requested size: 512.1496pt x 191.26756pt.
 
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 162--163
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 163--164
  [] 
  []
 
 <figures/turing_determinism.png, id=46, 202.7575pt x 1166.3575pt>
 File: figures/turing_determinism.png Graphic file (type png)
 <use figures/turing_determinism.png>
-Package pdftex.def Info: figures/turing_determinism.png  used on input line 169
+Package pdftex.def Info: figures/turing_determinism.png  used on input line 170
 .
 (pdftex.def)             Requested size: 51.21495pt x 294.61418pt.
-[7 <./figures/turing_non_determinism.png> <./figures/turing_determinism.png>]
-<figures/reduction.png, id=52, 121.45375pt x 154.5775pt>
-File: figures/reduction.png Graphic file (type png)
-<use figures/reduction.png>
-Package pdftex.def Info: figures/reduction.png  used on input line 191.
-(pdftex.def)             Requested size: 121.45343pt x 154.5771pt.
 
-[8 <./figures/reduction.png>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./figures/turing_non_determinism.png>] [8 <./figures/turing_determinism.png
+>]
 <figures/np.drawio.png, id=57, 302.12875pt x 251.94125pt>
 File: figures/np.drawio.png Graphic file (type png)
 <use figures/np.drawio.png>
-Package pdftex.def Info: figures/np.drawio.png  used on input line 215.
-(pdftex.def)             Requested size: 302.128pt x 251.94063pt.
- [9 <./figures/np.drawio.png>] [10] [11] [12]
-<figures/subset.png, id=77, 330.23375pt x 474.77374pt>
+Package pdftex.def Info: figures/np.drawio.png  used on input line 214.
+(pdftex.def)             Requested size: 199.16928pt x 166.08566pt.
+ [9 <./figures/np.drawio.png>]
+<figures/reduction.png, id=64, 121.45375pt x 154.5775pt>
+File: figures/reduction.png Graphic file (type png)
+<use figures/reduction.png>
+Package pdftex.def Info: figures/reduction.png  used on input line 237.
+(pdftex.def)             Requested size: 121.45343pt x 154.5771pt.
+ [10 <./figures/reduction.png>] [11] [12]
+[13]
+<figures/subset.png, id=81, 330.23375pt x 474.77374pt>
 File: figures/subset.png Graphic file (type png)
 <use figures/subset.png>
-Package pdftex.def Info: figures/subset.png  used on input line 406.
+Package pdftex.def Info: figures/subset.png  used on input line 422.
 (pdftex.def)             Requested size: 227.62204pt x 327.26099pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13] [14 <./figures/subset.png>] [15]
-<figures/ttg.png, id=90, 475.7775pt x 398.23781pt>
+ [14 <./figures/subset.png>] [15]
+<figures/ttg.png, id=89, 475.7775pt x 398.23781pt>
 File: figures/ttg.png Graphic file (type png)
 <use figures/ttg.png>
-Package pdftex.def Info: figures/ttg.png  used on input line 561.
+Package pdftex.def Info: figures/ttg.png  used on input line 572.
 (pdftex.def)             Requested size: 135.96823pt x 113.81102pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[16] [17 <./figures/ttg.png>]
-<figures/holyer_coord.png, id=100, 384.43625pt x 237.88875pt>
+ [16] [17 <./figures/ttg.png>]
+<figures/holyer_coord.png, id=99, 384.43625pt x 237.88875pt>
 File: figures/holyer_coord.png Graphic file (type png)
 <use figures/holyer_coord.png>
-Package pdftex.def Info: figures/holyer_coord.png  used on input line 628.
+Package pdftex.def Info: figures/holyer_coord.png  used on input line 639.
 (pdftex.def)             Requested size: 183.9231pt x 113.81102pt.
-<figures/holyer_3_4.png, id=101, 383.4325pt x 284.06125pt>
+<figures/holyer_3_4.png, id=100, 383.4325pt x 284.06125pt>
 File: figures/holyer_3_4.png Graphic file (type png)
 <use figures/holyer_3_4.png>
-Package pdftex.def Info: figures/holyer_3_4.png  used on input line 629.
-(pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
-<figures/colour_holyer_coord.png, id=102, 313.17pt x 237.88875pt>
-File: figures/colour_holyer_coord.png Graphic file (type png)
-<use figures/colour_holyer_coord.png>
-Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 63
-9.
-(pdftex.def)             Requested size: 149.82768pt x 113.81102pt.
-<figures/colour_holyer.png, id=103, 383.4325pt x 284.06125pt>
-File: figures/colour_holyer.png Graphic file (type png)
-<use figures/colour_holyer.png>
-Package pdftex.def Info: figures/colour_holyer.png  used on input line 640.
+Package pdftex.def Info: figures/holyer_3_4.png  used on input line 640.
 (pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/holyer_true_triangulation.png, id=104, 312.16624pt x 237.88875pt>
+<figures/colour_holyer_coord.png, id=101, 313.17pt x 237.88875pt>
+File: figures/colour_holyer_coord.png Graphic file (type png)
+<use figures/colour_holyer_coord.png>
+Package pdftex.def Info: figures/colour_holyer_coord.png  used on input line 65
+0.
+(pdftex.def)             Requested size: 149.82768pt x 113.81102pt.
+<figures/colour_holyer.png, id=102, 383.4325pt x 284.06125pt>
+File: figures/colour_holyer.png Graphic file (type png)
+<use figures/colour_holyer.png>
+Package pdftex.def Info: figures/colour_holyer.png  used on input line 651.
+(pdftex.def)             Requested size: 153.62772pt x 113.81102pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/holyer_true_triangulation.png, id=103, 312.16624pt x 237.88875pt>
 File: figures/holyer_true_triangulation.png Graphic file (type png)
 <use figures/holyer_true_triangulation.png>
 Package pdftex.def Info: figures/holyer_true_triangulation.png  used on input l
-ine 650.
+ine 661.
 (pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
-<figures/holyer_false_triangulation.png, id=105, 312.16624pt x 237.88875pt>
+<figures/holyer_false_triangulation.png, id=104, 312.16624pt x 237.88875pt>
 File: figures/holyer_false_triangulation.png Graphic file (type png)
 <use figures/holyer_false_triangulation.png>
 Package pdftex.def Info: figures/holyer_false_triangulation.png  used on input 
-line 651.
+line 662.
 (pdftex.def)             Requested size: 149.34747pt x 113.81102pt.
-[18 <./figures/holyer_coord.png> <./figures/holyer_3_4.png>]
-<figures/patches.png, id=112, 382.42876pt x 181.67876pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/patches.png, id=105, 382.42876pt x 181.67876pt>
 File: figures/patches.png Graphic file (type png)
 <use figures/patches.png>
-Package pdftex.def Info: figures/patches.png  used on input line 663.
+Package pdftex.def Info: figures/patches.png  used on input line 674.
 (pdftex.def)             Requested size: 199.16928pt x 94.61765pt.
- [19 <./figures/colour_holyer_coord.png> <./figures/colour_holyer.png> <./figur
-es/holyer_true_triangulation.png> <./figures/holyer_false_triangulation.png> <.
-/figures/patches.png>]
-<figures/first_holyer_lemma.png, id=122, 1286.8075pt x 1006.76125pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[18] [19 <./figures/holyer_coord.png> <./figures/holyer_3_4.png> <./figures/col
+our_holyer_coord.png> <./figures/colour_holyer.png> <./figures/holyer_true_tria
+ngulation.png> <./figures/holyer_false_triangulation.png> <./figures/patches.pn
+g>]
+<figures/first_holyer_lemma.png, id=121, 1286.8075pt x 1006.76125pt>
 File: figures/first_holyer_lemma.png Graphic file (type png)
 <use figures/first_holyer_lemma.png>
-Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 683
+Package pdftex.def Info: figures/first_holyer_lemma.png  used on input line 694
 .
 (pdftex.def)             Requested size: 284.52756pt x 222.60957pt.
-<figures/lemma_two_holyer.png, id=123, 1286.8075pt x 484.81125pt>
+<figures/lemma_two_holyer.png, id=122, 1286.8075pt x 484.81125pt>
 File: figures/lemma_two_holyer.png Graphic file (type png)
 <use figures/lemma_two_holyer.png>
-Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 694.
+Package pdftex.def Info: figures/lemma_two_holyer.png  used on input line 705.
 (pdftex.def)             Requested size: 284.52756pt x 107.19882pt.
-<figures/lemma_three_holyer.png, id=124, 1891.065pt x 484.81125pt>
+<figures/lemma_three_holyer.png, id=123, 1891.065pt x 484.81125pt>
 File: figures/lemma_three_holyer.png Graphic file (type png)
 <use figures/lemma_three_holyer.png>
-Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 704
+Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 715
 .
 (pdftex.def)             Requested size: 341.43306pt x 87.52856pt.
 
@@ -851,17 +857,17 @@ Package pdftex.def Info: figures/lemma_three_holyer.png  used on input line 704
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20 <./figures/first_holyer_lemma.png> <./figures/lemma_two_holyer.png>]
-<figures/sat_example.png, id=130, 390.696pt x 175.2pt>
+<figures/sat_example.png, id=129, 390.696pt x 175.2pt>
 File: figures/sat_example.png Graphic file (type png)
 <use figures/sat_example.png>
-Package pdftex.def Info: figures/sat_example.png  used on input line 734.
+Package pdftex.def Info: figures/sat_example.png  used on input line 745.
 (pdftex.def)             Requested size: 199.16928pt x 89.31339pt.
 
 [21 <./figures/lemma_three_holyer.png> <./figures/sat_example.png>] [22]
 [23]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 [][]\OT1/cmr/m/n/9 Similarly this au-thor rec-om-mends this Crack-ing the Cryp-
 tic video on the Y wing tech-nique:
  []
@@ -869,99 +875,77 @@ tic video on the Y wing tech-nique:
 [24
 
 ]
-
-LaTeX Warning: Citation `salomaa1985computation' on page 25 undefined on input 
-line 850.
-
-<figures/SiepTri.png, id=147, 783.92876pt x 241.90375pt>
+<figures/SiepTri.png, id=146, 783.92876pt x 241.90375pt>
 File: figures/SiepTri.png Graphic file (type png)
 <use figures/SiepTri.png>
-Package pdftex.def Info: figures/SiepTri.png  used on input line 858.
+Package pdftex.def Info: figures/SiepTri.png  used on input line 870.
 (pdftex.def)             Requested size: 284.52756pt x 87.80136pt.
-[25 <./figures/SiepTri.png>]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 903
+ [25 <./figures/SiepTri.png>] [26]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 917
 .
 
 (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-)
-Overfull \hbox (246.63594pt too wide) detected at line 903
-[]\OML/cmm/m/it/10.95 J \OT1/cmr/m/n/10.95 = [] [] [] \U/bbm/m/n/10.95 1\OMS/cm
-sy/m/n/10.95 f\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 i; j
-\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
-0.95 i; k\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 + [] [] [
-] \U/bbm/m/n/10.95 1\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.9
-5 (\OML/cmm/m/it/10.95 i; j\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 p\OT1/cmr
-/m/n/10.95 (\OML/cmm/m/it/10.95 k; j\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g \
-OT1/cmr/m/n/10.95 + [] [] [] \U/bbm/m/n/10.95 1\OMS/cmsy/m/n/10.95 f\OML/cmm/m/
-it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 i; j\OT1/cmr/m/n/10.95 ) = \O
-ML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k; l\OT1/cmr/m/n/10.
-95 )\OMS/cmsy/m/n/10.95 g
- []
-
-[26] [27]
+) [27]
+[28]
 Chapter 4.
-[28
+[29
 
 ]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 9
-86.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+015.
  (C:\Users\Eve\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 986.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1015.
 
-[29]
-
-LaTeX Warning: Citation `analysis and applications of burnsides lemma jenny jin
-' on page 30 undefined on input line 1119.
 
 [30]
 
-LaTeX Warning: Reference `table:groups' on page 31 undefined on input line 1125
+LaTeX Warning: Citation `analysis and applications of burnsides lemma jenny jin
+' on page 31 undefined on input line 1148.
+
+[31]
+
+LaTeX Warning: Reference `table:groups' on page 32 undefined on input line 1154
 .
 
 
 LaTeX Warning: Citation `minimal complete shidoku symmetry groups pg 10' on pag
-e 31 undefined on input line 1146.
+e 32 undefined on input line 1175.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31]
+[32]
 
-LaTeX Warning: Citation `minimal complete shidoku symmetry groups' on page 32 u
-ndefined on input line 1197.
+LaTeX Warning: Citation `minimal complete shidoku symmetry groups' on page 33 u
+ndefined on input line 1226.
 
-[32] [33] [34]
+[33] [34] [35]
 
-LaTeX Warning: Reference `' on page 35 undefined on input line 1360.
+LaTeX Warning: Reference `' on page 36 undefined on input line 1389.
 
 
-LaTeX Warning: Reference `' on page 35 undefined on input line 1360.
+LaTeX Warning: Reference `' on page 36 undefined on input line 1389.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35]
-Overfull \hbox (64.49326pt too wide) in paragraph at lines 1422--1423
+[36]
+Overfull \hbox (64.49326pt too wide) in paragraph at lines 1451--1452
 []\OT1/cmr/m/n/10.95 For al-go-rith-mic de-tails con-sult []. This pa-per state
 s the num-ber of valid su-doku grids is 6,670,903,752,021,072,936,960
  []
 
-[36]
-
-LaTeX Warning: Citation `https://oeis.org/A291187' on page 37 undefined on inpu
-t line 1450.
-
-[37]
+[37] [38]
 Chapter 5.
-(WriteUp.bbl [38
+(WriteUp.bbl [39
 
-] [39
+] [40
 
-]) [40] (WriteUp.aux)
+]) [41] (WriteUp.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -970,45 +954,45 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16677 strings out of 478904
- 316439 string characters out of 2852853
- 823947 words of memory out of 3000000
- 34187 multiletter control sequences out of 15000+600000
- 421184 words of font info for 97 fonts, out of 8000000 for 9000
+ 16768 strings out of 478904
+ 317700 string characters out of 2852853
+ 825091 words of memory out of 3000000
+ 34274 multiletter control sequences out of 15000+600000
+ 421044 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,83p,1196b,769s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,13n,83p,1188b,771s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi657\bbm10.p
 k> <C:\Users\Eve\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
 95.pk><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmbx10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmbx8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Eve/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Eve/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Eve/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Eve/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/
-Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/
-Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pf
+e1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Eve/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Eve/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Eve/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Eve/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/
+Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/
+Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pf
 b><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr17.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Eve/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Eve/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Eve/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ev
-e/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-<C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
-/msbm10.pfb>
-Output written on WriteUp.pdf (41 pages, 1004617 bytes).
+r12.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr17.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr6.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr8.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr9.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Eve/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Eve/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Eve/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Eve/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Eve/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/E
+ve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb
+><C:/Users/Eve/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on WriteUp.pdf (42 pages, 1023667 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
+ 312 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,6 +6,7 @@
 \usepackage[table]{xcolor}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{url}
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
@@ -68,94 +69,94 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Introduction}
 
-Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. For many, this is a brain teaser at the back of a newspaper or a game on their phone used to pass the time on a commute. So why are we bothered about the mathematics behind the game? The answer is multifaceted. 
+Sudoku is a simple logic game, in the standard $9 \times 9$ (or $3 \times 3 \times 3 \times 3$) one must complete the grid such that every row, column and box contains the numbers 1 to 9, that is all. For many, this is a brain teaser at the back of a newspaper or a game on their phone used to pass the time on a commute. So why is the mathematics behind the game important? The answer is multifaceted. 
 
-Sudoku is a serious hobby for many and even a job. All major newspapers will have a sudoku section the New York times has three sudokus set each day (https://www.nytimes.com/puzzles/sudoku), these all need to be created and verified which is no easy task (not even for a computer as we shall soon find out). Then there are the freely available apps with thousands of sudokus of varying difficulty. Sudokus get so hard that there is even a world sudoku Championship (https://www.worldpuzzle.org/championships/wsc/) where teams and individuals compete to get the best time for a sudoku solve. In 2022 Mark Goodliffe came first in the WSCs over 50s challenge. This is significant as Mark is half of a duo creating entertaining videos on the solution of sudokus and its variants on the Youtube channel Cracking the Cryptic (https://www.youtube.com/@CrackingTheCryptic). During the coronavirus pandemic this author spent many hundreds of hours learning techniques from Cracking the Cryptic and putting them into practise. With that said, sudoku provides many opportunities for revenue and by studying the mathematics behind this puzzle those jobs may be made easier.
+Sudoku is a serious hobby for many and even a job. All major newspapers have a sudoku section. The New York times in particular has three sudokus set each day 200 of which can be found here \cite{Shortz2006}. These all need to be created and verified which is no easy task, not even for a computer as this paper will soon discuss. Then there are the freely available apps with thousands of sudokus of varying difficulty. Sudokus get so hard that there is even a world sudoku championship \cite{sudokuworldchampionship} where teams and individuals compete to get the best time for a sudoku solve. In 2022 Mark Goodliffe came first in the WSCs over 50s challenge. This is significant as Mark is half of a duo creating entertaining videos on the solution of sudokus and its variants on the Youtube channel Cracking the Cryptic \cite{crackingthecryptic}. During the coronavirus pandemic this author spent many hundreds of hours learning techniques from Cracking the Cryptic and putting them into practise. With that said, sudoku provides many opportunities for revenue and by studying the mathematics behind this puzzle those jobs may be made easier.
 
-The literature on the mathematics of sudoku is extensive and ranges through many different areas such as group theory, discrete mathematics, complexity theory and information theory all while being digestible for a undergraduate audience. Theory is best learnt through application so examining sudoku through these lenses can consolidate learning as well as encourage and motivate students to continue learning mathematics at a higher level. An excellent example of this is the book Taking Sudoku Seriously \cite{}, using sudoku as the catalyst many foundational maths ideas are made accessible to those who haven't studied mathematics past GCSE.
+The literature on the mathematics of sudoku is extensive and ranges through many different areas such as group theory, discrete mathematics, complexity theory and information theory all while being digestible for a undergraduate audience. Theory is best learnt through application so examining sudoku through these lenses can consolidate learning as well as encourage and motivate students to continue learning mathematics at a higher level. An excellent example of this is the book Taking Sudoku Seriously \cite{takingsudokuseriously}. Using sudoku as the catalyst many foundational maths ideas are made accessible to those who haven't studied mathematics past GCSE.
 
-An exploration of sudoku also serves to unite the authors favourite subjects, mathematics and computer science. While it is known underlying knowledge of mathematics is required to study computer science, the opposite is not entirely obvious. Through the exploration of sudoku we link theory to tangible computation, for we often study theory in mathematics without regard for what it means in practise, the time taken to execute such mathematical processes is important it is the difference between trivial and the heat death of the universe. This author believes it important for mathematicians to have a grasp of such concepts and we use sudoku as the lens for motivating this. Discuss the lack of mathematical proof but evidence of success in AI.
+The exploration of sudoku also serves to unite this authors favourite subjects: mathematics and computer science. While it is commonly understood that underlying knowledge of mathematics is required to study computer science, the opposite is not entirely apparant. By delving into sudoku we link theoretical concepts to tangible computation. It is often the practise in mathematics to study theory without regard for what it means in practise the time taken to execute such mathematical processes is important it is the difference between trivial and the heat death of the universe. This author believes it important for mathematicians to have a grasp of such concepts and we use sudoku as the lens for motivating this understanding. Discuss the lack of mathematical proof but evidence of success in AI.
 
 Sudoku stems from magic and latin squares (more to be discussed later). Many variants have popped up from the original we have killer and thermo and this authors personal favourites are magic squares within a sudoku, feels very full circle. This is clearly a branching puzzle with no signs of stopping (see Cracking the Cryptic for new variants every week).
 
-We can see that sudoku is not just a brain teaser, its popularity is ever expanding and its use for educational and monetary are self evident. So it makes sense to study the mathematical structure of sudoku.  Throughout this paper is a discussion of how to solve sudoku specifically the generalisation of this, any insights into this work could optimise sudoku solving and consequently generation. Furthermore an unsolved problem belonging to the Millenium Prize problem is discussed, insights into this lead to direct monetary valie, unfortunately the solution to this problem is not contained within this paper.
+We can see that sudoku is not just a brain teaser, its popularity is ever expanding and its use for educational and monetary are self evident. So it makes sense to study the mathematical structure of sudoku.  Throughout this paper is a discussion of how to solve sudoku specifically the generalisation of this, any insights into this work could optimise sudoku solving and consequently generation. Furthermore an unsolved problem belonging to the Millennium Prize problem is discussed, insights into this lead to direct monetary value, unfortunately the solution to this problem is not contained within this paper.
 
 \section{History}
 
 Sudoku is not as old as you think it is in fact the name sudoku only came about in 1986. It is seen in French newspapers from the 19th century but in different variations to the standard puzzle we know today, during this period it is named \textit{carre magique diabolique} referring to the magic square puzzles that were around as early as 190 BCE and can be seen in various art works over the centuries. So sudoku has a French origin as even though they are referred to as magic squares and do not mark the boxes within the sudoku, each sub square did in fact contain the digits 1-9. Modern sudoku is thought to be first published in 1979, named Number Place. In 1984 the puzzle made its way to japan where a puzzle company trademarked the name we know today and enforced symmetrical puzzles (rotationally symmetry) for aesthetic reasons. Soon variants of sudoku with different box shapes started gaining popularity.
 
-Magic squares are the ancestors of sudoku, these are $n$ by $n$ grids with numbers such that rows, columns and the two diagonals add up to the same value, termed the magic constant. These squares were known by mathematicians around the world and the first example of a 4th order ($n=4$) square occurred in India in 587 CE. Euler too worked with magic squares and left many open questions; the existence of a $3\times 3$ magic square comprising of square numbers.
+Magic squares are the ancestors of sudoku, these are $n$ by $n$ grids with numbers such that rows, columns and the two diagonals add up to the same value, termed the magic constant. These squares were known by mathematicians around the world and the first example of a 4th order ($n=4$) square occurred in India in 587 CE. Leonhard Euler too worked with magic squares \cite{euler1779quadratis} and left many open questions. One such question is whether a magic square exists with prime elements which was recently  the existence of a $3\times 3$ magic square comprising of square numbers.
 
-Latin squares are another note worthy ancestor to the sudoku, this is a $n$ by $n$ grids with $n$ digits such that no digit repeats in the row or column of the grid. Sudokus are a version of latin squares but with an added box constraint. While the name is inspired by Euler, a  Korean mathematician in 1700 published an example of a Latin square, beating Euler by almost 70 years. 
+Latin squares are another note worthy ancestor to the sudoku, this is a $n$ by $n$ grids with $n$ digits such that no digit repeats in the row or column of the grid. Sudokus are a version of latin squares but with an added box constraint. While the name is inspired by Euler, a Korean mathematician in 1700 published an example of a Latin square, beating Euler by almost 70 years. 
 	
 \section{Defining Sudoku Notation}
 	
-\textbf{Def$^n$}: A $n$ by $n$ Sudoku puzzle $P$ is a function $P:  \{1,...,n\}^2\rightarrow\mathbb D \cup \{0\}$ where $\mathbb D$ is an alphabet of size $n$ most commonly $\mathbb D = \{1,...,n\}$, the $\{0\}$ represents the blank symbol. $P$ is usually displayed as a board and the blank symbol omitted. There are three rules a valid sudoku puzzle follows, the row restriction, column restriction and box restriction.
+\textbf{Def$^n$}: A $n$ by $n$ Sudoku puzzle $P$ is a function $P:  \{1,...,n\}^2\rightarrow\mathbb D \cup \{0\}$ where $\mathbb D$ is an alphabet of size $n$. Most commonly $\mathbb D = \{1,...,n\}$. The $\{0\}$ represents the blank symbol. $P$ is usually displayed as a board and the blank symbol omitted. There are three rules a valid sudoku puzzle follows, the column restriction, the row restriction and the box restriction.
 
-The column restriction: for all $i,j,k\in \{1,...,n\}$ if $P(i,j)\neq0$ and $P(i,k)\neq0$ then $P(i,j)\neq P(i,k)$. This is to say: non blank values cannot be repeated in a column. When referencing columns we use C1,...,C$n$.
+\textbf{The column restriction}: For all $i,j,k\in \{1,...,n\}$ with $j\neq k$, if $P(i,j)\neq0$ and $P(i,k)\neq0$ then $P(i,j)\neq P(i,k)$. This is to say: non blank values cannot be repeated in a column. When referencing columns we use C1,...,C$n$.
 
-The row restriction: this is the same as the column restriction but applied to rows. For all $i,j,k\in \{1,...,n\}$ if $P(i,j)\neq0$ and $P(k,j)\neq0$ then $P(i,j)\neq P(k,j)$. We call rows in $P$ R1,...,R$n$.
+\textbf{The row restriction}: This is the same as the column restriction but applied to rows. For all $i,j,k\in \{1,...,n\}$ with $i\neq k$ if $P(i,j)\neq0$ and $P(k,j)\neq0$ then $P(i,j)\neq P(k,j)$. We call rows R1,...,R$n$.
 
-Puzzles conforming to just the two above rules are named Latin squares. 
+Note: Puzzles conforming to just the row and column restriction are named Latin squares. 
 
-The box restriction: for $x\leq y$ such that $xy=n$ and for all $i,j,k,l\in\{1,...,n\}$ with $\lfloor \frac{j-1}{x} \rfloor=\lfloor \frac{l-1}{x}\rfloor$, $\lfloor \frac{i-1}{y} \rfloor=\lfloor \frac{k-1}{y}\rfloor$, $P(i,j)\neq0$ and $P(k,l)\neq0$ then $P(i,j)\neq P(k,l)$. We introduce box regions of size $x\times y$, these cannot have repeated values. We label these B1,..,B$n$ from left to right and top to bottom. Note we can enforce $x\leq y$. 
+\textbf{The box restriction}: For $x\leq y$ such that $xy=n$ and for all $i,j,k,l\in\{1,...,n\}$ with $\lfloor \frac{j-1}{x} \rfloor=\lfloor \frac{l-1}{x}\rfloor$, $\lfloor \frac{i-1}{y} \rfloor=\lfloor \frac{k-1}{y}\rfloor$, $P(i,j)\neq0$ and $P(k,l)\neq0$ then $P(i,j)\neq P(k,l)$. This restriction introduces boxes of size $x\times y$ that cannot have repeated values. Boxes are labeled B1,..,B$n$ from left to right and top to bottom. Note a puzzle with $x\geq y$ can be transformed through a transpose to a puzzle with $x\leq y$. 
 
-\textbf{Remark}: when $n$ is prime the box condition is the same as the row condition which reduces the sudoku puzzle to a latin square puzzle, therefore we omit these values of $n$. The most common sudokus are square numbers with boxes of size $\sqrt{n}$. If the box size is not stated then it is assumed to be the factor pair excluding 1 and $n$.
+\textbf{Remark}: When $n$ is prime the box condition is the same as the row condition which reduces the sudoku puzzle to a latin square puzzle, therefore we omit these values of $n$. The most common sudokus are square numbers with boxes of size $\sqrt{n}$. 
 
 A few sudokus have specific names:
 \begin{itemize}
 \item Shidoku is $4\times 4$,
 \item Rudoku is $6\times 6$ and
-\item Sudoku without specification is $9\times 9$.
+\item when a size is not specified Sudoku usually is $9\times 9$.
 \end{itemize} 
 
 \textbf{Def$^n$}: A completed sudoku puzzle does not have any blank symbols. $P:  \{1,...,n\}^2\rightarrow\mathbb D$ 
 
-\textbf{Def$^n$:} A sudoku $P$ has a solution if there exists an augmentation of the puzzle such that blank symbols are changed to values from $\mathbb D$ and no other values of $P$ are changed.
+\textbf{Def$^n$:} A sudoku $P$ has a solution if there exists an augmentation of the puzzle to a complete puzzle such that blank symbols are changed to values from $\mathbb D$ and no other values of $P$ are changed.
 
-\textbf{Def$^n$}: The set $P_n$ includes all complete sudoku grids with size $n$ by $n$, if $n$ has more than one factor pair that is not itself and 1 we have to specify the box size. For example when $n=12$ we have two sets $P_{2,6}$ and $P_{3,4}$. For cases where $n$ is a square number but has multiple factor pairs $P_n$ denotes the puzzles with $\sqrt{n}$ sized boxes.
+\textbf{Def$^n$}: The set $P_n$ includes all complete sudoku grids with size $n$ by $n$. If $n$ has more than one non trivial factor pair the box size is specified. For example when $n=12$ we have two sets $P_{2,6}$ and $P_{3,4}$. For cases where $n$ is a square number but has multiple factor pairs $P_n$ denotes the puzzles with $\sqrt{n}$ sized boxes.
 
-\textbf{Def$^n$}: To aid us in describing positions on a board we use the following terminology: a cell is a single (i,j) location in $P$, a sash is the rows split into $y$ groups ($y$ from the box restriction definition) enumerated S1,..,S$y$ and a tower is the columns split into $x$ groups  ($x$ from the box restriction definition) enumerated T1,..,T$x$.
+\textbf{Def$^n$}: To aid in describing positions on a board the following terminology is used: a cell is a single (i,j) location in $P$, a sash is the rows split into $y$ groups ($y$ from the box restriction definition) enumerated S1,..,S$y$ and a tower is the columns split into $x$ groups  ($x$ from the box restriction definition) enumerated T1,..,T$x$. See figure \ref{fig:labels} for a visualisation.
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=50mm]{figures/highlighted_cells.png}
 	\end{center}
-	\caption{\label{fig:labels}From Left to Right, Top to Bottom. C1, B1, R1, cell 1, S1, P1 }
+	\caption{\label{fig:labels}From Left to Right, Top to Bottom. C1, B1, R1, cell (1,1), S1, T1 }
 \end{figure}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\chapter{Sudoku is Hard}
+\chapter{Computational Complexity: Sudoku is Hard}
 
 For this chapter the discussion is limited to sudokus of size $n \times n$ where $n$ is a square number.
 
-Let's imagine a sudoku of size $D^2\times D^2$. How big does $D$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Don't worry if you said a smaller number than your friends, this has nothing to do with your problem solving skills, even a computer finds sudoku hard. In fact just incrementing $D$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
+Imagine a sudoku of size $m^2\times m^2$. How big does $m$ have to be for you to need more than a day to solve it? Maybe 6 or 10 or even just 4. Well turns out a computer cannot do large sudoku quickly either, or at least no one has found a quick algorithm yet. Currently, incrementing $m$ by 1 leads to an exponential increase in compute time and the most optimal algorithms for solving sudoku are infeasible for $100 \times 100$.
 
-We prove sudoku's hardness by transforming it into a known 'difficult' problem; we will use SAT, a problem that has plagued computer scientists for decades.
+So it is suspected that sudoku does not have a quick solution as there is no explicit method that computes a complete grid from a partial grid in reasonable time. This is not enough to convince mathematicians so we must prove that a quick way does not exist. But proving something does not exist is a hard task, luckily there is a method in complexity theory to deal with this. When given a problem that is hard to solve, even for a computer, we can definitively call it difficult if another known difficult problem can be transformed to this new problem. This chapter will discuss this in detail by defining what makes a problem difficult and then proving it for various problems that are all linked to sudoku. 
 
-\section{Computational Complexity}
+\section{A Complexity Theory Introduction}
 
-For those with a mathematical mind, outraged by the lack of definitions for 'difficulty' and 'hardness', let's take a detour into complexity theory.
+This branch of theoretical computer science attempts to answer questions about the difficulty of problems and multiple types of difficulty. The focus in this chapter is on time complexity, the time taken for a problem to be solved, this is of course important as iit allows diffrentiation between problems that take milliseconds to those that take generations. This is not often considered in pure mathematics as it contains many existance theorems that have non constructive proofs. Such as the Nash existance theorem in game theory, while it is proven a Nash equilibrium must exist there is no known algorithm to compute the equilibrium in a feasible amount of time \cite{ppad}.
 
-\subsection{Turing Machines}
+\subsection{Turing Machines - An Abstract Computer}
 
-We are working on the boundaries between computer science and mathematics, to stray into computer science we need a rigorous definition of a computer, that's where the Turing Machine comes in. In Turing's paper \textit{Computing Machinery and Intelligence} \cite{turing} the Turing Machine is introduced as a mathematical model of what is now known as a CPU, the difference being that the theoretical machine has finite but unbounded memory. While the full definition isn't completely necessary for the discussion we include it for completeness.
+The union of theoretical computer science and mathematics requires a rigorous definition of a computer, that's where the Turing Machine comes in. In Turing's paper \textit{Computing Machinery and Intelligence} \cite{turing} the Turing Machine is introduced as a mathematical model of what is now known as a CPU, the difference being that the theoretical machine has finite but unbounded memory. While the full definition isn't completely necessary for the discussion we include it for completeness.
 
-\textbf{Def$^\text{n}$:} A \textbf{Turing Machine} $M={Q,\Gamma,b,\Sigma, \delta, q_0, F}$ such that:
+\textbf{Def$^\text{n}$:} A \textbf{Turing Machine} is a tuple $M=(Q,\Gamma,b,\Sigma, \delta, q_0, F)$ such that:
 \begin{itemize}
-\item $Q$ is a set of states, with $q_0\in Q$ being the initial state and $F\subseteq Q$ is the set of final states
-\item $\Gamma$ finite set of tape alphabet symbols, with $b\in \Gamma$ being the blank symbol
+\item $Q$  a set of states, with $q_0\in Q$ the initial state and $F\subseteq Q$ the set of final states.
+\item $\Gamma$ a finite alphabet of symbols, with $b\in \Gamma$ the blank symbol.
 \item $\Sigma\subseteq \Gamma \symbol{92} \{b\}$ the set of input symbols
-\item $\delta$ the set of transition functions, given the current state and symbol the transition function determines which state to progress to and whether to change the symbol, if the transition is undefined the machine halts
+\item $\delta$ the set of transition functions, given the current state and symbol the transition function determines which state to progress to and whether to change the symbol, if the transition is undefined the machine halts.
 \end{itemize}
 
-Anything computable should therefore have an instance of a Turing machine with defined alphabet, states and state transitions. The input is the original contents of the tape and the output is the contents of the tape once the machine halts. 
+The input is the original contents of the tape and the output is the contents of the tape once the machine halts. A computable function is defined as a function that has an instance of a Turing machine with defined alphabet, states and state transitions.
 
-We now consider a less tangible version of the Turing Machine one involving non determinism. When given a single state multiple transitions the new machine does not necessarily have a single transition, there may exist multiple avenues to explore. We can therefore explore all possible transitions at once by changing the set of state transitions $\delta$ from a function to a relation with each state transition explored on a separate tape. 
+We now consider a less tangible version of the Turing Machine one involving non determinism. When given a single state there may exist multiple transitions that can be taken. A non deterministic Turing Machine explores all possible transitions at once by changing the set of state transitions $\delta$ from a function to a relation. 
 
-\textbf{Def$^\text{n}$:} A \textbf{non-deterministic} Turing Machine is the mathematical model of a CPU that can undertake any possible action in a single time step.
+\textbf{Def$^\text{n}$:} A \textbf{non-deterministic} Turing Machine is the mathematical model of a CPU that can undertake many actions in a single time step.
 
-See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two versions of Turing machines with solving a 4 by 4 sudoku with a brute force method (this method is discussed further in Big O Examples and Solving Techniques - Backtracking), each row will theoretically execute in the same time step.
+See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two versions of Turing machines when solving a 4 by 4 sudoku with a brute force method. Each row executes in the same time step.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -173,18 +174,63 @@ See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two ve
 
 \subsection{Big O Notation}
 
-\textbf{Def$^\text{n}$:} Let $f$ be a function indicating the execution time for an algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$. This is coined \textbf{Big O Notation}.
+In the real world computers come in all shapes and sizes and with this take different amounts of time to execute an instruction. This leads to difficulty when defining time complexity as a super computer may execute a task in a minute when a latop may take a day. In order to remove this ambiguity from complexity theory time is taken to mean the amount of steps a computer performs over actual temporal associations. A step is then defined as a small action made by a computer such as a comparison or an addition. 
+
+The abstractions go further, time complexity does not care for constant terms as an algorithm taking $n$ steps and another with $2n+5$ steps are similar in difficulty. The following notation enables this abstraction.
+
+\textbf{Def$^\text{n}$:} Let $f$ be a function indicating the amount of steps take in the execution ofan algorithm and $g$ a strictly positive function. $f(x)=O (g(x))$ if $\exists$ positive $ M$ and $x_0$ such that $|f(x)|\leq Mg(x)$ $\forall$ $x\geq x_0$. This is coined \textbf{Big O Notation}.\footnote{Chapter 2 of \cite{salomaa1985computation} has a application based discussion of Big O.}
 
 \textbf{Properties:} Following from the definition we get some immediate properties, assume $f,g,h,i$ are functions obeying the necessary conditions of the definition.
 \begin{itemize}
-\item Product - $f=O(g)$ and $h=O(i)$, $fh=O(gi)$.
-\item Sum - for $f=O(g)$ and $h=O(i)$, $f+h = O(max(g,i))$.
-\item Constant Multiplication - for constant $k\neq0$, $O(kg)=O(g)$.
+\item Product: $f=O(g)$ and $h=O(i)$, $fh=O(gi)$.
+\item Sum: for $f=O(g)$ and $h=O(i)$, $f+h = O(max(g,i))$.
+\item Constant Multiplication: for constant $k\neq0$, $O(kg)=O(g)$.
 \end{itemize}
+
+The properties of big O notation confirms its ability to abstract away constant terms as was required. Big O is our measure of time in complexity theory. With this we abstract further into classes of time such as constant, linear, polynomial and exponential. A definition of polynomial time is below but the rest are omitted until the example section as they are self-explanatory.
 
 \textbf{Def$^n$:} A polynomial time algorithm is an algorithm with $O(x^c)$.
 
-\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem $A$ to $B$. The converse applies for $A\geq_p$B; there exists a transformation in polynomial time from $A$ to $B$.
+\subsection{Sets of Difficulty} 
+
+So there exists a computer and a measure of execution time but still no difficulty. To define difficulty no measure is created instead there are sets. These sets are defined on decision problems. These are problems that given an input produce a 'yes' or 'no' answer. There exists many sets of these problems.
+
+\begin{itemize}
+\item{P (Polynomial) is the the class of problems that can be solved in polynomial time by a deterministic Turing machine.}
+\item{NP (Non-deterministic Polynomial) is the class of problems that can be verified in polynomial time by a deterministic Turing machine or solved in polynomial time by a non-deterministic Turing machine.}
+\item{the NP-hard class are at least as hard as the hardest NP problem;} 
+\item{the NP-complete set is the intersection of NP and NP-hard problems, these are the hardest problems in NP;} 
+\item{the coNP class if the complement of all NP problems, for each problem in NP there exists a problem in coNP but 'yes' and 'no' instances are reversed.}
+\end{itemize}
+
+For a visualisation of these sets see figure \ref{fig:npsets}.
+
+Problems in P are considered feasible and those in NP-complete are infeasible as their complexity scales exponentially with respect to the input size and as it is assumed they cannot be solved in polynomial time ($P \neq NP$).\footnote{We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.} Anything above polynomial time takes too long from complexity theory's point of view.
+
+So when saying sudoku is hard this actually means sudoku belongs to NP-complete. Sudoku cannot be just proven to belong to NP as this also includes problems in P, it must be proven to be one of the hardest problems in NP.\footnote{Due to Ladner's Theorem there exists problem $\in$ NP but $\not\in$ NP-complete and $\not\in$ P iff $P\neq NP$, these problems are called NP-intermediate.}
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=70mm]{figures/np.drawio.png}
+	\end{center}
+	\caption{An illustration of complexity sets P, NP, NP-complete \& NP-hard sets\label{fig:npsets}}
+\end{figure}
+
+\subsection{Proving NP Completeness}
+
+If a problem is NP-complete it is difficult but how does one show that a problem belongs to this class? 
+
+Call the problem we wish to prove is NP-complete $x$.
+
+The set of NP-complete problems are defined as members of both the set of NP problems and the set of NP-hard problems. 
+
+First show there exists a verifier for $x$ with a polynomial or less runtime, this is a algorithm that decides if a proposed solution to problem $x$ is correct. This proves $x\in$ NP.
+
+The hard part comes from showing $x\in$ NP-hard. The NP-hard class is defined as at least as hard as the hardest NP problem, this requires a comparison between problems. Problems can be compared to each other through a reduction as follows.
+
+\noindent\rule{4cm}{0.4pt}
+
+\textbf{Def$^\text{n}$:} A \textbf{Reduction}, $A \leq_p B$, is a transformation in polynomial time ($O(x^c)$) from problem set $A$ to problem set $B$. The converse applies for $A\geq_p$B; there exists a transformation in polynomial time from $A$ to $B$.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -193,54 +239,30 @@ See figure \ref{ndtm} and figure \ref{dtm} for a comparison between these two ve
 	\caption{\label{fig:reduction}A$\leq_p$B}
 \end{figure}
 
-This author finds the reduction concept to be understood best when visualised as in \ref{fig:reduction}. The transformation (represented by the blue funnel) takes all problems in $A$ and maps them to a corresponding problem in $B$ such that all the transformed $A$ is now a subset of $B$. From this perspective the similarities between $\leq$ and $\leq_p$ are more apparent as the set of $B$ will always be as large or larger than $A$, it can even be thought of as a difficulty comparison of $A\leq_p B$ is the same as saying $B$ is as difficult as $A$ or has greater difficulty.
+This author finds the reduction concept to be understood best when visualised as in figure \ref{fig:reduction}. The transformation (represented by the blue funnel) takes all problems in $A$ and maps them to a corresponding problem in $B$ such that all the transformed $A$ is now a subset of $B$. From this perspective the similarities between $\leq$ and $\leq_p$ are more apparent as the set of $B$ will always be as large or larger than $A$, it can even be thought of as a difficulty comparison of $A\leq_p B$ is the same as saying $B$ is as difficult as $A$ or has greater difficulty.
 
-\subsection{Sets of Difficulty} 
+This comparison notion allows the proof to be completed.
 
-We care about decision problems, these are problems that given an input produce a 'yes' or 'no' answer. We will discuss three sets of these problems:
-\begin{itemize}
-\item{P (Polynomial) is the the class of problems that can be solved in polynomial time by a deterministic Turing machine;}
-\item{NP (Non-deterministic Polynomial) is the class of problems that can be verified in polynomial time by a deterministic Turing machine or solved in polynomial time by a non-deterministic Turing machine;}
-\item{the NP-hard class are at least as hard as the hardest NP problem;} 
-\item{the NP-complete set is the intersection of NP and NP-hard problems, these are the hardest problems in NP;} 
-\item{the coNP class if the complement of all NP problems, for each problem in NP there exists a problem in coNP but the True and False instances are reversed.}
-\end{itemize}
+\noindent\rule{4cm}{0.4pt}
 
-Problems in P are considered feasible and those in NP-complete are infeasible as their complexity scales exponentially with respect to the input size and as it is assumed they cannot be solved in polynomial time ($P \neq NP$) and are therefore infeasible for large inputs. \footnote{We can only assume that $P\neq NP$ as this problem is yet to be proven, it is in fact one of the Millennium Prize problems.}
+So take a known NP-complete problem call this $y$, and reduce it to $x$, one does this by transforming the input of $y$ to the input of $x$ in polynomial time, call this function $g: y\rightarrow x$. Assume there exists a polynomial time algorithm to solve $x$, $f$, then $y$ coule be solved in polynomial time too, $f(g(y))$. If the reduction exists then $x$ is at least as hard as $y$ and as $y$ is NP-hard then $x$ is at least as hard as the hardest question in NP meaning $x \in$ NP-hard.
 
-So when we state sudoku is hard we are actually saying sudoku belongs to NP-complete. We cannot just prove sudoku belongs to NP as this also includes problems in P. \footnote{Due to Ladner's Theorem there exists problem $\in$ NP but $\not\in$ NP-complete and $\not\in$ P iff $P\neq NP$, these problems are called NP-intermediate.}
-
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics{figures/np.drawio.png}
-	\end{center}
-	\caption{An illustration of complexity sets P, NP, NP-complete \& NP-hard sets}
-\end{figure}
-
-\subsection{Proving NP completeness?}
-
-Call the problem we wish to prove is NP-complete $x$.
-
-The set of NP-complete problems are defined as members of both the set of NP problems and the set of NP-hard problems. 
-
-First show there exists a verifier for $x$ with a polynomial or less runtime, this is a algorithm that decides if a proposed solution to problem $x$ is correct. This proves $x\in$ NP.
-
-Then take a known NP-complete problem call this $y$, and reduce it to $x$, one does this by transforming the input of $y$ to the input of $x$ in polynomial time, we call this function $g: y\rightarrow x$. Assume there exists a polynomial time algorithm to solve $x$, $f$, then we could solve $y$ in polynomial time too, $f(g(y))$. Therefore if the reduction exists then $x$ is at least as hard as $y$ and as $y$ is NP-complete then $x$ is at least as hard as the hardest question in NP meaning $x \in$ NP-hard.
-
-Therefore $x\in $ NP-complete.
+Therefore, $x\in $ NP-complete.
 
 \subsection{The First NP-complete Problem} 
 
-If, as the above suggests, we require a NP-complete problem to prove a problem is NP-complete then we seem to have reached a paradox. Luckily we have the Cook-Levin Theorem.
+If, as the above suggests, an NP-complete problem is required to prove a problem is NP-complete then a stalemate has been reached. Luckily there is the Cook-Levin Theorem.
 
-\textbf{Cook-Levin Theorem:} SAT is NP-Complete. \cite{compcomplexityamodernapproach}
+\textbf{Cook-Levin Theorem}\cite{compcomplexityamodernapproach}: SAT is NP-Complete.
+
+This introduces a new problem named SAT, to understand the problem some terminology must be introduced.
 
 \textbf{Terminology}:
 \begin{itemize}
-\item Boolean Variable: a variable that can can be true or false ($a=T$ or $a=F$).
+\item Boolean variable: a variable that can can be true or false ($a=T$ or $a=F$).
 \item Literal: a boolean variable or it's negation (if $a = T$ then its negation $\neg a = F$).
 \item $\land$: an operation that outputs true when all operands are true, false otherwise ($a\land b = T$ iff $a=T$ and $b=T$).
-\item $\lor$: an operation that outputs true when at least one operand is true, false otherwise ($a\lor b = T$ iff $a=T$ or $b=T$).
+\item $\lor$: an operation that outputs true when at least one operand is true, false otherwise ($a\lor b = F$ iff $a=F$ or $b=F$).
 \item Clause: multiple literals operated on by $\lor$s, a set of clauses are joined by $\land$s.
 \item Truth Assignment : assignment of true and false values to each boolean variable. 
 \end{itemize}
@@ -275,64 +297,60 @@ $a$ & $b$ & $c$ & $(a\lor b \lor c \lor \neg c)$ & $(a \lor c)$ & $(\neg a\lor b
 \caption{\label{satex}An example of a SAT clause set with all possible truth assignments explored and valid assignments highlighted.}
 \end{table}
 
-We now have a NP-complete problem to reduce other problems to.
+Now there is an NP-complete problem to reduce the sudoku problem to.
 
 \subsection{Examples}
 
-Let's start putting complexity into the context of sudoku. The input is a grid of size $n\times n$ ($n=D^2$), we will investigate an algorithms run time in comparison to this variable.
+Before the proof of sudoku's complexity it is important to understand complexity theory in the context of sudoku with example algorithms. The input is a puzzle $p$ of size $n\times n$ ($n=m^2$), the algorithm's run time is a function of this variable.
 
-\textbf{Constant time, $O(1)$:} This includes functions that take the same time no matter the input size, for example accessing the value of a cell in the sudoku grid, even as the grid increases in size, grid(x,y) takes constant time.
+\textbf{Constant time, $O(1)$:} This includes functions that take the same time no matter the input size, for example accessing the value of a cell in the sudoku grid, even as the puzzle increases in size, $p(x,y)$ takes constant time.
 
-\textbf{Linear time, $O(n)$:} Consider a function that when given a grid and a grid coordinate $(x,y)$ outputs a boolean value; true if the value of the grid at this coordinate is valid (does not repeat in the row, column or box) and false otherwise. Let's consider the inner workings of the function: 
+\textbf{Linear time, $O(n)$:} Consider a function that when given a puzzle and a cell $(x,y)$ outputs a boolean value; true if the value of the puzzle at this cell is valid (does not repeat in the row, column or box) and false otherwise. Consider the inner workings of the function: 
 \begin{itemize}
-\item First we assume the comparison between two values takes a single unit of time $O(1)$
-\item We must compare the value at the given coordinate with each value on the row, observe this is performed $n-1$ times and therefore this operation takes $O(n)$ time.
-\item We then compare the value at the given coordinate with each value on the column, as per the previous argument this has complexity $O(n)$.
-\item Finally we compare the value with the remainder of the box value that have not been compared previously, this takes $n-(\sqrt{n}-1)-(\sqrt{n}-1)-1= n-2\sqrt{n}+1$ comparison operations which has a complexity of $O(n)$.
+\item First assume the comparison between two values takes a single unit of time $O(1)$
+\item A comparison of the value at the given cell with each value on the row must be made, observe this is performed $n-1$ times and therefore this operation takes $O(n)$ time.
+\item Then compare the value at the given coordinate with each value on the column, as per the previous argument this has complexity $O(n)$.
+\item Finally compare the value with the remainder of the box value that have not been compared previously, this takes $n-(\sqrt{n}-1)-(\sqrt{n}-1)-1= n-2\sqrt{n}+1$ comparison operations which has a complexity of $O(n)$.
 \end{itemize}
 Overall this function takes $(n-1)+(n-1)+(n-2\sqrt{n}+1) = 3n -2\sqrt{n}-1$ comparisons and therefore calculates the boolean variable in linear time ($O(n)$). See algorithm \ref{alg:validentry}.
 
 \begin{algorithm}
-\caption{Validate an Entry}\label{alg:validentry}
+\caption{Validate an Entry\label{alg:validentry}}
 \begin{algorithmic}
-\Procedure{ValidateEntry}{grid, (x,y), n}
-	\For{i = 1 to n} \Comment{Check column}
-		\If{i $\neq$ x}
-			\If{grid(i,y) = grid(x,y)}
+\Procedure{ValidateEntry}{$p$, $(x,y)$, $n$}
+	\For{$i$ = 1 to $n$} \Comment{Check column}
+		\If{$i \neq x$}
+			\If{$p(i,y) = p(x,y)$}
 				\State{return False}
 			\EndIf
 		\EndIf
 	\EndFor
-	\For{i = 1 to n} \Comment{Check row}
-		\If{i $\neq$ y}
-			\If{grid(x,i) = grid(x,y)}
+	\For{$i$ = 1 to $n$} \Comment{Check row}
+		\If{$i \neq y$}
+			\If{$p(x,i) = p(x,y)$}
 				\State{return False}
 			\EndIf
 		\EndIf
 	\EndFor
-	\For {i = 1 to $\sqrt{n}$} \Comment{Check box}
-		\For {j = 1 to $\sqrt{n}$}
-			\If {x DIV $\sqrt{n}$ + i = x and y DIV $\sqrt{n}$ + j = y} 
-				\If{grid(x DIV $\sqrt{n}$ + i, y DIV $\sqrt{n}$ + j) = grid(x,y)}
+	\For {$(i,j)\in$ B$k$ where $(x,y)\in$B$k$} \Comment{Check box}
+			\If {$p(i,j) = p(x,y)$} 
 					\State{return False}
-				\EndIf
 			\EndIf
-		\EndFor \Comment{DIV refers to integer division e.g. 7 DIV 3 = 2}
 	\EndFor
 	\State{return True}
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Polynomial time, $O(n^t)$}: Consider a function that when given a partially complete sudoku grid returns true if the grid is valid, otherwise it returns false. Using the linear time algorithm we just described we can repeat this for every value within the grid. See algorithm \ref{alg:valid}.
+\textbf{Polynomial time, $O(n^t)$}: Consider a function that when given a partially complete sudoku grid returns true if the grid is valid, otherwise returns false. Using the linear time algorithm just described repeated it for every value within the grid. See algorithm \ref{alg:valid}.
 
 \begin{algorithm}
-\caption{Validate a Grid}\label{alg:valid}
+\caption{Validate a Grid\label{alg:valid}}
 \begin{algorithmic}
-\Procedure{Validate}{grid,  n}
-	\For{i = 1 to n} \Comment{Loop through all (i,j) pairs to validate all squares of the grid}
-		\For{j = 1 to n} 
-			\If{ValidateEntry(grid, (i,j), n) = False}
+\Procedure{Validate}{$p$,  $n$}
+	\For{$i$ = 1 to $n$} \Comment{Loop through all $(i,j)$ pairs to validate all squares of the grid}
+		\For{$j$ = 1 to $n$ }
+			\If{ValidateEntry($p$, $(i,j)$, $n$) = False}
 				\State{return False}
 			\EndIf
 		\EndFor
@@ -342,26 +360,26 @@ Overall this function takes $(n-1)+(n-1)+(n-2\sqrt{n}+1) = 3n -2\sqrt{n}-1$ comp
 \end{algorithmic}
 \end{algorithm}
 
-We call ValidateEntry $n^2$ times so the complexity is $O(n\times n^2) = O(n^3)$ this is polynomial and therefore still considered feasible as $n$ increases. 
+ValidateEntry is called $n^2$ times so the complexity is $O(n\times n^2) = O(n^3)$ this is polynomial and therefore still considered feasible as $n$ increases. 
  
-\textbf{Exponential time, $O(a^n)$}: Consider a brute force algorithm to solve sudoku, all we need to do is cycle through values 1 to n for all squares rejecting those that create an invalid sudoku grid and outputting a valid grid if one is found, otherwise false if the sudoku cannot be solved. See algorithm \ref{alg:bruteforce}.
+\textbf{Exponential time, $O(a^n)$}: Consider a brute force algorithm to solve sudoku. Cycle through values 1 to $n$ for all cells rejecting those that create an invalid sudoku grid and outputting a valid grid if one is found, otherwise false if the sudoku cannot be solved. See algorithm \ref{alg:bruteforce}.
 
 \begin{algorithm}
-\caption{Brute Force Sudoku Solver} \label{alg:bruteforce}
+\caption{Brute Force Sudoku Solver\label{alg:bruteforce}} 
 \begin{algorithmic}
-\Procedure{BruteForceSolve}{grid, n}
-	\If{grid is complete}
-		\If{Validate(grid) = True}
-			\State{return grid}
+\Procedure{BruteForceSolve}{$p$, $n$}
+	\If{$p$ is complete}
+		\If{Validate($p$) = True}
+			\State{return $p$}
 		\Else
 			\State{return False}
 		\EndIf
 	\EndIf
 	\State{(x,y) = location of first empty cell in grid}
-	\For{i = 1 to n}
-		\State{grid(x,y) = i}
-		\If{BruteForceSolve(grid, n) $\neq$ False}
-			\State{return grid}
+	\For{$i$ = 1 to $n$}
+		\State{$p(x,y) = i$}
+		\If{BruteForceSolve($p$, $n$) $\neq$ False}
+			\State{return $p$}
 		\EndIf
 	\EndFor
 	\State{return False}
@@ -369,22 +387,22 @@ We call ValidateEntry $n^2$ times so the complexity is $O(n\times n^2) = O(n^3)$
 \end{algorithmic}
 \end{algorithm}
 
-This algorithm refers to itself, this is called recursion and shall be explored further in chapter 4 when we discussion solving techniques. For now let us see explore this specific algorithm; 
+This algorithm refers to itself, this is called recursion and shall be explored further in chapter 4 when other solving techniques are discussed. The complexity is computed as follows. 
 \begin{itemize}
-\item Assume we only have 1 empty square then we try the values 1 to $n$ and for each we check if the grid is valid, this takes $O(n\times n^3)$.
-\item Now assume we have 2 empty squares we try 1 to $n$ and for every option we have to do the same as the first bullet point which takes $O(n\times n \times n^3)$.
-\item A pattern forms, for every empty square we must times the complexity by $n$, we have at most $n^2$ empty squares so the upper bound is $O(n^{n^2+3})$.
+\item Assume there is only 1 empty cell. Try the values 1 to $n$ and for each check if the grid is valid, this takes $O(n\times n^3)$.
+\item Now assume there is 2 empty cells, try 1 to $n$ and for every option do the same as the first bullet point which takes $O(n\times n \times n^3)$.
+\item A pattern forms, for every empty square times the complexity by $n$, we have at most $n^2$ empty squares so the upper bound is $O(n^{n^2+3})$.
 \end{itemize}
-This algorithm has a complexity that is a bit above exponential as the base is dependent on $n$ too however it is not quite factorial complexity so we will call it exponential. This is infeasible for large values of $n$ and does not belong to P. So solving sudoku is hard, case closed - not quit, this is only one example   of a sudoku solver there may exist more efficient algorithms so we need to disprove this. \footnote{BogoSort is a sorting algorithm that randomises a list until it is in the correct order, this has an unbounded run time, but there exists sorting algorithms with complexity $O(n\text{log}n)$. \textbf{CITE}} 
+This algorithm has a complexity that is a bit above exponential as the base is dependent on $n$ too however it is not quite factorial complexity so we will call it exponential. This is infeasible for large values of $n$ and does not belong to P. So solving sudoku is hard, case closed - not quite, this is only one example of a sudoku solver there may exist more efficient algorithms so this needs to be disproved. \footnote{BogoSort is a sorting algorithm that randomises a list until it is in the correct order, this has an unbounded run time, but there exists sorting algorithms with complexity $O(n\text{log}n)$. See Chapter 4 of \cite{heineman2016algorithms} for a thorough discussion of sorting algorithms.} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Existence is Hard}
 		
-Checking if a solution to sudoku exists is NP-complete, let us define the decision problem:
+Now onto the proof, define the decision problem:
 
 		\begin{equation}
-		        \Phi (S) = \begin{cases}
+		        \Phi (p) = \begin{cases}
 		            \text{True if a completion exists} \\
 		            \text{False if a completion does not exist}.
 				\end{cases}
@@ -397,9 +415,7 @@ return True if it can be solved and False otherwise.
 
 \textbf{Proof Outline}
 
-The verifier must be shown to be $\in$ P, this means the Sudoku decision problem belongs to the set NP.
-
-Then we need a reduction from sudoku to a known NP-complete problem to prove sudoku is also NP-hard. We will be creating a chain of reductions: \textbf{Sudoku $\geq_p$ Latin Square $\geq_p$ Triangulated Tripartite $\geq_p$ 3SAT $\geq_p$ SAT}. This chain can be seen in figure \ref{fig:sudokureduction}, this visualisation emphasises the direction of the reduction as it is important that the set of sudoku problems has 3SAT as a subset (schieved through the transitivity of sets). If we can solve all sudoku problems and 3SAT transforms to a subset of sudoku then it is intuitive that we can solve 3SAT. The same cannot be said if sudoku was transformed to a subset of 3SAT as being able to solve sudoku does not help with the 3SAT problems existing outside of the sudoku transformation subset.  
+The verifier must be shown to be $\in$ P, this means the Sudoku decision problem belongs to the set NP. Then a reduction from sudoku to a known NP-complete problem proves sudoku is also NP-hard. A chain of reductions will be used to simplify the reduction process: \textbf{Sudoku $\geq_p$ Latin Square $\geq_p$ Triangulated Tripartite $\geq_p$ 3SAT $\geq_p$ SAT}. This chain can be seen in figure \ref{fig:sudokureduction}, this visualisation emphasises the direction of the reduction as it is important that the set of sudoku problems has 3SAT as a subset (achieved through the transitivity of sets). If it is possible to solve all sudoku problems and 3SAT transforms to a subset of sudoku then it is intuitive that it is possible to solve 3SAT. The same cannot be said if sudoku was transformed to a subset of 3SAT as being able to solve sudoku does not help with the 3SAT problems existing outside of the sudoku transformation subset. Once this is proven the Sudoku decision problem is a member of NP and NP-hard it is NP-complete by definition.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -408,22 +424,19 @@ Then we need a reduction from sudoku to a known NP-complete problem to prove sud
 	\caption{\label{fig:sudokureduction}}
 \end{figure}
 
-As the Sudoku decision problem is a member of NP and NP-hard it is NP-complete by definition.
-
-\textbf{Note}: Theoretically any problem in the set NP-complete can be reduced to Sudoku and therefore this reduction is not unique, however, it is the most intuitive way. Some readers may question why we are not looking at a reduction to a Graph
-$n^2$-Colouring problem but in section \textbf{cite} we explore this is the wrong direction of reduction.
+\textbf{Note}: Theoretically any problem in the set NP-complete can be reduced to Sudoku and therefore this reduction is not unique, however, it is the most intuitive way. Some readers may question why the reduction to Graph Colouring is not being used problem but later on in this chapter it is shown this is the wrong direction of reduction.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Verification is Easy}
 
-Given a sudoku grid $S$, we have an algorithm to determine:
+Given a sudoku grid $p$, there exists an algorithm to determine:
 		\begin{equation}
-			\Psi(S) = \begin{cases}	
+			\Psi(p) = \begin{cases}	
 				\text{True if the puzzle is complete} \\
 				\text{False if the puzzle is not complete}.
 			\end{cases}
 		\end{equation}
-This algorithm is an extension of algorithm \ref{alg:valid} from the complexity examples, we simply add a for loop to the end to check that $\forall S(i,j) \neq 0 $, in other words there are no empty cells. To find the complexity algorithm we add $n^2$ to the complexity of the original validation algorithm, giving $O(n^2+n^3)=O(n^3)$. This is polynomial time, therefore $\Psi\in $P.
+This algorithm is an extension of algorithm \ref{alg:valid} from the complexity examples, simply add a for loop to the end to check that $\forall S(i,j) \neq 0 $, in other words there are no empty cells. To find the complexity algorithm add $n^2$ to the complexity of the original validation algorithm, giving $O(n^2+n^3)=O(n^3)$. This is polynomial time, therefore $\Psi\in $P.
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sudoku $\geq_p$ Latin Square}
 
@@ -435,15 +448,13 @@ This algorithm is an extension of algorithm \ref{alg:valid} from the complexity 
 \end{itemize}
 It is complete or solved if for all $i,j \in \{1,...,D\}$, $L(i,j) \neq 0$.
 
-By observation we see this is a superset of the sudoku puzzle, we just add the restrictions that the dimension must be a square number and also add the third property of the sudoku puzzle definition.
-
-\textit{What is the Latin Square decision problem?} Given a latin square puzzle $L(,)$, can the function be augmented, by changing only the value of the function for value pairs $i,j$ that previously gave $L(i,j) =0$, to get a complete latin square puzzle?
+\textit{What is the Latin Square decision problem?} Given a latin square puzzle $L$, can the function be augmented, by changing only the value of the function for value pairs $i,j$ that previously gave $L(i,j) =0$, to get a complete latin square puzzle?
 
 \noindent\rule{4cm}{0.4pt}
 
-\textit{Proof idea:} We must reduce a given latin square grid of size $D \times D$ to a sudoku grid size $D^2 \times D^2$ that is solvable iff the Latin square is.
+\textit{Proof idea:} Reduce a given latin square grid of size $D \times D$ to a sudoku grid size $D^2 \times D^2$ that is solvable iff the Latin square is.
 
-\textbf{Lemma:} From \cite{sls}: let $S_l$ be a Sudoku problem with the following construction 
+\textbf{Lemma:} (from \cite{sls}) let $S_l$ be a Sudoku problem with the following construction 
 \begin{equation}
 	S_l(i,j) =\begin{cases}
 0 \qquad\qquad\qquad\qquad\qquad\qquad\text{when } (i,j) \in L_s \\ 
@@ -452,7 +463,7 @@ By observation we see this is a superset of the sudoku puzzle, we just add the r
 \end{equation}
 where $L_s=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod }n)=1\}$. Then there exists an augmentation $S_l'$ to complete the sudoku puzzle if and only if the square $L$ such that $L(i,j/n)=S_l'(i,j)-1/n+1$ for all $(i,j) \in L_s$ is a Latin square.
 
-\textbf{Note:} The fact we have a formula to generate a valid sudoku for any size $D^2$ is interesting and we should explore if this can be done for a $M\times N$ sudoku too. (explored in section 3). Figure \ref{formula} gives examples of generated sudokus from this formula.
+Figure \ref{formula} gives examples of generated sudokus from this formula.
 
 \begin{figure}[h]
 \centering
@@ -489,7 +500,7 @@ where $L_s=\{(i,j)| \left\lfloor{i-1/n}\right\rfloor=0 \text{ and }(j \text{ mod
 
 \textit{Proof:}
 
-First we must show $S_l(i,j)=((i-1 \text{ mod } n)n + \left\lfloor{i-1/n}\right\rfloor+j-1)\text{ mod } n^2 +1$ forms a complete and valid sudoku puzzle.
+First show $S_l(i,j)=((i-1 \text{ mod } n)n + \left\lfloor{i-1/n}\right\rfloor+j-1)\text{ mod } n^2 +1$ forms a complete and valid sudoku puzzle.
 
 When $i=[1,...,n^2]$ then:
 \begin{align}
@@ -514,10 +525,10 @@ When i is fixed (particular column) assume two cells have the same value, that i
 
 For the third condition fix $\left\lfloor{i-1/n}\right\rfloor$. (i-1 \text{ mod } n,j) takes all value pairs of integers 0 to n-1 so if a cell has the same value as another within the n by n square $S_l(i,j)=S_l(i',j')$ implying $(i-1 \text{ mod }n,j)=(i'-1 \text{ mod } n,j')$ which means $i=i'$ and $j=j'$. Therefore $S_l$ is a valid and complete sudoku puzzle.
 
-Now consider which integers fill the blanks in $L_s$. For $(i,j)\in L_s$, $S_l(i,j)-1= ((i-1 \text{ mod } n)n+j-1)\text{ mod } n^2$ as $j mod n=1$, $j-1modn=0$ therefore $S_l(i,j)-1$ is divisible by n so $S_l-1/n+1$ gives integers between $[1,...,n]$.
+Now consider which integers fill the blanks in $L_s$. For $(i,j)\in L_s$, $S_l(i,j)-1= ((i-1 \text{ mod } n)n+j-1)\text{ mod } n^2$ as $j \text{ mod } n=1$, $j-1\text{ mod }n=0$ therefore $S_l(i,j)-1$ is divisible by n so $S_l-1/n+1$ gives integers between $[1,...,n]$.
 Therefore $L(i,j) \in [0,...,n]$.
 
-We must validate the Latin square conditions. The row constraint in $S_l$ ensures $S'(i,j)=S'(i,j') \implies j=j'$, $S'(i,j)-1/n+1=S'(i,j')-1/n+1 \implies j=j'$, $L(i,j/n)=S'(i,j'/n) \implies j=j'$ is equivalent to the row constraint of L. The column constraint of $S_l$ is equivalent to the column constraint of L. The small square constraint of $S_l$ is equivalent to the column constraint of L. $\square$
+Now to validate the Latin square conditions. The row constraint in $S_l$ ensures $S'(i,j)=S'(i,j') \implies j=j'$, $S'(i,j)-1/n+1=S'(i,j')-1/n+1 \implies j=j'$, $L(i,j/n)=S'(i,j'/n) \implies j=j'$ is equivalent to the row constraint of L. The column constraint of $S_l$ is equivalent to the column constraint of L. The small square constraint of $S_l$ is equivalent to the column constraint of L. $\square$
 
 \subsection{Latin Square $\geq_p$ Triangulate A Tripartite Graph}
 
@@ -531,11 +542,11 @@ If a tripartite graph can be triangulated it must be uniform, that is: every ver
 
 \noindent\rule{4cm}{0.4pt}
 
-\textbf{Theorem:} From \cite{lsttg}: completing a Latin square with dimensions n by n is equivalent to triangulating a tripartite graph $G= V_1, V_2, V_3$.
+\textbf{Theorem:} (from \cite{lsttg}) completing a Latin square with dimensions n by n is equivalent to triangulating a tripartite graph $G= V_1, V_2, V_3$.
 
 \textit{Proof:} 
 
-Intuitively, we map a graph to a Latin square $L$ through the following: 
+Intuitively, a graph is mapped to a Latin square $L$ through the following: 
 given tripartite graph G=(V,E) label vertices in $V_1$ with distinct labels $\{r_1,...r_n\}$, label vertices in $V_2$ with distinct labels $\{c_1,...c_n\}$ and label vertices in $V_3$ with distinct labels $\{e_1,...e_n\}$. Add edges such that:
 \begin{itemize}
 \item{If $L(i,j) = 0$ then add the edge $(r_i,c_j)$ }
@@ -544,7 +555,7 @@ given tripartite graph G=(V,E) label vertices in $V_1$ with distinct labels $\{r
 \end{itemize}
 This graph has a triangulation iff $L(i,j)$ can be solved.
 
-Let us show every uniform tripartite graph can be transformed to the above formulation of a Latin square.
+Now show every uniform tripartite graph can be transformed to the above formulation of a Latin square.
 
 \begin{figure}[h!]
 \centering
@@ -562,7 +573,7 @@ Let us show every uniform tripartite graph can be transformed to the above formu
 \caption{The Latin Square is equivalent to the Tripartite Graph.}
 \end{figure}
 
-First we need a generalisation of a latin square
+First a generalisation of a latin square is required.
 
 \textbf{Def$^n$}: A Latin framework LF for tripartite graph G, size (r,s,t) is a r by s array with values [1,...,t]. With constraints:
 \begin{itemize}
@@ -571,16 +582,15 @@ First we need a generalisation of a latin square
 \item{If $(r_i,e_k)\in E$  then $\forall j$ $LF(i,j)\neq k$}
 \item{If $(c_j,e_k)\in E$  then $\forall i$ $LF(i,j)\neq k$}
 \end{itemize}
-If r=s=t then LF is a latin square (formulation above) which can be completed iff G has a triangle partition.
+If r=s=t then LF is a latin square (formulation above) which can be completed if and only if G has a triangle partition.
 
 \textbf{Lemma}: For tripartite graph G=(V,E) with $|V_1|=|V_2|=|V_3|=n$ (uniform), there's a Latin framework of (n,n,2n).
 
 \textit{Define LF an n by n array. For $(r_i,c_j)\in E$ $LF(i,j)=0$ else $LF(i,j)=1+n+((i+j)\text{ mod }n)$. LF is a latin framework as the first two bullet points of the definition hold by construction and as $1+n\leq LF(i,j)\leq 2n$ LF will never equal a value in $1,...n$ and therefore the last two bullet points hold. The size is trivial. $\square$}
 
-\textbf{Lemma}: Given latin framework LF(n,n,2n) for uniform tripartite graph G, we can extend the latin framework to have size
-(n,2n,2n).
+\textbf{Lemma}: Given latin framework $LF(n,n,2n)$ for uniform tripartite graph G, we can extend the latin framework to have size $(n,2n,2n)$.
 
-\textit{First we have a few denotations: R(k) = the number of times k appears in L plus half $|e_k|$; $S_i=\{k|k \not\in LF(i,j) \forall j \cap (r_i,e_k)\not\in E\}$; $M=\{k|R(k)=r+s-t\}$. We show sets $S_1,...S_r$ have a system distinct representative (\textbf{DEFINE}) containing all elements of $M$, we then add this system as the $(s+1)$st column and repeat until we have $2n$ columns.}
+\textit{First have a few notations: R(k) = the number of times k appears in L plus half $|e_k|$; $S_i=\{k|k \not\in LF(i,j)\forall j$ $ \cap$ $ (r_i,e_k)\not\in E\}$; $M=\{k|R(k)=r+s-t\}$. Show sets $S_1,...S_r$ have a system distinct representative  containing all elements of $M$, then add this system as the $(s+1)$st column and repeat until we have $2n$ columns.}
 
 \textit{Using Hoffman and Kuhn's theorem \cite{hoffman} we need only show that $S_1,...S_r$ have a system distinct representative and that for every $M'\subseteq M$ at least $|M'|$ of sets $S_1,...S_r$ have non empty subsections with $M'$.}
 
@@ -588,15 +598,15 @@ If r=s=t then LF is a latin square (formulation above) which can be completed if
 
 \textit{Next take $M'\subseteq M$ and assume there are $p$ sets in $S_1,...S_r$ that have a nonempty intersection with $M'$. Each set has $t-s$ elements and together have cardinality $p(t-s)$, each element of $M$ appears in exactly $r-(r+s-t)=t-s$ of the $s_i$s, therefore $|M'|(t-s)\leq p(t-s)$ so $|M'|\leq p$. At least $|M'|$ sets have nonempty intersections with $M'$.}
 
-\textit{The Hoffman and Kuhn theorem holds and therefore a system distinct representative exists and can be added to the end. We repeat this n times.} $\square$
+\textit{The Hoffman and Kuhn theorem holds and therefore a system distinct representative exists and can be added to the end. Repeat this n times.} $\square$
 
 \textbf{Lemma}: Latin framework (n,2n,2n) for grpah G, can be extended to (2n,2n,2n).
 
-\textit{We can transpose the array and do the same as the previous lemma. $\square$}
+\textit{Transpose the array and do the same as the previous lemma. $\square$}
 
-\textbf{Note}: we can find a system distinct representative using the Hopcroft-Karp \cite{hopcroft} algorithm which solves bipartite matching in polynomial time. 
+\textbf{Note}: Find a system distinct representative using the Hopcroft-Karp \cite{hopcroft} algorithm which solves bipartite matching in polynomial time. 
 
-Given a tripartite graph G, if it is not uniform then no triangulation exists, else we apply above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed iff G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
+Given a tripartite graph G, if it is not uniform then no triangulation exists, else apply the  above to produce a latin framework of size (2n,2n,2n) in polynomial time. This is a Latin square which can be completed if and only if G has a triangulation. The latin square problem has been reduced to the triangulating a tripartite graph problem. $\square$
 
 \subsection{Triangulated Tripartite $\geq_p$ 3SAT}
 
@@ -613,7 +623,7 @@ This decision problem is therefore an enforced limitation of SAT as defined in t
 
 \textit{Proof:}
 
-This reduction is a little trickier as we need to introduce the Holyer graph $H$ from \cite{holyer}, this graph has the topology of torus.
+This reduction is a little trickier as it required the introduction of the Holyer graph $H$ from \cite{holyer}, this graph has the topology of torus.
 
 \textbf{Def$^n$}: The Holyer graph $H_{3,p}$ is the set of vertices $V=\{(x_1,x_2,x_3)\in \mathbb{Z}_p^3 \| x_1+x_2+x_3 \equiv 0 (mod p)\}$ and an edge exists between vertices $(x_1,x_2,x_3)$ and $(y_1,y_2,y_3)$ if distinct i,j and k exist such that:
 \begin{itemize}
@@ -654,9 +664,9 @@ This graph is tripartite if and only if $p\equiv 0 $ (mod 3), this is demonstrat
 		\label{truefalsetri}
 \end{figure}
 
-\textbf{Note:} We connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
+\textbf{Note:} Connect graphs together by taking a set of vertices in $G_1$ and making them the 'same' as a set of vertices in $G_2$, sets are the same size.
 
-\textbf{Def$^n$}: We will connect out graph with F-patches and T-patches, see figure \ref{patches}. 
+\textbf{Def$^n$}: Graphs are connected with F-patches and T-patches, see figure \ref{patches}. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -666,7 +676,7 @@ This graph is tripartite if and only if $p\equiv 0 $ (mod 3), this is demonstrat
 		\label{patches}
 \end{figure}
 
-Let's turn an instance of 3SAT into an instance of triangulating a tripartite graph through the following transformation process: (select p large enough to prevent patch overlap and  $p\equiv 0 $ (mod 3))
+Turn an instance of 3SAT into an instance of triangulating a tripartite graph through the following transformation process: (select p large enough to prevent patch overlap and  $p\equiv 0 $ (mod 3))
 \begin{itemize}
 \item For $b_i\in B$ create $H_{3,p}$ called $G_{b_i}$.
 \item For all $c_j\in C$, for each literal $l_{i,j}$ $j\in [1,2,3]$ create $H_{3,p}$ called $G_{i,j}$.
@@ -674,7 +684,7 @@ Let's turn an instance of 3SAT into an instance of triangulating a tripartite gr
 \item For each $i$ connect one F-patch from each $G_{i,1}$, $G_{i,2}$ and $G_{i,3}$ then delete the centre triangle. 
 \item $G = \{G_{b_i}$ $|$ $b_i \in B\}\cup\{G_{i,j}$ $|$ $ c_j\in C\text{ and }i\in [1,..,3] \}$
 \end{itemize}
-We now need to prove the graph produced by this transformation can be triangulated if and only if there is a truth assignment satisfying the 3SAT formula.
+Now to prove the graph produced by this transformation can be triangulated if and only if there is a truth assignment satisfying the 3SAT formula.
 
 Assume a triangulation of G exists, consider a H within the construction of G. H is either a true triangulation or a false triangulation. Now assume $l_{i,j}$ is $b_k$ and consider the join between $G_{i,j}$ and $G_{b_k}$ as this joins two F-patches we get at least one true triangulation: if $G_{i,j}$ is a true triangulation this accounts for all edges near the joining patch but the actual patch can be attributed to $G_{b_k}$ which can be triangulated either way; if both are false triangulations the connecting patch is forced to belong to both $G_{i,j}$ and $G_{b_k}$ which is a contradiction. (Figure \ref{holyerone})
 
@@ -697,7 +707,7 @@ Similarly if  $l_{i,j}=\neg b_i$ then $G_{i,j}$ is a false triangulation or $G_{
 \label{holyertwo}
 \end{figure}
 
-Next the join between clause graphs allow for one false triangulation and the rest  are true triangulations. As the centre of the patch is missing a single $G_{i,j}$ must take the outer edges of the patch by being a false triangulation. (Figure \ref{holyerthree})
+Next the join between clause graphs allow for one false triangulation and the rest are true triangulations. As the centre of the patch is missing a single $G_{i,j}$ must take the outer edges of the patch by being a false triangulation. (Figure \ref{holyerthree})
 
 \begin{figure}[h!]
 \begin{center}
@@ -723,9 +733,9 @@ Given a truth assignment $t$ check each clause is satisfied, if all are satisfie
 Given a SAT instance with the input sets of $B$ and $C$. $C$ is in conjunctive normal form (every clause set can be converted to an equivalent set in CNF form ) such that $\forall c \in C$ and for some $b_1, ... ,b_n \in B$, $c = b_1 \lor b_2
 \lor ... \lor b_n$. For each $c \in C$ with more than 3 literals we can transform these to a new set of clauses of length 3.
 
-For $c = b_1 \lor b_2 \lor ... \lor b_n$ we introduce a new literal: $a_1$ to give $b_1 \lor b_2 \lor a_1$, $\bar{b_1} \lor a_1$, $\bar{b_2} \lor a_1$ and $a_1 \lor b_3 \lor ... \lor b_n$. Then $a_1 \lor b_3 \lor ... \lor b_n$ becomes $b_3 \lor b_4 \lor a_2$, $\bar{b_3} \lor a_2$, $\bar{b_4} \lor a_2$ and $a_1 \lor a_2 \lor b_5 \lor ... \lor b_n$. This continues at most $n/2$ times to give $a_1 \lor ... \lor a_{n/2}$ or $a_1 \lor ... \lor a_{n/2} \lor b_n$ if n is odd.
+For $c = b_1 \lor b_2 \lor ... \lor b_n$ introduce a new literal: $a_1$ to give $b_1 \lor b_2 \lor a_1$, $\bar{b_1} \lor a_1$, $\bar{b_2} \lor a_1$ and $a_1 \lor b_3 \lor ... \lor b_n$. Then $a_1 \lor b_3 \lor ... \lor b_n$ becomes $b_3 \lor b_4 \lor a_2$, $\bar{b_3} \lor a_2$, $\bar{b_4} \lor a_2$ and $a_1 \lor a_2 \lor b_5 \lor ... \lor b_n$. This continues at most $n/2$ times to give $a_1 \lor ... \lor a_{n/2}$ or $a_1 \lor ... \lor a_{n/2} \lor b_n$ if n is odd.
 
-Because we can convert a clause larger than 3 into multiple clauses of at most 3 literals in linear time ($O(n/2 + n/4 + ...) = O(n)$) this means we can reduce SAT to 3SAT in polynomial time.
+Because a clause larger than 3 can be converted into multiple clauses of at most 3 literals in linear time ($O(n/2 + n/4 + ...) = O(n)$) this means SAT is reduced to 3SAT in polynomial time.
 
 As SAT is NP-complete by the Cook-Levin Theorem, this proves 3SAT is NP-Complete. $\square$
 		
@@ -746,26 +756,26 @@ $\Phi\in $ NP-hard as an instance of SAT can be reduced to an instance of 3SAT i
 
 As $\Phi\in$ NP and $\Phi\in$ NP-hard, $\Phi\in$ NP-complete. $\square$
 
-Determining if a sudoku grid $S$ has a completion is suspected hard and infeasible for large $D$.
+Determining if a sudoku grid $p$ has a completion is suspected hard and infeasible for large $n$.
 
 \subsection{Sudoku $\leq_p$  Graph Colouring}
 
-When reducing sudoku to a graph problem the obvious thought is to change it to a $D^2$-colouring which we also know to be NP-complete. Unfortunately, this is the incorrect way round, while all sudokus can be turned into a $D^2$-colouring problem it is not immediately obvious how to change all 9 colouring problems into the input of the sudoku decision problem. 
+When reducing sudoku to a graph problem the obvious thought is to change it to a graph colouring which is known to be NP-complete. Unfortunately, this is the incorrect reduction direction, while all sudokus can be turned into a graph colouring problem it is not immediately obvious how to change all colouring problems into the input of the sudoku decision problem. 
 
-To transform a grid $S$ to sudoku:
+To transform a grid $p$ to a graph colouring problem:
 \begin{itemize}
 \item For each cell of the grid we create a vertex; $\forall i,j\in D^2$ create vertex $v_{i,j}$, giving $D^4$ vertices in total.
-\item Create edges such that: for each $i$ $(v_{i,j},v{i.k})\in E$; for each $j$ $(v_{i,j},v{k.j})\in E$ and for $\lfloor\frac{i-1}{D}\rfloor\equiv\lfloor\frac{k-1}{D}\rfloor$ and $\lfloor\frac{j-1}{D}\rfloor\equiv\lfloor\frac{l-1}{D}\rfloor$, $(v_{i,j},v_{k,l})\in E$.
+\item Create edges such that: for each $i$ $(v_{i,j},v{i,k})\in E$; for each $j$ $(v_{i,j},v{k,j})\in E$ and for $\lfloor\frac{i-1}{D}\rfloor=\lfloor\frac{k-1}{D}\rfloor$ and $\lfloor\frac{j-1}{D}\rfloor=\lfloor\frac{l-1}{D}\rfloor$, $(v_{i,j},v_{k,l})\in E$.
 \item Then for all $D^2$ colours assign a numerical value and for all $S(i,j)\neq 0$ assign the $v_{i,j}$ the colour associated with value $S(i,j)$.
 \end{itemize}
 
-Now all sudoku problems can be converted to a $D^2$- colouring problem in polynomial time and since we have proven sudoku is NP-complete as long as $D^2$- colouring has a polynomial verifier (which is trivial to check) then it is also NP-complete.  
+Now all sudoku problems can be converted to a $D^2$- colouring problem in polynomial time and since sudoku is NP-complete as long as $D^2$- colouring has a polynomial verifier (which is trivial to check) then it is also NP-complete.  
 
 This emphasises the importance of the reduction direction, it is easy to transform a problem in P to a problem in NP in polynomial time (it is easy to make something more complicated than it needs to be) but the other way round has not yet been done. 
 
 \subsection{Dimension Analysis}
 
-The large string of reductions performed to change a SAT instance into a Sudoku instance can shroud the link between the two as the proofs are somewhat flamboyant, let us abstract the proofs away and focus on the change in size of the SAT instance to a Sudoku instance. Note that this is not conclusive as from definition of NP-complete class we know there is multiple ways to create a reduction and one may be more efficient than what we have described, but it is interesting to visit the problem from a view of space complexity (the memory used when computing a result).
+The large string of reductions performed to change a SAT instance into a Sudoku instance can shroud the link between the two as the proofs are somewhat flamboyant. Now to abstract the proofs away and focus on the change in size of the SAT instance to a Sudoku instance. Note that this is not conclusive as from definition of NP-complete class there is multiple ways to create a reduction and one may be more efficient than what has been described, but it is interesting to visit the problem from a view of space complexity (the memory used when computing a result).
 
 A SAT instance with $A$ clauses and $B$ variables is transformed into a 3SAT instance with $A + 3a$ clauses and $B+a$ variables where $a=\Sigma_{c\in C'}|c|-3$, $C'=\{c\in C | |c|>3\}$. 
 
@@ -781,16 +791,16 @@ In summation, a SAT instance of $A$ clauses and $B$ variables becomes a sudoku i
 
 \section{Solving Sudoku is Hard}
 
-We have only focused on decision problems with a boolean yes or no answer so far, but, when it comes to being given a sudoku most people assume it is solvable and then search for a solution so let us change the perspective to search problems; is it hard to solve sudoku? 
+Decision problems with a boolean yes or no answer have been focused on so far, but, when it comes to being given a sudoku most people assume it is solvable and then search for a solution so a change in perspective to search problems is in order. Is it hard to solve sudoku? 
 
 \begin{equation}
 \Gamma(S) =  S' \text{ if $\exists$ a completed $S$ else 0}
 \end{equation}
 Where $S'$ is a completed version of $S$.
 
-It is intuitive that the search problem is harder than the decision problem but let's quantify this into the concepts of P and NP. If $P \neq NP$ then both are infeasible to solve as the search problem is harder than an NP-complete decision problem. However, we have hope, if $P=NP$ the corresponding search problem to an NP decision problem $\Gamma$ can be solved in polynomial time. 
+It is intuitive that the search problem is harder than the decision problem but let's quantify this into the concepts of P and NP. If $P \neq NP$ then both are infeasible to solve as the search problem is harder than an NP-complete decision problem. However, there is hope hope, if $P=NP$ the corresponding search problem to an NP decision problem $\Gamma$ can be solved in polynomial time. 
 
-\textbf{Theorem}: From \cite{compcomplexityamodernapproach}. Suppose $P=NP$ then for every problem $\rho\in$ NP there exists a polynomial time Turing Machine $T$ that on input $x$ where $\rho(x)=True$ will output a certificate of $x$.
+\textbf{Theorem}: (from \cite{compcomplexityamodernapproach) Suppose $P=NP$ then for every problem $\rho\in$ NP there exists a polynomial time Turing Machine $T$ that on input $x$ where $\rho(x)=True$ will output a certificate of $x$.
 
 \textbf{Note:} A certificate in complexity theory refers to a solution path of the decision problem, here it is a completed sudoku grid that is the augmented version of the input. 
 
@@ -814,40 +824,41 @@ This decision problem belongs to the class called Difference Polynomial Time (DP
 				\end{cases}
 		\end{equation}
 
-We can reformulate the definition of $\Gamma$ to immediately show $\Gamma\in$ DP. Instead of saying uniqueness is satisfied by all sudoku grids that have a single solution, we can say it is all sudoku grids that have a solution minus all sudoku grids that have at least two solutions; this is the same as $\Delta = \Phi \cap \bar{\Upsilon}$ when $\Upsilon$ is the problem satisfied by sudokus that have at least two solutions. We know already $\Phi\in$ NP now we must show $\Upsilon$ is in NP which is easily done; when given a sudoku and two or more solutions it is easy to verify these separately (as shown in Verification is Easy).$\bar{\Upsilon}$ is satisfied by sudokus with one or no solution and is in coNP by definition. Therefore the intersection of $\Phi$ and $\bar{\Upsilon}$ gives $\Delta$, this formulation is exactly what is needed for $\Gamma\in$ DP.
+The definition of $\Gamma$ can be reformulated to immediately show $\Gamma\in$ DP. Instead of saying uniqueness is satisfied by all sudoku grids that have a single solution it can be rephrased to all sudoku grids that have a solution minus all sudoku grids that have at least two solutions; this is the same as $\Delta = \Phi \cap \bar{\Upsilon}$ when $\Upsilon$ is the problem satisfied by sudokus that have at least two solutions. It is known already $\Phi\in$ NP now to show $\Upsilon$ is in NP which is easily done; when given a sudoku and two or more solutions it is easy to verify these separately (as shown in Verification is Easy).$\bar{\Upsilon}$ is satisfied by sudokus with one or no solution and is in coNP by definition. Therefore the intersection of $\Phi$ and $\bar{\Upsilon}$ gives $\Delta$, this formulation is exactly what is needed for $\Gamma\in$ DP.
 
 The complexity of DP is unknown\cite{dphardness}. 
 
 \section{Discussion}
-		
+	
+So sudoku is suspected to be hard and all other problems in NP-complete can be reduced to sudoku. This is a great result as it puts a lot of power in the hands of those studying sudoku, as soon as an efficient algorithm is found then all other NP-complete problems can be efficiently solved. Banks and security engineers take advantage of the difficulty of NP-complete problems and use them to encrypt information. So technically as soon as sudoku is efficiently solved banks can be easily robbed and messages on the internet snooped on. But for now this result just means that spending over a day on a sudoku puzzle is justified.
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 
 \chapter{Solving Techniques}
-Chapter 2 showed it is hard to solve sudoku, yet a quick google search will yield many websites that do the exactly that. We take this chapter to explore how we go about designing optimising and ensuring mathematical rigor in the solution algorithms.
+Chapter 2 showed it is hard to solve sudoku, yet a quick google search will yield many websites that do the exactly that. This chapter explores how to go about designing, optimising and ensuring mathematical rigor in the solution algorithms.
 \section{Pencil Solutions}
-Taking a human approach we shall see if this sheds any light on the problem.
+First a human approach to solutions is taken to see if this sheds any light on the problem.
 
 Given an incomplete sudoku puzzle $p\in P_n$ how does one go about completing this.
 
-The easiest technique to observe and implement is coined a Forced cell. Given an empty cell ($p(x,y)=0$) in C$x$ R$y$ B$z$ this cell is forced if the set $F=\{1,...,n\} / \{$ C$x$ $\cup$ R$y$ $\cup$ B$z$ $\}$ has only one element. This is to say $p(x,y)$ has only one valid value other than 0. 
+The easiest technique to observe and implement is coined a \textbf{Forced cell}. Given an empty cell ($p(x,y)=0$) in C$x$ R$y$ B$z$ this cell is forced if the set $F=\{1,...,n\} / \{$ C$x$ $\cup$ R$y$ $\cup$ B$z$ $\}$ has only one element. This is to say $p(x,y)$ has only one valid value other than 0. 
 
 The remining techniques require pencil marks, that is for the average player, notes in each of remaining candidates ($F=\{1,...,n\} / \{$ C$x$ $\cup$ R$y$ $\cup$ B$z$ $\}$), usually only notes if less than 3 or 4 candidates exist. Denote the candidate set for the cell with C$x$ R$y$ B$z$ as $F_{x,y,z}$. $F_{\text{C}x} = \{F_{x,i,j}|i\in\{1,...,n\}, j \in \text{set of boxes C$x$ passes through}\}$, the corresponding definition for $F_{\text{R}x}$ and $F_{\text{B}x}$ applies.
 
-Hidden singles: when a value $v$ appears only in $F_{x,y,z}$ from $F_{\text{C}x}$ (or respectively row or box) this is the only possible place in that column (or row or box) for that value therefore $p(x,y)=v$. This can be extended to doubles, triples etc as when a subset of values of size $m$ occurs in only $m$ sets in $F_{\text{C}x}$ then those candidate cells are reduced to the subset of values.
+\textbf{Hidden singles}: when a value $v$ appears only in $F_{x,y,z}$ from $F_{\text{C}x}$ (or respectively row or box) this is the only possible place in that column (or row or box) for that value therefore $p(x,y)=v$. This can be extended to doubles, triples etc as when a subset of values of size $m$ occurs in only $m$ sets in $F_{\text{C}x}$ then those candidate cells are reduced to the subset of values.
 
-Pointing values: when a value $v$ appears $F_{\text{B}z}$ (repectively $F_{i,y,z}$) only in sets of form $F_{x,i,z}$  where $i\in \{1,...,n\}$ then all sets in $F_{\text{C}x}/F_{x,i,z}$ must have $v$ eliminated (repectively $F_{\text{R}y}/F_{i,t,z}$). If a candidate value within a box appears onlt in a single row (or column) then the rest of that row (or column), outside of the box, cannot have that candidate value.
+\textbf{Pointing values}: when a value $v$ appears $F_{\text{B}z}$ (respectively $F_{i,y,z}$) only in sets of form $F_{x,i,z}$  where $i\in \{1,...,n\}$ then all sets in $F_{\text{C}x}/F_{x,i,z}$ must have $v$ eliminated (respectively $F_{\text{R}y}/F_{i,t,z}$). If a candidate value within a box appears only in a single row (or column) then the rest of that row (or column), outside of the box, cannot have that candidate value.
 
-X wing: when a value $v$ appears in four remaining candidate sets such that: two belong to $F_{\text{C}x_1}$, two belong to $F_{\text{C}x_2}$, two belong to $F_{\text{R}y_1}$ and two belong to $F_{\text{R}y_2}$. Then $v$ cannot appear in any other candidate sets for columns C$x_1$, C$x_2$ or rows R$y_1$, R$y_2$. There is a technique called the swordfish that extends this strategy to six cells over the four used here.\footnote{This author recommends the following video by Cracking the Cryptic if one endevours to learn the X wing technique: https://www.youtube.com/watch?v=gVT786t1Kjk}
+\textbf{X wing}: when a value $v$ appears in four remaining candidate sets such that: two belong to $F_{\text{C}x_1}$, two belong to $F_{\text{C}x_2}$, two belong to $F_{\text{R}y_1}$ and two belong to $F_{\text{R}y_2}$. Then $v$ cannot appear in any other candidate sets for columns C$x_1$, C$x_2$ or rows R$y_1$, R$y_2$. There is a technique called the swordfish that extends this strategy to six cells over the four used here.\footnote{This author recommends the following video by Cracking the Cryptic if one endevors to learn the X wing technique: https://www.youtube.com/watch?v=gVT786t1Kjk}
 
-Y wing: take a cell at C$x_1$ R$y_1$ with only two reminaing candidates, if there exists two more cells with two remaining candidates, one of which is in the first cells remaining candidates, the other being a set value $v$, one belonging to the column of the first cell, the other the row of the first cell(C$x_1$ R$y_2$, C$x_2$ R$y_1$). Then $v$ cannot occur in the remaing candidate set of the cell at C$x_2$ R$y_2$.\footnote{Similarly this author recommends this Cracking the Cryptic video on the Y wing technique: https://www.youtube.com/watch?v=PpHOknAnh4g}
+\textbf{Y wing}: take a cell at C$x_1$ R$y_1$ with only two remaining candidates, if there exists two more cells with two remaining candidates, one of which is in the first cells remaining candidates, the other being a set value $v$, one belonging to the column of the first cell, the other the row of the first cell(C$x_1$ R$y_2$, C$x_2$ R$y_1$). Then $v$ cannot occur in the remaining candidate set of the cell at C$x_2$ R$y_2$.\footnote{Similarly this author recommends this Cracking the Cryptic video on the Y wing technique: https://www.youtube.com/watch?v=PpHOknAnh4g}
 
-Ariadnes thread\footnote{Named for the mythological Greek princess who helped Theseus escape the maze of the Minotaur by giving him a ball of string allowing him to retrace his steps out of the maze.}: This final technique is one that is difficult for those using pen and paper to implement but is perfect for a computational approach and we will base out entire solution around this in the next section. Choose the cell with the least amount of elements in its remaining candidate set $F_{x,y,z}$, take the first element $v$ with the set to be the value for $p(x,y)$, work with the above techniques until a contradiction is found (the sudoku board is invalid) and remove $v$ from $F_{x,y,z}$. If no contradiction is found or no technique can be applied to the board it is up to the views of the player when they give up with value $v$. This is ultimately trial and error and is best to leave until last, some may find this an unsatisfying way to solve a sudoku as it lacks the elegance of the other techniques. 
-
+\textbf{Ariadne's thread}\footnote{Named for the mythological Greek princess who helped Theseus escape the maze of the Minotaur by giving him a ball of string allowing him to retrace his steps out of the maze.}: This final technique is one that is difficult for those using pen and paper to implement but is perfect for a computational approach and base the entire solution around this in the next section. Choose the cell with the least amount of elements in its remaining candidate set $F_{x,y,z}$, take the first element $v$ with the set to be the value for $p(x,y)$, work with the above techniques until a contradiction is found (the sudoku board is invalid) and remove $v$ from $F_{x,y,z}$. If no contradiction is found or no technique can be applied to the board it is up to the views of the player when they give up with value $v$. This is ultimately trial and error and is best to leave until last, some may find this an unsatisfying way to solve a sudoku as it lacks the elegance of the other techniques. 
 
 \section{Backtracking}
+
 Ask any first year student how to solve a sudoku puzzle and the backtracking algorithm will be mentioned within the first breath. One can expect to find this algorithm in a computer science algorithm course as an introduction to recursion, that is to say it is not a complex concept and while useful for the usual sizes of newspaper sudoku, as soon as there is an increase to $16 \times 16$ this becomes infeasible. An exploration of this method ensues.
 
-Recursion in terms of computer science is the concept of an algorithm calling itself. As mind bending as a solution using itself as the answer may it can easily be achieved through only two cases. The base case, the smallest version of the problem. And the recursive step, reducing the problem instance to a smaller version of itself. \footnote{The underlying theory of recursion is facinating and builds on Turing Machines seen previously, see \cite{salomaa1985computation} Chapter 4 for an introduction to the theory.}
+Recursion in terms of computer science is the concept of an algorithm calling itself. As mind bending as a solution using itself as the answer may it can easily be achieved through only two cases. The base case, the smallest version of the problem. And the recursive step, reducing the problem instance to a smaller version of itself. \footnote{The underlying theory of recursion is fascinating and builds on Turing Machines seen previously, see \cite{salomaa1985computation} Chapter 4 for an introduction to the theory.}
 
 One can observe the factorial function ($\Gamma$) as a recursive function. The base case $\Gamma(1)=1$, the recursive step $\Gamma(n)=n\times \Gamma(n-1)$.
 
@@ -860,7 +871,9 @@ The Sierpinski triangle is a more visual version of this, see figure \ref{fig:si
 		\caption{Sierpinski Triangles of degree 3,2 and 1\label{fig:sieptri}}
 \end{figure}
 
-How does recursion serve to solve sudoku. The non deterministic Turing Machine can help with this.
+How does recursion serve to solve sudoku? Given a sudoku $p$, the base case is a complete sudoku, return the grid if it is valid, otherwise return nothing. The recursive case is where the complexity explodes, if $p$ is of size $n\times n$ and $p(i,j)=0$ for some $(i,j)$ then we instantiate $n$ versions of itself each with a $p(i,j)=v$ $\forall v \in \{1,..,n\}$. 
+
+This brute force algorithm is helpful in other ways too, as all combinations of values are tried in each empty cell this can be used to check all option to determine uniqueness by simply adapting the algorithm to count the valids instead of halting.
 
 \begin{algorithm}
 \caption{Backtracking}
@@ -887,28 +900,28 @@ How does recursion serve to solve sudoku. The non deterministic Turing Machine c
 \end{algorithmic}
 \end{algorithm}
 
-Why does brute force not work for larger examples? It will work but due to the complexity of the problem (point back to sudoku is hard chapter) it is infeasible.
+Why does brute force not work for larger examples? It will work but due to the complexity of the problem it is infeasible, as calculated in chapter 2 the $O(n^{n^2})$ . \footnote{Recursion depth problems may actually impact the brute force algorithm such that it wouldnt work on any system.}
 
-Many optimisations can be made and it will be used later on in 6 by 6 enumeration, but it is not a silver bullet, optimisations cannot be continually applied until it is feasible. To get a flavour of what optimisations can be made:
+Many optimisations can be made and it will be used later on in 6 by 6 enumeration, but it is not a silver bullet, optimisations cannot be continually applied until it is feasible. To get a flavour of what optimisations can be made: only valid values for cell $(i,j)$ cause an instantiation; implementation of the pencil solutions between each cell assignment and even the order of filling in $(i,j)$ can affect run time.
 
 \section{Simulated Annealing} 
 
-If computer scientists were to accept defeat on these NP-complete problems then many peoples lives would be a lot different. Routing on Google maps certainly would not be available as it is an implementation of a solution to the Travelling Salesman Problem (TSP) $\in$ NP-complete. The TSP is a search for the shortest route between two cities. So there must be a way to solve these problems. Unfortunately, there is no solution so instead there are approximations and stochastic methods. Simulated annealing is the stochastic method studied here but there exist a lot of others that do the same thing in various forms such as A* search and the partical swarm optimisation \cite{}. Simulated annealing stands out from the other methods as it essentially launched the field of stochastic optimisation. \cite{} It is named after heat treatment process in metallurgy \cite{}, as this algorithm has a concept of temperature. The algorithm searches a discrete set for a global minimum by escaping local minima through probabilistic methods.
+If computer scientists were to accept defeat on these NP-complete problems then many peoples lives would be a lot different. Routing on Google maps certainly would not be available as it is an implementation of a solution to the Travelling Salesman Problem (TSP) $\in$ NP-complete\cite{Applegate2006}. The TSP is a search for the shortest route between two cities. So there must be a way to solve these problems. Unfortunately, there is no solution so instead there are approximations and stochastic methods. Simulated annealing is the stochastic method studied here but there exist a lot of others that do the same thing in various forms such as A* search \cite{hart1968formal} and the particle swarm optimisation \cite{eberhart1995new}. Simulated annealing stands out from the other methods as it essentially launched the modeling of physical processes as stochastic optimisations. It is named after heat treatment process in metallurgy as this algorithm has a concept of temperature. The algorithm searches a discrete set for a global minimum by escaping local minima through probabilistic methods.
 
 Below is the formulation of the sudoku solving problem in terms of simulated annealing when puzzle $p$ is given.
 \begin{itemize}
 \item An initial state - $p$ augmented such that $\forall i,j$ where $p(i,j)=0$ reassign so $p(i,j)=x$ where $\forall v \in \{1,...,n\}$  $P(x=v)=\frac{1}{n}$.
-\item A finite set - all augmentations of $p$ such that $\forall i,j$ where $p(i,j)\neq0$ the value is unchanges. Call this $S$
-\item A cost function J -  this will be minimised and therefore must be 0 when the augmentation of p gives a valid sudoku. Here we define it as the amount of conflicts within a sudoku board. 
-\begin{equation}J=\sum_{i\in\{1,...,n\}}\sum_{j\in\{1,...,n\}}\sum_{k\in\{1,...,n\}/j} \mathbbm{1}\{p(i,j)=p(i,k)\}+\sum_{i\in\{1,...,n\}}\sum_{j\in\{1,...,n\}}\sum_{k\in\{1,...,n\}/i} \mathbbm{1}\{p(i,j)=p(k,j)\}+\sum_{i\in\{1,...,n\}}\sum_{j\in\{1,...,n\}}\sum_{(k,l)\in\text{B}x/(i,j)} \mathbbm{1}\{p(i,j)=p(k,l)\}\end{equation}
+\item A finite set - all augmentations of $p$ such that $\forall i,j$ where $p(i,j)\neq0$ the value is unchanged. Call this $S$
+\item A cost function J -  this will be minimised and therefore must be 0 when the augmentation of p gives a valid sudoku. Here we define it as the amount of conflicts within a sudoku board. Let $\mathbb{D}=\{1,...,n\}$
+\begin{eqnarray}J=&\sum_{i\in\mathbb{D}}\sum_{j\in\mathbb{D}}\sum_{k\in\mathbb{D}/j} \mathbbm{1}\{p(i,j)=p(i,k)\}\\+&\sum_{i\in\mathbb{D}}\sum_{j\in\mathbb{D}}\sum_{k\in\mathbb{D}/i} \mathbbm{1}\{p(i,j)=p(k,j)\}\\+&\sum_{i\in\mathbb{D}}\sum_{j\in\mathbb{D}}\sum_{(k,l)\in\text{B}x/(i,j)} \mathbbm{1}\{p(i,j)=p(k,l)\}\end{eqnarray}
 \item A set of neighbours for all $s\in S$. $s_1$ and $s_2$ are neighbours if there is exactly one value pair $(i,j)$ such that $s_1(i,j)=s_2(i,j)$.
 \item A cooling schedule $T:\mathbb{N}\rightarrow\mathbb{R}$.
 \end{itemize}
 
-The algorithm can be thought of as a markov chain $x(t)$ \cite{} whose evolution is outlined in the algorithm \ref{alg:simann}.
+The algorithm can be thought of as a markov chain $x(t)$ \cite{simulatedannealing} whose evolution is outlined in algorithm \ref{alg:simann}.
 
-\begin{algorithm}
-\caption{Simulated Annealing\label{alg:simann}\cite{simulatedannealing}}
+\begin{algorithm}[!h]
+\caption{Simulated Annealing\label{alg:simann}\cite{kirkpatrick1983optimization}}
 \begin{algorithmic}
 \Procedure{SimAnnealing}{$p$, $T$, $J$}
 	\State{$x(0)=p$}
@@ -930,11 +943,26 @@ The algorithm can be thought of as a markov chain $x(t)$ \cite{} whose evolution
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Convergence}
+The main idea of the cooling schedule is to give a high probability of escaping local minima towards the beginning of the runtime and a lower probability towards the end. There exists a lot of room for experimentation within this algorithm as the above formulation can have details changed as long as the properties remain, these are termed hyperparameters. Many explorations of optimum hyperparameters exist in the literature but there is no decisive method. Currently the formulation has not explicitly defined a cooling schedule so by consulting the literature this can be tuned, from \cite{kirkpatrick1983optimization} for some constant $d$ $T(t)=\frac{d}{\text{log}t}$ is in theory the most popular cooling schedule. 
 
+\subsection{Correctness}
+The idea of the algorithm makes intuitive sense but does it actually produce results and is it better than the brute force solution?
 
-discuss problems 
-Heuristics better
+\textbf{Def$^n$}: The optimal set is the set $S^\star$ such that $\forall s \in S^\star$ $J(s)=0$. 
+
+\textbf{Def$^n$}: $s$ communicates with $S^\star$ at height $h$ if $\exists$ a $s,s_1,s_2,...,s_n$ such that $s_i$ and $s_{i+1}$ are neightbours, $s_n\in S^\star$ and $\max_{i\in\{1,...,n\}}(J(s_i))\leq J(s)+h$. 
+
+\textbf{Theorem:} (Hajek, 1988 \cite{}) Let $d^\star$ be the smallest constant such that $\forall s\in S$ $s$ communicates with $S^\star$ at height $d^\star$, then algorithm \ref{alg:simann} converges if and only if 
+
+\begin{equation}\lim_{t\rightarrow\infty}T(t)=0 \text{ and } \sum^\infty_{t=1}e^{-\frac{d^\star}{T(t)}}=\infty.\end{equation} 
+
+Then by choosing an appropriate $T(t)$ we can ensure convergence to the optimal set, so in theory simulated annealing finds the correct solution. As previously stated $T(t)=\frac{d}{\text{log}t}$ is a popular cooling schedule, this is because if $d\geq d^\star$ then from the theorem simulated annealing converges.
+
+While the algorithm is correct the speed of convergence is not proven to be better than a randomised search of $S$. The only evidence for its use is experimental but with the original paper \cite{kirkpatrick1983optimization} being cited by 27000 papers, according to Google scholar as of April 2023, it is hard to argue with such popularity.
+
+\section{Discussion}
+
+The popular methods of solving sudoku still leave much to be desired. Simulated annealing in particular while not having much mathematical backing the field of stochastic optimisation algorithms still grows. This field is often termed artificial intelligence search leading to the question of whether AI, despite having little mathematical backing, should be used to solve these hard situations. For many the answer is no but for practical applications even if these algorithms do not give exact answers (TSP) they are helpful enough and put us on the right track.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \chapter{Enumeration is Hard}
@@ -950,7 +978,7 @@ Let us analyse Shidoku which is a specific set of sudokus with dimensions 4 by 4
 
 $x_4$ is the number of Shidoku squares.
 
-First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabellings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this way until we get to a reasonable search space.
+First we standardise B1 to have ordered cells, 1, 2 on R1, 3,4 on R2. We can transform any Shidoku square's B1 to this standardised version through a relabeling (e.g. $1 \mapsto 2$, $2\mapsto 3$ etc). There exists 4! relabelings so we must multiple the amount of Shidoku squares with this standardised B1 by 4! to get the true value. We will continue working this way until we get to a reasonable search space.
 
 \begin{equation}
 x_4 = 4!\times x_a
@@ -1071,15 +1099,15 @@ Observe that the last three shidokus squares are not in fact unique, we can tran
 \label{fig:shidokutransformation}
 \end{figure}
 
-Ultimately, we only have two completely unique shidokus. One of these shidokus has 192 others equivalent and the other 96 this can be seen from the final step of the enumeration, three shidokus are found each wiith 96 corresponding equivalents but we can reduce three to two combining the equivalents. This shows the amount of equivalent shidokus is dependent on the shidoku square and not all symmetries produce a valid shidoku that hasnt been seen before.
+Ultimately, we only have two completely unique shidokus. One of these shidokus has 192 others equivalent and the other 96 this can be seen from the final step of the enumeration, three shidokus are found each with 96 corresponding equivalents but we can reduce three to two combining the equivalents. This shows the amount of equivalent shidokus is dependent on the shidoku square and not all symmetries produce a valid shidoku that hasn't been seen before.
 
-We have answered two interesting questions about shidoku through a singular analysis however this will not apply for the larger cases. Let us generalise the use of symmetries and equivlance relations into a way to count the truely unique shidokus.
+We have answered two interesting questions about shidoku through a singular analysis however this will not apply for the larger cases. Let us generalise the use of symmetries and equivalence relations into a way to count the truly unique shidokus.
 
 \noindent\rule{4cm}{0.4pt}
 
 \textbf{Unique}
 
-Let us take a group theory approach. We define a Shidoku Symmetry as a map from the set of Shidoku boards to itself. There is two type which we shall explore. Relabeling symmetries, $x\mapsto y$, change the labels within the shidoku so that all cells with label $x$ change to $y$, set $R_4$ defines all such symmetries. Structural symmetries describe movements of cells, there are many such moves so we shall define possible symmetries and then condense these into the necessary minial generators of this set. We name the set $S_4$. The entire set of symmetries is formed from the cartesian product of these sets as we can combine them to get further symmetries (as seen above where we transform a sudoku using a reflection and a relabeling), $G_4=S_4\times R_4$.
+Let us take a group theory approach. We define a Shidoku Symmetry as a map from the set of Shidoku boards to itself. There is two type which we shall explore. Relabeling symmetries, $x\mapsto y$, change the labels within the shidoku so that all cells with label $x$ change to $y$, set $R_4$ defines all such symmetries. Structural symmetries describe movements of cells, there are many such moves so we shall define possible symmetries and then condense these into the necessary minimal generators of this set. We name the set $S_4$. The entire set of symmetries is formed from the cartesian product of these sets as we can combine them to get further symmetries (as seen above where we transform a sudoku using a reflection and a relabeling), $G_4=S_4\times R_4$.
 
 Which manipulations of the cells within the Shidoku board map to another valid shidoku board? 
 \begin{itemize}
@@ -1118,13 +1146,13 @@ Group & Order & Orbits\\
 
 \textbf{Burnside's Lemma:} For a thorough overview of this result see \cite{analysis and applications of burnsides lemma jenny jin}, an account and analysis that this author found very useful. For a finite group $G=G_4$ acting on the set $S$ of shidoku boards we have $S/G_4$ denoting the set of orbits of $S$. 
 \begin{equation} |S/G_4|=\frac{1}{|G_4|}\sum_{g\in G_4}|S^g|\end{equation}
-where $|S^g|$ is the set of all elements in $S$ that are unchanged by element $g$ acting upon it. In english this means we can count the orbits of the shidoku symmetries acting on the set of shidoku boards (how many distinct shidokus exist) by calculating the avergae of the boards left unchanged by each element of the symmetry group. 
+where $|S^g|$ is the set of all elements in $S$ that are unchanged by element $g$ acting upon it. In english this means we can count the orbits of the shidoku symmetries acting on the set of shidoku boards (how many distinct shidokus exist) by calculating the average of the boards left unchanged by each element of the symmetry group. 
 
-Now we are going to change the idea of invariance a bit but it will not change its underlying meanin, only how we interact with it and use it in this context. We can view all elements of the symmetry group as a structual symmetry action followed by a relabling action so a board $s\in S$ is invariant if for $g\in S_4$ and $h\in H_4$, $h(g(s))=s$ or $g(s)=h^{-1}(s)$ as $H_4 $ is a group, $h^{-1}\in H_4$. So with the maths asside we can observe invariance through the lens of just the structural symmetries. A shidoku board $b\in S$ if invariant under structural symmetry $x$ if there exists a  relabeling symmetry $r\in R_4$ such that $r$ can undo the action $x$.
+Now we are going to change the idea of invariance a bit but it will not change its underlying meaning, only how we interact with it and use it in this context. We can view all elements of the symmetry group as a structural symmetry action followed by a relabling action so a board $s\in S$ is invariant if for $g\in S_4$ and $h\in H_4$, $h(g(s))=s$ or $g(s)=h^{-1}(s)$ as $H_4 $ is a group, $h^{-1}\in H_4$. So with the maths aside we can observe invariance through the lens of just the structural symmetries. A shidoku board $b\in S$ if invariant under structural symmetry $x$ if there exists a  relabeling symmetry $r\in R_4$ such that $r$ can undo the action $x$.
 
-Obsereve we minimise calculations by choosing a minimal symmetry group (order 192) and as the invariance concept allows focus on the structural symmetries we minimise this to. So we choose to use $\langle s,t \rangle \times S_4$ from \ref{table:groups}.
+Observe we minimise calculations by choosing a minimal symmetry group (order 192) and as the invariance concept allows focus on the structural symmetries we minimise this to. So we choose to use $\langle s,t \rangle \times S_4$ from \ref{table:groups}.
 
-Another way to minimise calcultions is to find conjugacy classes, as for conjugacy class C if $a\in C$ and $a$ is invariatn, that is there exists $r\in R_4$ such that$ra(B)=B$ then all elements conjugate to a such that $b=gag^{-1}$ for $g\in H_4$ are also invairnat. We get this from teh following, note elements of $R_4$ commute with elements of $H_4$ and from ra(B)=B, $r=a^{-1}$:
+Another way to minimise calculations is to find conjugacy classes, as for conjugacy class C if $a\in C$ and $a$ is invariant, that is there exists $r\in R_4$ such that$ra(B)=B$ then all elements conjugate to a such that $b=gag^{-1}$ for $g\in H_4$ are also invairnat. We get this from the following, note elements of $R_4$ commute with elements of $H_4$ and from ra(B)=B, $r=a^{-1}$:
 \begin{eqnarray}
 rb(B)&=&rgag^{-1}(B)\\
 &=&grag^{-1}(B)\\
@@ -1145,7 +1173,7 @@ We can prove invariance by considering fixing relationships between structure an
 \end{itemize}
 These are easy to verify through observation but if you require a solid proof go to \cite{minimal complete shidoku symmetry groups pg 10}.
 
-We have all we need to calculate the Burnside Lemma table \ref{table:burnside}. A brief discussion: as s fixes R1 and R2 this cannot be invariant as the fixing lemmas suggest r would be the identity relabeling but $s(b)\neq b$; stst fixes B1 so the same reasoning applies and st ... As for t, the relabelling must be such that the main diagonal in B1 remains the same (so 1 and 4 are unchanges when the standardised B1 configuration is used) and the other two cells in B1 are flipped ($2\mapsto 4$). Observe in \ref{fig:transpose} there are only two shidoku squares that are invariant under a transpose and the proposed relabeling. The identity element of course preserves all shidoku boards.
+We have all we need to calculate the Burnside Lemma table \ref{table:burnside}. A brief discussion: as s fixes R1 and R2 this cannot be invariant as the fixing lemmas suggest r would be the identity relabeling but $s(b)\neq b$; stst fixes B1 so the same reasoning applies and st ... As for t, the relabelling must be such that the main diagonal in B1 remains the same (so 1 and 4 are unchanged when the standardised B1 configuration is used) and the other two cells in B1 are flipped ($2\mapsto 4$). Observe in \ref{fig:transpose} there are only two shidoku squares that are invariant under a transpose and the proposed relabeling. The identity element of course preserves all shidoku boards.
 
 \begin{figure}[h]
 \centering
@@ -1204,9 +1232,9 @@ Emphasis own work
 
 We follow a similar strategy to count the rudoku boards, however the literature on this is limited and this author provides the enumeration calculations. 
 
-The first move is alwasy the easiest, we standardise B1. Reducing the search space by 9!.  $x_6=9!\times x_a$
+The first move is always the easiest, we standardise B1. Reducing the search space by 9!.  $x_6=9!\times x_a$
 
-The R1 will be seperated into two cases coined pure and mixed. A pure R1 consists of B1 $\cap$ R2 in a single box (B2 $\cap$ R1 or B3 $\cap$ R1) and B1 $\cap$ R3 in the other. A mixed, like the name suggests has B2 $\cap$ R1 as an amalgamation of B1's R2 and R3. The pure case is simple, the first row consists of set $\{3,4\}$ $\{5,6\}$ which forces the sets in R2 and R3. The count is therefore $2^6$ for the different permutations of these sets multipled by 2 as B2 and B3 can be permuted. $2^7=128$
+The R1 will be separated into two cases coined pure and mixed. A pure R1 consists of B1 $\cap$ R2 in a single box (B2 $\cap$ R1 or B3 $\cap$ R1) and B1 $\cap$ R3 in the other. A mixed, like the name suggests has B2 $\cap$ R1 as an amalgamation of B1's R2 and R3. The pure case is simple, the first row consists of set $\{3,4\}$ $\{5,6\}$ which forces the sets in R2 and R3. The count is therefore $2^6$ for the different permutations of these sets multiplied by 2 as B2 and B3 can be permuted. $2^7=128$
 
 Mixed takes more consideration. R1 must be a permutation of sets has two choices $\{\{3,5\},\{4,6\}\}$ or $\{\{3,6\},\{4,5\}\}$. This forces 5,6 to be in R2 and 3,4 into R3 leaving 1,2 to be placed. Counting these decisions we get 2 for where we put 1 (forcing 2), 2 for which R1 set we take, 2 to flip B2 and B3 then $2^6$ to permute each of the sets. Overall we have $2\times 2 \times 2 \times 2^6=2^9=512$. 
 
@@ -1214,7 +1242,7 @@ S1 has $2^9+2^7=640$ possible completions. We now must count how many S2 complet
 
 \begin{equation}x_a = \sum^{640}_{i=1}b_i\end{equation}
 
-This will take a lot of computation power so let's simplify this further. Observe a completion of S1 has the same $b_i$ as the same completion of S1 but with B2 and B3 flipped, currently we compute this twice but this is a waste. We expand this idea further to permutation of R3-4 and R5-6. This means each board in the 640 completions has $2\times 2\times 2$ boards that are equivalent when columns and boxes are permuted. This limits the search space to $\frac{640}{8}=80$. In practise this means we do not allow some of teh choices described above. For the pure case we set R1 to be 1,2,3,4,5,6 leaving only $2^4=16$ choices. Then for the mixed we set R1 to be 1,2,3,5,4,6 or 1,2,3,6,4,5 leaving $2^5$ choices left and remember the choice between these two R1s so we get $2^6=64$. 
+This will take a lot of computation power so let's simplify this further. Observe a completion of S1 has the same $b_i$ as the same completion of S1 but with B2 and B3 flipped, currently we compute this twice but this is a waste. We expand this idea further to permutation of R3-4 and R5-6. This means each board in the 640 completions has $2\times 2\times 2$ boards that are equivalent when columns and boxes are permuted. This limits the search space to $\frac{640}{8}=80$. In practise this means we do not allow some of the choices described above. For the pure case we set R1 to be 1,2,3,4,5,6 leaving only $2^4=16$ choices. Then for the mixed we set R1 to be 1,2,3,5,4,6 or 1,2,3,6,4,5 leaving $2^5$ choices left and remember the choice between these two R1s so we get $2^6=64$. 
 
 \begin{equation}x_a=8\sum^{80}_{i=1}b_i\end{equation}
 
@@ -1262,11 +1290,11 @@ Now it is time to tackle the big one. The 9 by 9 sudoku is the largest board siz
 
 \textbf{How many?}
 
-We start as usual by standarising B1. This shrinks the search space by a factor of 9!. Then the usual technique takes place, find all possible S1 configurations, group them into sets that will have the same amount of completions for S2 and S3 then brute force the completions with an optimised algorithm.
+We start as usual by standardising B1. This shrinks the search space by a factor of 9!. Then the usual technique takes place, find all possible S1 configurations, group them into sets that will have the same amount of completions for S2 and S3 then brute force the completions with an optimised algorithm.
 
 To calculate the amount of possibilities for S1 we examine the pure and mixed case. The pure case uses the set  in B1 $\cup$ R2 ($\{4,5,6\}$) in either B2 $\cup$ R1 or B3 $\cup$ R1 and B1 $\cup$ R3 ($\{7,8,9\}$) in the other. This forces the sets in the other rows of S1. Counting these we get $3!^6$ for the permutations of each set and as we can switch P2 and P3 we multiply by two. There are $2\times 3!^6$ pure cases of S1. 
 
-The mixed case is a little more complicated. We first list the possible R1 $\cup$ B2 $\cup$ B3 options, see table \ref{table:mixed99}. This will set three values in the second and three in the third row leaving $\{1,2,3\}$ to be placed in the remaining cells. See diagram... Counting these we get $3\times3!^6$ for each configuration of the top row. Finally there are $9\times 2$ top row configurations from the table selecion and by swapping the P2 and P3. 
+The mixed case is a little more complicated. We first list the possible R1 $\cup$ B2 $\cup$ B3 options, see table \ref{table:mixed99}. This will set three values in the second and three in the third row leaving $\{1,2,3\}$ to be placed in the remaining cells. See diagram... Counting these we get $3\times3!^6$ for each configuration of the top row. Finally there are $9\times 2$ top row configurations from the table selection and by swapping the P2 and P3. 
 
 \begin{table}[!h]
 \begin{center}
@@ -1291,7 +1319,7 @@ $\{5,6,9\}$&$\{4,7,8\}$\\
 
 In total there are
 \begin{equation}2\times3!^6+18\times 3\times 3!^6 = 2612736\end{equation}
-S1 configerations with the standardised B1. This is an unreasonably large search space so we must reduce this like we have done previously through equivalence relations to discover which boards will have have the same amount of completions. 
+S1 configurations with the standardised B1. This is an unreasonably large search space so we must reduce this like we have done previously through equivalence relations to discover which boards will have have the same amount of completions. 
 
 Let us explore a few reductions.
 
@@ -1320,13 +1348,13 @@ Observe boards with different permutations of C4-6 have the same number of compl
 \end{figure}
 
 \textbf{Optimised Column Permutations and Relabelling}
-We have excluded B1 in the permutation above in order to preserve the standardised B1 labeling but note relabeling is a symmetry and we can still utilise this further to improve the search space ($r_1pr_2$). We permute C1-3, C4-6, C7-9 and B1-3 giving $3!\times 3!\times 3! \times 3!=1296$ possibly equivalent boards to be derived from a single board. We then we can relabel the new boards to again standardise B1. From \cite{}enumerating possible sudoku grids, page 4 we note this reduces the search space to 2051 boards. If each board had exactly 1296 equivalent boards we would have $\frac{2612736}{1296}= 2016$ boards in the search space \textbf{why dont we}.  We now have to catalog the amount of boards corresponding to each of the 2051 as, unlike the previous reduction, this reduction does not affect all boards equally.
+We have excluded B1 in the permutation above in order to preserve the standardised B1 labeling but note relabeling is a symmetry and we can still utilise this further to improve the search space ($r_1pr_2$). We permute C1-3, C4-6, C7-9 and B1-3 giving $3!\times 3!\times 3! \times 3!=1296$ possibly equivalent boards to be derived from a single board. We then we can relabel the new boards to again standardise B1. From \cite{}enumerating possible sudoku grids, page 4 we note this reduces the search space to 2051 boards. If each board had exactly 1296 equivalent boards we would have $\frac{2612736}{1296}= 2016$ boards in the search space \textbf{why dont we}.  We now have to catalogue the amount of boards corresponding to each of the 2051 as, unlike the previous reduction, this reduction does not affect all boards equally.
 
 \textbf{Permutations of S1 Rows}
-Taking a leaf out of the Optimised Column Permutations and Relabelling book we can apply this to the rows of sash 1. We do this by permuting the rows and relabeling B1 to it's standardised form. This gives each board another the possibility of having $3!$ more equivalent boards now giving a grand maximum of $1296\times 3!=7776$ eqivalent boards, of course this is not the case for every board as we discussed, otherwise we could have had a search space of $\frac{2612736}{7776}=336$ but we are not far off with the reduction coming out at 416 (from \cite{}enumerating possible sudoku grids, page 4).
+Taking a leaf out of the Optimised Column Permutations and Relabelling book we can apply this to the rows of sash 1. We do this by permuting the rows and relabeling B1 to it's standardised form. This gives each board another the possibility of having $3!$ more equivalent boards now giving a grand maximum of $1296\times 3!=7776$ equivalent boards, of course this is not the case for every board as we discussed, otherwise we could have had a search space of $\frac{2612736}{7776}=336$ but we are not far off with the reduction coming out at 416 (from \cite{}enumerating possible sudoku grids, page 4).
 
 \textbf{Reducing Twins}
-Twins are two values in C$n$ lying in R$x$ and R$y$ such that the values also lie in C$m$ in R$x$ and R$y$ where $n\neq m$. For example figure \ref{fig:twins} has values 1 and 4 in R1, R2, C1, C4. By the relabeling $1\mapsto 4$, $4\mapsto 1$ we get another board with the same amount of completions, that is to say the complete S2,3 are independent of the lables 1 and 4. This gives us another equivalence reduction. From \cite{}enumerating possible sudoku grids, page 5 we reduce the 416 equivalence classes to 174.
+Twins are two values in C$n$ lying in R$x$ and R$y$ such that the values also lie in C$m$ in R$x$ and R$y$ where $n\neq m$. For example figure \ref{fig:twins} has values 1 and 4 in R1, R2, C1, C4. By the relabeling $1\mapsto 4$, $4\mapsto 1$ we get another board with the same amount of completions, that is to say the complete S2,3 are independent of the labels 1 and 4. This gives us another equivalence reduction. From \cite{}enumerating possible sudoku grids, page 5 we reduce the 416 equivalence classes to 174.
 
 \begin{figure}[h!]
 \centering
@@ -1417,7 +1445,7 @@ Observe this can be expanded to larger subsets, see figure \ref{}. This uses 3 c
 \caption{\label{fig:twins}}
 \end{figure}
 
-Brilliant, S1 has been reduced to only 71 boards to search. However we still need to enumerate the solutions for each of these which is alot of searching and as we know from Chapter 2 finding a single solution isnt very efficient so counting how many exist is worse. Let us attempt to improve this. By using the exact same argument as S1 on P1 we get 2612736 completions which can be reduced to 36288 equivalence classes with 72 members. We can repeat the twins equivalence relation idea but \cite{} reason the search space has been reduced enough that the computation is feasible. 44 distinct counts.
+Brilliant, S1 has been reduced to only 71 boards to search. However we still need to enumerate the solutions for each of these which is a lot of searching and as we know from Chapter 2 finding a single solution isn't very efficient so counting how many exist is worse. Let us attempt to improve this. By using the exact same argument as S1 on P1 we get 2612736 completions which can be reduced to 36288 equivalence classes with 72 members. We can repeat the twins equivalence relation idea but \cite{} reason the search space has been reduced enough that the computation is feasible. 44 distinct counts.
 
 For algorithmic details consult \cite{}. This paper states the number of valid sudoku grids is 6,670,903,752,021,072,936,960 6 sextillion. This has been corroborated by the first discover of this number by \cite{} lin keh ying.
  
@@ -1433,35 +1461,37 @@ By considering only structural symmetries $S_9$ Russell in \cite{} computes a gr
 
 For the 275 classes fixed point lemmas can be used to reduce this number to 27, again by Russell in \cite{}.
 
-This is still going to leave a lot of hand computation so, as becomes second nature in this paper, it is the computers turn. By using a program known as GAP \cite{} on a permutation respresentation of the sudoku symmetries the invariant boards are counted for each conjugacy class. The average of each symmetrys count of invairant boards is taken which by Burnsides Lemma gives us the amount of unique sudoku boards. Russell states there exists 5472730538 boards. \cite{}
+This is still going to leave a lot of hand computation so, as becomes second nature in this paper, it is the computers turn. By using a program known as GAP \cite{GAP2021} on a permutation representation of the sudoku symmetries the invariant boards are counted for each conjugacy class. The average of each symmetry's count of invariant boards is taken which by Burnsides Lemma gives us the amount of unique sudoku boards. Russell states there exists 5472730538 boards. \cite{}
 
 While this uniqueness counting is not as elegant as those previously recounted, it emphasises the struggle for mathematics to keep us as the sudoku board size grows. The same struggle would be observed in computers if a large enough sudoku board was attempted.
 
 \section{Verification}
 
-Enumerating sudoku requires a computer to work through the laborious and trivial tasks described in this chapter. This is both a strength and a weakness of the computers place in modern mathematics. Previously this work would be enscribed in large notebooks by someone who enjoys monotonous work. Now hundreds of man hours become an hour of coding and pressing run. The improvement is mathematicians are freed up to explore new questions and leave the trivial to the machine but it also means there is a middle man between the mathematician and the answer, a middle man that may have created errors. Scepticism follows any computational proof, the pure nature of mathematics and logic sullied. This author, straddling the worlds of mathematics and computer science sees the merits of the machine but too feels the lack of satisfaction at the inelegance of the code. 
+Enumerating sudoku requires a computer to work through the laborious and trivial tasks described in this chapter. This is both a strength and a weakness of the computers place in modern mathematics. Previously this work would be inscribed in large notebooks by someone who enjoys monotonous work. Now hundreds of man hours become an hour of coding and pressing run. The improvement is mathematicians are freed up to explore new questions and leave the trivial to the machine but it also means there is a middle man between the mathematician and the answer, a middle man that may have created errors. Scepticism follows any computational proof, the pure nature of mathematics and logic sullied. This author, straddling the worlds of mathematics and computer science sees the merits of the machine but too feels the lack of satisfaction at the inelegance of the code. 
 
 A famous example of the conflict between mathematics and the computer is the proof of the Four Colour Theorem. The Theorem states: a map requires no more than four colours to colour it in such a way that no adjacent regions have the same colour. The idea of the proof being the mathematicians reduced the map possibilities and a computer then exhausts all possible colourings to confirm each instance only requires four colours. The proof was controversial no person could feasibly check the computation \cite{swart1980philosophical}. The theorem has been proven three times\cite{appel1989every}\cite{BarNatan1996LieAA}\cite{gonthier2008formal}, all using a computer, the most recent of which uses software specifically designed to assist with proving theorems, much like the GAP software used for the sudoku proofs. 
 
-The literature on enumertaion of sudokus answers this computer based scepticism with a complete mathematical proof outline in the works by Jones, Perkins and Roach \cite{mima2013number} where a formula is given to enumerate $n$ by $n$ sudokus by enumerating the number od reduced sudoku. Further work by Jones, Perkins and Roach \cite{jones2014number} provides a completely mathematical calculation of the $6\times6$ sudoku.
+The literature on enumeration of sudokus answers this computer based scepticism with a complete mathematical proof outline in the works by Jones, Perkins and Roach \cite{mima2013number} where a formula is given to enumerate $n$ by $n$ sudokus by enumerating the number of reduced sudoku. Further work by Jones, Perkins and Roach \cite{jones2014number} provides a completely mathematical calculation of the $6\times6$ sudoku.
 
 \section{Discussion}
 
-If the reader remained unconvinced that sudoku is hard from the chapter on NP-completeness then this chapter providing concrete numbers on the exponential increase of the amount of sudoku grids will hopefully persuade the reader of the seemingly non generalisable puzzle that is sudoku. The sequence of enumerations starts: 288, 28200960, 29136487207403520\cite{https://oeis.org/A291187}, 6670903752021072936960. Within the first four terms we have reached 6 sextillion. 
+If the reader remained unconvinced that sudoku is hard from the chapter on NP-completeness then this chapter providing concrete numbers on the exponential increase of the amount of sudoku grids will hopefully persuade the reader of the seemingly non generalisable puzzle that is sudoku. The sequence of enumerations starts: 288, 28200960, 29136487207403520 \cite{oeis_a291187} , 6670903752021072936960. Within the first four terms we have reached 6 sextillion. 
 
 While it does not seem to be coming any time soon, an exploration of the 12 by 12 case will prove interesting as there exist two factorisations $P_{2,6}$ and $P_{3,4}$. The comparison between these and determining which has more enumerations is not intuitive and to shed light on this is intriguing. The same applied to the 16 by 16 place but with the added bonus we can compare a grid allowing for transposes the $P_{16}$ and one that does not $P_{2,8}$.
 
 As far as a generalised method goes, first standardise B1, categorise R1 into pure and mixed, count how many S1 exist, standardise C1, then enumerate using an optimised backtracking. The unique case is a lot less simple and requires a categorisation of the symmetries, we then group into conjugacy classes, determine how many boards the conjugacy class fixes the apply burnside lemma, use of GAP can simplify this.
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
-\chapter{Further Work}
-
+\chapter{Conclusion}
+\section{Further Work}
 Solutions and enumerations of sudoku are not the only difficult and seemingly impossible to generalise questions within sudoku. Generation, Minimum clue to provide unique solution.
 
 Orthogonal sudoku squares. uniqueness solution 
 
 Information Theory application.
 Grobner Basis
+\section{Closing}
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %
 \bibliographystyle{plain}
 \bibliography{refs}
