@@ -1,5 +1,18 @@
 \begin{thebibliography}{10}
 
+\bibitem{rigb}
+E.~Alison.
+\newblock The fascination of magic squares.
+\newblock
+  \url{https://www.rigb.org/explore-science/explore/blog/fascination-magic-squares}.
+\newblock Accessed: April 27, 2023.
+
+\bibitem{andersen2007history}
+L.~D. Andersen.
+\newblock The history of latin squares.
+\newblock {\em Unpublished) Technical Report R-2007-32, Aalborg University,
+  Aalborg}, 2007.
+
 \bibitem{appel1989every}
 K.~I. Appel and W.~Haken.
 \newblock {\em Every planar map is four colorable}, volume~98.
@@ -30,6 +43,16 @@ C.~J. Colbourn.
 \newblock The complexity of completing partial latin squares.
 \newblock {\em Discrete Applied Mathematics}, 8(1):25--30, 1984.
 
+\bibitem{ppad}
+Constantinos Daskalakis, Paul~W. Goldberg, and Christos~H. Papadimitriou.
+\newblock The complexity of computing a nash equilibrium.
+\newblock {\em Commun. ACM}, 52(2):89–97, feb 2009.
+
+\bibitem{Dudeney1970}
+E.~Dudeney.
+\newblock {\em Amusements in Mathematics}.
+\newblock Dover Publications, New York, 1970.
+
 \bibitem{eberhart1995new}
 R.~C. Eberhart and J.~Kennedy.
 \newblock A new optimizer using particle swarm theory.
@@ -41,6 +64,12 @@ L.~Euler.
 \newblock De quadratis magicis.
 \newblock {\em Novi Commentarii Academiae Scientiarum Imperialis
   Petropolitanae}, 23:86--101, 1779.
+
+\bibitem{felgenhauer2005enumerating}
+B.~Felgenhauer and F.~Jarvis.
+\newblock Enumerating possible sudoku grids.
+\newblock {\em Preprint available at http://www. afjarvis. staff. shef. ac.
+  uk/sudoku/sudoku. pdf}, 2005.
 
 \bibitem{gonthier2008formal}
 G.~Gonthier et~al.
@@ -84,6 +113,16 @@ J.~E. Hopcroft and R.~M. Karp.
 \newblock An algorithm for maximum matchings in bipartite graphs.
 \newblock {\em SIAM Journal on Computing}, 2(4):225--231, 1973.
 
+\bibitem{Jarvis2005}
+F.~Jarvis and E.~Russelll.
+\newblock There are 49 essentially different sudoku 2x3 grids.
+\newblock \url{http://www.afjarvis.org.uk/sudoku/sud23gp.html}, 2005.
+\newblock Accessed on April 28, 2023.
+
+\bibitem{jin2018analysis}
+J.~Jin.
+\newblock Analysis and applications of burnside’s lemma, 2018.
+
 \bibitem{mima2013number}
 S.~K. Jones and S.~Perkins.
 \newblock On the number of sudoku grids.
@@ -105,15 +144,42 @@ C.D.~Jr. Kirkpatrick, S. annd~Gelatt and M.P. Vecchi.
 \newblock Optimization by simulated annealing.
 \newblock {\em Science}, 220(4598):671--680, 1983.
 
+\bibitem{maji2016comprehensive}
+A.~K. Maji, S.~Jana, and R.~K. Pal.
+\newblock A comprehensive sudoku instance generator.
+\newblock {\em Advanced Computing and Systems for Security: Volume 2}, pages
+  215--233, 2016.
+
+\bibitem{mcguire2014there}
+G.~McGuire, B.~Tugemann, and G.~Civario.
+\newblock There is no 16-clue sudoku: Solving the sudoku minimum number of
+  clues problem via hitting set enumeration.
+\newblock {\em Experimental Mathematics}, 23(2):190--217, 2014.
+
 \bibitem{dpcomplexity}
 C.~H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em Journal of Computer and System Sciences}, 28(2):244--259, 1984.
 
+\bibitem{Pegg2005}
+E.~Pegg~Jr.
+\newblock Ed pegg jr.'s math games: Sudoku variations.
+\newblock {\em MAA Online}, September 15 2005.
+
+\bibitem{russell2006mathematics}
+E.~Russell and F.~Jarvis.
+\newblock Mathematics of sudoku ii.
+\newblock {\em Mathematical Spectrum}, 39(2):54--58, 2006.
+
 \bibitem{salomaa1985computation}
 A.~Salomaa.
 \newblock {\em Computation and automata}.
 \newblock Number~25. Cambridge University Press, 1985.
+
+\bibitem{sasaki1988time}
+G.~H Sasaki and B.~Hajek.
+\newblock The time complexity of maximum matching by simulated annealing.
+\newblock {\em Journal of the ACM (JACM)}, 35(2):387--403, 1988.
 
 \bibitem{Shortz2006}
 W.~Shortz.
@@ -125,6 +191,12 @@ W.~Shortz.
 E.~R. Swart.
 \newblock The philosophical implications of the four-color problem.
 \newblock {\em The American mathematical monthly}, 87(9):697--707, 1980.
+
+\bibitem{tarry1900probleme}
+G.~Tarry.
+\newblock {\em Le probl{\`e}me des 36 officiers}.
+\newblock Secr{\'e}tariat de l'Association fran{\c{c}}aise pour l'avancement
+  des sciences, 1900.
 
 \bibitem{crackingthecryptic}
 Cracking the Cryptic.
@@ -140,7 +212,7 @@ Cracking the Cryptic.
 
 \bibitem{turing}
 A.~M. Turing.
-\newblock {I.—Computing Machinery and Intelligence}.
+\newblock {Computing Machinery and Intelligence}.
 \newblock {\em Mind}, LIX(236):433--460, 10 1950.
 
 \bibitem{dphardness}
